@@ -1,0 +1,43 @@
+{
+  "name": "06_callback_reminder",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jeevansetu-callback-reminder",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Callback Requested Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"SMS_PROVIDER_ENDPOINT_URL\"] || \"https://api.sms-gateway.local/v1/send\"}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"to\":\"={{$json[\"body\"][\"asha_phone\"]}}\",\"message\":\"JeevanSetu IVR: Citizen requested callback for health assistance.\"}",
+        "options": {}
+      },
+      "name": "Alert ASHA Worker",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [500, 300]
+    }
+  ],
+  "connections": {
+    "Callback Requested Trigger": {
+      "main": [
+        [
+          {
+            "node": "Alert ASHA Worker",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

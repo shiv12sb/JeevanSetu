@@ -1,0 +1,68 @@
+{
+  "name": "08_daily_operations_summary",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        }
+      },
+      "name": "Daily Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"BACKEND_API_URL\"] || \"http://localhost:5000\"}}/api/automation/metrics",
+        "options": {}
+      },
+      "name": "Fetch Outbox Metrics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"EMAIL_ENDPOINT_URL\"] || \"https://api.email-gateway.local/v1/send\"}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"to\":\"district-admin@gadchiroli.gov.in\",\"subject\":\"Daily JeevanSetu Operational & Outbox Summary\",\"body\":\"Daily operational report generated.\"}",
+        "options": {}
+      },
+      "name": "Send Operations Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Daily Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Outbox Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Outbox Metrics": {
+      "main": [
+        [
+          {
+            "node": "Send Operations Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

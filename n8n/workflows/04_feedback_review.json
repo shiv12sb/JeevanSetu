@@ -1,0 +1,40 @@
+{
+  "name": "04_feedback_review",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jeevansetu-feedback-review",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Feedback Event Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"AI_ENDPOINT_URL\"] || \"https://api.groq.com/openai/v1/chat/completions\"}}",
+        "options": {}
+      },
+      "name": "Async AI Categorizer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [500, 300]
+    }
+  ],
+  "connections": {
+    "Feedback Event Trigger": {
+      "main": [
+        [
+          {
+            "node": "Async AI Categorizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "03_medicine_alert",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jeevansetu-medicine-alert",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Medicine Threshold Event",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"SMS_PROVIDER_ENDPOINT_URL\"] || \"https://api.sms-gateway.local/v1/send\"}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"to\":\"={{$json[\"body\"][\"pharmacist_phone\"]}}\",\"message\":\"JeevanSetu Alert: Medicine stock below threshold at facility.\"}",
+        "options": {}
+      },
+      "name": "Alert Pharmacist SMS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [500, 300]
+    }
+  ],
+  "connections": {
+    "Medicine Threshold Event": {
+      "main": [
+        [
+          {
+            "node": "Alert Pharmacist SMS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

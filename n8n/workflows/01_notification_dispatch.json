@@ -1,0 +1,84 @@
+{
+  "name": "01_notification_dispatch",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jeevansetu-notification-dispatch",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Webhook Ingestion",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"body\"][\"channel\"]}}",
+              "value2": "SMS"
+            }
+          ]
+        }
+      },
+      "name": "Channel Router",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"SMS_PROVIDER_ENDPOINT_URL\"] || \"https://api.sms-gateway.local/v1/send\"}}",
+        "options": {}
+      },
+      "name": "SMS Dispatcher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"EMAIL_ENDPOINT_URL\"] || \"https://api.email-gateway.local/v1/send\"}}",
+        "options": {}
+      },
+      "name": "Email Dispatcher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [680, 400]
+    }
+  ],
+  "connections": {
+    "Webhook Ingestion": {
+      "main": [
+        [
+          {
+            "node": "Channel Router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Router": {
+      "main": [
+        [
+          {
+            "node": "SMS Dispatcher",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Email Dispatcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

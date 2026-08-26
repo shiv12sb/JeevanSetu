@@ -1,0 +1,70 @@
+{
+  "name": "02_referral_followup",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jeevansetu-referral-followup",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "name": "Referral Event Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json[\"body\"][\"stage\"]}}",
+              "value2": "created"
+            }
+          ]
+        }
+      },
+      "name": "Check Stage",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{$env[\"BACKEND_API_URL\"] || \"http://localhost:5000\"}}/api/automation/webhook",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\":\"REFERRAL_REMINDER_LOGGED\",\"event_id\":\"={{$json[\"body\"][\"referral_id\"]}}\",\"status\":\"REMINDER_SENT\"}",
+        "options": {}
+      },
+      "name": "Notify Backend Confirmation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [680, 250]
+    }
+  ],
+  "connections": {
+    "Referral Event Trigger": {
+      "main": [
+        [
+          {
+            "node": "Check Stage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Stage": {
+      "main": [
+        [
+          {
+            "node": "Notify Backend Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
