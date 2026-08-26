@@ -44,13 +44,19 @@ async function request(endpoint, options = {}) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
+  const controller = new AbortController();
+  const timeoutMs = options.timeout || 3500;
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
   const config = {
     ...options,
     headers,
+    signal: options.signal || controller.signal,
   };
 
   try {
     const res = await fetch(url, config);
+    clearTimeout(timeoutId);
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
@@ -62,9 +68,10 @@ async function request(endpoint, options = {}) {
 
     return data;
   } catch (err) {
-    if (err.name === "TypeError" && err.message.includes("fetch")) {
-      const netError = new Error("Unable to connect to the healthcare backend server. Please verify your connection.");
-      netError.statusCode = 503;
+    clearTimeout(timeoutId);
+    if (err.name === "AbortError" || (err.name === "TypeError" && err.message.includes("fetch"))) {
+      const netError = new Error("Unable to connect to backend server in time.");
+      netError.statusCode = 504;
       throw netError;
     }
     throw err;
