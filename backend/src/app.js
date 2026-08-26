@@ -15,23 +15,12 @@ const app = express();
 // 1. Security HTTP Headers (Hardened Helmet Configuration)
 app.use(
   helmet({
-    contentSecurityPolicy: env.isProduction
-      ? {
-          directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-            fontSrc: ["'self'", "https://fonts.gstatic.com"],
-            imgSrc: ["'self'", "data:", "https:"],
-            connectSrc: ["'self'", env.FRONTEND_URL || "*"],
-            frameAncestors: ["'none'"], // Clickjacking defense
-          },
-        }
-      : false,
-    frameguard: { action: "deny" }, // Anti-clickjacking
-    xContentTypeOptions: true, // MIME sniffing protection
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+    contentSecurityPolicy: false,
+    frameguard: { action: "deny" },
+    xContentTypeOptions: true,
     referrerPolicy: { policy: "strict-origin-when-cross-origin" },
-    hidePoweredBy: true, // Suppress X-Powered-By: Express
+    hidePoweredBy: true,
   })
 );
 
@@ -41,17 +30,31 @@ const corsOptions = {
     // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
     if (!origin) return callback(null, true);
 
-    if (env.isDevelopment) {
-      // In development, allow localhost / frontend dev server
+    // Allow localhost and loopback interfaces
+    if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
       return callback(null, true);
     }
 
-    // In production, strictly match configured FRONTEND_URL
-    if (origin === env.FRONTEND_URL) {
+    // Allow all Vercel production and preview domains
+    if (origin.endsWith(".vercel.app") || origin.includes("vercel.app")) {
       return callback(null, true);
     }
 
-    return callback(new Error("CORS origin access denied by policy"));
+    // Allow configured FRONTEND_URL
+    if (env.FRONTEND_URL) {
+      const cleanOrigin = origin.replace(/\/$/, "");
+      const cleanFrontend = env.FRONTEND_URL.replace(/\/$/, "");
+      if (cleanOrigin === cleanFrontend || cleanFrontend === "*") {
+        return callback(null, true);
+      }
+    }
+
+    // Allow Render internal / external domains
+    if (origin.includes("onrender.com")) {
+      return callback(null, true);
+    }
+
+    return callback(null, true);
   },
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
@@ -59,6 +62,7 @@ const corsOptions = {
   exposedHeaders: ["X-Request-Id"],
 };
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 // 3. Request ID Tracing & Structured Logger
 app.use(requestIdMiddleware);

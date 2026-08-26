@@ -1,6 +1,18 @@
 import { supabase, isSupabaseConfigured } from "./supabase/client";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const getBaseApiUrl = () => {
+  const envUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (envUrl) {
+    const clean = envUrl.replace(/\/$/, "");
+    return clean.endsWith("/api") ? clean : `${clean}/api`;
+  }
+  if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+    return "https://jeevansetu-backend.onrender.com/api";
+  }
+  return "http://localhost:5000/api";
+};
+
+const API_BASE_URL = getBaseApiUrl();
 
 /**
  * Retrieve the current Supabase session access token

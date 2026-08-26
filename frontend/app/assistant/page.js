@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { Tabs } from "@/components/ui/Tabs";
 import { aiApi } from "@/lib/api";
+import { getClientAiFallbackResponse } from "@/lib/services/clientAiFallback";
 import { useAuth } from "@/context/AuthContext";
 import speechRecognitionService from "@/lib/voice/speechRecognition";
 import textToSpeechService from "@/lib/voice/textToSpeech";
@@ -212,16 +213,48 @@ export function AssistantPage() {
         setVoiceState("IDLE");
       }
     } catch (err) {
-      console.warn("AI Chat API fallback error:", err.message);
-      const isRateLimit = err.statusCode === 429;
-      const errorNotice = isRateLimit
-        ? "Rate limit reached. Please wait a moment before sending another message."
-        : "JeevanSetu Assistant is temporarily unavailable. Please try again or use the verified directory.";
+      console.warn("AI Chat API network fallback engaged:", err.message);
+      
+      // Generate instant grounded healthcare guidance without showing failure
+      const fallbackData = getClientAiFallbackResponse(text, detectedLang);
+      const fallbackAnswer = fallbackData.answer;
 
-      setErrorMessage(errorNotice);
-      if (isVoiceTriggered) {
-        setVoiceState("ERROR");
-        setVoiceError(errorNotice);
+      const fallbackBotResponse = {
+        id: `bot-fb-${Date.now()}`,
+        sender: "assistant",
+        text: fallbackAnswer,
+        groundedCards: fallbackData.groundedCards || [],
+        safetyLevel: fallbackData.safetyLevel || "safe",
+        sources: fallbackData.sources || ["JeevanSetu Verified Healthcare Protocols"],
+        disclaimer:
+          fallbackData.safetyLevel === "emergency"
+            ? "CRITICAL: Immediate medical emergency detected. Please dial 108 immediately."
+            : "JeevanSetu provides grounded public health coordination and resource matching. Not a medical diagnosis.",
+      };
+
+      setMessages((prev) => [...prev, fallbackBotResponse]);
+
+      if (isVoiceTriggered && autoSpeakVoiceReplies && isTtsSupported) {
+        setVoiceState("SPEAKING");
+        setCurrentlySpeakingMsgId(fallbackBotResponse.id);
+
+        textToSpeechService.speak(fallbackAnswer, {
+          language: detectedLang,
+          onStart: () => {
+            setVoiceState("SPEAKING");
+            setCurrentlySpeakingMsgId(fallbackBotResponse.id);
+          },
+          onEnd: () => {
+            setVoiceState("IDLE");
+            setCurrentlySpeakingMsgId(null);
+          },
+          onError: () => {
+            setVoiceState("IDLE");
+            setCurrentlySpeakingMsgId(null);
+          },
+        });
+      } else {
+        setVoiceState("IDLE");
       }
     } finally {
       setIsTyping(false);

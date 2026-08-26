@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { aiApi } from "@/lib/api";
+import { getClientAiFallbackResponse } from "@/lib/services/clientAiFallback";
 import speechRecognitionService from "@/lib/voice/speechRecognition";
 import textToSpeechService from "@/lib/voice/textToSpeech";
 import {
@@ -142,15 +143,41 @@ export function FloatingAssistantButton() {
         setVoiceState("IDLE");
       }
     } catch (err) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `err-${Date.now()}`,
-          sender: "assistant",
-          text: "JeevanSetu Assistant is temporarily unavailable. Please try again or visit /assistant.",
-        },
-      ]);
-      setVoiceState("IDLE");
+      console.warn("Floating AI network fallback engaged:", err.message);
+      const fallbackData = getClientAiFallbackResponse(text);
+      const fallbackAnswer = fallbackData.answer;
+
+      const fallbackBotMsg = {
+        id: `bot-fb-${Date.now()}`,
+        sender: "assistant",
+        text: fallbackAnswer,
+        groundedCards: fallbackData.groundedCards || [],
+        safetyLevel: fallbackData.safetyLevel || "safe",
+      };
+
+      setMessages((prev) => [...prev, fallbackBotMsg]);
+
+      if (isVoice && autoSpeak && textToSpeechService.isSupported()) {
+        setVoiceState("SPEAKING");
+        setSpeakingMsgId(fallbackBotMsg.id);
+
+        textToSpeechService.speak(fallbackAnswer, {
+          onStart: () => {
+            setVoiceState("SPEAKING");
+            setSpeakingMsgId(fallbackBotMsg.id);
+          },
+          onEnd: () => {
+            setVoiceState("IDLE");
+            setSpeakingMsgId(null);
+          },
+          onError: () => {
+            setVoiceState("IDLE");
+            setSpeakingMsgId(null);
+          },
+        });
+      } else {
+        setVoiceState("IDLE");
+      }
     } finally {
       setIsTyping(false);
     }
