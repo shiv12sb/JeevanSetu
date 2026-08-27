@@ -29,6 +29,7 @@ import {
   BarChart3,
   ListOrdered,
   Users,
+  ExternalLink,
 } from "lucide-react";
 
 export function CallAssistancePage() {
@@ -700,47 +701,86 @@ export function CallAssistancePage() {
         {activeTab === "schemes" && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <Card className="border-teal-200 bg-white">
-                <CardContent className="p-5 space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">
-                    PMJAY
+              <Card className="border-teal-200 dark:border-teal-800 bg-white dark:bg-slate-900 flex flex-col justify-between">
+                <CardContent className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 font-bold flex items-center justify-center text-sm border border-teal-200 dark:border-teal-800">
+                      PMJAY
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">Ayushman Bharat PM-JAY</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Provides cashless health coverage up to ₹5,00,000 per family per year for secondary and tertiary hospitalization across empaneled hospitals.
+                    </p>
+                    <div className="text-[11px] text-teal-800 dark:text-teal-300 font-medium bg-teal-50 dark:bg-teal-950/60 p-2 rounded border border-teal-200 dark:border-teal-800">
+                      <strong>IVR Option:</strong> Press 5 then 1
+                    </div>
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900">Ayushman Bharat PM-JAY</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Provides cashless health coverage up to ₹5,00,000 per family per year for secondary and tertiary hospitalization across empaneled hospitals.
-                  </p>
-                  <div className="text-[11px] text-teal-800 font-medium bg-teal-50 p-2 rounded">
-                    <strong>IVR Option:</strong> Press 5 then 1
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-teal-200 bg-white">
-                <CardContent className="p-5 space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">
-                    MJPJAY
-                  </div>
-                  <h3 className="text-sm font-bold text-slate-900">Mahatma Jyotirao Phule (MJPJAY)</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Maharashtra state flagship health insurance providing free specialized surgeries, cardiac care, and critical treatments at government and private hospitals.
-                  </p>
-                  <div className="text-[11px] text-teal-800 font-medium bg-teal-50 p-2 rounded">
-                    <strong>IVR Option:</strong> Press 5 then 2
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <a
+                      href="https://beneficiary.nha.gov.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 font-bold text-xs rounded-lg border border-teal-200 dark:border-teal-800 transition-colors"
+                    >
+                      <span>Official PM-JAY Portal</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-teal-200 bg-white">
-                <CardContent className="p-5 space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-sm">
-                    JSY
+              <Card className="border-teal-200 dark:border-teal-800 bg-white dark:bg-slate-900 flex flex-col justify-between">
+                <CardContent className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 font-bold flex items-center justify-center text-sm border border-teal-200 dark:border-teal-800">
+                      MJPJAY
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">Mahatma Jyotirao Phule (MJPJAY)</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Maharashtra state flagship health insurance providing free specialized surgeries, cardiac care, and critical treatments at government and private hospitals.
+                    </p>
+                    <div className="text-[11px] text-teal-800 dark:text-teal-300 font-medium bg-teal-50 dark:bg-teal-950/60 p-2 rounded border border-teal-200 dark:border-teal-800">
+                      <strong>IVR Option:</strong> Press 5 then 2
+                    </div>
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900">Janani Suraksha Yojana (JSY)</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Offers ₹1,400 direct financial assistance to pregnant rural mothers giving birth in government hospitals with free ambulance and post-natal care.
-                  </p>
-                  <div className="text-[11px] text-teal-800 font-medium bg-teal-50 p-2 rounded">
-                    <strong>IVR Option:</strong> Press 5 then 3
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <a
+                      href="https://www.jeevandayee.gov.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 font-bold text-xs rounded-lg border border-teal-200 dark:border-teal-800 transition-colors"
+                    >
+                      <span>Official MJPJAY Portal</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-teal-200 dark:border-teal-800 bg-white dark:bg-slate-900 flex flex-col justify-between">
+                <CardContent className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 font-bold flex items-center justify-center text-sm border border-teal-200 dark:border-teal-800">
+                      JSY
+                    </div>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">Janani Suraksha Yojana (JSY/JSSK)</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                      Offers ₹1,400 direct financial assistance to pregnant rural mothers giving birth in government hospitals with free ambulance and post-natal care.
+                    </p>
+                    <div className="text-[11px] text-teal-800 dark:text-teal-300 font-medium bg-teal-50 dark:bg-teal-950/60 p-2 rounded border border-teal-200 dark:border-teal-800">
+                      <strong>IVR Option:</strong> Press 5 then 3
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <a
+                      href="https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=822&lid=219"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 w-full py-2 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 font-bold text-xs rounded-lg border border-teal-200 dark:border-teal-800 transition-colors"
+                    >
+                      <span>Official JSSK Portal</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -748,20 +788,23 @@ export function CallAssistancePage() {
 
             {/* Official Helplines */}
             <div className="space-y-3">
-              <h3 className="text-base font-bold text-slate-900">Documented 24x7 National Health Helplines</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Documented 24x7 National Health Helplines</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {documentedHelplines.map((item) => (
-                  <Card key={item.number} className="hover:border-teal-300 transition-all">
+                  <Card key={item.number} className="hover:border-teal-300 dark:hover:border-teal-700 transition-all dark:bg-slate-900">
                     <CardContent className="p-4 space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-black text-teal-700 tracking-tight flex items-center gap-2 font-mono">
-                          <PhoneCall className="w-5 h-5 text-teal-600" />
+                        <a
+                          href={`tel:${item.number}`}
+                          className="text-2xl font-black text-teal-700 dark:text-teal-400 hover:underline tracking-tight flex items-center gap-2 font-mono"
+                        >
+                          <PhoneCall className="w-5 h-5 text-teal-600 dark:text-teal-400" />
                           {item.number}
-                        </span>
+                        </a>
                         <Badge variant={item.badgeVariant} size="sm">{item.badge}</Badge>
                       </div>
-                      <h4 className="text-xs font-bold text-slate-900">{item.label}</h4>
-                      <p className="text-[11px] text-slate-600 leading-relaxed">{item.description}</p>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.label}</h4>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</p>
                     </CardContent>
                   </Card>
                 ))}

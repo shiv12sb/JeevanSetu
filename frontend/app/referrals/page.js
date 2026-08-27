@@ -15,6 +15,7 @@ import { StatusTimeline } from "@/components/shared/StatusTimeline";
 import { mockReferrals, mockHospitals } from "@/lib/mockData";
 import { referralsApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { AuthGuard } from "@/components/shared/AuthGuard";
 import {
   GitPullRequest,
   Plus,
@@ -270,7 +271,8 @@ export function ReferralsPage() {
       <Navbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* Header Title */}
+        <AuthGuard featureName="रेफरल ट्रॅकिंग (Referral Intelligence & Care Tracking)">
+          {/* Header Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -681,6 +683,7 @@ export function ReferralsPage() {
             </div>
           </form>
         </Modal>
+        </AuthGuard>
       </main>
 
       <Footer />

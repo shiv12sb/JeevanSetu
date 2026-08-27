@@ -104,11 +104,22 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center justify-between">
               <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                {t("diagnosticsLab", "Diagnostics & Lab")}
+                {t("diagnosticsLab", "Diagnostics & Pathology Lab")}
               </span>
               {getStatusBadge(diagnosticStatus)}
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{diagnosticStatusText}</p>
+            <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
+              <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+                ✓ Rapid Malaria/Dengue RDT
+              </span>
+              <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+                ✓ ECG & Blood Sugar
+              </span>
+              <span className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+                OPD Lab: 9am-2pm
+              </span>
+            </div>
           </div>
 
           {/* 4. Referral Intake */}
@@ -121,6 +132,14 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
               {getStatusBadge(referralAcceptanceStatus)}
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{referralAcceptanceText}</p>
+            <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
+              <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+                ✓ PM-JAY Ayushman Mitra
+              </span>
+              <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+                ✓ MJPJAY Desk Active
+              </span>
+            </div>
           </div>
         </div>
 

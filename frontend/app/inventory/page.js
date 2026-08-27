@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { mockMedicinesInventory } from "@/lib/mockData";
 import { inventoryApi } from "@/lib/api";
+import { AuthGuard } from "@/components/shared/AuthGuard";
 import {
   Package,
   AlertTriangle,
@@ -330,7 +331,8 @@ export function InventoryPage() {
       <Navbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        {/* Header Title */}
+        <AuthGuard featureName="औषध साठा व इन्व्हेंटरी (Medicine Inventory & Depletion Tracking)">
+          {/* Header Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -944,6 +946,7 @@ export function InventoryPage() {
             </div>
           </form>
         </Modal>
+        </AuthGuard>
       </main>
 
       <Footer />

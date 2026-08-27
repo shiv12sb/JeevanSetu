@@ -14,6 +14,7 @@ import { ReferralCard } from "@/components/domain/ReferralCard";
 import { AIRecommendationCard } from "@/components/domain/AIRecommendationCard";
 import { FacilityTravelStatusCard } from "@/components/domain/FacilityTravelStatusCard";
 import { TravelReadinessChecklist } from "@/components/domain/TravelReadinessChecklist";
+import { HighRiskFollowupTracker } from "@/components/domain/HighRiskFollowupTracker";
 import {
   mockPatientCases,
   mockReferrals,
@@ -249,6 +250,12 @@ export function PatientDashboardPage() {
           </Card>
         </div>
       </div>
+
+      {/* Maternal, Child & Chronic Care Follow-Up Tracker */}
+      <HighRiskFollowupTracker
+        patientName={userName}
+        mcpCardNumber="MCP-MH-2026-89104"
+      />
 
       {/* Travel Checklist Modal */}
       <Modal

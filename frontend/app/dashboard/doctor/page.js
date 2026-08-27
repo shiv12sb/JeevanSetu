@@ -130,6 +130,21 @@ export default function DoctorDashboardPage() {
     }
   };
 
+  const [currentToken, setCurrentToken] = useState(14);
+  const [queueWaiting, setQueueWaiting] = useState(6);
+  const [completedToday, setCompletedToday] = useState(18);
+
+  const handleNextToken = () => {
+    if (queueWaiting > 0) {
+      setCurrentToken((prev) => prev + 1);
+      setQueueWaiting((prev) => prev - 1);
+      setCompletedToday((prev) => prev + 1);
+      setStatusMessage(`Calling Token #${currentToken + 1} into Consultation Room.`);
+    } else {
+      setStatusMessage("All queued OPD patients have been seen for this session.");
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Banner */}
@@ -168,18 +183,61 @@ export default function DoctorDashboardPage() {
         </Alert>
       )}
 
+      {/* Live OPD Queue & Token Control Bar */}
+      <div className="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-teal-200 dark:border-teal-800 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-teal-600 text-white flex flex-col items-center justify-center font-bold shadow-xs shrink-0">
+            <span className="text-[10px] uppercase tracking-wider text-teal-100 font-semibold">Token</span>
+            <span className="text-xl leading-tight font-black">#{currentToken}</span>
+          </div>
+          <div className="space-y-0.5">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">
+                Live OPD Triage Queue
+              </span>
+              <Badge variant="success" size="sm">Session Active</Badge>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              <strong className="text-slate-900 dark:text-white">{queueWaiting} Patients Waiting</strong> in OPD Corridor • Est. Wait Time: <strong className="text-teal-700 dark:text-teal-400">~{queueWaiting * 3} mins</strong>
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Button
+            size="sm"
+            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs gap-1.5 shadow-xs"
+            onClick={handleNextToken}
+          >
+            <Users className="w-3.5 h-3.5" />
+            <span>Call Next Token (#{currentToken + 1})</span>
+          </Button>
+
+          <Link href="/cases">
+            <Button
+              size="sm"
+              variant="outline"
+              className="text-xs gap-1.5 border-slate-300 dark:border-slate-700"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Full Case Registry</span>
+            </Button>
+          </Link>
+        </div>
+      </div>
+
       {/* Doctor Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <DashboardMetricCard
           title="Incoming Referral Queue"
-          value="6 Patients"
+          value={`${queueWaiting} Patients`}
           subtitle="From Ashti & Chamorshi PHCs"
           icon={Users}
           status="warning"
         />
         <DashboardMetricCard
           title="Today's Consultations"
-          value="18 Seen"
+          value={`${completedToday} Seen`}
           subtitle="OPD Session in progress"
           icon={Stethoscope}
           status="success"

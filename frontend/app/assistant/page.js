@@ -38,11 +38,15 @@ import {
   RotateCcw,
   Activity,
   CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
+import { OneOnOneVoiceCallScreen } from "@/components/domain/OneOnOneVoiceCallScreen";
+import { AuthGuard } from "@/components/shared/AuthGuard";
 
 export function AssistantPage() {
   const { user } = useAuth();
   const [activeAssistantTab, setActiveAssistantTab] = useState("chat");
+  const [isLiveVoiceOpen, setIsLiveVoiceOpen] = useState(false);
   const [language, setLanguage] = useState("hi"); // Default to Hindi for rural inclusion ('en', 'hi', 'mr')
 
   // Voice Assistant States: 'IDLE' | 'LISTENING' | 'TRANSCRIBING' | 'THINKING' | 'SPEAKING' | 'ERROR'
@@ -336,7 +340,8 @@ export function AssistantPage() {
       <Navbar />
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 flex flex-col">
-        {/* Banner */}
+        <AuthGuard featureName="आरोग्य सहाय्यक (AI & Voice Assistant)">
+          {/* Banner */}
         <div className="bg-white dark:bg-slate-900 p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -392,6 +397,14 @@ export function AssistantPage() {
                 EN
               </button>
             </div>
+
+            <Button
+              onClick={() => setIsLiveVoiceOpen(true)}
+              className="bg-linear-to-r from-emerald-600 via-teal-600 to-cyan-500 hover:from-emerald-500 hover:to-cyan-400 text-white font-black text-xs gap-2 shadow-lg animate-bounce cursor-pointer border border-white/20"
+            >
+              <PhoneCall className="w-3.5 h-3.5" />
+              <span>📞 थेट व्हॉइस कॉल (मराठी)</span>
+            </Button>
 
             <a
               href="tel:108"
@@ -571,22 +584,59 @@ export function AssistantPage() {
                         </span>
 
                         <div className="grid grid-cols-1 gap-2">
-                          {msg.groundedCards.map((card, idx) => (
-                            <div
-                              key={idx}
-                              className="p-3 bg-teal-50/50 dark:bg-teal-950/40 rounded-xl border border-teal-100/90 dark:border-teal-800/90 flex flex-col gap-1 text-xs"
-                            >
-                              <div className="flex items-center justify-between">
-                                <span className="font-bold text-slate-900 dark:text-white">{card.title}</span>
-                                <Badge variant="outline" size="sm" className="text-[10px]">
-                                  {card.type}
-                                </Badge>
+                          {msg.groundedCards.map((card, idx) => {
+                            const url = card.actionUrl || card.portalUrl || card.url;
+                            const isExternal = url?.startsWith("http");
+                            const isTel = url?.startsWith("tel:");
+
+                            return (
+                              <div
+                                key={idx}
+                                className="p-3 bg-teal-50/50 dark:bg-teal-950/40 rounded-xl border border-teal-100/90 dark:border-teal-800/90 flex flex-col gap-1.5 text-xs"
+                              >
+                                <div className="flex items-center justify-between">
+                                  <span className="font-bold text-slate-900 dark:text-white">{card.title}</span>
+                                  <Badge variant="outline" size="sm" className="text-[10px]">
+                                    {card.type}
+                                  </Badge>
+                                </div>
+                                <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                                  {card.detail}
+                                </p>
+                                {url && (
+                                  <div className="pt-1 flex items-center justify-end">
+                                    {isExternal ? (
+                                      <a
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 text-[11px] font-bold text-teal-700 dark:text-teal-300 bg-white dark:bg-slate-900 hover:bg-teal-50 dark:hover:bg-slate-800 px-2.5 py-1 rounded-md border border-teal-200 dark:border-teal-700 transition-colors shadow-2xs"
+                                      >
+                                        <span>{card.actionLabel || "Visit Official Portal"}</span>
+                                        <ExternalLink className="w-3 h-3" />
+                                      </a>
+                                    ) : isTel ? (
+                                      <a
+                                        href={url}
+                                        className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/80 hover:bg-rose-100 dark:hover:bg-rose-900/80 px-2.5 py-1 rounded-md border border-rose-200 dark:border-rose-800 transition-colors"
+                                      >
+                                        <PhoneCall className="w-3 h-3" />
+                                        <span>{card.actionLabel || "Call Now"}</span>
+                                      </a>
+                                    ) : (
+                                      <Link
+                                        href={url}
+                                        className="inline-flex items-center gap-1 text-[11px] font-bold text-teal-700 dark:text-teal-300 hover:underline"
+                                      >
+                                        <span>{card.actionLabel || "View Details"}</span>
+                                        <ArrowRight className="w-3 h-3" />
+                                      </Link>
+                                    )}
+                                  </div>
+                                )}
                               </div>
-                              <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
-                                {card.detail}
-                              </p>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -742,9 +792,17 @@ export function AssistantPage() {
             </Card>
           </div>
         )}
+        </AuthGuard>
       </main>
 
       <Footer />
+
+      {/* Direct 1-on-1 Marathi Voice Call Screen */}
+      <OneOnOneVoiceCallScreen
+        isOpen={isLiveVoiceOpen}
+        onClose={() => setIsLiveVoiceOpen(false)}
+        defaultLanguage="mr"
+      />
     </div>
   );
 }

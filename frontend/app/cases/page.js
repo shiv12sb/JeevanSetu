@@ -15,6 +15,7 @@ import { Alert } from "@/components/ui/Alert";
 import { mockPatientCases } from "@/lib/mockData";
 import { casesApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { AuthGuard } from "@/components/shared/AuthGuard";
 import {
   FileText,
   Plus,
@@ -164,7 +165,8 @@ export function CasesPage() {
       <Navbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Banner */}
+        <AuthGuard featureName="आरोग्य केसेस (Patient Health Cases & Records)">
+          {/* Banner */}
         <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
@@ -243,6 +245,7 @@ export function CasesPage() {
             </div>
           ))}
         </div>
+        </AuthGuard>
       </main>
 
       {/* Create Case Modal */}

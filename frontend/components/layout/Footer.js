@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Heart, PhoneCall, ShieldCheck, AlertCircle, Info } from "lucide-react";
+import { Heart, PhoneCall, ShieldCheck, AlertCircle, Info, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
@@ -16,16 +16,16 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-1.5 text-rose-400 shrink-0 font-semibold">
             <PhoneCall className="w-3.5 h-3.5" />
-            <span>National Emergency: 108</span>
+            <a href="tel:108" className="hover:underline">National Emergency: 108</a>
           </div>
         </div>
       </div>
 
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="space-y-3 md:col-span-1">
+          <div className="space-y-3 md:col-span-1 lg:col-span-1">
             <div className="flex items-center gap-2">
               <img
                 src="/logo.png"
@@ -122,6 +122,92 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Official Government Health Portals */}
+          <div className="space-y-2.5">
+            <h5 className="text-xs font-bold text-white uppercase tracking-wider text-teal-400">
+              Official Govt Portals
+            </h5>
+            <ul className="space-y-1.5">
+              <li>
+                <a
+                  href="https://pmjay.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>PM-JAY Ayushman Bharat</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://abha.abdm.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>ABHA Card (ABDM Portal)</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://esanjeevani.mohfw.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>eSanjeevani Teleconsultation</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://notto.mohfw.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>NOTTO Organ Registry</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://eraktkosh.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>e-RaktKosh Blood Portal</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.jeevandayee.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>MJPJAY Maharashtra</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://mohfw.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
+                >
+                  <span>MoHFW Central Portal</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Help & Emergency */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider">
@@ -130,19 +216,27 @@ export function Footer() {
             <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-slate-300">National Ambulance:</span>
-                <strong className="text-white font-bold">108</strong>
+                <a href="tel:108" className="text-rose-400 hover:text-rose-300 font-bold font-mono">108</a>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-300">Maternal (JSSK):</span>
+                <a href="tel:102" className="text-teal-400 hover:text-teal-300 font-bold font-mono">102</a>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-300">National Health Helpline:</span>
-                <strong className="text-white font-bold">104</strong>
+                <a href="tel:104" className="text-teal-400 hover:text-teal-300 font-bold font-mono">104</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Women Helpline:</span>
-                <strong className="text-white font-bold">1091</strong>
+                <span className="text-slate-300">Ayushman PM-JAY:</span>
+                <a href="tel:14555" className="text-amber-300 hover:text-amber-200 font-bold font-mono">14555</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Tele-MANAS (Mental Health):</span>
-                <strong className="text-white font-bold">14416</strong>
+                <span className="text-slate-300">Organ Donation:</span>
+                <a href="tel:1800114477" className="text-teal-300 hover:text-teal-200 font-bold font-mono">1800-11-4477</a>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-300">Tele-MANAS (Mental):</span>
+                <a href="tel:14416" className="text-white hover:text-teal-300 font-bold font-mono">14416</a>
               </div>
             </div>
           </div>
@@ -163,3 +257,6 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;
+

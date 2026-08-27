@@ -32,7 +32,7 @@ export function HeroSection() {
           {/* Left Column: Mission, Pitch, Actions */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-100/80 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800 text-teal-900 dark:text-teal-200 text-xs font-semibold">
-              <span className="w-2 h-2 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-teal-600 dark:teal-400 animate-pulse shrink-0" />
               <span>{t("heroBadge", "Rural & Underserved Healthcare Coordination")}</span>
             </div>
 

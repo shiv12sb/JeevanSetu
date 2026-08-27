@@ -26,6 +26,7 @@ import {
   Compass,
   MessageCircle,
   Stethoscope,
+  PhoneCall,
 } from "lucide-react";
 
 export function OrganDonationPage() {
@@ -274,32 +275,59 @@ export function OrganDonationPage() {
               </div>
             </div>
 
-            {/* Official Registration Placeholder - Zero fake URLs */}
-            <div className="p-5 bg-linear-to-r from-teal-900 via-teal-800 to-slate-900 rounded-xl text-white space-y-4">
+            {/* Official Government Registration & NOTTO Portal Integration */}
+            <div className="p-6 bg-linear-to-r from-teal-950 via-teal-900 to-slate-900 rounded-2xl text-white space-y-4 shadow-md border border-teal-800">
               <div className="space-y-1">
-                <span className="text-xs font-bold text-teal-300 uppercase tracking-wider">
-                  Official Government Registration
+                <span className="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-teal-400" />
+                  Official Government of India Registry
                 </span>
-                <h4 className="text-lg font-bold">Official Organ Donation Pledge</h4>
-                <p className="text-xs text-teal-100/90 leading-relaxed max-w-2xl">
-                  Visit the authorized government organ donation registry or speak with certified hospital transplant coordinators to register your official donor pledge.
+                <h4 className="text-lg sm:text-xl font-bold">National Organ & Tissue Transplant Organisation (NOTTO)</h4>
+                <p className="text-xs sm:text-sm text-teal-100/90 leading-relaxed max-w-3xl">
+                  Register your voluntary donor pledge directly on the authorized Government of India NOTTO registry (MoHFW) or via your Ayushman Bharat Health Account (ABHA).
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-teal-700/60">
-                <span className="text-[11px] text-teal-200">
-                  *You will be redirected to the authorized official government portal once configured.
-                </span>
+              <div className="pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-teal-800/80">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href="https://notto.mohfw.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-teal-500 hover:bg-teal-400 text-slate-950 text-xs font-bold rounded-xl shadow-xs transition-colors"
+                  >
+                    <span>NOTTO National Portal</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
 
-                <Button
-                  size="sm"
-                  variant="outline"
-                  disabled
-                  className="bg-white/20 text-white border-white/40 text-xs font-bold cursor-not-allowed opacity-90 gap-1.5"
+                  <a
+                    href="https://notto.abdm.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl border border-white/20 transition-colors"
+                  >
+                    <span>Pledge via ABHA ID</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+
+                  <a
+                    href="https://rottosottomaharashtra.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-2 bg-white/10 hover:bg-white/20 text-teal-200 text-xs font-bold rounded-xl border border-teal-700/50 transition-colors"
+                  >
+                    <span>ROTTO-SOTTO Maharashtra</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+
+                <a
+                  href="tel:1800114477"
+                  className="inline-flex items-center gap-1.5 text-xs text-amber-300 font-bold bg-amber-950/50 px-3 py-1.5 rounded-lg border border-amber-500/40 hover:bg-amber-900/60 transition-colors"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>Official Resource — Link to be configured</span>
-                </Button>
+                  <PhoneCall className="w-3.5 h-3.5" />
+                  <span>Toll-Free Helpline: 1800-11-4477</span>
+                </a>
               </div>
             </div>
           </section>

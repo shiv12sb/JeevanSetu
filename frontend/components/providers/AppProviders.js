@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { FloatingAssistantButton } from "@/components/ai/FloatingAssistantButton";
+import { LiveVoiceGlobalTrigger } from "@/components/domain/LiveVoiceGlobalTrigger";
 
 export function AppProviders({ children }) {
   return (
@@ -12,7 +13,7 @@ export function AppProviders({ children }) {
       <AuthProvider>
         <LanguageProvider>
           {children}
-          <FloatingAssistantButton />
+          <LiveVoiceGlobalTrigger />
         </LanguageProvider>
       </AuthProvider>
     </ThemeProvider>

@@ -410,20 +410,27 @@ export function Navbar() {
 
           <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
             {isAuthenticated ? (
-              <div className="grid grid-cols-2 gap-2">
-                <Link href="/settings" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full text-xs">
-                    {t("settings", "Settings")}
+              <div className="space-y-2">
+                <Link href={user.role === "patient" ? "/dashboard/patient" : "/dashboard/doctor"} onClick={() => setMobileMenuOpen(false)}>
+                  <Button size="sm" className="w-full text-xs bg-teal-600 text-white font-bold">
+                    {t("healthcarePortal", "Go to Healthcare Dashboard")}
                   </Button>
                 </Link>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={handleLogout}
-                  className="w-full text-xs text-rose-600 border-rose-200 dark:border-rose-900"
-                >
-                  {t("signOut", "Sign Out")}
-                </Button>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link href="/settings" onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="outline" size="sm" className="w-full text-xs">
+                      {t("settings", "Settings")}
+                    </Button>
+                  </Link>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={handleLogout}
+                    className="w-full text-xs text-rose-600 border-rose-200 dark:border-rose-900"
+                  >
+                    {t("signOut", "Sign Out")}
+                  </Button>
+                </div>
               </div>
             ) : (
               <div className="grid grid-cols-2 gap-2">

@@ -13,6 +13,7 @@ import { Alert } from "@/components/ui/Alert";
 import { Modal } from "@/components/ui/Modal";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
+import { AuthGuard } from "@/components/shared/AuthGuard";
 import { ROLE_LABELS, USER_ROLES } from "@/lib/constants";
 import {
   User,
@@ -30,6 +31,7 @@ import {
   Activity,
   ArrowRight,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 
 export function ProfilePage() {
@@ -117,7 +119,8 @@ export function ProfilePage() {
       <Navbar />
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Profile Header Banner */}
+        <AuthGuard featureName="वैद्यकीय प्रोफाईल व आभा कार्ड (Profile & ABHA ID)">
+          {/* Profile Header Banner */}
         <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-black text-2xl shadow-sm shrink-0">
@@ -260,12 +263,47 @@ export function ProfilePage() {
                 onChange={(e) => handleChange("rationCard", e.target.value)}
                 helperText="Used for automated PM-JAY & MJPJAY cashless eligibility."
               />
-              <div className="sm:col-span-2 p-3 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 flex items-center justify-between text-xs text-teal-900 dark:text-teal-200">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
-                  <span>Scheme Status: <strong>PM-JAY Cashless Hospitalization Pre-Verified</strong></span>
+
+              {/* Verified Scheme Card with External Portal Links */}
+              <div className="sm:col-span-2 p-4 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 space-y-3 text-xs text-teal-900 dark:text-teal-200">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                    <span>Scheme Status: <strong>PM-JAY Cashless Hospitalization Pre-Verified (₹5 Lakh Cover)</strong></span>
+                  </div>
+                  <Badge variant="teal" size="sm">Active Verified</Badge>
                 </div>
-                <Badge variant="teal" size="sm">Active Verified</Badge>
+
+                <div className="pt-2 border-t border-teal-200/80 dark:border-teal-800/80 flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-bold text-teal-800 dark:text-teal-300">Official Government Portals:</span>
+                  <a
+                    href="https://abha.abdm.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 bg-white dark:bg-slate-900 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-slate-800 rounded-lg border border-teal-300 dark:border-teal-700 text-[11px] font-semibold transition-colors shadow-2xs"
+                  >
+                    <span>Create / Download ABHA Card (ABDM)</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a
+                    href="https://beneficiary.nha.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 bg-white dark:bg-slate-900 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-slate-800 rounded-lg border border-teal-300 dark:border-teal-700 text-[11px] font-semibold transition-colors shadow-2xs"
+                  >
+                    <span>Verify PM-JAY Ayushman Card</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a
+                    href="https://www.jeevandayee.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 bg-white dark:bg-slate-900 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-slate-800 rounded-lg border border-teal-300 dark:border-teal-700 text-[11px] font-semibold transition-colors shadow-2xs"
+                  >
+                    <span>MJPJAY Maharashtra</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -330,6 +368,7 @@ export function ProfilePage() {
             </CardFooter>
           </Card>
         </form>
+        </AuthGuard>
       </main>
 
       {/* Sign Out Confirmation Modal */}

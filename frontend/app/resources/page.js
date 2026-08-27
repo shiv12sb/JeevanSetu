@@ -34,6 +34,9 @@ import {
   ShieldCheck,
   RefreshCw,
   AlertCircle,
+  ExternalLink,
+  PhoneCall,
+  FileText,
 } from "lucide-react";
 
 export function ResourcesDirectoryPage() {
@@ -45,6 +48,7 @@ export function ResourcesDirectoryPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("all");
   const [selectedHospitalForTravelCheck, setSelectedHospitalForTravelCheck] = useState(null);
+  const [selectedSchemeForModal, setSelectedSchemeForModal] = useState(null);
   const [isChecklistModalOpen, setIsChecklistModalOpen] = useState(false);
 
   const loadDirectory = async () => {
@@ -76,10 +80,15 @@ export function ResourcesDirectoryPage() {
             id: s.id,
             code: s.scheme_code,
             name: s.name,
+            fullName: s.name,
+            category: "Govt Health Assurance",
+            maxCoverage: s.benefits_summary || "Up to ₹5,00,000 per family/yr",
+            eligibilitySummary: s.eligibility_criteria ? (Array.isArray(s.eligibility_criteria) ? s.eligibility_criteria.join(", ") : s.eligibility_criteria) : "BPL / Ration Card / Rural SECC",
             description: s.description,
-            benefits: s.benefits_summary || "Cashless hospitalization coverage.",
-            eligibility: s.eligibility_criteria ? s.eligibility_criteria.join(", ") : "BPL / Rural Household",
             coveredTreatments: "Inpatient secondary and tertiary treatments, surgeries, ICU",
+            howToApply: "Available at empaneled hospitals or directly at official government portal.",
+            portalUrl: s.portal_url || (s.scheme_code === "PMJAY" || s.name?.includes("PM-JAY") ? "https://beneficiary.nha.gov.in/" : s.name?.includes("MJPJAY") ? "https://www.jeevandayee.gov.in/" : "https://pmjay.gov.in/"),
+            isVerified: true,
           }));
           setSchemes(mappedSchemes);
         }
@@ -314,7 +323,7 @@ export function ResourcesDirectoryPage() {
                     <SchemeCard
                       key={scheme.id}
                       scheme={scheme}
-                      onSelect={(s) => alert(`Scheme: ${s.name}\nCoverage: ${s.maxCoverage}\nEligibility: ${s.eligibilitySummary}`)}
+                      onSelect={(s) => setSelectedSchemeForModal(s)}
                     />
                   ))}
                 </div>
@@ -335,7 +344,9 @@ export function ResourcesDirectoryPage() {
                     <NGOCard
                       key={ngo.id}
                       ngo={ngo}
-                      onContact={(n) => alert(`Contacting ${n.name} at ${n.phone}`)}
+                      onContact={(n) => {
+                        window.location.href = `tel:${n.phone || "108"}`;
+                      }}
                     />
                   ))}
                 </div>
@@ -344,6 +355,98 @@ export function ResourcesDirectoryPage() {
           </div>
         )}
       </main>
+
+      {/* Scheme Detail & Official Portal Action Modal */}
+      <Modal
+        isOpen={!!selectedSchemeForModal}
+        onClose={() => setSelectedSchemeForModal(null)}
+        title={selectedSchemeForModal ? selectedSchemeForModal.name : "Government Health Scheme"}
+        description="Comprehensive benefits, eligibility guidelines, required documents, and official portal links."
+        maxWidth="max-w-2xl"
+      >
+        {selectedSchemeForModal && (
+          <div className="space-y-4 text-xs">
+            <div className="p-4 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-teal-900 dark:text-teal-200 uppercase tracking-wider text-[11px]">
+                  {selectedSchemeForModal.category || "Government Healthcare Assurance"}
+                </span>
+                {selectedSchemeForModal.isVerified && (
+                  <Badge variant="success" size="sm">Verified Scheme</Badge>
+                )}
+              </div>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">
+                Coverage: {selectedSchemeForModal.maxCoverage}
+              </p>
+            </div>
+
+            <div className="space-y-2 text-slate-700 dark:text-slate-300">
+              <div>
+                <strong className="text-slate-900 dark:text-white">Eligibility Criteria:</strong>
+                <p className="mt-0.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {selectedSchemeForModal.eligibilitySummary || "Identified BPL / SECC / Rural Priority household."}
+                </p>
+              </div>
+
+              <div>
+                <strong className="text-slate-900 dark:text-white">Covered Procedures:</strong>
+                <p className="mt-0.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {selectedSchemeForModal.coveredTreatments || "Secondary and tertiary hospitalizations, inpatient surgeries, and critical care."}
+                </p>
+              </div>
+
+              <div>
+                <strong className="text-slate-900 dark:text-white">How to Apply / Avail:</strong>
+                <p className="mt-0.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {selectedSchemeForModal.howToApply || "Available directly at all empaneled public health centers, Aarogyamitra helpdesks, and online via official portal."}
+                </p>
+              </div>
+
+              {selectedSchemeForModal.documentsRequired && (
+                <div>
+                  <strong className="text-slate-900 dark:text-white flex items-center gap-1">
+                    <FileText className="w-3.5 h-3.5" />
+                    Required Documents:
+                  </strong>
+                  <div className="mt-1 flex flex-wrap gap-1.5">
+                    {selectedSchemeForModal.documentsRequired.map((doc) => (
+                      <span
+                        key={doc}
+                        className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-[11px]"
+                      >
+                        {doc}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Official Portal & Helpline Actions */}
+            <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              {selectedSchemeForModal.tollFree && (
+                <a
+                  href={`tel:${selectedSchemeForModal.tollFree.replace(/[^0-9]/g, "")}`}
+                  className="flex items-center gap-1.5 text-teal-700 dark:text-teal-400 font-bold hover:underline"
+                >
+                  <PhoneCall className="w-3.5 h-3.5" />
+                  <span>Helpline: {selectedSchemeForModal.tollFree}</span>
+                </a>
+              )}
+
+              <a
+                href={selectedSchemeForModal.portalUrl || "https://pmjay.gov.in/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-xs transition-colors"
+              >
+                <span>Visit Official Govt Portal</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        )}
+      </Modal>
 
       {/* Check Before You Travel Detail Modal */}
       <Modal

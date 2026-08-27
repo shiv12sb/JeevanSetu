@@ -1,0 +1,42 @@
+"use client";
+
+import React, { useState } from "react";
+import { OneOnOneVoiceCallScreen } from "@/components/domain/OneOnOneVoiceCallScreen";
+import { PhoneCall } from "lucide-react";
+
+export function LiveVoiceGlobalTrigger() {
+  const [isCallOpen, setIsCallOpen] = useState(false);
+
+  return (
+    <>
+      {/* Steady, Non-Jumping Fixed Floating 1-on-1 Marathi Voice Call Button (Fixed Bottom-Right) */}
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
+        <button
+          type="button"
+          onClick={() => setIsCallOpen(true)}
+          className="flex items-center gap-2.5 px-5 py-3.5 bg-linear-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm rounded-full shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all border-2 border-white/30 cursor-pointer"
+          title="Direct 1-on-1 Marathi Voice Call (वाचता येत नसलेल्यांसाठी)"
+        >
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+          </span>
+          <PhoneCall className="w-4 h-4 text-white" />
+          <span className="font-black tracking-wide">📞 थेट व्हॉइस कॉल (मराठी)</span>
+          <span className="text-[10px] bg-white/25 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider font-mono">
+            मराठी AI
+          </span>
+        </button>
+      </div>
+
+      {/* 1-on-1 Real-time Marathi Voice Call Screen */}
+      <OneOnOneVoiceCallScreen
+        isOpen={isCallOpen}
+        onClose={() => setIsCallOpen(false)}
+        defaultLanguage="mr"
+      />
+    </>
+  );
+}
+
+export default LiveVoiceGlobalTrigger;

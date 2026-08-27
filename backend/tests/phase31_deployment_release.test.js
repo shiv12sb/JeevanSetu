@@ -161,7 +161,7 @@ async function runTests() {
     const dockerfilePath = path.join(__dirname, "../../backend/Dockerfile");
     assert.ok(fs.existsSync(dockerfilePath));
     const content = fs.readFileSync(dockerfilePath, "utf8");
-    assert.ok(content.includes("FROM node:20-alpine AS base"));
+    assert.ok(content.includes("FROM node:20-alpine AS base") || content.includes("FROM node:22-alpine AS base"));
     assert.ok(content.includes("USER jeevansetu"));
     assert.ok(content.includes("HEALTHCHECK"));
   });

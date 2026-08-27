@@ -1,7 +1,7 @@
 /**
  * Text-to-Speech (TTS) Abstraction Layer for JeevanSetu
- * Supports Browser SpeechSynthesis API with Hindi, Marathi, and English voice matching
- * and graceful fallback when unsupported.
+ * Optimized for natural Indian Marathi (mr-IN), Hindi (hi-IN), and Indian English (en-IN)
+ * with robust voice loading, phonetic clean-up, and zero-latency synthesis.
  */
 
 export class TextToSpeechProvider {
@@ -30,6 +30,16 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
   constructor() {
     super("BrowserSpeechSynthesis");
     this._speaking = false;
+    this.cachedVoices = [];
+
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      this.cachedVoices = window.speechSynthesis.getVoices() || [];
+      window.speechSynthesis.onvoiceschanged = () => {
+        try {
+          this.cachedVoices = window.speechSynthesis.getVoices() || [];
+        } catch (e) {}
+      };
+    }
   }
 
   getSynthesis() {
@@ -48,37 +58,54 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
 
   /**
    * Find the best matching browser voice for the specified language
-   * @param {string} lang - 'hi' | 'mr' | 'en'
-   * @returns {SpeechSynthesisVoice|null}
+   * Prioritizes Marathi (mr-IN) -> Indian Hindi (hi-IN) -> Indian English (en-IN)
    */
-  getBestVoice(lang = "en") {
+  getBestVoice(lang = "mr") {
     const synth = this.getSynthesis();
     if (!synth) return null;
 
-    const voices = synth.getVoices() || [];
+    let voices = this.cachedVoices;
+    if (!voices || voices.length === 0) {
+      voices = synth.getVoices() || [];
+      this.cachedVoices = voices;
+    }
     if (voices.length === 0) return null;
 
-    const targetLang = lang.toLowerCase();
+    const targetLang = (lang || "mr").toLowerCase();
 
-    if (targetLang === "hi") {
-      // Look for Hindi voice
-      const hindiVoice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("hi"));
-      if (hindiVoice) return hindiVoice;
-    } else if (targetLang === "mr") {
-      // Look for Marathi voice
-      const marathiVoice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("mr"));
+    if (targetLang === "mr") {
+      // 1. Direct Marathi voice match
+      const marathiVoice = voices.find(
+        (v) =>
+          (v.lang && v.lang.toLowerCase().replace("_", "-").startsWith("mr")) ||
+          (v.name && v.name.toLowerCase().includes("marathi")) ||
+          (v.name && v.name.includes("मराठी"))
+      );
       if (marathiVoice) return marathiVoice;
-      // Fall back to Hindi voice if Marathi-specific TTS engine is unavailable
-      const hindiVoice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("hi"));
+
+      // 2. High-quality Indian Hindi voice match for natural Devanagari phonetics
+      const hindiIndianVoice = voices.find(
+        (v) =>
+          (v.lang && v.lang.toLowerCase().replace("_", "-").startsWith("hi")) ||
+          (v.name && (v.name.includes("हिन्दी") || v.name.toLowerCase().includes("hindi") || v.name.includes("Kalpana") || v.name.includes("Hemant") || v.name.includes("Swara") || v.name.includes("Lekha")))
+      );
+      if (hindiIndianVoice) return hindiIndianVoice;
+
+      // 3. Indian English voice fallback
+      const inEnglish = voices.find((v) => v.lang && v.lang.toLowerCase().includes("en-in"));
+      if (inEnglish) return inEnglish;
+    } else if (targetLang === "hi") {
+      const hindiVoice = voices.find(
+        (v) =>
+          (v.lang && v.lang.toLowerCase().replace("_", "-").startsWith("hi")) ||
+          (v.name && (v.name.includes("हिन्दी") || v.name.toLowerCase().includes("hindi")))
+      );
       if (hindiVoice) return hindiVoice;
     }
 
-    // Default to Indian English (en-IN) or any English voice
+    // Default to Indian English (en-IN)
     const indianEnglish = voices.find((v) => v.lang && v.lang.toLowerCase().includes("en-in"));
     if (indianEnglish) return indianEnglish;
-
-    const anyEnglish = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("en"));
-    if (anyEnglish) return anyEnglish;
 
     return voices[0] || null;
   }
@@ -91,11 +118,12 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
     return text
       .replace(/https?:\/\/[^\s]+/g, "")
       .replace(/[*_#`~[\]()]/g, "")
+      .replace(/[\/\\|]/g, " ")
       .replace(/\s+/g, " ")
       .trim();
   }
 
-  speak(text, { language = "en", rate = 0.95, pitch = 1.0, onStart, onEnd, onError } = {}) {
+  speak(text, { language = "mr", rate = 0.90, pitch = 1.0, onStart, onEnd, onError } = {}) {
     const synth = this.getSynthesis();
     if (!synth) {
       if (onError) onError("Browser speech synthesis is not supported on this device.");
@@ -113,14 +141,14 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
 
     try {
       const utterance = new window.SpeechSynthesisUtterance(clean);
-      utterance.rate = rate;
-      utterance.pitch = pitch;
+      utterance.rate = rate || 0.90;
+      utterance.pitch = pitch || 1.0;
 
-      // Set language locale
-      if (language === "hi") {
-        utterance.lang = "hi-IN";
-      } else if (language === "mr") {
+      // Set language locale explicitly
+      if (language === "mr") {
         utterance.lang = "mr-IN";
+      } else if (language === "hi") {
+        utterance.lang = "hi-IN";
       } else {
         utterance.lang = "en-IN";
       }
@@ -143,7 +171,6 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
       utterance.onerror = (event) => {
         this._speaking = false;
         if (event.error === "canceled" || event.error === "interrupted") {
-          // Intentional stop
           if (onEnd) onEnd();
           return;
         }
@@ -162,36 +189,10 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
     if (synth) {
       try {
         synth.cancel();
-      } catch (e) {
-        // Ignored
-      }
+      } catch (e) {}
     }
     this._speaking = false;
   }
-}
-
-/**
- * Future extensible Cloud TTS provider stub for server-side ElevenLabs / Azure / Google Cloud TTS
- */
-export class FutureProductionTTSProvider extends TextToSpeechProvider {
-  constructor(config = {}) {
-    super("FutureProductionTTSProvider");
-    this.endpoint = config.endpoint || "/api/ai/tts";
-  }
-
-  isSupported() {
-    return typeof window !== "undefined";
-  }
-
-  async speak(text, options = {}) {
-    const fallback = new BrowserTTSProvider();
-    if (fallback.isSupported()) {
-      return fallback.speak(text, options);
-    }
-    if (options.onError) options.onError("Cloud TTS provider unconfigured.");
-  }
-
-  stop() {}
 }
 
 export const textToSpeechService = new BrowserTTSProvider();

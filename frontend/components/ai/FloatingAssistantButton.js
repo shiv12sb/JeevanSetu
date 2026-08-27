@@ -26,10 +26,12 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { GeminiLiveVoiceModal } from "@/components/domain/GeminiLiveVoiceModal";
 
 export function FloatingAssistantButton() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLiveVoiceOpen, setIsLiveVoiceOpen] = useState(false);
   const [language, setLanguage] = useState("hi");
   const [inputQuery, setInputQuery] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -268,6 +270,19 @@ export function FloatingAssistantButton() {
             </div>
 
             <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsLiveVoiceOpen(true);
+                }}
+                className="px-2 py-1 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 text-[10px] font-black flex items-center gap-1 shadow-xs transition-colors cursor-pointer"
+                title="Start Real-Time Gemini Voice Conversation"
+              >
+                <Sparkles className="w-3 h-3" />
+                <span>Live Voice</span>
+              </button>
+
               <Link
                 href="/assistant"
                 onClick={() => setIsOpen(false)}
@@ -424,6 +439,13 @@ export function FloatingAssistantButton() {
           </div>
         </div>
       )}
+
+      {/* Real-time Gemini Voice Conversation Modal */}
+      <GeminiLiveVoiceModal
+        isOpen={isLiveVoiceOpen}
+        onClose={() => setIsLiveVoiceOpen(false)}
+        initialLanguage={language || "mr"}
+      />
     </div>
   );
 }

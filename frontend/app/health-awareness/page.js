@@ -23,6 +23,7 @@ import {
   Droplets,
   Volume2,
   BookOpen,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -253,6 +254,180 @@ export function HealthAwarenessPage() {
             );
           })}
         </div>
+
+        {/* Official Government Health Portals & Public Registries */}
+        <section className="space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <Badge variant="teal" size="sm">National Health Infrastructure</Badge>
+              <span className="text-xs font-bold text-teal-700 dark:text-teal-400">Government of India Portals</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+              Official Public Health Portals & Registries
+            </h2>
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              Access verified Government of India healthcare digital portals for teleconsultations, disease surveillance, blood availability, and maternal tracking.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a
+              href="https://esanjeevani.mohfw.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950 px-2 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+                    Free Tele-OPD
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  eSanjeevani Teleconsultation
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  National free doctor-to-patient online telemedicine consultation platform by MoHFW.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-teal-600 dark:text-teal-400 pt-3 flex items-center gap-1">
+                <span>Visit esanjeevani.mohfw.gov.in</span>
+                <span>→</span>
+              </span>
+            </a>
+
+            <a
+              href="https://eraktkosh.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-rose-400 dark:hover:border-rose-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950 px-2 py-0.5 rounded border border-rose-200 dark:border-rose-800">
+                    Blood Banks
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                  e-RaktKosh Blood Portal
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Real-time blood stock availability and nearest blood bank search across all districts in India.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-rose-600 dark:text-rose-400 pt-3 flex items-center gap-1">
+                <span>Visit eraktkosh.in</span>
+                <span>→</span>
+              </span>
+            </a>
+
+            <a
+              href="https://www.nikshay.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-400 dark:hover:border-amber-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950 px-2 py-0.5 rounded border border-amber-200 dark:border-amber-800">
+                    TB Care & DBT
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  Nikshay Portal (NTEP)
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Direct Nutritional Assistance (₹500/mo) and free treatment tracking for tuberculosis patients.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 pt-3 flex items-center gap-1">
+                <span>Visit nikshay.in</span>
+                <span>→</span>
+              </span>
+            </a>
+
+            <a
+              href="https://ncvbdc.mohfw.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+                    Vector-Borne
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  NCVBDC (Malaria & Dengue)
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  National guidelines for vector control, Dengue fever alerts, and free rapid diagnostic tests.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 pt-3 flex items-center gap-1">
+                <span>Visit ncvbdc.mohfw.gov.in</span>
+                <span>→</span>
+              </span>
+            </a>
+
+            <a
+              href="https://mohfw.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-800">
+                    MoHFW
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                  Ministry of Health & Family Welfare
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Central government health policies, clinical guidelines, and national health mission programs.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-sky-600 dark:text-sky-400 pt-3 flex items-center gap-1">
+                <span>Visit mohfw.gov.in</span>
+                <span>→</span>
+              </span>
+            </a>
+
+            <a
+              href="https://pmjay.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-500 shadow-2xs hover:shadow-xs transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950 px-2 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+                    PM-JAY Portal
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  Ayushman Bharat Portal (NHA)
+                </h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Search empaneled hospitals, check eligibility, and generate digital Ayushman cards.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-teal-600 dark:text-teal-400 pt-3 flex items-center gap-1">
+                <span>Visit pmjay.gov.in</span>
+                <span>→</span>
+              </span>
+            </a>
+          </div>
+        </section>
 
         {/* Quick Resource Link Bar */}
         <div className="p-6 bg-linear-to-r from-teal-800 to-slate-900 rounded-2xl text-white shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
