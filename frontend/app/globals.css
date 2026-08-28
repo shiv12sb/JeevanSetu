@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
 :root {
   --background: #f8fafc;
@@ -28,11 +28,13 @@
   --info-bg: #eff6ff;
 }
 
-.dark {
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
   --background: #090d16;
   --foreground: #f1f5f9;
   
-  --surface: #111827;
+  --surface: #0f172a;
   --surface-muted: #1e293b;
   --border: #334155;
   
@@ -66,6 +68,112 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* =========================================================================
+   COMPREHENSIVE FULL-APPLICATION DARK THEME ENGINE
+   Guarantees 100% dark mode across every dashboard, card, table, input & modal
+   ========================================================================= */
+
+html.dark,
+[data-theme="dark"],
+html.dark body,
+[data-theme="dark"] body {
+  background-color: #090d16 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Dark Mode Backgrounds */
+html.dark .bg-slate-50,
+[data-theme="dark"] .bg-slate-50 {
+  background-color: #090d16 !important;
+}
+
+html.dark .bg-slate-100,
+[data-theme="dark"] .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+html.dark .bg-white,
+[data-theme="dark"] .bg-white {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .bg-slate-50\/50,
+[data-theme="dark"] .bg-slate-50\/50 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+
+html.dark .bg-slate-50\/70,
+[data-theme="dark"] .bg-slate-50\/70 {
+  background-color: rgba(15, 23, 42, 0.7) !important;
+}
+
+/* Dark Mode Borders */
+html.dark .border-slate-200,
+[data-theme="dark"] .border-slate-200,
+html.dark .border-slate-200\/90,
+[data-theme="dark"] .border-slate-200\/90,
+html.dark .border-slate-100,
+[data-theme="dark"] .border-slate-100 {
+  border-color: #1e293b !important;
+}
+
+/* Dark Mode Text Colors */
+html.dark .text-slate-900,
+[data-theme="dark"] .text-slate-900,
+html.dark .text-slate-800,
+[data-theme="dark"] .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700,
+[data-theme="dark"] .text-slate-700,
+html.dark .text-slate-600,
+[data-theme="dark"] .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500,
+[data-theme="dark"] .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* Dark Mode Inputs, Selects & Forms */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+html.dark select,
+html.dark textarea,
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Dark Mode Tables */
+html.dark table thead,
+[data-theme="dark"] table thead {
+  background-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark table tbody tr,
+[data-theme="dark"] table tbody tr {
+  border-color: #1e293b !important;
+}
+
+html.dark table tbody tr:hover,
+[data-theme="dark"] table tbody tr:hover {
+  background-color: rgba(30, 41, 59, 0.7) !important;
+}
+
 /* Custom Scrollbar for dashboards & tables */
 ::-webkit-scrollbar {
   width: 6px;
@@ -80,4 +188,14 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }

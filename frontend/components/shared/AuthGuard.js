@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -9,29 +9,66 @@ import { Card, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import {
   Lock,
-  Smartphone,
   UserPlus,
   ShieldCheck,
-  Sparkles,
-  ArrowRight,
-  Stethoscope,
-  Heart,
+  CheckCircle2,
 } from "lucide-react";
 import { USER_ROLES } from "@/lib/constants";
 
-export function AuthGuard({ children, featureName = "या आरोग्य सुविधेसाठी (This Healthcare Feature)" }) {
+const GUARD_TEXTS = {
+  en: {
+    loading: "Loading information...",
+    authRequired: "Sign In Required",
+    authSub: "Authentication Required to Access this Healthcare Feature",
+    desc: "To keep patient records, referral tracking, and medicine supply information safe and coordinated, please sign in or register your account.",
+    signInBtn: "Sign In",
+    signUpBtn: "Create New Account",
+    demoAccessTitle: "Quick 1-Click Demo Testing Access:",
+    demoPatient: "👤 Patient (Rameshwar Patil)",
+    demoPhc: "🏥 PHC Officer (Dr. Ananya)",
+    demoDoctor: "🩺 Specialist Doctor (Dr. Kulkarni)",
+  },
+  hi: {
+    loading: "जानकारी लोड हो रही है...",
+    authRequired: "लॉगिन या साइन अप आवश्यक है",
+    authSub: "इस स्वास्थ्य सेवा सुविधा तक पहुंचने के लिए लॉगिन आवश्यक है",
+    desc: "स्वास्थ्य रिकॉर्ड, रेफरल ट्रैकिंग और दवा आपूर्ति डेटा को सुरक्षित रखने के लिए कृपया लॉगिन या नया खाता बनाएं।",
+    signInBtn: "लॉगिन करें",
+    signUpBtn: "नया खाता बनाएं",
+    demoAccessTitle: "परीक्षण हेतु 1-क्लिक डेमो प्रवेश:",
+    demoPatient: "👤 मरीज (रामेश्वर पाटिल)",
+    demoPhc: "🏥 पीएचसी अधिकारी (डॉ. अनन्या)",
+    demoDoctor: "🩺 विशेषज्ञ डॉक्टर (डॉ. कुलकर्णी)",
+  },
+  mr: {
+    loading: "माहिती लोड होत आहे...",
+    authRequired: "लॉगिन किंवा नोंदणी आवश्यक आहे",
+    authSub: "या आरोग्य सुविधेचा लाभ घेण्यासाठी सुरक्षित प्रवेश आवश्यक आहे",
+    desc: "आरोग्य नोंदी, रेफरल ट्रॅकिंग आणि औषध साठ्याची माहिती सुरक्षित ठेवण्यासाठी कृपया प्रथम लॉगिन किंवा नोंदणी करा.",
+    signInBtn: "थेट लॉगिन करा",
+    signUpBtn: "नवीन खाते तयार करा",
+    demoAccessTitle: "चाचणीसाठी तात्काळ १-क्लिक लॉगिन:",
+    demoPatient: "👤 नागरिक / रुग्ण (रमेश पाटील)",
+    demoPhc: "🏥 PHC अधिकारी (डॉ. अनन्य)",
+    demoDoctor: "🩺 तज्ज्ञ डॉक्टर (डॉ. कुलकर्णी)",
+  },
+};
+
+export function AuthGuard({ children, featureName = "" }) {
   const { user, isAuthenticated, isLoading, login } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
-  const { t } = useLanguage();
+  const { language } = useLanguage();
   const [isDemoLoggingIn, setIsDemoLoggingIn] = useState(false);
+
+  const txt = GUARD_TEXTS[language] || GUARD_TEXTS.en;
 
   if (isLoading) {
     return (
       <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 space-y-4">
         <div className="w-10 h-10 border-4 border-teal-600 border-t-transparent rounded-full animate-spin" />
         <p className="text-xs font-semibold text-slate-500 animate-pulse">
-          माहिती लोड होत आहे... (Loading...)
+          {txt.loading}
         </p>
       </div>
     );
@@ -65,16 +102,16 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
             <Lock className="w-7 h-7 text-white" />
           </div>
           <h2 className="text-xl sm:text-2xl font-black tracking-tight">
-            लॉगिन किंवा साइन अप आवश्यक आहे
+            {txt.authRequired}
           </h2>
           <p className="text-xs sm:text-sm text-teal-100 font-medium">
-            Authentication Required to Access {featureName}
+            {featureName ? `${txt.authSub} (${featureName})` : txt.authSub}
           </p>
         </div>
 
         <CardContent className="p-6 sm:p-8 space-y-6 text-slate-700 dark:text-slate-300">
           <p className="text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
-            आरोग्य नोंदी, मार्गदर्शक सहाय्यक, रेफरल ट्रॅकिंग आणि औषध साठ्याची माहिती सुरक्षित ठेवण्यासाठी कृपया प्रथम १ मिनिटात मोबाइल OTP द्वारे लॉगिन किंवा नोंदणी करा.
+            {txt.desc}
           </p>
 
           {/* Primary Action Buttons */}
@@ -87,8 +124,8 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
                 size="lg"
                 className="w-full bg-linear-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold gap-2 shadow-lg cursor-pointer"
               >
-                <Smartphone className="w-4 h-4" />
-                <span>📱 मोबाइल OTP ने लॉगिन करा</span>
+                <Lock className="w-4 h-4" />
+                <span>{txt.signInBtn}</span>
               </Button>
             </Link>
 
@@ -102,7 +139,7 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
                 className="w-full font-bold gap-2 border-slate-300 dark:border-slate-700 hover:bg-slate-50 cursor-pointer"
               >
                 <UserPlus className="w-4 h-4 text-teal-600" />
-                <span>नवीन खाते तयार करा (Sign Up)</span>
+                <span>{txt.signUpBtn}</span>
               </Button>
             </Link>
           </div>
@@ -110,7 +147,7 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
           {/* 1-Click Quick Demo Sign In for Testing */}
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
             <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-              चाचणीसाठी तात्काळ १-क्लिक लॉगिन (Quick Demo Access):
+              {txt.demoAccessTitle}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
               <button
@@ -119,7 +156,7 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
                 onClick={() => handleQuickDemoLogin(USER_ROLES.PATIENT)}
                 className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-teal-900/40 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 transition-all cursor-pointer"
               >
-                👤 नागरिक / Patient (रमेश पाटील)
+                {txt.demoPatient}
               </button>
               <button
                 type="button"
@@ -127,7 +164,7 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
                 onClick={() => handleQuickDemoLogin(USER_ROLES.PHC_STAFF)}
                 className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-teal-900/40 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 transition-all cursor-pointer"
               >
-                🏥 PHC अधिकारी (Dr. Ananya)
+                {txt.demoPhc}
               </button>
               <button
                 type="button"
@@ -135,7 +172,7 @@ export function AuthGuard({ children, featureName = "या आरोग्य �
                 onClick={() => handleQuickDemoLogin(USER_ROLES.DOCTOR)}
                 className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-teal-900/40 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-700 transition-all cursor-pointer"
               >
-                🩺 डॉक्टर (Dr. Kulkarni)
+                {txt.demoDoctor}
               </button>
             </div>
           </div>

@@ -17,8 +17,67 @@ import {
   FileCheck,
 } from "lucide-react";
 
+const TRAVEL_CARD_TEXTS = {
+  en: {
+    heading: "Check Before You Travel",
+    doctorOnDuty: "Doctor on Duty",
+    emergencyMeds: "Emergency Medicines",
+    diagnosticsLab: "Diagnostics & Pathology Lab",
+    referralDesk: "Referral Intake Desk",
+    available: "Available",
+    limited: "Needs Verification",
+    unavailable: "Unavailable",
+    testRdt: "✓ Rapid Malaria/Dengue RDT",
+    testEcg: "✓ ECG & Blood Sugar",
+    labTiming: "OPD Lab: 9am-2pm",
+    mitraDesk: "✓ PM-JAY Ayushman Mitra",
+    mjpjayDesk: "✓ MJPJAY Desk Active",
+    disclaimer: "*Always confirm with facility phone/helpline before emergency transit.",
+    checklistBtn: "Visit Checklist",
+    startReferralBtn: "Start Referral",
+  },
+  hi: {
+    heading: "यात्रा से पहले जांचें",
+    doctorOnDuty: "उपस्थित डॉक्टर",
+    emergencyMeds: "आपातकालीन दवाइयां",
+    diagnosticsLab: "जांच एवं पैथोलॉजी लैब",
+    referralDesk: "रेफरल प्रवेश डेस्क",
+    available: "उपलब्ध",
+    limited: "सत्यापन आवश्यक",
+    unavailable: "अनुपलब्ध",
+    testRdt: "✓ त्वरित मलेरिया/डेंगू जांच",
+    testEcg: "✓ ईसीजी व ब्लड शुगर",
+    labTiming: "ओपीडी लैब: सुबह 9 से 2 बजे",
+    mitraDesk: "✓ आयुष्मान मित्र सहायता",
+    mjpjayDesk: "✓ महात्मा फुले योजना डेस्क",
+    disclaimer: "*आपातकालीन प्रस्थान से पहले हमेशा अस्पताल हेल्पलाइन पर पुष्टि करें।",
+    checklistBtn: "दस्तावेज़ चेकलिस्ट",
+    startReferralBtn: "रेफरल शुरू करें",
+  },
+  mr: {
+    heading: "प्रवासापूर्वी खात्री करा",
+    doctorOnDuty: "उपस्थित डॉक्टर",
+    emergencyMeds: "आपत्कालीन औषधे",
+    diagnosticsLab: "तपासणी व लॅब सेवा",
+    referralDesk: "रेफरल प्रवेश कक्ष",
+    available: "उपलब्ध",
+    limited: "खात्री आवश्यक",
+    unavailable: "अनुपलब्ध",
+    testRdt: "✓ त्वरित हिवताप/डेंग्यू चाचणी",
+    testEcg: "✓ ईसीजी व रक्त तपासणी",
+    labTiming: "ओपीडी लॅब: सकाळी ९ ते दुपारी २",
+    mitraDesk: "✓ आयुष्यमान मित्र मदत कक्ष",
+    mjpjayDesk: "✓ म.फुले जन आरोग्य कक्ष सक्रिय",
+    disclaimer: "*प्रवासापूर्वी रुग्णालय किंवा १०८ हेल्पलाइनवर खात्री करून घ्यावी.",
+    checklistBtn: "कागदपत्रे यादी",
+    startReferralBtn: "रेफरल सुरू करा",
+  },
+};
+
 export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const txt = TRAVEL_CARD_TEXTS[language] || TRAVEL_CARD_TEXTS.en;
+
   if (!facility || !facility.travelStatus) return null;
 
   const {
@@ -37,17 +96,17 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
     switch (status) {
       case "available":
       case "sufficient":
-        return <Badge variant="success" size="sm">🟢 {t("statusAvailable", "Available")}</Badge>;
+        return <Badge variant="success" size="sm">🟢 {txt.available}</Badge>;
       case "limited":
       case "depleting":
       case "needs_verification":
-        return <Badge variant="warning" size="sm">🟡 {t("statusLimited", "Needs Verification")}</Badge>;
+        return <Badge variant="warning" size="sm">🟡 {txt.limited}</Badge>;
       case "unavailable":
       case "stockout":
       case "busy":
-        return <Badge variant="danger" size="sm">🔴 {t("statusUnavailable", "Unavailable")}</Badge>;
+        return <Badge variant="danger" size="sm">🔴 {txt.unavailable}</Badge>;
       default:
-        return <Badge variant="default" size="sm">⚪ Check with Facility</Badge>;
+        return <Badge variant="default" size="sm">⚪ {txt.limited}</Badge>;
     }
   };
 
@@ -60,7 +119,7 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-teal-400" />
               <CardTitle className="text-sm font-bold text-white">
-                {t("checkBeforeTravelHeading", "Check Before You Travel")}
+                {txt.heading}
               </CardTitle>
             </div>
             <p className="text-xs text-teal-200 mt-0.5 font-medium">{facility.name}</p>
@@ -80,7 +139,7 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center justify-between">
               <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <Stethoscope className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                {t("doctorOnDuty", "Doctor on Duty")}
+                {txt.doctorOnDuty}
               </span>
               {getStatusBadge(doctorStatus)}
             </div>
@@ -92,7 +151,7 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center justify-between">
               <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <Pill className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-                {t("emergencyMeds", "Emergency Medicines")}
+                {txt.emergencyMeds}
               </span>
               {getStatusBadge(medicineStockStatus)}
             </div>
@@ -104,20 +163,20 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center justify-between">
               <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                {t("diagnosticsLab", "Diagnostics & Pathology Lab")}
+                {txt.diagnosticsLab}
               </span>
               {getStatusBadge(diagnosticStatus)}
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{diagnosticStatusText}</p>
             <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
               <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
-                ✓ Rapid Malaria/Dengue RDT
+                {txt.testRdt}
               </span>
               <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
-                ✓ ECG & Blood Sugar
+                {txt.testEcg}
               </span>
               <span className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">
-                OPD Lab: 9am-2pm
+                {txt.labTiming}
               </span>
             </div>
           </div>
@@ -127,17 +186,17 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
             <div className="flex items-center justify-between">
               <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <GitPullRequest className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                {t("referralDesk", "Referral Intake Desk")}
+                {txt.referralDesk}
               </span>
               {getStatusBadge(referralAcceptanceStatus)}
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{referralAcceptanceText}</p>
             <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
               <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
-                ✓ PM-JAY Ayushman Mitra
+                {txt.mitraDesk}
               </span>
               <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
-                ✓ MJPJAY Desk Active
+                {txt.mjpjayDesk}
               </span>
             </div>
           </div>
@@ -146,7 +205,7 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
         {/* Action Buttons */}
         <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
           <span className="text-[10px] text-slate-400 dark:text-slate-500 italic">
-            *Always confirm with facility phone/helpline before emergency transit.
+            {txt.disclaimer}
           </span>
           <div className="flex items-center gap-2">
             {onOpenChecklist && (
@@ -157,12 +216,12 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
                 className="text-xs gap-1"
               >
                 <FileCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                <span>{t("visitChecklistBtn", "Visit Checklist")}</span>
+                <span>{txt.checklistBtn}</span>
               </Button>
             )}
             <Link href="/referrals">
               <Button size="sm" className="text-xs bg-teal-600 hover:bg-teal-700 text-white gap-1">
-                <span>{t("startReferralBtn", "Start Referral")}</span>
+                <span>{txt.startReferralBtn}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </Link>

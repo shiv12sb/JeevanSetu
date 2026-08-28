@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Alert } from "@/components/ui/Alert";
 import { useLanguage } from "@/context/LanguageContext";
+import { useLocation } from "@/context/LocationContext";
+import { LocationSelector } from "@/components/shared/LocationSelector";
 import {
   HelpCircle,
   Building2,
@@ -25,13 +27,17 @@ import {
   Users,
   Compass,
   CheckCircle2,
+  MapPin,
 } from "lucide-react";
 
 export function NeedsNavigator({ isEmbedded = false }) {
   const { language, t } = useLanguage();
+  const { selectedDistrict, currentDistrictObj, getFilteredFacilities } = useLocation();
   const [selectedNeed, setSelectedNeed] = useState(null);
   const [caregiverMode, setCaregiverMode] = useState("myself");
   const [isSimpleMode, setIsSimpleMode] = useState(false);
+
+  const localFacilities = getFilteredFacilities();
 
   const needsList = [
     {
@@ -222,6 +228,21 @@ export function NeedsNavigator({ isEmbedded = false }) {
               {t("forDependent", "For Someone I Care For")}
             </button>
           </div>
+        </div>
+
+        {/* Dynamic Location Awareness Strip */}
+        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs bg-slate-50/60 dark:bg-slate-800/40 p-2.5 rounded-xl">
+          <div className="flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            <span className="font-semibold text-slate-700 dark:text-slate-300">
+              Active District: <strong className="text-slate-900 dark:text-white">{selectedDistrict} ({currentDistrictObj?.marathiName || ""})</strong>
+            </span>
+            <span className="text-[11px] text-teal-700 dark:text-teal-400 font-medium hidden sm:inline">
+              • Showing {localFacilities.length} local verified health centers
+            </span>
+          </div>
+
+          <LocationSelector />
         </div>
       </div>
 

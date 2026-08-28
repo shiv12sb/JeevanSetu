@@ -1,7 +1,42 @@
+"use client";
+
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Check, Clock } from "lucide-react";
-import { REFERRAL_STAGES } from "@/lib/constants";
+import { useLanguage } from "@/context/LanguageContext";
+
+const TIMELINE_STAGES = {
+  en: [
+    { key: "created", label: "Created", description: "Referral initiated by PHC" },
+    { key: "notified", label: "Notified", description: "Destination hospital alerted" },
+    { key: "accepted", label: "Accepted", description: "Bed & Doctor confirmed" },
+    { key: "hospital_reached", label: "Arrived", description: "Patient arrived at facility" },
+    { key: "treatment_started", label: "Treatment", description: "Clinical care & consultation active" },
+    { key: "completed", label: "Completed", description: "Care finalized & discharge planned" },
+  ],
+  hi: [
+    { key: "created", label: "रेफरल निर्मित", description: "पीएचसी द्वारा रेफरल शुरू किया गया" },
+    { key: "notified", label: "अस्पताल सूचित", description: "गंतव्य अस्पताल को अलर्ट भेजा गया" },
+    { key: "accepted", label: "स्वीकृत", description: "बेड एवं विशेषज्ञ डॉक्टर की पुष्टि" },
+    { key: "hospital_reached", label: "पहुंचे", description: "मरीज अस्पताल पहुंच चुका है" },
+    { key: "treatment_started", label: "उपचार जारी", description: "डॉक्टरी जांच व इलाज सक्रिय" },
+    { key: "completed", label: "पूर्ण", description: "उपचार पूर्ण एवं डिस्चार्ज रिकॉर्ड" },
+  ],
+  mr: [
+    { key: "created", label: "रेफरल नोंदवले", description: "प्राथमिक आरोग्य केंद्राद्वारे नोंदणी" },
+    { key: "notified", label: "रुग्णालयास सूचना", description: "संदर्भ रुग्णालयाला माहिती पाठवली" },
+    { key: "accepted", label: "स्वीकारले", description: "खाट व डॉक्टर उपलब्धता निश्चित" },
+    { key: "hospital_reached", label: "दाखल", description: "रुग्ण रुग्णालयात पोहोचला" },
+    { key: "treatment_started", label: "उपचार सुरू", description: "वैद्यकीय उपचार व तपासणी सुरू" },
+    { key: "completed", label: "पूर्ण झाले", description: "उपचार पूर्ण व पाठपुरावा नोंद" },
+  ],
+};
+
+const STATE_TEXTS = {
+  en: { completed: "Completed", active: "Active", pending: "Pending" },
+  hi: { completed: "पूर्ण", active: "सक्रिय", pending: "लंबित" },
+  mr: { completed: "पूर्ण झाले", active: "सक्रिय", pending: "प्रलंबित" },
+};
 
 export function StatusTimeline({
   currentStage = "created",
@@ -9,16 +44,20 @@ export function StatusTimeline({
   className = "",
   orientation = "horizontal",
 }) {
-  const activeIndex = REFERRAL_STAGES.findIndex((s) => s.key === currentStage);
+  const { language } = useLanguage();
+  const stages = TIMELINE_STAGES[language] || TIMELINE_STAGES.en;
+  const stateTxt = STATE_TEXTS[language] || STATE_TEXTS.en;
 
-  const timelineSteps = REFERRAL_STAGES.map((stage, idx) => {
+  const activeIndex = stages.findIndex((s) => s.key === currentStage);
+
+  const timelineSteps = stages.map((stage, idx) => {
     const customStep = steps.find((s) => s.key === stage.key);
     const isCompleted = customStep ? customStep.completed : idx < activeIndex;
     const isCurrent = customStep ? stage.key === currentStage : idx === activeIndex;
 
     return {
       ...stage,
-      date: customStep?.date || (isCompleted ? "Completed" : isCurrent ? "Active" : "Pending"),
+      date: customStep?.date || (isCompleted ? stateTxt.completed : isCurrent ? stateTxt.active : stateTxt.pending),
       notes: customStep?.notes || stage.description,
       isCompleted,
       isCurrent,
@@ -122,7 +161,7 @@ export function StatusTimeline({
                 {step.label}
               </p>
               <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 hidden sm:block">
-                {step.date !== "Pending" ? step.date : ""}
+                {step.date !== stateTxt.pending ? step.date : ""}
               </p>
             </div>
           </div>

@@ -1,11 +1,53 @@
+"use client";
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { FileText, ArrowRight, Clock } from "lucide-react";
 import { formatDate } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
+
+const CASE_CARD_TEXTS = {
+  en: {
+    symptoms: "Symptoms:",
+    clinicalAssessment: "Clinical Assessment:",
+    bp: "Blood Pressure",
+    pulse: "Pulse Rate",
+    spo2: "SpO2 Oxygen",
+    temp: "Temperature",
+    records: "Attached Records",
+    reviewCase: "Review Case",
+    years: "yrs",
+  },
+  hi: {
+    symptoms: "प्राथमिक लक्षण:",
+    clinicalAssessment: "चिकित्सीय मूल्यांकन:",
+    bp: "रक्तचाप (BP)",
+    pulse: "नाड़ी दर (Pulse)",
+    spo2: "ऑक्सीजन (SpO2)",
+    temp: "शरीर तापमान",
+    records: "संलग्न मेडिकल रिकॉर्ड्स",
+    reviewCase: "केस समीक्षा करें",
+    years: "वर्ष",
+  },
+  mr: {
+    symptoms: "प्राथमिक लक्षणे:",
+    clinicalAssessment: "वैद्यकीय मूल्यांकन:",
+    bp: "रक्तदाब (BP)",
+    pulse: "नाडी दर (Pulse)",
+    spo2: "ऑक्सिजन (SpO2)",
+    temp: "शरीर तापमान",
+    records: "जोडलेले वैद्यकीय अहवाल",
+    reviewCase: "केस पुनरावलोकन करा",
+    years: "वर्षे",
+  },
+};
 
 export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
+  const { language } = useLanguage();
+  const txt = CASE_CARD_TEXTS[language] || CASE_CARD_TEXTS.en;
+
   if (!patientCase) return null;
 
   return (
@@ -22,7 +64,7 @@ export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
             <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1 flex items-center gap-2">
               <span>{patientCase.patientName}</span>
               <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
-                ({patientCase.age} yrs, {patientCase.gender})
+                ({patientCase.age} {txt.years}, {patientCase.gender})
               </span>
             </h4>
           </div>
@@ -36,11 +78,11 @@ export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
         {/* Symptoms / Clinical Impression */}
         <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1 text-xs">
           <p className="text-slate-800 dark:text-slate-200">
-            <strong className="text-slate-900 dark:text-white">Symptoms:</strong> {patientCase.primarySymptoms}
+            <strong className="text-slate-900 dark:text-white">{txt.symptoms}</strong> {patientCase.primarySymptoms}
           </p>
           {patientCase.initialDiagnosisImpression && (
             <p className="text-teal-900 dark:text-teal-300 font-medium pt-0.5">
-              <strong>Clinical Assessment:</strong> {patientCase.initialDiagnosisImpression}
+              <strong>{txt.clinicalAssessment}</strong> {patientCase.initialDiagnosisImpression}
             </p>
           )}
         </div>
@@ -49,19 +91,19 @@ export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
         {patientCase.vitals && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Blood Pressure</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">{txt.bp}</span>
               <span className="font-semibold text-slate-700 dark:text-slate-300">{patientCase.vitals.bp}</span>
             </div>
             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Pulse</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">{txt.pulse}</span>
               <span className="font-semibold text-slate-700 dark:text-slate-300">{patientCase.vitals.pulse}</span>
             </div>
             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">SpO2</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">{txt.spo2}</span>
               <span className="font-semibold text-slate-700 dark:text-slate-300">{patientCase.vitals.spo2}</span>
             </div>
             <div className="p-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">Temp</span>
+              <span className="text-[10px] text-slate-400 dark:text-slate-500 block">{txt.temp}</span>
               <span className="font-semibold text-slate-700 dark:text-slate-300">{patientCase.vitals.temp}</span>
             </div>
           </div>
@@ -71,7 +113,7 @@ export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
         <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
           <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
             <FileText className="w-3.5 h-3.5" />
-            <span>{patientCase.documentsCount || 0} Attached Records</span>
+            <span>{patientCase.documentsCount || 0} {txt.records}</span>
           </div>
 
           {onViewDetail && (
@@ -81,7 +123,7 @@ export function CaseSummaryCard({ patientCase, onViewDetail, className = "" }) {
               className="text-xs h-7 gap-1"
               onClick={() => onViewDetail(patientCase)}
             >
-              <span>Review Case</span>
+              <span>{txt.reviewCase}</span>
               <ArrowRight className="w-3 h-3" />
             </Button>
           )}

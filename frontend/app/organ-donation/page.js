@@ -335,30 +335,30 @@ export function OrganDonationPage() {
 
         {/* JOURNEY B: "I Need Transplant Information" (Recipient Journey) */}
         {(activeIntent === "all" || activeIntent === "transplant") && (
-          <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+          <section className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-6">
             <div className="space-y-1">
               <Badge variant="info" size="sm">Recipient Guidance</Badge>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 I Need a Transplant — The Patient Journey
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                 Understanding how patients with chronic organ failure navigate toward authorized transplant centers.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
               {transplantPathwaySteps.map((step) => (
-                <div key={step.step} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2 text-xs">
+                <div key={step.step} className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
                   <div className="w-6 h-6 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center text-[11px]">
                     {step.step}
                   </div>
-                  <h4 className="font-bold text-slate-900">{step.title}</h4>
-                  <p className="text-[11px] text-slate-600 leading-snug">{step.desc}</p>
+                  <h4 className="font-bold text-slate-900 dark:text-white">{step.title}</h4>
+                  <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{step.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="p-4 bg-teal-50/70 rounded-xl border border-teal-200 space-y-1 text-xs text-teal-950">
+            <div className="p-4 bg-teal-50/70 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 space-y-1 text-xs text-teal-950 dark:text-teal-200">
               <strong className="block font-bold">JeevanSetu's Role in Transplant Navigation:</strong>
               <p className="leading-relaxed">
                 JeevanSetu helps patients find verified licensed hospitals, check government schemes (PM-JAY, MJPJAY), and organize referral documents. <strong>JeevanSetu does NOT allocate organs, match donors to recipients, or manage waiting lists.</strong> All allocation is strictly handled by authorized government medical registries.
@@ -378,26 +378,26 @@ export function OrganDonationPage() {
 
         {/* JOURNEY C: "Talk to Your Family" (Family Conversation Guide) */}
         {(activeIntent === "all" || activeIntent === "family") && (
-          <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+          <section className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-6">
             <div className="space-y-1">
               <Badge variant="teal" size="sm">Family Conversation Guide</Badge>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 Talk to Your Family About Your Wishes
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                 In India, next-of-kin confirmation is required at the hospital during deceased donation. Communicating with your family ensures your wishes are known and respected.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-                <h4 className="font-bold text-slate-900">1. Share Your Reasons</h4>
-                <p className="text-slate-600 leading-relaxed">
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                <h4 className="font-bold text-slate-900 dark:text-white">1. Share Your Reasons</h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                   Explain why you wish to donate organs or corneas to help someone with organ failure or blindness.
                 </p>
               </div>
 
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
                 <h4 className="font-bold text-slate-900">2. Answer Common Concerns</h4>
                 <p className="text-slate-600 leading-relaxed">
                   Reassure family members that donation is handled with surgical respect and does not interfere with funeral customs.

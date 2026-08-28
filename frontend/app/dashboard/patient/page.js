@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { casesApi, referralsApi } from "@/lib/api";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -33,14 +35,17 @@ import {
   AlertCircle,
   Compass,
   Luggage,
+  MapPin,
 } from "lucide-react";
 
 export function PatientDashboardPage() {
   const { user } = useAuth();
+  const { selectedDistrict, currentDistrictObj, getFilteredFacilities } = useLocation();
+  const { t, language } = useLanguage();
   const [activeCase, setActiveCase] = useState(mockPatientCases[0]);
   const [activeReferral, setActiveReferral] = useState(mockReferrals[0]);
   const aiRecommendation = mockAiRecommendations[0];
-  const destinationHospital = mockHospitals[0];
+  const destinationHospital = getFilteredFacilities()[0] || mockHospitals[0];
 
   const [isChecklistModalOpen, setIsChecklistModalOpen] = useState(false);
 
@@ -70,9 +75,9 @@ export function PatientDashboardPage() {
           });
         }
 
-        const refRes = await referralsApi.list({ limit: 1 });
-        if (refRes?.data && refRes.data.length > 0) {
-          const r = refRes.data[0];
+        const refsRes = await referralsApi.list({ limit: 1 });
+        if (refsRes?.data && refsRes.data.length > 0) {
+          const r = refsRes.data[0];
           setActiveReferral({
             id: r.referral_number || r.id,
             caseId: r.case_id,
@@ -80,7 +85,7 @@ export function PatientDashboardPage() {
             patientAge: 45,
             patientGender: "Male",
             fromFacility: r.phcs?.name || "Ashti Primary Health Centre",
-            toFacility: r.hospitals?.name || "District Civil Hospital Gadchiroli",
+            toFacility: r.hospitals?.name || destinationHospital?.name || "District Civil Hospital Gadchiroli",
             department: r.required_specialty,
             priority: r.priority || "urgent",
             currentStage: r.status || "created",
@@ -95,10 +100,15 @@ export function PatientDashboardPage() {
       }
     };
     loadDashboardData();
-  }, [user]);
+  }, [user, destinationHospital]);
 
   const userName = user?.full_name || user?.name || "Rameshwar Patil";
-  const userLocation = `${user?.village || "Ashti Village"}, ${user?.district || "Gadchiroli District"} • Registered with ${user?.primaryPhc || "Ashti Primary Health Centre"}`;
+  const userLocation =
+    language === "en"
+      ? `📍 ${selectedDistrict} District • Matched Referral Hospital: ${destinationHospital?.name || "District Hospital"}`
+      : language === "hi"
+      ? `📍 ${selectedDistrict} जिला • संबद्ध रेफरल अस्पताल: ${destinationHospital?.name || "जिला अस्पताल"}`
+      : `📍 ${selectedDistrict} जिल्हा (${currentDistrictObj?.marathiName || "महाराष्ट्र"}) • जोडलेले संदर्भ रुग्णालय: ${destinationHospital?.name || "जिल्हा रुग्णालय"}`;
 
   return (
     <div className="space-y-6">
@@ -109,10 +119,11 @@ export function PatientDashboardPage() {
             <span className="text-xs font-semibold uppercase tracking-wider text-teal-200 bg-teal-800/80 px-2.5 py-0.5 rounded-full font-mono">
               JeevanSetu Case ID: {activeCase.id}
             </span>
-            <Badge variant="teal" size="sm">Active Care</Badge>
+            <Badge variant="teal" size="sm">{t("activeCare", "Active Care")}</Badge>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Namaste, {userName}
+            {language === "mr" ? "नमस्ते, " : language === "hi" ? "नमस्ते, " : "Namaste, "}
+            {userName}
           </h2>
           <p className="text-xs sm:text-sm text-teal-100/90">
             {userLocation}
@@ -123,13 +134,13 @@ export function PatientDashboardPage() {
           <Link href="/navigate">
             <Button size="sm" className="bg-teal-500 hover:bg-teal-400 text-teal-950 font-bold gap-1.5 shadow-sm text-xs">
               <Compass className="w-3.5 h-3.5" />
-              <span>What Should I Do Now?</span>
+              <span>{t("whatShouldIDo", "What Should I Do Now?")}</span>
             </Button>
           </Link>
           <Link href="/cases">
             <Button size="sm" className="bg-white text-teal-900 hover:bg-teal-50 font-bold gap-1.5 shadow-sm text-xs">
               <Plus className="w-3.5 h-3.5" />
-              <span>New Case</span>
+              <span>{t("newCaseBtn", "New Case")}</span>
             </Button>
           </Link>
         </div>
@@ -138,21 +149,21 @@ export function PatientDashboardPage() {
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <DashboardMetricCard
-          title="Active Health Case"
+          title={t("activeHealthCase", "Active Health Case")}
           value={activeCase.id}
           subtitle="Cardiology Workup Referral"
           icon={FileText}
           status="info"
         />
         <DashboardMetricCard
-          title="Referral Progress"
-          value="Step 3 of 6"
+          title={t("referralProgress", "Referral Progress")}
+          value={t("step3of6", "Step 3 of 6")}
           subtitle="Accepted by District Civil Hospital"
           icon={GitPullRequest}
           status="success"
         />
         <DashboardMetricCard
-          title="Matched Scheme"
+          title={t("matchedScheme", "Matched Scheme")}
           value="PM-JAY"
           subtitle="100% Cashless Inpatient Treatment"
           icon={ShieldCheck}
@@ -165,7 +176,7 @@ export function PatientDashboardPage() {
         <div className="flex items-center justify-between">
           <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span>Check Before You Travel — Destination Hospital Status</span>
+            <span>{t("checkBeforeTravelTitle", "Check Before You Travel — Destination Hospital Status")}</span>
           </h3>
           <button
             type="button"
@@ -173,7 +184,7 @@ export function PatientDashboardPage() {
             className="text-xs font-semibold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1 cursor-pointer"
           >
             <Luggage className="w-3.5 h-3.5" />
-            <span>Open Travel Checklist</span>
+            <span>{t("openChecklistBtn", "Open Travel Checklist")}</span>
           </button>
         </div>
 
@@ -190,10 +201,10 @@ export function PatientDashboardPage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                Active Hospital Referral
+                {t("activeHospitalReferral", "Active Hospital Referral")}
               </h3>
               <Link href="/referrals" className="text-xs text-teal-700 dark:text-teal-400 font-semibold hover:underline flex items-center gap-1">
-                <span>View Full Timeline</span>
+                <span>{t("viewFullTimeline", "View Full Timeline")}</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
@@ -202,7 +213,7 @@ export function PatientDashboardPage() {
 
           <div className="space-y-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
-              Primary Case Summary & Vitals
+              {t("primaryCaseSummary", "Primary Case Summary & Vitals")}
             </h3>
             <CaseSummaryCard patientCase={activeCase} />
           </div>
@@ -214,10 +225,10 @@ export function PatientDashboardPage() {
             <div className="flex items-center justify-between">
               <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                <span>Grounded AI Assistance</span>
+                <span>{t("groundedAiAssistance", "Grounded AI Assistance")}</span>
               </h3>
               <Link href="/assistant" className="text-xs text-teal-700 dark:text-teal-400 font-semibold hover:underline">
-                Ask Assistant
+                {t("askAssistant", "Ask Assistant")}
               </Link>
             </div>
             <AIRecommendationCard recommendation={aiRecommendation} />
@@ -227,7 +238,7 @@ export function PatientDashboardPage() {
           <Card>
             <CardHeader className="pb-3 border-b border-slate-100 dark:border-slate-800">
               <CardTitle className="text-sm text-slate-800 dark:text-slate-200">
-                Emergency & Travel Support
+                {t("emergencyHelplineCard", "Emergency & Travel Support")}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 space-y-3 text-xs">
@@ -236,7 +247,7 @@ export function PatientDashboardPage() {
                   <strong className="block text-slate-900 dark:text-white">Gramin Arogya Sahayog Trust</strong>
                   <span className="text-slate-500 dark:text-slate-400">Patient Van Aid: +91 94228 71923</span>
                 </div>
-                <Badge variant="teal">Verified NGO</Badge>
+                <Badge variant="teal">{t("verifiedNgo", "Verified NGO")}</Badge>
               </div>
 
               <div className="p-3 bg-rose-50 dark:bg-rose-950/40 rounded-xl border border-rose-200 dark:border-rose-800 flex items-center justify-between">
@@ -244,7 +255,7 @@ export function PatientDashboardPage() {
                   <strong className="block text-rose-950 dark:text-rose-200">108 Free Medical Transit</strong>
                   <span className="text-rose-700 dark:text-rose-400">Govt 24x7 Ambulance Dispatch</span>
                 </div>
-                <Badge variant="danger">Emergency</Badge>
+                <Badge variant="danger">{t("emergencyBadge", "Emergency")}</Badge>
               </div>
             </CardContent>
           </Card>

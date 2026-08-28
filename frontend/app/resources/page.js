@@ -19,8 +19,10 @@ import {
   mockSchemes,
   mockNGOs,
 } from "@/lib/mockData";
+import { getDistrictHealthFacilities, getDistrictNgos } from "@/lib/maharashtraHealthData";
 import { useEffect } from "react";
 import { resourcesApi } from "@/lib/api";
+import { useLocation } from "@/context/LocationContext";
 import {
   Search,
   Building2,
@@ -37,19 +39,27 @@ import {
   ExternalLink,
   PhoneCall,
   FileText,
+  MapPin,
 } from "lucide-react";
 
 export function ResourcesDirectoryPage() {
+  const { selectedDistrict: globalDistrict, changeDistrict, allDistricts } = useLocation();
   const [hospitals, setHospitals] = useState(mockHospitals);
   const [schemes, setSchemes] = useState(mockSchemes);
   const [ngos, setNgos] = useState(mockNGOs);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedDistrict, setSelectedDistrict] = useState("all");
+  const [selectedDistrict, setSelectedDistrict] = useState(globalDistrict || "all");
   const [selectedHospitalForTravelCheck, setSelectedHospitalForTravelCheck] = useState(null);
   const [selectedSchemeForModal, setSelectedSchemeForModal] = useState(null);
   const [isChecklistModalOpen, setIsChecklistModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (globalDistrict) {
+      setSelectedDistrict(globalDistrict);
+    }
+  }, [globalDistrict]);
 
   const loadDirectory = async () => {
     setIsLoading(true);
@@ -128,15 +138,24 @@ export function ResourcesDirectoryPage() {
   ];
 
   // Filtering
-  const filteredHospitals = hospitals.filter((h) => {
+  const baseHospitalsList =
+    selectedDistrict && selectedDistrict !== "all"
+      ? getDistrictHealthFacilities(selectedDistrict)
+      : hospitals;
+
+  const filteredHospitals = baseHospitalsList.filter((h) => {
     const matchesSearch =
       h.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (h.specialties && h.specialties.some((s) => s.toLowerCase().includes(searchQuery.toLowerCase()))) ||
       (h.transplantServices && h.transplantServices.some((ts) => ts.toLowerCase().includes(searchQuery.toLowerCase())));
-    const matchesDistrict = selectedDistrict === "all" || h.district.toLowerCase() === selectedDistrict.toLowerCase();
     const matchesTransplant = activeTab === "transplant" ? h.isTransplantCentre : true;
-    return matchesSearch && matchesDistrict && matchesTransplant;
+    return matchesSearch && matchesTransplant;
   });
+
+  const baseNgosList =
+    selectedDistrict && selectedDistrict !== "all"
+      ? [...getDistrictNgos(selectedDistrict), ...ngos]
+      : ngos;
 
   const filteredSchemes = schemes.filter((s) => {
     return (
@@ -145,9 +164,10 @@ export function ResourcesDirectoryPage() {
     );
   });
 
-  const filteredNGOs = ngos.filter((n) => {
+  const filteredNGOs = baseNgosList.filter((n) => {
     return (
       n.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (n.serviceType && n.serviceType.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (n.focusArea && n.focusArea.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   });
@@ -240,13 +260,21 @@ export function ResourcesDirectoryPage() {
             <div className="sm:col-span-4">
               <select
                 value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-100 dark:focus:ring-teal-950 focus:outline-none"
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setSelectedDistrict(val);
+                  if (val !== "all") {
+                    changeDistrict(val);
+                  }
+                }}
+                className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-100 dark:focus:ring-teal-950 focus:outline-none"
               >
-                <option value="all">All Districts (Maharashtra / Central)</option>
-                <option value="gadchiroli">Gadchiroli District</option>
-                <option value="chandrapur">Chandrapur District</option>
-                <option value="nagpur">Nagpur District</option>
+                <option value="all">🌐 All Maharashtra Districts ({hospitals.length} Facilities)</option>
+                {allDistricts.map((d) => (
+                  <option key={d.id} value={d.name}>
+                    📍 {d.name} ({d.marathiName}) — {d.region}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

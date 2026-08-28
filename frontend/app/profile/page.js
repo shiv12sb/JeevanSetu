@@ -13,6 +13,7 @@ import { Alert } from "@/components/ui/Alert";
 import { Modal } from "@/components/ui/Modal";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
 import { AuthGuard } from "@/components/shared/AuthGuard";
 import { ROLE_LABELS, USER_ROLES } from "@/lib/constants";
 import {
@@ -32,12 +33,14 @@ import {
   ArrowRight,
   Sparkles,
   ExternalLink,
+  Navigation,
 } from "lucide-react";
 
 export function ProfilePage() {
   const router = useRouter();
   const { t } = useLanguage();
   const { user, isAuthenticated, updateProfile, logout } = useAuth();
+  const { changeDistrict, allDistricts, autoDetectGps, isDetectingGps } = useLocation();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -96,6 +99,9 @@ export function ProfilePage() {
     setSaveError("");
     try {
       await updateProfile(formData);
+      if (formData.district) {
+        changeDistrict(formData.district);
+      }
       setIsSaving(false);
       setSaveSuccess(true);
       setTimeout(() => setSaveSuccess(false), 4000);
@@ -319,32 +325,62 @@ export function ProfilePage() {
               </div>
             </CardHeader>
             <CardContent className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <Input
-                label="Village / Ward"
-                value={formData.village}
-                onChange={(e) => handleChange("village", e.target.value)}
-              />
+              <div className="space-y-1.5 sm:col-span-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {t("districtLabel", "District (Maharashtra)")}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={autoDetectGps}
+                    disabled={isDetectingGps}
+                    className="text-[11px] text-teal-600 dark:text-teal-400 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+                  >
+                    <Navigation className={`w-3 h-3 ${isDetectingGps ? "animate-spin" : ""}`} />
+                    <span>{isDetectingGps ? "Detecting..." : "Auto-Detect GPS"}</span>
+                  </button>
+                </div>
+                <select
+                  value={formData.district}
+                  onChange={(e) => {
+                    handleChange("district", e.target.value);
+                    changeDistrict(e.target.value);
+                  }}
+                  className="w-full px-3 py-2 text-xs bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-lg border border-slate-300 dark:border-slate-700 font-semibold focus:outline-hidden focus:ring-2 focus:ring-teal-500"
+                >
+                  {allDistricts.map((d) => (
+                    <option key={d.id} value={d.name}>
+                      {d.name} ({d.marathiName}) — {d.region}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <Input
                 label="Taluka / Block"
                 value={formData.taluka}
                 onChange={(e) => handleChange("taluka", e.target.value)}
               />
+
               <Input
-                label={t("districtLabel", "District")}
-                value={formData.district}
-                onChange={(e) => handleChange("district", e.target.value)}
+                label="Village / Ward"
+                value={formData.village}
+                onChange={(e) => handleChange("village", e.target.value)}
               />
+
               <Input
                 label={t("stateLabel", "State")}
                 value={formData.state}
                 onChange={(e) => handleChange("state", e.target.value)}
               />
+
               <Input
                 label="Assigned Primary Health Centre (PHC)"
                 value={formData.primaryPhc}
                 onChange={(e) => handleChange("primaryPhc", e.target.value)}
-                className="sm:col-span-2"
+                placeholder="e.g. Kuhi PHC / Ashti PHC"
               />
+
               <Input
                 label={t("emergencyContact", "Emergency Contact (Name & Phone)")}
                 value={formData.emergencyContact}

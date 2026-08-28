@@ -15,6 +15,8 @@ import { StatusTimeline } from "@/components/shared/StatusTimeline";
 import { mockReferrals, mockHospitals } from "@/lib/mockData";
 import { referralsApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
+import { LocationSelector } from "@/components/shared/LocationSelector";
 import { AuthGuard } from "@/components/shared/AuthGuard";
 import {
   GitPullRequest,
@@ -33,6 +35,7 @@ import {
   Calendar,
   CheckCheck,
   TrendingUp,
+  MapPin,
 } from "lucide-react";
 
 const CLOSED_LOOP_STAGES = [
@@ -50,8 +53,10 @@ const CLOSED_LOOP_STAGES = [
 
 export function ReferralsPage() {
   const { user } = useAuth();
+  const { selectedDistrict, currentDistrictObj, getFilteredFacilities } = useLocation();
   const [activeMainTab, setActiveMainTab] = useState("referrals");
   const [referrals, setReferrals] = useState(mockReferrals);
+  const [selectedHospitalId, setSelectedHospitalId] = useState("");
   const [followUps, setFollowUps] = useState([]);
   const [analytics, setAnalytics] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -275,16 +280,17 @@ export function ReferralsPage() {
           {/* Header Title */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
               <Badge variant="teal" size="sm" className="font-bold">
                 Closed-Loop Care Coordination
               </Badge>
-              <Badge variant="default" size="sm">
-                10-Step Lifecycle Tracking
-              </Badge>
+              <span className="text-xs bg-slate-100 dark:bg-slate-800 text-teal-800 dark:text-teal-300 font-bold px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-teal-600" />
+                <span>Active District: {selectedDistrict} ({currentDistrictObj?.marathiName || ""})</span>
+              </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Patient Referral Intelligence & Closed-Loop Care
+              Patient Referral Intelligence & Closed-Loop Care — {selectedDistrict}
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
               Track referrals seamlessly from PHC creation through transport, hospital triage, specialist treatment, and post-discharge follow-up.
@@ -292,6 +298,7 @@ export function ReferralsPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            <LocationSelector />
             <Button
               size="md"
               variant="outline"
@@ -536,10 +543,24 @@ export function ReferralsPage() {
         >
           <form onSubmit={handleCreateReferral} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Destination Hospital *</label>
-              <Select value="hosp-1" onChange={() => {}}>
-                <option value="hosp-1">District Civil Hospital Gadchiroli</option>
-                <option value="hosp-2">Sub-District Hospital Aheri</option>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Destination Hospital ({selectedDistrict}) *
+                </label>
+                <span className="text-[10px] text-teal-600 font-semibold">
+                  {getFilteredFacilities().length} Verified Facilities Available
+                </span>
+              </div>
+              <Select
+                value={selectedHospitalId || getFilteredFacilities()[0]?.id || "hosp-ngp-001"}
+                onChange={(e) => setSelectedHospitalId(e.target.value)}
+                className="text-xs font-semibold"
+              >
+                {getFilteredFacilities().map((h) => (
+                  <option key={h.id} value={h.id}>
+                    {h.name} ({h.careLevel?.toUpperCase()}) — {h.district}
+                  </option>
+                ))}
               </Select>
             </div>
             <div>

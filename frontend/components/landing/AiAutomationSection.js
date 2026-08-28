@@ -1,53 +1,112 @@
+"use client";
+
 import React from "react";
-import { Sparkles, ShieldAlert, Cpu, Bell, CheckCircle2, Lock } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+
+const AI_AUTOMATION_CONTENT = {
+  en: {
+    badge: "Responsible AI & Automation",
+    title: "How JeevanSetu uses AI with strict safety guardrails",
+    subtitle: "AI is deployed as a coordination assistant, never as an ungrounded medical diagnostic authority.",
+    points: [
+      {
+        title: "Grounded Context Retrieval",
+        desc: "AI models never hallucinate hospital names or government aid numbers. Recommendations are strictly retrieved from verified registry records via secure backend filtering.",
+      },
+      {
+        title: "Structured Outputs & Validation",
+        desc: "All AI responses are schema-validated with explicit confidence scores, matched reasons, and actionable next steps before display.",
+      },
+      {
+        title: "Deterministic Stock Prediction",
+        desc: "Medicine depletion warnings start with deterministic formula (Current Stock ÷ Average Daily Usage) to guarantee 100% transparency without black-box bias.",
+      },
+      {
+        title: "Automated Escalation Workflows",
+        desc: "Integrated background notifications (SMS, WhatsApp, and n8n webhooks) trigger alerts for low stock thresholds and pending referral acknowledgments.",
+      },
+    ],
+  },
+  hi: {
+    badge: "जिम्मेदार एआई एवं स्वचालन",
+    title: "जीवनसेतु कैसे सख्त सुरक्षा नियमों के साथ एआई का उपयोग करता है",
+    subtitle: "एआई को केवल समन्वय और सूचना सहायक के रूप में उपयोग किया जाता है, कभी भी डॉक्टरी नुस्खे या निदान के विकल्प के रूप में नहीं।",
+    points: [
+      {
+        title: "सत्यापित डेटा पर आधारित खोज",
+        desc: "एआई मॉडल कभी भी मनगढ़ंत अस्पताल या योजनाएं नहीं बताता। सभी सुझाव केवल सत्यापित सरकारी स्वास्थ्य डायरेक्टरी से आते हैं।",
+      },
+      {
+        title: "सत्यापित एवं सुरक्षित परिणाम",
+        desc: "सभी एआई उत्तरों का डेटाबेस सत्यापन, स्पष्ट कारण और अगले आवश्यक कदमों के साथ पारदर्शी प्रदर्शन किया जाता है।",
+      },
+      {
+        title: "पारदर्शी दवा स्टॉक भविष्यवाणी",
+        desc: "दवा खत्म होने की चेतावनी गणितीय सूत्र (वर्तमान स्टॉक ÷ दैनिक औसत खपत) द्वारा पारदर्शी रूप से तय होती है।",
+      },
+      {
+        title: "स्वचालित अलर्ट एवं फॉलो-अप",
+        desc: "कम स्टॉक या लंबित रेफरल पर तुरंत संबंधित नोडल अधिकारी को एसएमएस व स्वचालित चेतावनी भेजी जाती है।",
+      },
+    ],
+  },
+  mr: {
+    badge: "जबाबदार एआय व ऑटोमेशन",
+    title: "जीवनसेतू सुरक्षित नियमावलीसह एआयचा कसा वापर करतो",
+    subtitle: "एआयचा वापर केवळ समन्वय व मार्गदर्शक सहाय्यक म्हणून केला जातो, थेट वैद्यकीय उपचारासाठी नाही.",
+    points: [
+      {
+        title: "प्रमाणित माहितीवर आधारित शोध",
+        desc: "एआय कोणतीही चुकीची रुग्णालये किंवा योजनांची माहिती देत नाही. सर्व शिफारसी केवळ शासकीय प्रमाणित नोंदवहीतूनच येतात.",
+      },
+      {
+        title: "संरचित व सुरक्षित निष्कर्ष",
+        desc: "सर्व एआय शिफारसी तपासल्या जातात आणि रुग्णाला स्पष्ट कारणे व पुढील पायऱ्या सोप्या भाषेत दाखवल्या जातात.",
+      },
+      {
+        title: "पारदर्शक औषध साठा अंदाज",
+        desc: "औषध संपण्याची पूर्व-सूचना पारदर्शक गणितावर (सध्याचा साठा ÷ दैनिक सरासरी वापर) आधारित असते.",
+      },
+      {
+        title: "स्वयंचलित पाठपुरावा व अलर्ट",
+        desc: "औषधांचा तुटवडा किंवा प्रलंबित संदर्भ असल्यास संबंधित अधिकाऱ्यांना तात्काळ एसएमएस व सूचना पाठवल्या जातात.",
+      },
+    ],
+  },
+};
 
 export function AiAutomationSection() {
-  const points = [
-    {
-      title: "Grounded Context Retrieval",
-      desc: "AI models never hallucinate hospital names or government aid numbers. Recommendations are strictly retrieved from verified registry records via secure backend filtering.",
-    },
-    {
-      title: "Structured Outputs & Validation",
-      desc: "All AI responses are schema-validated with explicit confidence scores, matched reasons, and actionable next steps before display.",
-    },
-    {
-      title: "Deterministic Stock Prediction",
-      desc: "Medicine depletion warnings start with deterministic formula (Current Stock ÷ Average Daily Usage) to guarantee 100% transparency without black-box bias.",
-    },
-    {
-      title: "Automated Escalation Workflows",
-      desc: "Integrated background notifications (SMS, WhatsApp, and n8n webhooks) trigger alerts for low stock thresholds and pending referral acknowledgments.",
-    },
-  ];
+  const { language } = useLanguage();
+  const txt = AI_AUTOMATION_CONTENT[language] || AI_AUTOMATION_CONTENT.en;
 
   return (
-    <section className="py-16 bg-slate-50 border-b border-slate-200">
+    <section className="py-16 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-100/70 px-3 py-1 rounded-full border border-sky-200">
-            Responsible AI & Automation
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-700 dark:text-sky-300 bg-sky-100/70 dark:bg-sky-950/70 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">
+            {txt.badge}
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            How JeevanSetu uses AI with strict safety guardrails
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            {txt.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            AI is deployed as a coordination assistant, never as an ungrounded medical diagnostic authority.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            {txt.subtitle}
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {points.map((pt, idx) => (
+          {txt.points.map((pt, idx) => (
             <div
               key={idx}
-              className="p-6 bg-white rounded-2xl border border-slate-200 shadow-xs flex items-start gap-4 hover:border-teal-300 transition-all"
+              className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex items-start gap-4 hover:border-teal-300 dark:hover:border-teal-600 transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 border border-sky-100">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 flex items-center justify-center shrink-0 border border-sky-100 dark:border-sky-800">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-slate-900">{pt.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{pt.desc}</p>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white">{pt.title}</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{pt.desc}</p>
               </div>
             </div>
           ))}
@@ -56,3 +115,5 @@ export function AiAutomationSection() {
     </section>
   );
 }
+
+export default AiAutomationSection;

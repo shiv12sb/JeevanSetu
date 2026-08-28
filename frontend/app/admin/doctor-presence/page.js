@@ -11,6 +11,8 @@ import { DashboardMetricCard } from "@/components/domain/DashboardMetricCard";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/Table";
 import { doctorPresenceApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
+import { LocationSelector } from "@/components/shared/LocationSelector";
 import {
   Stethoscope,
   Users,
@@ -31,11 +33,13 @@ import {
   HelpCircle,
   FileText,
   Calendar,
+  MapPin,
 } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
 export default function DoctorPresenceAdminPage() {
   const { user } = useAuth();
+  const { selectedDistrict, currentDistrictObj } = useLocation();
   const [summary, setSummary] = useState(null);
   const [sessions, setSessions] = useState([]);
   const [schedules, setSchedules] = useState([]);
@@ -159,21 +163,25 @@ export default function DoctorPresenceAdminPage() {
       <div className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <Badge variant="primary" className="text-xs uppercase tracking-wider">
                 Phase 25 Intelligence
               </Badge>
-              <span className="text-xs text-slate-500">Non-Disciplinary Operational Signal Layer</span>
+              <span className="text-xs bg-slate-100 dark:bg-slate-800 text-teal-800 dark:text-teal-300 font-bold px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 flex items-center gap-1">
+                <MapPin className="w-3 h-3 text-teal-600" />
+                <span>Active District: {selectedDistrict} ({currentDistrictObj?.marathiName || ""})</span>
+              </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-1 flex items-center gap-2">
               <Stethoscope className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
-              Doctor Presence & Service Availability Intelligence
+              Doctor Presence & Service Availability — {selectedDistrict} Cluster
             </h1>
             <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-              Deterministic operational consistency monitoring between scheduled duties, check-ins, and recorded patient encounters.
+              Deterministic operational consistency monitoring between scheduled duties, check-ins, and recorded patient encounters across {selectedDistrict} health centres.
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <LocationSelector />
             <Button variant="outline" size="sm" onClick={loadData} disabled={isLoading} className="gap-2">
               <RefreshCw className={`w-4 h-4 ${isLoading ? "animate-spin" : ""}`} />
               Refresh Data

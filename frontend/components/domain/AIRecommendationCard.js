@@ -1,11 +1,46 @@
+"use client";
+
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Alert } from "@/components/ui/Alert";
 import { Sparkles, Building2, Shield, HeartHandshake, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
+
+const AI_CARD_TEXTS = {
+  en: {
+    title: "AI Resource Recommendation",
+    sub: "Grounded in verified healthcare registry data",
+    verifiedMatch: "Verified Match",
+    context: "Identified Healthcare Need Context:",
+    supportOptions: "Verified Support Options:",
+    nextActions: "Recommended Next Actions:",
+    inspect: "Inspect",
+  },
+  hi: {
+    title: "एआई संसाधन सिफारिश",
+    sub: "सत्यापित सार्वजनिक स्वास्थ्य रजिस्ट्री डेटा पर आधारित",
+    verifiedMatch: "सत्यापित मिलान",
+    context: "पहचाना गया स्वास्थ्य संदर्भ:",
+    supportOptions: "सत्यापित सहायता विकल्प:",
+    nextActions: "अनुशंसित अगले कदम:",
+    inspect: "देखें",
+  },
+  mr: {
+    title: "एआय संसाधन शिफारस",
+    sub: "प्रमाणित सार्वजनिक आरोग्य नोंदणी डेटावर आधारित",
+    verifiedMatch: "प्रमाणित जुळणी",
+    context: "ओळखलेली आरोग्य गरज:",
+    supportOptions: "सत्यापित मदत पर्याय:",
+    nextActions: "पुढील शिफारस केलेल्या कृती:",
+    inspect: "पहा",
+  },
+};
 
 export function AIRecommendationCard({ recommendation, onExploreResource, className = "" }) {
+  const { language } = useLanguage();
+  const txt = AI_CARD_TEXTS[language] || AI_CARD_TEXTS.en;
+
   if (!recommendation) return null;
 
   const iconMap = {
@@ -24,15 +59,15 @@ export function AIRecommendationCard({ recommendation, onExploreResource, classN
             </div>
             <div>
               <CardTitle className="text-sm text-teal-950 dark:text-teal-200 font-bold">
-                AI Resource Recommendation
+                {txt.title}
               </CardTitle>
               <p className="text-[11px] text-teal-700/80 dark:text-teal-400">
-                Grounded in verified healthcare registry data
+                {txt.sub}
               </p>
             </div>
           </div>
           <Badge variant="teal" size="sm" dot>
-            Verified Match
+            {txt.verifiedMatch}
           </Badge>
         </div>
       </CardHeader>
@@ -40,14 +75,14 @@ export function AIRecommendationCard({ recommendation, onExploreResource, classN
       <CardContent className="p-5 space-y-4">
         {/* Patient Need Grounding */}
         <div className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200/80 dark:border-slate-700 text-xs">
-          <span className="font-semibold text-slate-700 dark:text-slate-300 block mb-0.5">Identified Healthcare Need Context:</span>
+          <span className="font-semibold text-slate-700 dark:text-slate-300 block mb-0.5">{txt.context}</span>
           <p className="text-slate-600 dark:text-slate-400 italic">"{recommendation.patientNeedSummary}"</p>
         </div>
 
         {/* Recommended Matches List */}
         <div className="space-y-3">
           <h5 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-            Verified Support Options:
+            {txt.supportOptions}
           </h5>
 
           {recommendation.recommendations?.map((item, idx) => {
@@ -79,7 +114,7 @@ export function AIRecommendationCard({ recommendation, onExploreResource, classN
                     className="text-xs h-7 text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 self-end sm:self-center shrink-0 gap-1"
                     onClick={() => onExploreResource(item.resourceId)}
                   >
-                    <span>Inspect</span>
+                    <span>{txt.inspect}</span>
                     <ArrowRight className="w-3 h-3" />
                   </Button>
                 )}
@@ -92,7 +127,7 @@ export function AIRecommendationCard({ recommendation, onExploreResource, classN
         {recommendation.nextSteps && (
           <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
             <h6 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-              Recommended Next Actions:
+              {txt.nextActions}
             </h6>
             <ul className="space-y-1">
               {recommendation.nextSteps.map((step, idx) => (
@@ -106,13 +141,9 @@ export function AIRecommendationCard({ recommendation, onExploreResource, classN
             </ul>
           </div>
         )}
-
-        {/* Safety Boundary Banner */}
-        <Alert variant="safety" className="text-xs py-2.5">
-          {recommendation.safetyCaution ||
-            "JeevanSetu AI provides grounded healthcare coordination assistance only. It is not a diagnostic or prescribing authority."}
-        </Alert>
       </CardContent>
     </Card>
   );
 }
+
+export default AIRecommendationCard;

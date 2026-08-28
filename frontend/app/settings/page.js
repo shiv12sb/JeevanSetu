@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
@@ -10,6 +11,7 @@ import { Alert } from "@/components/ui/Alert";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
 import {
   Settings,
   Moon,
@@ -21,12 +23,29 @@ import {
   Download,
   Trash2,
   CheckCircle2,
+  MapPin,
+  Navigation,
+  Building2,
+  ExternalLink,
+  Search,
+  Sparkles,
 } from "lucide-react";
 
 export function SettingsPage() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, setTheme } = useTheme();
   const { user } = useAuth();
+  const {
+    selectedDistrict,
+    changeDistrict,
+    autoDetectGps,
+    isDetectingGps,
+    allDistricts,
+    currentDistrictObj,
+    getFilteredFacilities,
+  } = useLocation();
+
+  const activeDistrictFacilities = getFilteredFacilities();
 
   // Settings State with localStorage persistence
   const [settings, setSettings] = useState({
@@ -118,6 +137,155 @@ export function SettingsPage() {
             </div>
           </Alert>
         )}
+
+        {/* 0. Location & District Management (Real-World Dynamic Location Switching) */}
+        <Card className="shadow-xs border-teal-200 dark:border-teal-900 bg-white dark:bg-slate-900 overflow-hidden">
+          <CardHeader className="bg-teal-50/70 dark:bg-teal-950/40 border-b border-teal-100 dark:border-teal-900/60 p-5">
+            <div className="flex items-center justify-between gap-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                <div>
+                  <CardTitle className="text-base font-bold text-slate-900 dark:text-white">
+                    District & Healthcare Location Settings
+                  </CardTitle>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Switch your district to filter real-time hospitals, doctors on duty, and medicine inventory.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs bg-teal-100 dark:bg-teal-900/80 text-teal-900 dark:text-teal-200 font-bold px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-teal-500 animate-ping" />
+                  Active: {selectedDistrict} ({currentDistrictObj?.marathiName || ""})
+                </span>
+              </div>
+            </div>
+          </CardHeader>
+
+          <CardContent className="p-5 sm:p-6 space-y-5">
+            {/* Quick District Selector Buttons */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                Quick Select Primary Healthcare Hubs (Maharashtra):
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { name: "Nagpur", marathi: "नागपूर", badge: "Vidarbha Hub (GMC & Mayo)" },
+                  { name: "Gadchiroli", marathi: "गडचिरोली", badge: "Tribal District" },
+                  { name: "Chandrapur", marathi: "चंद्रपूर", badge: "GMC & Ballarpur" },
+                  { name: "Amravati", marathi: "अमरावती", badge: "Melghat Tribal Belt" },
+                  { name: "Pune", marathi: "पुणे", badge: "Sassoon & BJMC" },
+                  { name: "Mumbai City", marathi: "मुंबई", badge: "KEM & Apex Care" },
+                  { name: "Nashik", marathi: "नाशिक", badge: "Civil & Tribal SDH" },
+                  { name: "Chhatrapati Sambhaji Nagar", marathi: "संभाजीनगर", badge: "GMC Ghati" },
+                ].map((dist) => {
+                  const isSelected = selectedDistrict.toLowerCase().includes(dist.name.toLowerCase());
+                  return (
+                    <button
+                      key={dist.name}
+                      type="button"
+                      onClick={() => changeDistrict(dist.name)}
+                      className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border text-left flex flex-col gap-0.5 cursor-pointer ${
+                        isSelected
+                          ? "bg-teal-600 text-white border-teal-600 shadow-sm ring-2 ring-teal-600/30"
+                          : "bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700"
+                      }`}
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <span>{dist.name}</span>
+                        <span className={isSelected ? "text-teal-200" : "text-slate-500 dark:text-slate-400"}>
+                          ({dist.marathi})
+                        </span>
+                      </div>
+                      <span className={`text-[10px] ${isSelected ? "text-teal-100" : "text-slate-400 dark:text-slate-500"}`}>
+                        {dist.badge}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Dropdown for All 36 Districts & GPS auto-detect */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div className="sm:col-span-2 space-y-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Select Any of 36 Maharashtra Districts:
+                </label>
+                <select
+                  value={selectedDistrict}
+                  onChange={(e) => changeDistrict(e.target.value)}
+                  className="w-full px-3 py-2 text-xs bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-lg border border-slate-300 dark:border-slate-700 font-semibold focus:outline-hidden focus:ring-2 focus:ring-teal-500"
+                >
+                  {allDistricts.map((d) => (
+                    <option key={d.id} value={d.name}>
+                      {d.name} ({d.marathiName}) — {d.region} (PIN Prefix: {d.pinPrefix})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="space-y-1.5 flex flex-col justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={autoDetectGps}
+                  disabled={isDetectingGps}
+                  className="w-full text-xs font-bold flex items-center justify-center gap-2 border-teal-300 dark:border-teal-800 text-teal-800 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/60"
+                >
+                  <Navigation className={`w-3.5 h-3.5 ${isDetectingGps ? "animate-spin" : ""}`} />
+                  {isDetectingGps ? "Detecting GPS..." : "Auto-Detect via GPS"}
+                </Button>
+              </div>
+            </div>
+
+            {/* Live Facilities Preview for Selected District */}
+            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <Building2 className="w-4 h-4 text-teal-600" />
+                  Verified Health Facilities in {selectedDistrict} ({activeDistrictFacilities.length} Facilities Active):
+                </span>
+                <Link
+                  href="/resources"
+                  className="text-[11px] text-teal-600 dark:text-teal-400 font-bold hover:underline flex items-center gap-1"
+                >
+                  <span>View All in Directory</span>
+                  <ExternalLink className="w-3 h-3" />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                {activeDistrictFacilities.slice(0, 6).map((fac) => (
+                  <div
+                    key={fac.id}
+                    className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between space-y-1.5 shadow-2xs"
+                  >
+                    <div className="space-y-0.5">
+                      <div className="flex items-start justify-between gap-1">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
+                          {fac.name}
+                        </span>
+                        <span className="text-[9px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded font-bold uppercase shrink-0">
+                          {fac.careLevel}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
+                        {fac.address}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[10px] pt-1 border-t border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-medium">
+                      <span>Beds: {fac.bedAvailability?.available || 0} Avail</span>
+                      <span className="text-teal-600 dark:text-teal-400 font-bold">● {fac.travelStatus?.doctorStatusText ? "Doctors On Duty" : "Active"}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* 1. Theme & Appearance (Light Default & Persistent Dark) */}
         <Card className="shadow-xs border-slate-200 dark:border-slate-800 dark:bg-slate-900">

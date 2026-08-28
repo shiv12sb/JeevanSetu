@@ -18,9 +18,11 @@ import {
 import { Badge } from "@/components/ui/Badge";
 import { ROLE_LABELS } from "@/lib/constants";
 import { LanguageSelector } from "@/components/shared/LanguageSelector";
+import { LocationSelector } from "@/components/shared/LocationSelector";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { notificationsApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Topbar({
   title = "Healthcare Portal",
@@ -29,6 +31,7 @@ export function Topbar({
   alertCount: propAlertCount,
 }) {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(propAlertCount !== undefined ? propAlertCount : 0);
   const [isOpen, setIsOpen] = useState(false);
@@ -137,21 +140,25 @@ export function Topbar({
           </h2>
           <div className="flex items-center gap-2">
             <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
-              JeevanSetu Rural Public Health System
+              {t("govtVerifiedStrip", "JeevanSetu Rural Public Health System")}
             </span>
             <Badge variant="teal" size="sm" className="hidden sm:inline-flex">
-              {ROLE_LABELS[currentRole] || "Verified User"}
+              {t(`role_${currentRole}`, ROLE_LABELS[currentRole] || "Verified User")}
             </Badge>
           </div>
         </div>
       </div>
 
-      {/* Right: Theme, Language, Notification badge & Quick Status */}
-      <div className="flex items-center gap-2 sm:gap-3">
+      {/* Right: Location, Language, Theme, Notification badge & Quick Status */}
+      <div className="flex items-center gap-2 sm:gap-2.5">
+        {/* Live Location / District Selector */}
+        <LocationSelector className="inline-flex" />
+
+        {/* Language Selector */}
+        <LanguageSelector className="inline-flex" />
+
         {/* Global Theme Toggle */}
         <ThemeToggle />
-
-        <LanguageSelector className="hidden sm:inline-flex" />
 
         {/* Notification Bell with Dropdown */}
         <div className="relative" ref={dropdownRef}>

@@ -1,8 +1,77 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { Heart, PhoneCall, ShieldCheck, AlertCircle, Info, ExternalLink } from "lucide-react";
+import { PhoneCall, ShieldCheck, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+
+const FOOTER_CONTENT = {
+  en: {
+    safetyNotice: "JeevanSetu connects rural patients to verified resources. It is not a diagnostic tool or substitute for medical professionals.",
+    emergencyLabel: "National Emergency: 108",
+    tagline: "AI-powered rural healthcare access, assistance, referral coordination, and PHC service-monitoring platform.",
+    subTagline: "Designed for rural, tribal, and underserved healthcare networks across India.",
+    patientServicesTitle: "Patient Services",
+    phcAdminTitle: "PHC & Administration",
+    govtPortalsTitle: "Official Govt Portals",
+    helplinesTitle: "Emergency & Helplines",
+    natAmbulance: "National Ambulance:",
+    maternalAmbulance: "Maternal (JSSK):",
+    healthHelpline: "Health Helpline:",
+    pmjayHelpline: "Ayushman PM-JAY:",
+    organHelpline: "Organ Donation:",
+    mentalHelpline: "Tele-MANAS (Mental):",
+    copyright: "© 2026 JeevanSetu Healthcare Platform. Public Health & Digital India Initiative.",
+    pillar1: "Rural Access Focused",
+    pillar2: "100% Non-Commercial",
+    pillar3: "Public Health Stack",
+  },
+  hi: {
+    safetyNotice: "जीवनसेतु ग्रामीण मरीजों को सत्यापित स्वास्थ्य सेवाओं से जोड़ता है। यह कोई डॉक्टरी नुस्खा या निदान का विकल्प नहीं है।",
+    emergencyLabel: "राष्ट्रीय आपातकालीन: 108",
+    tagline: "एआई-संचालित ग्रामीण स्वास्थ्य पहुंच, सहायता, रेफरल समन्वय और प्राथमिक स्वास्थ्य निगरानी मंच।",
+    subTagline: "भारत के ग्रामीण, जनजातीय और दूरदराज के क्षेत्रों के लिए विशेष रूप से निर्मित।",
+    patientServicesTitle: "नागरिक एवं मरीज सेवाएं",
+    phcAdminTitle: "पीएचसी एवं प्रशासनिक नियंत्रण",
+    govtPortalsTitle: "आधिकारिक सरकारी पोर्टल",
+    helplinesTitle: "आपातकालीन नंबर एवं हेल्पलाइन",
+    natAmbulance: "राष्ट्रीय एम्बुलेंस:",
+    maternalAmbulance: "मातृ सहायता (JSSK):",
+    healthHelpline: "स्वास्थ्य परामर्श हेल्पलाइन:",
+    pmjayHelpline: "आयुष्मान भारत PM-JAY:",
+    organHelpline: "अंगदान राष्ट्रीय हेल्पलाइन:",
+    mentalHelpline: "टेली-मानस मानसिक स्वास्थ्य:",
+    copyright: "© 2026 जीवनसेतु स्वास्थ्य मंच। सार्वजनिक स्वास्थ्य एवं डिजिटल इंडिया पहल।",
+    pillar1: "ग्रामीण जन-स्वास्थ्य केंद्रित",
+    pillar2: "100% गैर-व्यावसायिक",
+    pillar3: "डिजिटल भारत स्वास्थ्य पहल",
+  },
+  mr: {
+    safetyNotice: "जीवनसेतू ग्रामीण रुग्णांना प्रमाणित आरोग्य सेवांशी जोडतो. हा कोणताही थेट वैद्यकीय उपाय किंवा डॉक्टरांचा पर्याय नाही.",
+    emergencyLabel: "राष्ट्रीय आपत्कालीन: 108",
+    tagline: "एआय-समर्थित ग्रामीण आरोग्य समन्वय, रेफरल व्यवस्थापन आणि प्राथमिक आरोग्य संनियंत्रण मंच.",
+    subTagline: "भारतातील ग्रामीण व दुर्गम भागातील आरोग्य व्यवस्थेसाठी विशेष निर्मिती.",
+    patientServicesTitle: "रुग्ण व नागरिक सेवा",
+    phcAdminTitle: "आरोग्य केंद्र व प्रशासन",
+    govtPortalsTitle: "शासकीय अधिकृत पोर्टल्स",
+    helplinesTitle: "आपत्कालीन व हेल्पलाइन क्रमांक",
+    natAmbulance: "राष्ट्रीय रुग्णवाहिका:",
+    maternalAmbulance: "माता रुग्णवाहिका (JSSK):",
+    healthHelpline: "आरोग्य हेल्पलाइन:",
+    pmjayHelpline: "आयुष्यमान PM-JAY:",
+    organHelpline: "अवयवदान हेल्पलाइन:",
+    mentalHelpline: "टेलि-मानस मानसिक आधार:",
+    copyright: "© 2026 जीवनसेतू आरोग्य मंच. सार्वजनिक आरोग्य व डिजिटल इंडिया उपक्रम.",
+    pillar1: "ग्रामीण आरोग्य केंद्रित",
+    pillar2: "१००% मोफत व सुरक्षित",
+    pillar3: "सार्वजनिक आरोग्य मंच",
+  },
+};
 
 export function Footer() {
+  const { language, t } = useLanguage();
+  const txt = FOOTER_CONTENT[language] || FOOTER_CONTENT.en;
+
   return (
     <footer className="bg-slate-900 text-slate-400 text-xs border-t border-slate-800">
       {/* Safety Notice Strip */}
@@ -11,12 +80,12 @@ export function Footer() {
           <div className="flex items-center gap-2 text-slate-300">
             <ShieldCheck className="w-4 h-4 text-teal-400 shrink-0" />
             <span>
-              <strong>Healthcare Coordination Principle:</strong> JeevanSetu connects rural patients to verified resources. It is not a diagnostic tool or substitute for medical professionals.
+              <strong>Healthcare Principle:</strong> {txt.safetyNotice}
             </span>
           </div>
           <div className="flex items-center gap-1.5 text-rose-400 shrink-0 font-semibold">
             <PhoneCall className="w-3.5 h-3.5" />
-            <a href="tel:108" className="hover:underline">National Emergency: 108</a>
+            <a href="tel:108" className="hover:underline">{txt.emergencyLabel}</a>
           </div>
         </div>
       </div>
@@ -37,52 +106,47 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              AI-powered rural healthcare access, assistance, referral coordination, and PHC service-monitoring platform.
+              {txt.tagline}
             </p>
             <p className="text-[11px] text-slate-500">
-              Designed for rural, tribal, and underserved healthcare networks across India.
+              {txt.subTagline}
             </p>
           </div>
 
           {/* Patient Portals */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider">
-              Patient Services
+              {txt.patientServicesTitle}
             </h5>
             <ul className="space-y-1.5">
               <li>
                 <Link href="/dashboard/patient" className="hover:text-teal-300 transition-colors">
-                  Patient Health Case & Dashboard
+                  {t("healthcarePortal", "Patient Dashboard")}
                 </Link>
               </li>
               <li>
                 <Link href="/resources" className="hover:text-teal-300 transition-colors">
-                  Find Verified Hospitals & Clinics
+                  {t("verifiedDirectory", "Verified Hospitals Directory")}
                 </Link>
               </li>
               <li>
                 <Link href="/referrals" className="hover:text-teal-300 transition-colors">
-                  Track Referral Timeline
+                  {t("referralTracking", "Referral Tracking")}
                 </Link>
               </li>
               <li>
                 <Link href="/organ-donation" className="hover:text-teal-300 transition-colors">
-                  Organ & Tissue Donation Information
+                  {t("organDonation", "Organ Donation Info")}
                 </Link>
               </li>
               <li>
                 <Link href="/health-awareness" className="hover:text-teal-300 transition-colors">
-                  Health Awareness & Preventive Care
-                </Link>
-              </li>
-              <li>
-                <Link href="/call-assistance" className="hover:text-teal-300 transition-colors">
-                  Voice / IVR Call Assistance Guide
+                  {t("healthAwareness", "Health Awareness Hub")}
                 </Link>
               </li>
               <li>
                 <Link href="/feedback" className="hover:text-teal-300 transition-colors">
-                  Share Service Feedback
+                  {t("feedback", "Service Feedback")}
                 </Link>
               </li>
             </ul>
@@ -91,32 +155,27 @@ export function Footer() {
           {/* Facility & Health Administration */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider">
-              PHC & Administration
+              {txt.phcAdminTitle}
             </h5>
             <ul className="space-y-1.5">
               <li>
                 <Link href="/dashboard/phc" className="hover:text-teal-300 transition-colors">
-                  PHC Staff Portal & Daily Log
+                  {t("phcOverview", "PHC Staff Portal & Daily Log")}
                 </Link>
               </li>
               <li>
                 <Link href="/inventory" className="hover:text-teal-300 transition-colors">
-                  Medicine Inventory & Stock Prediction
+                  {t("phcInventory", "Medicine Inventory & Stock Prediction")}
                 </Link>
               </li>
               <li>
                 <Link href="/dashboard/doctor" className="hover:text-teal-300 transition-colors">
-                  Doctor Check-In & Case Queue
+                  {t("doctorPortal", "Doctor Portal & Queue")}
                 </Link>
               </li>
               <li>
                 <Link href="/dashboard/admin" className="hover:text-teal-300 transition-colors">
-                  District Health Admin Control Center
-                </Link>
-              </li>
-              <li>
-                <Link href="/dashboard/admin" className="hover:text-teal-300 transition-colors">
-                  Service Anomaly Flags & Review
+                  {t("adminControlCenter", "District Health Admin Control Center")}
                 </Link>
               </li>
             </ul>
@@ -125,7 +184,7 @@ export function Footer() {
           {/* Official Government Health Portals */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider text-teal-400">
-              Official Govt Portals
+              {txt.govtPortalsTitle}
             </h5>
             <ul className="space-y-1.5">
               <li>
@@ -163,28 +222,6 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://notto.mohfw.gov.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
-                >
-                  <span>NOTTO Organ Registry</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://eraktkosh.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
-                >
-                  <span>e-RaktKosh Blood Portal</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://www.jeevandayee.gov.in/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -194,48 +231,37 @@ export function Footer() {
                   <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://mohfw.gov.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-teal-300 transition-colors flex items-center gap-1"
-                >
-                  <span>MoHFW Central Portal</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-slate-500" />
-                </a>
-              </li>
             </ul>
           </div>
 
           {/* Help & Emergency */}
           <div className="space-y-2.5">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider">
-              Emergency & Helplines
+              {txt.helplinesTitle}
             </h5>
             <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">National Ambulance:</span>
+                <span className="text-slate-300">{txt.natAmbulance}</span>
                 <a href="tel:108" className="text-rose-400 hover:text-rose-300 font-bold font-mono">108</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Maternal (JSSK):</span>
+                <span className="text-slate-300">{txt.maternalAmbulance}</span>
                 <a href="tel:102" className="text-teal-400 hover:text-teal-300 font-bold font-mono">102</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">National Health Helpline:</span>
+                <span className="text-slate-300">{txt.healthHelpline}</span>
                 <a href="tel:104" className="text-teal-400 hover:text-teal-300 font-bold font-mono">104</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Ayushman PM-JAY:</span>
+                <span className="text-slate-300">{txt.pmjayHelpline}</span>
                 <a href="tel:14555" className="text-amber-300 hover:text-amber-200 font-bold font-mono">14555</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Organ Donation:</span>
+                <span className="text-slate-300">{txt.organHelpline}</span>
                 <a href="tel:1800114477" className="text-teal-300 hover:text-teal-200 font-bold font-mono">1800-11-4477</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-300">Tele-MANAS (Mental):</span>
+                <span className="text-slate-300">{txt.mentalHelpline}</span>
                 <a href="tel:14416" className="text-white hover:text-teal-300 font-bold font-mono">14416</a>
               </div>
             </div>
@@ -244,13 +270,13 @@ export function Footer() {
 
         {/* Bottom copyright */}
         <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <p>© 2026 JeevanSetu Healthcare Platform. Public Health & Digital India Initiative.</p>
+          <p>{txt.copyright}</p>
           <div className="flex items-center gap-4">
-            <span className="text-slate-400">Rural Access Focused</span>
+            <span className="text-slate-400">{txt.pillar1}</span>
             <span>•</span>
-            <span className="text-slate-400">Zero Commercial Ads</span>
+            <span className="text-slate-400">{txt.pillar2}</span>
             <span>•</span>
-            <span className="text-slate-400">Open Public Health Stack</span>
+            <span className="text-slate-400">{txt.pillar3}</span>
           </div>
         </div>
       </div>
@@ -259,4 +285,3 @@ export function Footer() {
 }
 
 export default Footer;
-

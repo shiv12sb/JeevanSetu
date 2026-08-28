@@ -6,8 +6,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { LanguageSelector } from "@/components/shared/LanguageSelector";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { LocationSelector } from "@/components/shared/LocationSelector";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
+import { useLocation } from "@/context/LocationContext";
 import {
   Heart,
   Menu,
@@ -42,6 +44,7 @@ export function Navbar() {
   const router = useRouter();
   const { t } = useLanguage();
   const { user, isAuthenticated, logout } = useAuth();
+  const { locationToast, selectedDistrict } = useLocation();
 
   const primaryNavLinks = [
     { href: "/", label: t("home", "Home") },
@@ -123,10 +126,9 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <span className="hidden lg:inline text-[11px] text-teal-300/90 font-medium">
-              {t("govtVerifiedStrip", "Government Verified Schemes & Public Health Platform")}
-            </span>
-            
+            {/* Live Location / District Switcher */}
+            <LocationSelector isDark />
+
             {/* Theme Toggle in Header Bar */}
             <ThemeToggle isDarkVariant />
 
@@ -135,6 +137,13 @@ export function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Floating Location Toast Alert */}
+      {locationToast && (
+        <div className="bg-teal-600 text-white text-xs font-bold py-1 px-4 text-center animate-in slide-in-from-top-2 duration-200 border-b border-teal-700 shadow-sm flex items-center justify-center gap-2">
+          <span>{locationToast}</span>
+        </div>
+      )}
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -358,12 +367,18 @@ export function Navbar() {
             </div>
           )}
 
-          {/* Mobile Language & Theme Controls */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Display / भाषा:</span>
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <LanguageSelector variant="pills" />
+          {/* Mobile Location, Language & Theme Controls */}
+          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">📍 Active Location:</span>
+              <LocationSelector />
+            </div>
+            <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Display / भाषा:</span>
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <LanguageSelector variant="pills" />
+              </div>
             </div>
           </div>
 
