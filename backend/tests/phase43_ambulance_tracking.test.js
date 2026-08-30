@@ -9,6 +9,7 @@
 const assert = require("assert");
 const ambulanceService = require("../src/services/ambulance.service");
 const {
+  AmbulanceProviderAdapter,
   BaseAmbulanceProvider,
   Maharashtra108DispatchAdapter,
   MockAmbulanceProvider,
@@ -36,13 +37,18 @@ async function runTest(name, fn) {
 async function runAllTests() {
   console.log("--- SECTION 1: Provider Architecture & Real-Data Invariants ---");
 
-  await runTest("1. BaseAmbulanceProvider defines required adapter methods", () => {
-    const base = new BaseAmbulanceProvider();
+  await runTest("1. AmbulanceProviderAdapter defines all 10 required adapter methods", () => {
+    const base = new AmbulanceProviderAdapter();
     assert.strictEqual(base.category, "AMBULANCE");
-    assert.rejects(async () => await base.searchNearby({}));
-    assert.rejects(async () => await base.requestDispatch({}));
-    assert.rejects(async () => await base.cancelDispatch("id", "reason"));
+    assert.rejects(async () => await base.searchNearbyAmbulances({}));
+    assert.rejects(async () => await base.getAmbulanceDetails("amb-1"));
+    assert.rejects(async () => await base.getAvailability({}));
+    assert.rejects(async () => await base.requestAmbulance({}));
+    assert.rejects(async () => await base.cancelRequest("id", "reason"));
+    assert.rejects(async () => await base.getBookingStatus("id"));
+    assert.rejects(async () => await base.getAssignedCrew("trip-1"));
     assert.rejects(async () => await base.getLiveLocation("trip-1"));
+    assert.rejects(async () => await base.getETA({}, {}, "amb-1"));
     assert.rejects(async () => await base.getFareEstimate({}));
   });
 
@@ -59,11 +65,11 @@ async function runAllTests() {
     const mock = new MockAmbulanceProvider();
 
     await assert.rejects(
-      async () => await mock.searchNearby({}),
+      async () => await mock.searchNearbyAmbulances({}),
       /Development simulation is strictly disabled in production/
     );
     await assert.rejects(
-      async () => await mock.requestDispatch({}),
+      async () => await mock.requestAmbulance({}),
       /Development simulation is strictly disabled in production/
     );
     await assert.rejects(
@@ -184,6 +190,18 @@ async function runAllTests() {
     const fare = await ambulanceService.getFareEstimate({ type: "PATIENT_TRANSPORT" });
     assert.strictEqual(fare.isFreeGovtService, false);
     assert.ok(fare.fareNote.includes("MJPJAY") || fare.fareNote.includes("PM-JAY"));
+  });
+
+  await runTest("13. Trip completion marks status as COMPLETED", async () => {
+    const res = await ambulanceService.completeTrip("trip-123", { destinationHospital: "GMC Nagpur" });
+    assert.strictEqual(res.status, "COMPLETED");
+    assert.ok(res.completedAt);
+  });
+
+  await runTest("14. Assigned crew profile returns masked contact and role", async () => {
+    const crew = await ambulanceService.getTripCrew("trip-123");
+    assert.ok(crew.crewRole);
+    assert.strictEqual(crew.maskedContact, "108");
   });
 
   console.log("\n=======================================================");

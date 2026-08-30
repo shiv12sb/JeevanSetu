@@ -712,6 +712,7 @@ export const ambulanceApi = {
     const query = new URLSearchParams(params).toString();
     return request(`/ambulances/nearby${query ? `?${query}` : ""}`);
   },
+  getDetails: (id) => request(`/ambulances/details/${id}`),
   getFareEstimate: (params = {}) => {
     const query = new URLSearchParams(params).toString();
     return request(`/ambulances/fare-estimate${query ? `?${query}` : ""}`);
@@ -721,12 +722,19 @@ export const ambulanceApi = {
       method: "POST",
       body: JSON.stringify(requestData),
     }),
+  getRequestStatus: (requestId) => request(`/ambulances/requests/${requestId}`),
   cancelRequest: (requestId, reason) =>
     request(`/ambulances/requests/${requestId}/cancel`, {
       method: "POST",
       body: JSON.stringify({ reason }),
     }),
+  getCrew: (tripId) => request(`/ambulances/trips/${tripId}/crew`),
   getTripLocation: (tripId) => request(`/ambulances/trips/${tripId}/location`),
+  completeTrip: (tripId, data = {}) =>
+    request(`/ambulances/trips/${tripId}/complete`, {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
 };
 
 export default {

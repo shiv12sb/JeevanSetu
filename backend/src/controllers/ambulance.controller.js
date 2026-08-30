@@ -20,6 +20,19 @@ const getNearbyAmbulances = async (req, res, next) => {
   }
 };
 
+const getAmbulanceDetails = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await ambulanceService.getAmbulanceDetails(id);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 const createAmbulanceRequest = async (req, res, next) => {
   try {
     const patientId = req.user?.id || null;
@@ -43,6 +56,32 @@ const cancelAmbulanceRequest = async (req, res, next) => {
     return sendSuccess(res, {
       statusCode: 200,
       message: "Ambulance request cancelled",
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getRequestStatus = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await ambulanceService.getRequestStatus(id);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getTripCrew = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await ambulanceService.getTripCrew(id);
+    return sendSuccess(res, {
+      statusCode: 200,
       data: result,
     });
   } catch (err) {
@@ -75,10 +114,59 @@ const getFareEstimate = async (req, res, next) => {
   }
 };
 
+const completeTrip = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await ambulanceService.completeTrip(id, req.body);
+    return sendSuccess(res, {
+      statusCode: 200,
+      message: "Trip completed",
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
+ * Server-Sent Events (SSE) stream endpoint for live telematics
+ */
+const streamTripLocation = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    res.writeHead(200, {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    });
+
+    const sendPing = async () => {
+      const loc = await ambulanceService.getTripLocation(id);
+      res.write(`data: ${JSON.stringify(loc)}\n\n`);
+    };
+
+    await sendPing();
+    const interval = setInterval(sendPing, 4000);
+
+    req.on("close", () => {
+      clearInterval(interval);
+      res.end();
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getNearbyAmbulances,
+  getAmbulanceDetails,
   createAmbulanceRequest,
   cancelAmbulanceRequest,
+  getRequestStatus,
+  getTripCrew,
   getTripLocation,
   getFareEstimate,
+  completeTrip,
+  streamTripLocation,
 };

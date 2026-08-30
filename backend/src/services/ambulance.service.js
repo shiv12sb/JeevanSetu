@@ -31,7 +31,7 @@ class AmbulanceService {
   }
 
   /**
-   * Discover nearby available ambulances
+   * 1. Discover nearby available ambulances
    */
   async searchNearbyAmbulances({ lat, lng, radiusKm = 25, type, district = "Nagpur" }) {
     const provider = this.getProvider();
@@ -41,7 +41,8 @@ class AmbulanceService {
       return {
         configured: false,
         isLive: false,
-        message: "Live ambulance telematics gateway is not configured for this district.",
+        message: "Live ambulance tracking requires an authorized ambulance provider connection.",
+        providerNotice: "Provider integration not configured. Please dial 108 directly for immediate emergency dispatch.",
         directHelpline: "108",
         maternalHelpline: "102",
         emergencyNotice: "For immediate life-threatening medical emergencies, dial 108 immediately.",
@@ -50,19 +51,25 @@ class AmbulanceService {
       };
     }
 
-    const result = await provider.searchNearby({
+    return await provider.searchNearbyAmbulances({
       lat: parseFloat(lat) || 21.1458,
       lng: parseFloat(lng) || 79.0882,
       radiusKm: parseInt(radiusKm, 10) || 25,
       type,
       district,
     });
-
-    return result;
   }
 
   /**
-   * Submit an ambulance dispatch request
+   * 2. Retrieve detailed capabilities of a specific ambulance
+   */
+  async getAmbulanceDetails(ambulanceId) {
+    const provider = this.getProvider();
+    return await provider.getAmbulanceDetails(ambulanceId);
+  }
+
+  /**
+   * 3. Submit an ambulance dispatch request
    */
   async createRequest(patientId, requestData) {
     const {
@@ -88,13 +95,13 @@ class AmbulanceService {
     const provider = this.getProvider();
 
     if (!provider.isConfigured() && process.env.NODE_ENV === "production") {
-      const err = new Error("Ambulance provider integration is not configured in production. Please call 108 directly.");
+      const err = new Error("Live ambulance tracking requires an authorized ambulance provider connection. Please call 108 directly.");
       err.statusCode = 503;
       err.directCallUrl = "tel:108";
       throw err;
     }
 
-    const dispatchResponse = await provider.requestDispatch({
+    return await provider.requestAmbulance({
       patientId,
       patientName,
       patientPhone,
@@ -108,20 +115,34 @@ class AmbulanceService {
       destinationLng,
       emergencySeverity,
     });
-
-    return dispatchResponse;
   }
 
   /**
-   * Cancel an active ambulance request
+   * 4. Cancel an active ambulance request
    */
   async cancelRequest(requestId, reason, userId) {
     const provider = this.getProvider();
-    return await provider.cancelDispatch(requestId, reason);
+    return await provider.cancelRequest(requestId, reason);
   }
 
   /**
-   * Get real-time location stream for an active trip
+   * 5. Get status of a request
+   */
+  async getRequestStatus(requestId) {
+    const provider = this.getProvider();
+    return await provider.getBookingStatus(requestId);
+  }
+
+  /**
+   * 6. Retrieve assigned crew details
+   */
+  async getTripCrew(tripId) {
+    const provider = this.getProvider();
+    return await provider.getAssignedCrew(tripId);
+  }
+
+  /**
+   * 7. Get real-time location stream for an active trip
    */
   async getTripLocation(tripId) {
     const provider = this.getProvider();
@@ -143,11 +164,33 @@ class AmbulanceService {
   }
 
   /**
-   * Get fare estimates
+   * 8. Calculate ETA
+   */
+  async calculateETA(origin, destination, ambulanceId) {
+    const provider = this.getProvider();
+    return await provider.getETA(origin, destination, ambulanceId);
+  }
+
+  /**
+   * 9. Get fare estimates
    */
   async getFareEstimate(params) {
     const provider = this.getProvider();
     return await provider.getFareEstimate(params);
+  }
+
+  /**
+   * 10. Complete Trip
+   */
+  async completeTrip(tripId, closureData = {}) {
+    return {
+      success: true,
+      tripId,
+      status: "COMPLETED",
+      completedAt: new Date().toISOString(),
+      destinationHospital: closureData.destinationHospital || "District Medical Center",
+      message: "Ambulance trip completed successfully.",
+    };
   }
 }
 

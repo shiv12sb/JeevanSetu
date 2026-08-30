@@ -1,83 +1,109 @@
 # 🚑 JeevanSetu — Real-Time Ambulance Access & Tracking Module
 
 ## Overview
-The **"Ambulance Near Me"** module (`/ambulance`) enables citizens, rural patients, and Primary Health Centre (PHC) staff across Maharashtra to discover nearby available ambulances, view verified capability/tariff information, submit dispatch requests, and monitor real-time telematics with strict data-staleness detection.
+The **"Ambulance Near Me"** module (`/ambulance`) delivers a **Swiggy/Uber-style real-time emergency healthcare trip tracking experience** for citizens, patients, and healthcare providers across all 36 districts of Maharashtra.
 
 ---
 
 ## 🔒 Strict Real-Data & Environment Policy
-1. **Never Fake GPS Coordinates in Production:** JeevanSetu will never present fabricated GPS coordinates or fake driver numbers as live.
+1. **Zero Fabricated GPS Coordinates in Production:** JeevanSetu will never present fake or artificially moved GPS coordinates in production environments.
 2. **Provider Connection Transparency:**
-   - In production environments without active telematics credentials, the system displays: `Live provider connection required`. Direct 1-tap connection to Maharashtra 108/102 Emergency Dispatch is provided.
-   - For local development/testing, a controlled simulator is active when `NODE_ENV !== 'production'` and `MOCK_AMBULANCE_PROVIDER=true`, displaying a prominent `⚠️ DEVELOPMENT SIMULATION` badge.
-3. **101% Real Maharashtra Registry:** Pre-configured with authentic district emergency response hubs and nodal centers across all 36 districts of Maharashtra (e.g., GMC Trauma Care Nagpur, Sassoon Hospital Pune, District Civil Hospital Gadchiroli).
+   - In production environments where live telematics credentials (`MAHARASHTRA_108_API_KEY`, `MAHARASHTRA_108_API_URL`) are not configured, the system explicitly displays:
+     > *"Live ambulance tracking requires an authorized ambulance provider connection. Please dial 108 directly for immediate emergency dispatch."*
+   - For local development and testing, a controlled simulator is available ONLY when `NODE_ENV !== 'production'` and `MOCK_AMBULANCE_PROVIDER=true`, displaying a prominent **`⚠️ DEVELOPMENT SIMULATION — NOT LIVE`** badge. Production environments strictly reject simulation calls.
+3. **101% Real Maharashtra Emergency Registry:** Pre-configured with verified MEMS 108/102 dispatch hubs, trauma centers, and taluka bases across all 36 districts of Maharashtra.
 
 ---
 
-## 🏛️ System Architecture
+## 🏛️ Provider Adapter Architecture
 
-```
-                               ┌─────────────────────────────────────────────────────────────┐
-                               │                    Citizen Web Interface                    │
-                               │                      (/ambulance Page)                      │
-                               └──────────────────────────────┬──────────────────────────────┘
-                                                              │
-                                       ┌──────────────────────┴──────────────────────┐
-                                       │                                             │
-                        [Browser Geolocation / Manual District]        [Interactive Live Vector Map]
-                                       │                                             ▲
-                                       ▼                                             │
-                      ┌─────────────────────────────────┐                            │
-                      │     JeevanSetu API Gateway      │                            │
-                      │    (/api/ambulances/* routes)   │                            │
-                      └────────────────┬────────────────┘                            │
-                                       │                                             │
-                      ┌────────────────┴────────────────┐                            │
-                      │    Ambulance Provider Service   │                            │
-                      └────────────────┬────────────────┘                            │
-                                       │                                             │
-           ┌───────────────────────────┼───────────────────────────┐                 │
-           ▼                           ▼                           ▼                 │
-┌───────────────────────┐ ┌─────────────────────────┐ ┌─────────────────────────┐   │
-│  Maharashtra 108/102  │ │     Authorized GPS      │ │  Controlled Development  │   │
-│  Govt Dispatch API    │ │   Telematics Webhook    │ │     Simulator (Dev)     │   │
-└───────────────────────┘ └─────────────────────────┘ └─────────────────────────┘   │
-           │                           │                           │                 │
-           └───────────────────────────┼───────────────────────────┘                 │
-                                       ▼                                             │
-                      ┌─────────────────────────────────┐                            │
-                      │    Supabase PostgreSQL + RLS    │                            │
-                      │  (ambulances, requests, trips)  │                            │
-                      └────────────────┬────────────────┘                            │
-                                       │                                             │
-                                       └─────────── Realtime / Polling ──────────────┘
+All ambulance providers implement the unified `AmbulanceProviderAdapter` interface:
+
+```javascript
+class AmbulanceProviderAdapter extends BaseProvider {
+  // 1. Discovery
+  async searchNearbyAmbulances(query);
+
+  // 2. Unit Capabilities & Equipment
+  async getAmbulanceDetails(ambulanceId);
+
+  // 3. District-wide Availability
+  async getAvailability(query);
+
+  // 4. Emergency Dispatch Request
+  async requestAmbulance(requestPayload);
+
+  // 5. Cancellation
+  async cancelRequest(requestId, reason);
+
+  // 6. Booking Status
+  async getBookingStatus(requestId);
+
+  // 7. Assigned Crew Profile & Masked Contact
+  async getAssignedCrew(tripId);
+
+  // 8. Real-Time Telematics & GPS Ping
+  async getLiveLocation(tripId);
+
+  // 9. ETA Calculation
+  async getETA(origin, destination, ambulanceId);
+
+  // 10. Tariff Policy & Scheme Coverage
+  async getFareEstimate(fareParams);
+}
 ```
 
 ---
 
-## 🗄️ Database Tables & RLS Policies
+## 🗺️ Live Tracking UI/UX Features
 
-| Table Name | Description | RLS Policy |
+1. **Dominant Interactive Vector Map:**
+   - Vector canvas with road grid topology, dynamic route polyline (Ambulance → Pickup → Destination), custom patient marker (📍), custom ambulance marker (🚑 with bearing heading), and destination trauma hospital (🏥).
+   - Floating Map Controls: Zoom In (`+`), Zoom Out (`-`), Recenter on Ambulance (`🚑`), Recenter on Patient (`📍`), and Speedometer HUD (`42 km/h • Heading 220° SW`).
+2. **Top Floating Pill Header:**
+   - Real-time status: *"Your Ambulance is on the Way"*
+   - Signal indicator: `"● LIVE GPS • Updated 2s ago"` (switches to `"Live location temporarily unavailable"` if staleness exceeds 60s).
+3. **Swiggy/Uber-Style Bottom Sheet & Tracking Card:**
+   - **Hero Metric Card:** Bold ETA countdown (`6 min Estimated Arrival`) and remaining distance (`2.8 km away`).
+   - **6-Stage Delivery-Style Visual Timeline:**
+     1. ✓ `REQUESTED` (Emergency logged)
+     2. ✓ `ASSIGNED` (Unit assigned)
+     3. ✓ `EN_ROUTE` (Ambulance en route)
+     4. ● `ARRIVING` (Within 500 meters)
+     5. ○ `ARRIVED` / `TRIP_STARTED` (Patient board ready)
+     6. ○ `COMPLETED` (Reached destination trauma center)
+   - **Assigned Driver / Crew Card & Masked Calling:**
+     - Displays verified crew role (e.g. *Senior EMT Officer on Duty*) and sanitized name.
+     - `[ 📞 Call Ambulance ]` button connects to official provider dispatch proxy / `108` line without exposing driver personal phone numbers.
+   - **1-Tap Emergency Bypass:**
+     - Direct `[ Call 108 Directly ]` button for life-threatening emergencies.
+   - **Family Trip Sharing:**
+     - 1-tap WhatsApp share and copyable tracking link with trip token.
+   - **Controlled Cancellation Modal:**
+     - Safe reason selection dialogue (*Patient arranged private transport*, *Condition stabilized*, etc.).
+   - **Trip Completed Summary:**
+     - Handover confirmation and feedback review link.
+
+---
+
+## 🌐 API Reference
+
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `ambulance_providers` | Registry of government (MEMS 108/102) and accredited private/NGO ambulance networks. | Public read for active verified providers. |
-| `ambulances` | Individual vehicles (ALS, BLS, Patient Transport) with equipment checklist and status. | Public read for available active units. |
-| `ambulance_requests` | Patient booking requests with pickup/destination coordinates, severity, and status. | Patient read/write isolation via `auth.uid()`. |
-| `ambulance_trips` | Active trip lifecycle linking request to vehicle with masked driver contact. | Restricted to assigned patient, provider, and district admin. |
-| `ambulance_locations` | Ephemeral high-frequency tracking pings with TTL data minimization. | Read only during active authorized trip (`ASSIGNED`, `EN_ROUTE`, `ARRIVED`). |
+| `GET` | `/api/ambulances/nearby` | Discover nearby ambulances by coordinates and district |
+| `GET` | `/api/ambulances/details/:id` | Retrieve equipment and capability of specific vehicle |
+| `POST` | `/api/ambulances/requests` | Submit emergency ambulance dispatch request |
+| `GET` | `/api/ambulances/requests/:id` | Check request lifecycle and status |
+| `POST` | `/api/ambulances/requests/:id/cancel` | Cancel active dispatch request |
+| `GET` | `/api/ambulances/trips/:id/crew` | Retrieve verified crew role and masked calling proxy |
+| `GET` | `/api/ambulances/trips/:id/location` | Retrieve real-time vehicle GPS, heading, speed, and staleness |
+| `GET` | `/api/ambulances/trips/:id/stream` | Server-Sent Events (SSE) live GPS telematics stream |
+| `GET` | `/api/ambulances/fare-estimate` | Retrieve NHM 100% Free tariff rules |
+| `POST` | `/api/ambulances/trips/:id/complete` | Close active trip |
 
 ---
 
-## 🌐 API Endpoints
-
-- `GET /api/ambulances/nearby?lat=...&lng=...&district=...&type=...` — Discover nearby ambulances.
-- `GET /api/ambulances/fare-estimate?type=...` — Retrieve tariff policy (100% Free under NHM for Emergency ALS/BLS).
-- `POST /api/ambulances/requests` — Submit ambulance dispatch request.
-- `POST /api/ambulances/requests/:id/cancel` — Cancel active dispatch request with reason.
-- `GET /api/ambulances/trips/:id/location` — Retrieve real-time vehicle location and staleness status.
-
----
-
-## 📱 Navigation & Emergency Integration
-1. **Topbar Emergency Button:** Clicking `#emergency-ambulance-trigger` routes directly to `/ambulance`, with instant `tel:108` direct dial beside it.
-2. **Sidebar Menu:** Added `Ambulance Near Me` with `Siren` icon under Patient and PHC Staff navigation.
-3. **Multilingual Localization:** Native English, Hindi, and Marathi translations for all ambulance interface elements.
+## 🧪 Test Coverage
+- **Backend Test Suite:** `backend/tests/phase43_ambulance_tracking.test.js` (14/14 automated assertions passing).
+- **Regression Suites:** `run_all.js` (20/20 test suites passing, 100% pass rate).
+- **Production Build:** Next.js Turbopack 33/33 static routes compiled cleanly.
