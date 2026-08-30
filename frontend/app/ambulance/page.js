@@ -10,6 +10,7 @@ import { useLocation, MAHARASHTRA_DISTRICTS } from "@/context/LocationContext";
 import {
   MAHARASHTRA_AMBULANCE_FLEET_MASTER,
   getDistrictAmbulanceHub,
+  getDistrictAmbulanceFleet,
 } from "@/lib/maharashtraAmbulanceData";
 import { ambulanceApi } from "@/lib/api";
 import {
@@ -111,6 +112,20 @@ export default function AmbulancePage() {
     }
   }, [selectedDistrict]);
 
+  const fallbackAmbulances = useCallback(() => {
+    const districtFleet = getDistrictAmbulanceFleet(selectedDistrict);
+    let filtered = districtFleet;
+    if (selectedTypeFilter !== "ALL") {
+      filtered = districtFleet.filter((a) => a.ambulanceType === selectedTypeFilter);
+    }
+    setAmbulances(filtered);
+    setProviderStatus({
+      isConfigured: true,
+      isSimulation: true,
+      message: "Development simulation mode active",
+    });
+  }, [selectedDistrict, selectedTypeFilter]);
+
   // Fetch nearby ambulances from backend API
   const fetchNearbyAmbulances = useCallback(async () => {
     setIsLoadingAmbulances(true);
@@ -122,8 +137,8 @@ export default function AmbulancePage() {
         type: selectedTypeFilter !== "ALL" ? selectedTypeFilter : undefined,
       });
 
-      if (res && res.data) {
-        setAmbulances(res.data.ambulances || []);
+      if (res && res.data && Array.isArray(res.data.ambulances) && res.data.ambulances.length > 0) {
+        setAmbulances(res.data.ambulances);
         setProviderStatus({
           isConfigured: res.data.configured !== false,
           isSimulation: res.data.isSimulation === true,
@@ -138,25 +153,7 @@ export default function AmbulancePage() {
     } finally {
       setIsLoadingAmbulances(false);
     }
-  }, [coords.lat, coords.lng, selectedDistrict, selectedTypeFilter]);
-
-  const fallbackAmbulances = () => {
-    const districtFleet = MAHARASHTRA_AMBULANCE_FLEET_MASTER.filter(
-      (a) => a.district.toLowerCase() === (selectedDistrict || "").toLowerCase()
-    );
-    const fleetToUse = districtFleet.length > 0 ? districtFleet : MAHARASHTRA_AMBULANCE_FLEET_MASTER.slice(0, 4);
-
-    let filtered = fleetToUse;
-    if (selectedTypeFilter !== "ALL") {
-      filtered = fleetToUse.filter((a) => a.ambulanceType === selectedTypeFilter);
-    }
-    setAmbulances(filtered);
-    setProviderStatus({
-      isConfigured: true,
-      isSimulation: true,
-      message: "Development simulation mode active",
-    });
-  };
+  }, [coords.lat, coords.lng, selectedDistrict, selectedTypeFilter, fallbackAmbulances]);
 
   useEffect(() => {
     fetchNearbyAmbulances();
