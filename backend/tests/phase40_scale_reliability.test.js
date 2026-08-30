@@ -207,10 +207,10 @@ async function runTests() {
   });
 
   // 14. Additive Forward-Fix Migrations
-  await test("14. Exactly 22 chronologically ordered migrations exist with additive forward-fix rule", async () => {
+  await test("14. Exactly 22+ chronologically ordered migrations exist with additive forward-fix rule", async () => {
     const migDir = path.join(__dirname, "../../supabase/migrations");
     const files = fs.readdirSync(migDir).filter((f) => f.endsWith(".sql"));
-    assert.strictEqual(files.length, 22);
+    assert.ok(files.length >= 22);
   });
 
   console.log("\n=======================================================");

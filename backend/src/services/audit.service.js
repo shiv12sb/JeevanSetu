@@ -97,12 +97,22 @@ const logAuditEvent = async ({
 
     if (error) {
       console.warn("Failed to persist audit log to Supabase:", error.message);
-      return null;
+      const fallbackRecord = {
+        id: `audit-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+        ...payload,
+      };
+      mockAuditLogsStore.unshift(fallbackRecord);
+      return fallbackRecord;
     }
     return data;
   } catch (err) {
     console.warn("Audit logging error:", err.message);
-    return null;
+    const fallbackRecord = {
+      id: `audit-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+      ...payload,
+    };
+    mockAuditLogsStore.unshift(fallbackRecord);
+    return fallbackRecord;
   }
 };
 

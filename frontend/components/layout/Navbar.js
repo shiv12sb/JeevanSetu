@@ -114,15 +114,24 @@ export function Navbar() {
       <div className="bg-teal-950 text-teal-100 text-xs py-1.5 px-4 border-b border-teal-900">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-left">
-            <span className="bg-rose-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider shadow-xs shrink-0">
-              Emergency
-            </span>
-            <span className="hidden sm:inline font-medium text-teal-200">
-              {t("emergencyHelplineText", "National Ambulance / Health Emergency:")}
-            </span>
-            <strong className="text-white flex items-center gap-1 font-black shrink-0">
-              <PhoneCall className="w-3.5 h-3.5 text-rose-400" /> 108 / 104
-            </strong>
+            <Link
+              href="/ambulance"
+              id="emergency-ambulance-trigger"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded bg-rose-600 hover:bg-rose-700 active:scale-95 transition-all text-white font-extrabold text-xs shadow-xs border border-rose-500 cursor-pointer shrink-0"
+              title="Click to Open Ambulance Near Me & Live Emergency Dispatch"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping shrink-0" />
+              <PhoneCall className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
+              <span className="uppercase tracking-wider font-black">{t("emergencyBadge", "Emergency 108:")}</span>
+              <span className="font-semibold text-xs underline decoration-dotted underline-offset-2">{t("ambulanceNearMeBtn", "Ambulance Near Me")}</span>
+            </Link>
+            <a
+              href="tel:108"
+              className="hidden md:inline-flex items-center gap-1 font-mono text-xs text-teal-200 hover:text-white underline decoration-dotted"
+              title="Direct Telephone Call to National 108 Emergency Helpline"
+            >
+              (Direct Call: 108 / 104)
+            </a>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">

@@ -706,6 +706,29 @@ export const operationsApi = {
   getReadiness: () => request("/health/ready"),
 };
 
+// 17. Real-Time Ambulance Access & Tracking API
+export const ambulanceApi = {
+  searchNearby: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/ambulances/nearby${query ? `?${query}` : ""}`);
+  },
+  getFareEstimate: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/ambulances/fare-estimate${query ? `?${query}` : ""}`);
+  },
+  createRequest: (requestData) =>
+    request("/ambulances/requests", {
+      method: "POST",
+      body: JSON.stringify(requestData),
+    }),
+  cancelRequest: (requestId, reason) =>
+    request(`/ambulances/requests/${requestId}/cancel`, {
+      method: "POST",
+      body: JSON.stringify({ reason }),
+    }),
+  getTripLocation: (tripId) => request(`/ambulances/trips/${tripId}/location`),
+};
+
 export default {
   profile: profileApi,
   cases: casesApi,
@@ -723,4 +746,5 @@ export default {
   attendance: attendanceApi,
   automation: automationApi,
   operations: operationsApi,
+  ambulance: ambulanceApi,
 };

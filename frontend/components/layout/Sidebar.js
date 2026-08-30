@@ -19,6 +19,7 @@ import {
   LogOut,
   ChevronRight,
   RefreshCw,
+  Siren,
 } from "lucide-react";
 import { USER_ROLES, ROLE_LABELS } from "@/lib/constants";
 import { useLanguage } from "@/context/LanguageContext";
@@ -32,6 +33,7 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
   const roleNavs = {
     [USER_ROLES.PATIENT]: [
       { href: "/dashboard/patient", label: t("healthcarePortal", "Patient Dashboard"), icon: LayoutDashboard },
+      { href: "/ambulance", label: t("ambulanceNearMe", "Ambulance Near Me"), icon: Siren },
       { href: "/navigate", label: t("whatShouldIDo", "What Should I Do Now?"), icon: Compass },
       { href: "/cases", label: t("myCases", "My Health Cases"), icon: FileText },
       { href: "/resources", label: t("verifiedDirectory", "Verified Directory"), icon: Building2 },
@@ -43,6 +45,7 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
     ],
     [USER_ROLES.PHC_STAFF]: [
       { href: "/dashboard/phc", label: t("phcOverview", "PHC Overview"), icon: LayoutDashboard },
+      { href: "/ambulance", label: t("emergencyAmbulanceDispatch", "Ambulance Dispatch"), icon: Siren },
       { href: "/inventory", label: t("phcInventory", "Medicine Stock & Alerts"), icon: Package },
       { href: "/referrals", label: t("outgoingReferrals", "Outgoing Referrals"), icon: GitPullRequest },
       { href: "/cases", label: t("registeredCases", "Registered Patient Cases"), icon: FileText },

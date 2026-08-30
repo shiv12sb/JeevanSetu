@@ -18,6 +18,7 @@ const doctorPresenceRoutes = require("./doctorPresence.routes");
 const attendanceRoutes = require("./attendance.routes");
 const automationRoutes = require("./automation.routes");
 const observabilityRoutes = require("./observability.routes");
+const ambulanceRoutes = require("./ambulance.routes");
 
 const router = Router();
 
@@ -41,6 +42,7 @@ router.use("/doctor-presence", doctorPresenceRoutes);
 router.use("/attendance", attendanceRoutes);
 router.use("/automation", automationRoutes);
 router.use("/operations", observabilityRoutes);
+router.use("/ambulances", ambulanceRoutes);
 
 module.exports = router;
 

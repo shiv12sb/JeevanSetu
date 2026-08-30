@@ -187,12 +187,12 @@ async function runTests() {
   });
 
   // 15. Database Migration Sequential Ordering
-  await test("15. supabase/migrations/ contains 22 chronologically ordered migration files", async () => {
+  await test("15. supabase/migrations/ contains 22+ chronologically ordered migration files", async () => {
     const migDir = path.join(__dirname, "../../supabase/migrations");
     const files = fs.readdirSync(migDir).filter((f) => f.endsWith(".sql")).sort();
-    assert.strictEqual(files.length, 22);
+    assert.ok(files.length >= 22);
     assert.ok(files[0].startsWith("20260822000001_"));
-    assert.ok(files[files.length - 1].startsWith("20260822000022_"));
+    assert.ok(files[files.length - 1].startsWith("20260822000023_"));
   });
 
   // 16. Seed Data Isolation

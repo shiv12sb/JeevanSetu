@@ -23,6 +23,7 @@ const testSuites = [
   "tests/phase40_scale_reliability.test.js",
   "tests/phase41_security_compliance.test.js",
   "tests/phase42_observability_sre.test.js",
+  "tests/phase43_ambulance_tracking.test.js",
   "tests/ai_assistant_voice.test.js",
   "tests/theme_consistency.test.js",
 ];

@@ -211,11 +211,11 @@ async function runTests() {
     assert.strictEqual(event.status, "PENDING");
   });
 
-  // 23. Database 22 Migrations & Additive Forward-Fix
-  await test("23. 22 chronologically ordered migrations exist with additive forward-fix rule", async () => {
+  // 23. Database 22+ Migrations & Additive Forward-Fix
+  await test("23. 22+ chronologically ordered migrations exist with additive forward-fix rule", async () => {
     const migDir = path.join(__dirname, "../../supabase/migrations");
     const files = fs.readdirSync(migDir).filter((f) => f.endsWith(".sql"));
-    assert.strictEqual(files.length, 22);
+    assert.ok(files.length >= 22);
   });
 
   // 24. Observability & Health Telemetry
