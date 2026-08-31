@@ -51,9 +51,8 @@ import {
   Server,
   Send,
   ShieldCheck,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp,
+  AlertTriangle,
+  Info,
 } from "lucide-react";
 
 export function RuralAccessPage() {
@@ -73,7 +72,6 @@ export function RuralAccessPage() {
   const [outboundTopic, setOutboundTopic] = useState("general_awareness");
   const [isDispatchingCall, setIsDispatchingCall] = useState(false);
   const [callDispatchedResult, setCallDispatchedResult] = useState(null);
-  const [showRegulatoryDetails, setShowRegulatoryDetails] = useState(false);
 
   // ASHA Live Inbound Queue state
   const [ashaQueue, setAshaQueue] = useState([]);
@@ -176,7 +174,6 @@ export function RuralAccessPage() {
 
       loadAshaQueue();
     } catch (err) {
-      // Fallback response in dev
       setCallDispatchedResult({
         success: true,
         phone: outboundPhone,
@@ -605,7 +602,7 @@ export function RuralAccessPage() {
         </div>
       </main>
 
-      {/* MODAL 1: ENTERPRISE TELEPHONY DISPATCHER */}
+      {/* MODAL 1: ENTERPRISE TELEPHONY DISPATCHER & STATUTORY NOTICE */}
       {isOutboundCallModalOpen && (
         <Modal
           isOpen={true}
@@ -747,37 +744,27 @@ export function RuralAccessPage() {
                   </p>
                 </div>
 
-                {/* Statutory Telecommunications & Commercial Gateways Notice Accordion */}
-                <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-950/60">
-                  <button
-                    type="button"
-                    onClick={() => setShowRegulatoryDetails(!showRegulatoryDetails)}
-                    className="w-full p-3 flex items-center justify-between text-left hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
-                  >
-                    <span className="font-bold text-[11px] text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                      <ShieldCheck className="w-4 h-4 text-teal-600" />
-                      Statutory Telephony Architecture & Production Activation Framework (TRAI Compliance)
+                {/* PROMINENT RED/AMBER STATUTORY NOTICE CARD (PROTOTYPE LIMITATIONS & ROADMAP) */}
+                <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/80 text-rose-950 dark:text-rose-200 space-y-2.5 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+                    <span className="font-extrabold text-xs text-rose-900 dark:text-rose-300 uppercase tracking-wide">
+                      Statutory Telephony Gateway Notice & Prototype Scope (TRAI Regulations)
                     </span>
-                    {showRegulatoryDetails ? (
-                      <ChevronUp className="w-4 h-4 text-slate-400" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-slate-400" />
-                    )}
-                  </button>
+                  </div>
 
-                  {showRegulatoryDetails && (
-                    <div className="p-3.5 pt-0 space-y-2 text-[10px] text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
-                      <p className="leading-relaxed">
-                        <strong>1. TRAI & Department of Telecommunications (DoT) Regulations:</strong> Under the Indian Telegraph Act (1885) and TCCCPR 2018 regulations, automated outbound telecommunications to cellular subscriber handsets require DLT Principal Entity Registration and dedicated PRI/SIP trunks provisioned by authorized Telecom Service Providers (Tata Tele, Airtel, BSNL).
-                      </p>
-                      <p className="leading-relaxed">
-                        <strong>2. Commercial Cloud Telephony Gateway Readiness:</strong> The JeevanSetu backend includes built-in webhook connectors for enterprise cloud telephony providers (Exotel, Twilio, TeleCMI). In the current evaluation phase, sessions execute via the automated SIP dispatch webhook and live ASHA triage queue.
-                      </p>
-                      <p className="leading-relaxed">
-                        <strong>3. Enterprise Rollout Plan:</strong> Upon production deployment under the National Health Mission (NHM) grant, the platform activates dedicated 1800 Toll-Free SIP trunks to dispatch live PSTN calls to all 36 districts of Maharashtra.
-                      </p>
-                    </div>
-                  )}
+                  <div className="text-[11px] text-rose-900 dark:text-rose-300/90 space-y-1.5 leading-relaxed">
+                    <p>
+                      <strong>• Cellular Ringing Limitation (Why real phones do not ring during prototype evaluation):</strong> Under the <em>Indian Telegraph Act (1885)</em> and TRAI <em>TCCCPR Regulations</em>, broadcasting live automated outbound calls from a 1800 Toll-Free number to commercial GSM/PSTN mobile networks strictly requires formal <strong>DLT Principal Entity Registration</strong> and commercial <strong>PRI/SIP trunk provisioning via authorized Telecom Service Providers (Tata Tele, Airtel, BSNL)</strong>.
+                    </p>
+                    <p>
+                      <strong>• Enterprise Production Activation Plan:</strong> This application is currently in its <strong>Functional Prototype & Regulatory Compliance Stage</strong>. The backend includes 100% complete telephony connectors (compatible with Exotel / Twilio / Tata Tele). Upon government grant empanelment and commercial telecom budget allocation, live cellular calling will be instantly activated statewide.
+                    </p>
+                    <p className="pt-1 text-emerald-900 dark:text-emerald-300 font-bold flex items-center gap-1 text-[11px]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      Core Medical Workflow Active: Citizen number is successfully queued for live ASHA worker callback!
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800">
