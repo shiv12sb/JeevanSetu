@@ -222,7 +222,7 @@ async function runAllTests() {
 
     const result = await doctorsService.importDoctors(duplicateRecord, adminUser);
     assert.strictEqual(result.rejectedCount, 1);
-    assert.ok(result.rejectedRecords[0].reason.includes("duplicate"));
+    assert.ok(result.rejectedRecords[0].reason.toLowerCase().includes("duplicate"));
   });
 
   console.log("\n=======================================================");

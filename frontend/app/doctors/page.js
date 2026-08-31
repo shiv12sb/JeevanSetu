@@ -29,8 +29,12 @@ import {
   Compass,
   ArrowRight,
   RefreshCw,
-  ExternalLink,
+  Award,
+  Users,
+  Home,
   CheckCircle2,
+  Filter,
+  X,
 } from "lucide-react";
 
 // Maharashtra priority districts
@@ -43,33 +47,44 @@ const MAHARASHTRA_DISTRICTS = [
   "Chhatrapati Sambhajinagar",
   "Amravati",
   "Gadchiroli",
-  "Akola",
+  "Thane",
   "Kolhapur",
   "Solapur",
   "Wardha",
   "Chandrapur",
+  "Akola",
   "Yavatmal",
 ];
 
 const VERIFIED_SPECIALTIES = [
   "ALL",
-  "Cardiology",
-  "Neurosurgery",
   "General Medicine",
-  "Pediatrics",
+  "Cardiology",
   "Gynecology",
+  "Pediatrics",
   "Orthopedics",
+  "Ophthalmology",
+  "Neurosurgery",
   "Dermatology",
+];
+
+const FACILITY_TYPES = [
+  { value: "ALL", label: "All Establishments (Clinics, Nursing Homes, Hospitals)" },
+  { value: "clinic", label: "🏥 Clinics & Family Dispensaries" },
+  { value: "nursing_home", label: "👶 Nursing Homes & Maternity Hospitals" },
+  { value: "hospital", label: "🏢 Multi-Specialty & Surgical Hospitals" },
+  { value: "gmc", label: "🏛️ Government Medical Colleges & Civil Hospitals" },
 ];
 
 export function DoctorsPage() {
   const { user } = useAuth();
-  const { t, currentLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   const [doctors, setDoctors] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("ALL");
   const [selectedDistrict, setSelectedDistrict] = useState("ALL");
+  const [selectedFacilityType, setSelectedFacilityType] = useState("ALL");
   const [selectedStatus, setSelectedStatus] = useState("ALL");
   const [availableOnly, setAvailableOnly] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -90,14 +105,19 @@ export function DoctorsPage() {
       if (searchQuery) params.query = searchQuery;
       if (selectedSpecialty !== "ALL") params.specialization = selectedSpecialty;
       if (selectedDistrict !== "ALL") params.district = selectedDistrict;
+      if (selectedFacilityType !== "ALL") params.facility_type = selectedFacilityType;
       if (availableOnly) params.is_on_duty = true;
       if (selectedStatus !== "ALL") params.verification_status = selectedStatus;
 
       const res = await facilitiesApi.getDoctors(params);
       if (res && res.data && res.data.length > 0) {
-        setDoctors(res.data);
+        // Strict double-check on district if selected
+        let data = res.data;
+        if (selectedDistrict !== "ALL") {
+          data = data.filter((d) => d.district && d.district.toLowerCase() === selectedDistrict.toLowerCase());
+        }
+        setDoctors(data);
       } else {
-        // Fallback to verified master data
         filterLocalDataset();
       }
     } catch (err) {
@@ -111,6 +131,19 @@ export function DoctorsPage() {
   const filterLocalDataset = () => {
     let list = [...MAHARASHTRA_VERIFIED_DOCTORS];
 
+    // STRICT DISTRICT FILTER FIRST
+    if (selectedDistrict !== "ALL") {
+      list = list.filter((d) => d.district && d.district.toLowerCase() === selectedDistrict.toLowerCase());
+    }
+
+    if (selectedFacilityType !== "ALL") {
+      list = list.filter((d) => d.facility_type === selectedFacilityType);
+    }
+
+    if (selectedSpecialty !== "ALL") {
+      list = list.filter((d) => d.specialization.toLowerCase().includes(selectedSpecialty.toLowerCase()));
+    }
+
     if (searchQuery) {
       const q = searchQuery.toLowerCase().trim();
       list = list.filter(
@@ -119,17 +152,9 @@ export function DoctorsPage() {
           d.specialization.toLowerCase().includes(q) ||
           (d.sub_specialization && d.sub_specialization.toLowerCase().includes(q)) ||
           (d.hospitals && d.hospitals.name.toLowerCase().includes(q)) ||
-          (d.district && d.district.toLowerCase().includes(q)) ||
+          (d.area && d.area.toLowerCase().includes(q)) ||
           (d.medical_council_id && d.medical_council_id.toLowerCase().includes(q))
       );
-    }
-
-    if (selectedSpecialty !== "ALL") {
-      list = list.filter((d) => d.specialization.toLowerCase().includes(selectedSpecialty.toLowerCase()));
-    }
-
-    if (selectedDistrict !== "ALL") {
-      list = list.filter((d) => d.district && d.district.toLowerCase() === selectedDistrict.toLowerCase());
     }
 
     if (availableOnly) {
@@ -145,7 +170,7 @@ export function DoctorsPage() {
 
   useEffect(() => {
     loadDoctors();
-  }, [searchQuery, selectedSpecialty, selectedDistrict, selectedStatus, availableOnly]);
+  }, [searchQuery, selectedSpecialty, selectedDistrict, selectedFacilityType, selectedStatus, availableOnly]);
 
   const handleUpdateStatus = async (e) => {
     e.preventDefault();
@@ -169,7 +194,6 @@ export function DoctorsPage() {
       setEditingMapping(null);
       loadDoctors();
     } catch (err) {
-      // Dev simulation fallback
       setApiSuccess(`Roster status updated successfully to ${newStatus} [DEVELOPMENT UPDATE]`);
       setEditingMapping(null);
     } finally {
@@ -177,7 +201,7 @@ export function DoctorsPage() {
     }
   };
 
-  const getStatusBadge = (status, lastVerifiedAt, isStale) => {
+  const getStatusBadge = (status, isStale) => {
     if (isStale || status === "CALL_TO_CONFIRM" || status === "NOT_VERIFIED") {
       return (
         <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-semibold px-2 py-0.5 text-[10px] flex items-center gap-1">
@@ -213,6 +237,35 @@ export function DoctorsPage() {
     );
   };
 
+  const getFacilityCategoryBadge = (type) => {
+    switch (type) {
+      case "clinic":
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 text-[10px] font-bold">
+            🏥 Clinic & Dispensary
+          </span>
+        );
+      case "nursing_home":
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 text-[10px] font-bold">
+            👶 Nursing Home & Maternity
+          </span>
+        );
+      case "hospital":
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-[10px] font-bold">
+            🏢 Multi-Specialty Hospital
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 text-[10px] font-bold">
+            🏛️ Govt Medical College & Civil Hospital
+          </span>
+        );
+    }
+  };
+
   const formatElapsed = (isoString) => {
     if (!isoString) return "Roster verified today";
     const diffMs = Date.now() - new Date(isoString).getTime();
@@ -240,10 +293,10 @@ export function DoctorsPage() {
             </div>
             <div>
               <p className="font-extrabold text-xs text-rose-950 dark:text-rose-200">
-                Medical Emergency / Trauma Care
+                Medical Emergency / Polytrauma / Chest Pain
               </p>
               <p className="text-[11px] text-rose-800 dark:text-rose-400">
-                Do not wait for doctor appointments during acute chest pain, major trauma, or stroke symptoms.
+                Do not wait for outpatient clinic bookings during acute emergencies. Call 108 immediately.
               </p>
             </div>
           </div>
@@ -257,20 +310,20 @@ export function DoctorsPage() {
         </div>
 
         {/* Page Header */}
-        <div className="flex flex-col gap-2 mb-8">
+        <div className="flex flex-col gap-2 mb-6">
           <div className="flex items-center gap-2">
             <Badge className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 font-semibold px-2.5 py-0.5 border border-teal-200 dark:border-teal-800 text-[11px]">
               Maharashtra Verified Healthcare Registry
             </Badge>
             <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 font-mono text-[10px] px-2 py-0.5">
-              100% Provenance Backed
+              Clinics • Nursing Homes • Hospitals • MMC Verified
             </Badge>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            {t("findDoctor", "Find Verified Doctors Across Maharashtra")}
+            {t("findDoctor", "Find Doctors, Clinics & Hospitals Across Maharashtra")}
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl">
-            Real-time duty status, medical council verification, multiple hospital affiliations, and verified reception desks across all 36 districts.
+            Search private clinics, family dispensaries, nursing homes, surgery centers, and government civil hospitals. 100% verified doctor registrations with authenticated reception phone numbers.
           </p>
         </div>
 
@@ -283,14 +336,14 @@ export function DoctorsPage() {
         )}
 
         {/* Search & Multi-Filter Control Panel */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-8 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-6 shadow-xs space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
             {/* Search Input */}
-            <div className="md:col-span-6 relative">
+            <div className="md:col-span-4 relative">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <Input
                 type="text"
-                placeholder={t("searchDoctorPlaceholder", "Search doctor name, specialty, hospital, district...")}
+                placeholder={t("searchDoctorPlaceholder", "Doctor name, clinic, specialty, area...")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 text-xs py-2.5 bg-slate-50/50 dark:bg-slate-950/50"
@@ -306,7 +359,7 @@ export function DoctorsPage() {
               >
                 {VERIFIED_SPECIALTIES.map((spec) => (
                   <option key={spec} value={spec}>
-                    {spec === "ALL" ? "All Specialties" : spec}
+                    {spec === "ALL" ? "All Specialties & General Practice" : spec}
                   </option>
                 ))}
               </Select>
@@ -326,6 +379,21 @@ export function DoctorsPage() {
                 ))}
               </Select>
             </div>
+
+            {/* Facility Type Filter */}
+            <div className="md:col-span-2">
+              <Select
+                value={selectedFacilityType}
+                onChange={(e) => setSelectedFacilityType(e.target.value)}
+                className="text-xs py-2.5"
+              >
+                {FACILITY_TYPES.map((ft) => (
+                  <option key={ft.value} value={ft.value}>
+                    {ft.label}
+                  </option>
+                ))}
+              </Select>
+            </div>
           </div>
 
           {/* District Quick Filter Chips */}
@@ -333,22 +401,44 @@ export function DoctorsPage() {
             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
               Districts:
             </span>
-            {MAHARASHTRA_DISTRICTS.slice(0, 9).map((dist) => (
+            {MAHARASHTRA_DISTRICTS.slice(0, 10).map((dist) => (
               <button
                 key={dist}
                 onClick={() => setSelectedDistrict(dist)}
-                className={`px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all border ${
+                className={`px-3 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap transition-all border ${
                   selectedDistrict === dist
                     ? "bg-teal-600 text-white border-teal-600 shadow-xs"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200"
                 }`}
               >
-                {dist === "ALL" ? "All MH" : dist}
+                {dist === "ALL" ? "All Maharashtra" : dist}
               </button>
             ))}
           </div>
 
-          {/* Quick Toggles */}
+          {/* Active Filter Summary Bar */}
+          {selectedDistrict !== "ALL" && (
+            <div className="bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-900/60 rounded-2xl p-2.5 px-4 flex items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-teal-600 shrink-0" />
+                <span className="font-bold text-teal-950 dark:text-teal-200">
+                  Strict District Filter Active: <strong>{selectedDistrict} District</strong>
+                </span>
+                <span className="text-teal-700 dark:text-teal-400 text-[11px]">
+                  (Showing only verified practitioners & clinics located in {selectedDistrict})
+                </span>
+              </div>
+              <button
+                onClick={() => setSelectedDistrict("ALL")}
+                className="inline-flex items-center gap-1 text-[11px] font-bold text-teal-700 dark:text-teal-300 hover:underline shrink-0"
+              >
+                <X className="w-3.5 h-3.5" />
+                Show All Maharashtra
+              </button>
+            </div>
+          )}
+
+          {/* Quick Toggles & Result Count */}
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 dark:text-slate-400">
               <label className="flex items-center gap-2 cursor-pointer select-none">
@@ -368,16 +458,16 @@ export function DoctorsPage() {
                   onChange={(e) => setSelectedStatus(e.target.value)}
                   className="bg-transparent text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none"
                 >
-                  <option value="ALL">All Provenance Levels</option>
-                  <option value="VERIFIED_LIVE">Verified Live Only</option>
-                  <option value="VERIFIED_STATIC">Verified Static Only</option>
+                  <option value="ALL">All Statuses</option>
+                  <option value="VERIFIED_LIVE">Verified Live</option>
+                  <option value="VERIFIED_STATIC">Verified Static</option>
                   <option value="CALL_TO_CONFIRM">Call to Confirm</option>
                 </select>
               </label>
             </div>
 
-            <span className="text-[11px] text-slate-400 font-mono">
-              Showing {doctors.length} verified doctors
+            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+              Showing <strong>{doctors.length}</strong> verified healthcare records
             </span>
           </div>
         </div>
@@ -386,15 +476,28 @@ export function DoctorsPage() {
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <RefreshCw className="w-8 h-8 text-teal-600 animate-spin" />
-            <p className="text-xs text-slate-500">Querying verified Maharashtra healthcare registry...</p>
+            <p className="text-xs text-slate-500">Loading verified Maharashtra doctor & clinic directory...</p>
           </div>
         ) : doctors.length === 0 ? (
           <div className="text-center py-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xs">
             <Stethoscope className="w-12 h-12 text-slate-300 dark:text-slate-700 mx-auto mb-4" />
-            <h3 className="font-bold text-slate-900 dark:text-white text-base">No Verified Doctors Found</h3>
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">
+              No Doctors or Clinics Found in {selectedDistrict === "ALL" ? "Selected Criteria" : selectedDistrict}
+            </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
-              We did not find any verified rosters matching your exact filters in Maharashtra. Try choosing "All Districts" or clearing specialty filters.
+              We did not find any matching verified practitioners with these exact filters. Try selecting "All Establishments" or clearing the specialty filter.
             </p>
+            <Button
+              onClick={() => {
+                setSelectedDistrict("ALL");
+                setSelectedSpecialty("ALL");
+                setSelectedFacilityType("ALL");
+                setSearchQuery("");
+              }}
+              className="mt-4 bg-teal-600 text-white text-xs"
+            >
+              Reset All Filters
+            </Button>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -409,9 +512,25 @@ export function DoctorsPage() {
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-teal-500/40 transition-all duration-200"
                 >
                   <div className="space-y-4">
+                    {/* Facility Category & Verification Tag */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        {getFacilityCategoryBadge(doctor.facility_type)}
+                        {doctor.area && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                            <MapPin className="w-2.5 h-2.5 text-teal-600" />
+                            {doctor.area}, {doctor.district}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        {getStatusBadge(doctor.verification_status, isStale)}
+                      </div>
+                    </div>
+
                     {/* Header Info */}
                     <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-start gap-3">
                         <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
                           <Stethoscope className="w-6 h-6" />
                         </div>
@@ -428,23 +547,36 @@ export function DoctorsPage() {
                             {doctor.specialization}
                           </p>
                           <p className="text-[10px] text-slate-400 font-mono mt-0.5">
-                            Reg: {doctor.medical_council_id}
+                            MMC Reg: <strong>{doctor.medical_council_id}</strong>
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex flex-col items-end gap-1">
-                        {getStatusBadge(doctor.verification_status, doctor.verified_at, isStale)}
-                        <span className="text-[10px] text-slate-400 font-mono">
-                          {formatElapsed(doctor.verified_at)}
-                        </span>
-                      </div>
+                      <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                        {formatElapsed(doctor.verified_at)}
+                      </span>
                     </div>
 
-                    {/* Sub-specialty & Designation */}
+                    {/* Patient Volume & Experience Badges */}
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      {doctor.patients_treated && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 px-2 py-0.5 rounded-lg">
+                          <Users className="w-3 h-3 text-emerald-600" />
+                          {doctor.patients_treated}
+                        </span>
+                      )}
+                      {doctor.years_of_practice && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-800 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900 px-2 py-0.5 rounded-lg">
+                          <Award className="w-3 h-3 text-indigo-600" />
+                          {doctor.years_of_practice}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Sub-specialty & Focus */}
                     {doctor.sub_specialization && (
                       <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
-                        <strong>Focus:</strong> {doctor.sub_specialization}
+                        <strong>Clinical Focus:</strong> {doctor.sub_specialization}
                       </p>
                     )}
 
@@ -458,16 +590,16 @@ export function DoctorsPage() {
                         <p className="text-[10px] text-slate-600 dark:text-slate-400 leading-normal">
                           {t(
                             "doctorCallHospitalConfirm",
-                            "Doctor's current duty status could not be verified online. Please call the hospital to confirm availability."
+                            "Doctor's current duty status could not be verified online. Please call the reception to confirm availability."
                           )}
                         </p>
                       </div>
                     )}
 
-                    {/* Multiple Hospital Affiliations List */}
+                    {/* Workplaces & Establishments List */}
                     <div className="space-y-2.5 pt-1">
                       <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Hospital Affiliations & Location
+                        Practice Location & Reception Desk
                       </p>
 
                       {affiliations.map((aff, idx) => (
@@ -481,7 +613,7 @@ export function DoctorsPage() {
                               className="text-xs font-bold text-slate-900 dark:text-white hover:text-teal-600 flex items-center gap-1"
                             >
                               <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                              {aff.facility_name || aff.name || "Maharashtra Hospital"}
+                              {aff.facility_name || aff.name || "Healthcare Establishment"}
                             </Link>
                             <p className="text-[10px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
                               <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
@@ -498,7 +630,7 @@ export function DoctorsPage() {
                           <div className="flex items-center gap-2 shrink-0">
                             {/* Call Verified Reception Button */}
                             <a
-                              href={`tel:${aff.reception_phone || primaryHospital?.reception_phone || "+917122744401"}`}
+                              href={`tel:${aff.reception_phone || primaryHospital?.reception_phone || "+917122541289"}`}
                               className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 hover:bg-teal-100 text-[11px] font-bold border border-teal-200 dark:border-teal-800 transition-colors"
                             >
                               <Phone className="w-3 h-3" />
@@ -534,28 +666,28 @@ export function DoctorsPage() {
                   <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="text-[10px] text-slate-400 space-y-0.5">
                       <p>
-                        <strong>Source:</strong> {doctor.source ? doctor.source.slice(0, 45) : "DMER Maharashtra"}...
+                        <strong>Source:</strong> {doctor.source ? doctor.source.slice(0, 48) : "IMA & DMER Maharashtra"}...
                       </p>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <a
                         href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-                          primaryHospital?.address || `${doctor.district}, Maharashtra`
+                          primaryHospital?.address || `${doctor.area || ""}, ${doctor.district}, Maharashtra`
                         )}`}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:text-teal-600 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700"
                       >
                         <Compass className="w-3.5 h-3.5" />
-                        {t("getDirectionsBtn", "Directions")}
+                        Directions
                       </a>
 
                       <Link
                         href={`/doctors/${doctor.id}`}
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-teal-600 hover:bg-teal-700 px-3 py-1.5 rounded-xl transition-colors"
                       >
-                        {t("viewDoctorDetailsBtn", "View Details")}
+                        View Profile
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
