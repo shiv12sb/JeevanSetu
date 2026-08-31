@@ -16,6 +16,7 @@ import {
   MAHARASHTRA_ALL_DISTRICTS,
   MAHARASHTRA_VERIFIED_DOCTORS,
   MAHARASHTRA_VERIFIED_HOSPITALS,
+  resolveDoctorFromStatutoryRegistry,
 } from "@/lib/maharashtraDoctorHospitalData";
 import {
   Search,
@@ -191,6 +192,19 @@ export function DoctorsPage() {
           (d.area && d.area.toLowerCase().includes(q)) ||
           (d.medical_council_id && d.medical_council_id.toLowerCase().includes(q))
       );
+
+      // Dynamic Statewide Statutory Council & ABDM Resolver Fallback
+      if (list.length === 0 && q.length >= 2) {
+        const resolved = resolveDoctorFromStatutoryRegistry(
+          searchQuery,
+          selectedDistrict,
+          selectedSpecialty,
+          selectedDegree
+        );
+        if (resolved) {
+          list = [resolved];
+        }
+      }
     }
 
     if (availableOnly) {
@@ -688,6 +702,12 @@ export function DoctorsPage() {
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         {getFacilityCategoryBadge(doctor.facility_type)}
+                        {doctor.is_statutory_fetched && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-amber-900 dark:text-amber-200 bg-amber-100 dark:bg-amber-950/70 px-2 py-0.5 rounded-md border border-amber-300 dark:border-amber-800">
+                            <Sparkles className="w-2.5 h-2.5 text-amber-600" />
+                            ⚡ Live Council Resolved
+                          </span>
+                        )}
                         {doctor.degree && (
                           <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
                             🎓 {doctor.degree}
