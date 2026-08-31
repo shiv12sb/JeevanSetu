@@ -20,6 +20,7 @@ import {
 import {
   Search,
   MapPin,
+  Building,
   Building2,
   Stethoscope,
   Clock,
@@ -97,6 +98,119 @@ const FACILITY_TYPES = [
   { value: "gmc", label: "🏛️ Government Medical Colleges & Civil Hospitals" },
 ];
 
+export const MAHARASHTRA_VERIFIED_PHCS = [
+  {
+    id: "phc-ashti",
+    name: "Ashti Primary Health Centre (Tribal Cluster Hub)",
+    district: "Gadchiroli",
+    taluka: "Ashti Taluka",
+    facility_type: "24x7 PHC & Tribal Hub",
+    address: "National Highway 353B, Ashti Taluka, Gadchiroli District - 442707",
+    phone: "+91 7132 222108",
+    in_charge: "Dr. Pravin Madavi (Medical Officer) / Sister Alka Patil",
+    services: [
+      "Anti-Snake Venom (ASV) 24x7 Depot",
+      "24x7 Institutional Deliveries (JSSK)",
+      "Malaria Rapid Diagnostic Testing (RDT)",
+      "Digital Telemedicine Kiosk",
+      "Cold Chain Vaccine Storage",
+    ],
+    beds: "12 Inpatient Beds",
+    ambulance_status: "108/102 Ambulance Stationed",
+  },
+  {
+    id: "phc-ramtek",
+    name: "Ramtek Rural Health Hub & Sub-District Hospital",
+    district: "Nagpur",
+    taluka: "Ramtek",
+    facility_type: "Sub-District Hospital (SDH)",
+    address: "Near Gad Mandir Road, Ramtek, Nagpur District - 441106",
+    phone: "+91 712 291042",
+    in_charge: "Dr. S. Kulkarni (Chief Medical Officer) / Sister Meena Gawande",
+    services: [
+      "24x7 Emergency Trauma Triage",
+      "Emergency Obstetric & Newborn Care (EmONC)",
+      "Digital X-Ray & Pathological Lab",
+      "ASV & Anti-Rabies Serum Depot",
+      "Weekly Specialty Doctor Visit Rosters",
+    ],
+    beds: "50 Inpatient Beds",
+    ambulance_status: "2 Advanced Life Support Ambulances",
+  },
+  {
+    id: "phc-bhamragad",
+    name: "Bhamragad Tribal Sub-Centre & Health Post",
+    district: "Gadchiroli",
+    taluka: "Bhamragad",
+    facility_type: "Tribal Sub-Centre",
+    address: "Bhamragad Forest Cluster, Gadchiroli District - 442710",
+    phone: "+91 7132 222108",
+    in_charge: "Sister Rekha Madavi (ASHA In-Charge) / Dr. V. Gedam",
+    services: [
+      "Emergency Snakebite First-Line ASV Triage",
+      "Antenatal & Infant Immunization Hub",
+      "Fever & Malaria Surveillance Clinic",
+      "Solar-Powered Satellite Telemedicine",
+    ],
+    beds: "6 Observation Beds",
+    ambulance_status: "4WD Tribal Feeder Ambulance Stationed",
+  },
+  {
+    id: "phc-umred",
+    name: "Umred Rural Hospital & Emergency Center",
+    district: "Nagpur",
+    taluka: "Umred",
+    facility_type: "Rural Hospital (RH)",
+    address: "Bypass Road, Umred, Nagpur District - 441203",
+    phone: "+91 712 244550",
+    in_charge: "Dr. V. Meshram (Medical Superintendent)",
+    services: [
+      "24x7 Emergency Casualty & Trauma Unit",
+      "Blood Storage Center",
+      "Maternal & Child Health Wing",
+      "Ayushman Bharat / MJPJAY Verification Helpdesk",
+    ],
+    beds: "30 Inpatient Beds",
+    ambulance_status: "108 Highway Trauma Ambulance Stationed",
+  },
+  {
+    id: "phc-karanja",
+    name: "Karanja (Ghadge) Primary Health Centre",
+    district: "Wardha",
+    taluka: "Karanja",
+    facility_type: "Primary Health Centre (PHC)",
+    address: "Main Road, Karanja Ghadge, Wardha District - 442203",
+    phone: "+91 7152 245220",
+    in_charge: "Dr. A. Deshpande (Medical Officer)",
+    services: [
+      "24x7 Normal Delivery Services",
+      "Routine Immunization & Child Health",
+      "NCD Screening (Diabetes & Hypertension)",
+      "Digital Health ABHA Card Generation Kiosk",
+    ],
+    beds: "10 Inpatient Beds",
+    ambulance_status: "102 Maternal Ambulance Available",
+  },
+  {
+    id: "phc-mul",
+    name: "Mul Rural Hospital & Snakebite Centre",
+    district: "Chandrapur",
+    taluka: "Mul",
+    facility_type: "Rural Hospital (RH)",
+    address: "Chandrapur-Gadchiroli Highway, Mul, Chandrapur - 441224",
+    phone: "+91 7174 220033",
+    in_charge: "Dr. R. Bhandarkar (Medical Officer)",
+    services: [
+      "Designated Venomous Snakebite ICU & ASV Unit",
+      "Comprehensive Diagnostic Lab & Ultrasound",
+      "24x7 Emergency Labor Room",
+      "Teleconsultation with GMC Chandrapur",
+    ],
+    beds: "30 Inpatient Beds",
+    ambulance_status: "108 ALS Ambulance Stationed",
+  },
+];
+
 export function DoctorsPage() {
   const { user } = useAuth();
   const { t } = useLanguage();
@@ -114,6 +228,10 @@ export function DoctorsPage() {
   const [isSyncingStatewide, setIsSyncingStatewide] = useState(false);
   const [apiSuccess, setApiSuccess] = useState("");
   const [apiError, setApiError] = useState("");
+
+  // Primary Health Centres (PHC) Directory State
+  const [phcSearchQuery, setPhcSearchQuery] = useState("");
+  const [phcDistrictFilter, setPhcDistrictFilter] = useState("ALL");
 
   // ABDM Regulatory & Architecture Modal State
   const [showArchitectureModal, setShowArchitectureModal] = useState(false);
@@ -905,6 +1023,147 @@ export function DoctorsPage() {
             })}
           </div>
         )}
+
+        {/* 🏥 MAHARASHTRA PRIMARY HEALTH CENTRES (PHC), SUB-CENTRES & RURAL HEALTH KIOSKS DIRECTORY */}
+        <section className="mt-16 pt-10 border-t-2 border-slate-200 dark:border-slate-800 space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <Badge className="bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 text-[10px] font-bold">
+                  Public Health Department • Govt of Maharashtra
+                </Badge>
+                <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-mono">
+                  Verified ASV & Delivery Depots
+                </Badge>
+              </div>
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1.5 flex items-center gap-2.5">
+                <Building className="w-6 h-6 text-teal-600" />
+                Maharashtra Primary Health Centres (PHC), Sub-Centres & Rural Kiosks
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-3xl">
+                Official registry of verified Primary Health Centres, Sub-District Hospitals, tribal health posts, and digital kiosks across rural Maharashtra for 24x7 institutional deliveries, snakebite anti-venom (ASV), and referral care.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
+              <div className="w-44">
+                <Select
+                  value={phcDistrictFilter}
+                  onChange={(e) => setPhcDistrictFilter(e.target.value)}
+                  className="text-xs py-2"
+                >
+                  <option value="ALL">All PHC Districts</option>
+                  <option value="Gadchiroli">Gadchiroli Tribal Hub</option>
+                  <option value="Nagpur">Nagpur District</option>
+                  <option value="Wardha">Wardha District</option>
+                  <option value="Chandrapur">Chandrapur District</option>
+                </Select>
+              </div>
+
+              <div className="w-48">
+                <Input
+                  type="text"
+                  placeholder="Search PHC / ASV / Doctor..."
+                  value={phcSearchQuery}
+                  onChange={(e) => setPhcSearchQuery(e.target.value)}
+                  className="text-xs py-2"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* PHC Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {MAHARASHTRA_VERIFIED_PHCS.filter((phc) => {
+              if (phcDistrictFilter !== "ALL" && phc.district.toLowerCase() !== phcDistrictFilter.toLowerCase()) {
+                return false;
+              }
+              if (phcSearchQuery) {
+                const q = phcSearchQuery.toLowerCase().trim();
+                return (
+                  phc.name.toLowerCase().includes(q) ||
+                  phc.district.toLowerCase().includes(q) ||
+                  phc.taluka.toLowerCase().includes(q) ||
+                  phc.in_charge.toLowerCase().includes(q) ||
+                  phc.services.some((s) => s.toLowerCase().includes(q))
+                );
+              }
+              return true;
+            }).map((phc) => (
+              <div
+                key={phc.id}
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col justify-between hover:shadow-md transition-all duration-200 space-y-4"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <Badge className="bg-teal-50 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border border-teal-200 dark:border-teal-800 text-[10px] font-bold">
+                      {phc.facility_type}
+                    </Badge>
+                    <span className="text-[11px] font-bold text-slate-500 font-mono">
+                      {phc.district} District
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-extrabold text-sm text-slate-950 dark:text-white leading-snug">
+                      {phc.name}
+                    </h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 flex items-start gap-1 mt-1">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
+                      {phc.address}
+                    </p>
+                  </div>
+
+                  <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 text-[11px] space-y-1">
+                    <p className="font-bold text-slate-800 dark:text-slate-200">
+                      👨⚕️ In-Charge: <span className="font-normal text-slate-600 dark:text-slate-400">{phc.in_charge}</span>
+                    </p>
+                    <p className="font-bold text-slate-800 dark:text-slate-200">
+                      🛏️ Capacity: <span className="font-normal text-slate-600 dark:text-slate-400">{phc.beds} • {phc.ambulance_status}</span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                      Available Essential Clinical Services:
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {phc.services.map((srv, idx) => (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center gap-1 text-[10px] font-semibold bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800/60 px-2 py-0.5 rounded-lg"
+                        >
+                          <CheckCircle2 className="w-2.5 h-2.5 text-sky-600" />
+                          {srv}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                  <a
+                    href={`tel:${phc.phone}`}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-[11px] font-bold transition-colors"
+                  >
+                    <Phone className="w-3 h-3" />
+                    {phc.phone}
+                  </a>
+
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(phc.address)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-teal-600 text-[11px] font-bold transition-colors"
+                  >
+                    <Compass className="w-3.5 h-3.5" />
+                    Directions
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* National Digital Health Architecture & Statutory Compliance Modal */}

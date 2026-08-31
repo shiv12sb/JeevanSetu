@@ -20,7 +20,6 @@ import {
 import {
   Phone,
   User,
-  Building,
   HeartHandshake,
   HelpCircle,
   CheckCircle2,
@@ -53,6 +52,8 @@ import {
   ShieldCheck,
   AlertTriangle,
   Info,
+  Layers,
+  Lock,
 } from "lucide-react";
 
 export function RuralAccessPage() {
@@ -62,7 +63,6 @@ export function RuralAccessPage() {
   // Dialog / Modal triggers
   const [isOutboundCallModalOpen, setIsOutboundCallModalOpen] = useState(false);
   const [isAshaModalOpen, setIsAshaModalOpen] = useState(false);
-  const [isPhcModalOpen, setIsPhcModalOpen] = useState(false);
   const [isFamilyModalOpen, setIsFamilyModalOpen] = useState(false);
   const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false);
 
@@ -246,15 +246,6 @@ export function RuralAccessPage() {
     }
   };
 
-  // PHCs list mock
-  const mockPhcsList = [
-    { name: "Ashti Primary Health Centre (Tribal Cluster Hub)", location: "Ashti Taluka, Gadchiroli", phone: "+91 7132 222108", staff: "Sister Alka Patil / Dr. Pravin Madavi" },
-    { name: "Ramtek Rural Health Hub & SDH", location: "Ramtek, Nagpur District", phone: "+91 712 291042", staff: "Sister Meena Gawande / Dr. S. Kulkarni" },
-    { name: "Bhamragad Tribal Sub-Centre", location: "Bhamragad, Gadchiroli", phone: "+91 7132 222108", staff: "Sister Rekha Madavi (ASHA In-charge)" },
-    { name: "Umred Rural Hospital & Trauma Unit", location: "Umred, Nagpur District", phone: "+91 712 244550", staff: "Dr. V. Meshram" },
-    { name: "Karanja (Ghadge) PHC", location: "Karanja, Wardha District", phone: "+91 7152 245220", staff: "Dr. A. Deshpande" },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300">
       <Navbar />
@@ -264,8 +255,9 @@ export function RuralAccessPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 flex-wrap">
-              <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 font-semibold px-2.5 py-0.5 border border-emerald-200 dark:border-emerald-800 text-[11px]">
-                Keypad Feature Phone Voice Helpline & ASHA Queue
+              <Badge className="bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300 font-semibold px-2.5 py-0.5 border border-amber-300 dark:border-amber-800 text-[11px] flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+                Phase-2 Institutional Rollout Architecture
               </Badge>
               <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px] font-mono">
                 Toll-Free 1800-108-102
@@ -275,7 +267,7 @@ export function RuralAccessPage() {
               Rural Health Access (ग्रामीण आरोग्य पोहोच)
             </h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl">
-              Healthcare assistance for citizens with basic 2G keypad phones without internet. Request an automated voice guidance call or dispatch an ASHA worker home visit.
+              Equitable last-mile healthcare delivery for citizens with basic 2G keypad phones without internet. Dispatches automated voice guidance and queues door-to-door ASHA home visits.
             </p>
           </div>
 
@@ -309,19 +301,34 @@ export function RuralAccessPage() {
           </div>
         </div>
 
-        {/* Global Multi-Channel Guarantee Banner */}
-        <Alert className="bg-teal-50 dark:bg-teal-950/40 border-teal-200 dark:border-teal-900 text-teal-950 dark:text-teal-200 flex items-start gap-3">
-          <Sparkles className="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
-          <div>
-            <p className="font-bold text-xs">How JeevanSetu Reaches Keypad Feature Phone Users Without Smartphones</p>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-              If a village elder, pregnant mother, or resident has only a basic keypad phone, enter their mobile number below. JeevanSetu triggers an automated call from <strong>Toll-Free 1800-108-102</strong> in <strong>Marathi / Hindi / English</strong>. When the citizen requests personal assistance, their number is automatically pushed into the <strong>Live ASHA Worker Home Visit Queue</strong>.
-            </p>
+        {/* STATUTORY LIMITATION & FUTURE ROLLOUT ROADMAP ALERT BANNER */}
+        <div className="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-rose-50 to-amber-50 dark:from-rose-950/40 dark:to-amber-950/40 border border-rose-200 dark:border-rose-900/80 text-rose-950 dark:text-rose-200 space-y-2.5 shadow-xs">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0" />
+              <h3 className="font-extrabold text-sm text-rose-950 dark:text-rose-200">
+                Phase-2 Deployment Scope & Statutory Telecommunications Framework
+              </h3>
+            </div>
+            <Badge className="bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200 text-[10px] font-bold">
+              Prototype Evaluation Mode
+            </Badge>
           </div>
-        </Alert>
 
-        {/* Main 5-Pillar Rural Healthcare Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          <p className="text-xs text-rose-900 dark:text-rose-300 leading-relaxed">
+            <strong>• Statutory Telecom Regulation:</strong> Under the <em>Indian Telegraph Act (1885)</em> and TRAI <em>TCCCPR Regulations</em>, broadcasting live automated outbound calls from a Toll-Free 1800 number to commercial GSM cellular handsets requires institutional <strong>DLT Principal Entity Registration</strong> and dedicated PRI/SIP trunk procurement via licensed Telecom Service Providers (Tata Tele, Airtel, BSNL).
+          </p>
+          <p className="text-xs text-rose-900 dark:text-rose-300 leading-relaxed">
+            <strong>• Future Statewide Activation Roadmap:</strong> In this prototype stage, outbound calls execute via standard SIP telephony webhooks. Upon post-empanelment grant funding under the <strong>National Health Mission (NHM) Maharashtra</strong>, dedicated enterprise telephony gateways (Exotel / Twilio / Tata Tele) will be activated for full cellular PSTN dialing across all 36 districts.
+          </p>
+          <p className="text-xs font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5 pt-0.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            Active Medical Workflow: All citizen requests entered below are 100% actively dispatched into the Live ASHA Worker Queue!
+          </p>
+        </div>
+
+        {/* Main 4-Pillar Rural Healthcare Grid (Without PHC card) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Card 1: Outbound AI Voice Helpline */}
           <div className="bg-white dark:bg-slate-900 border border-teal-200 dark:border-teal-900/60 rounded-3xl p-6 flex flex-col justify-between hover:shadow-md transition-all duration-200 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-16 h-16 bg-teal-500/10 rounded-bl-full pointer-events-none" />
@@ -385,26 +392,7 @@ export function RuralAccessPage() {
             </Button>
           </div>
 
-          {/* Card 4: PHC Assistance */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:shadow-md transition-all duration-200">
-            <div>
-              <div className="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
-                <Building className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-slate-950 dark:text-white mb-2">🏥 PHC & Kiosks</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
-                Locate primary health sub-centres, essential anti-snake venom stocks, diagnostic schedules, and clinical visit days.
-              </p>
-            </div>
-            <Button
-              onClick={() => setIsPhcModalOpen(true)}
-              className="bg-sky-600 hover:bg-sky-700 text-white w-full text-xs font-semibold py-2 rounded-xl"
-            >
-              Find Nearest PHC
-            </Button>
-          </div>
-
-          {/* Card 5: Caregiver Mode */}
+          {/* Card 4: Caregiver Mode */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:shadow-md transition-all duration-200">
             <div>
               <div className="w-10 h-10 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
@@ -1073,7 +1061,7 @@ export function RuralAccessPage() {
                   {offlineData.hotlines.map((h) => (
                     <div
                       key={h.code}
-                      className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3"
+                      className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3"
                     >
                       <div>
                         <div className="flex items-center gap-2">
@@ -1192,42 +1180,6 @@ export function RuralAccessPage() {
               >
                 Close Offline Hub
               </Button>
-            </div>
-          </div>
-        </Modal>
-      )}
-
-      {/* MODAL 5: PHCS LIST */}
-      {isPhcModalOpen && (
-        <Modal
-          isOpen={true}
-          onClose={() => setIsPhcModalOpen(false)}
-          title="🏥 PHCs & Digital Kiosks Registry"
-        >
-          <div className="space-y-4">
-            <p className="text-xs text-slate-500">
-              Maharashtra health sub-centres are equipped with digital kiosks where citizen records can be queried by staff.
-            </p>
-
-            <div className="space-y-3">
-              {mockPhcsList.map((phc) => (
-                <div key={phc.name} className="border border-slate-150 dark:border-slate-800 rounded-xl p-3 bg-slate-50 dark:bg-slate-950/60 flex justify-between items-center">
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900 dark:text-white">{phc.name}</h4>
-                    <p className="text-[10px] text-slate-400 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
-                      {phc.location}
-                    </p>
-                    <p className="text-[10px] text-slate-400 mt-1">In-charge: {phc.staff}</p>
-                  </div>
-                  <a
-                    href={`tel:${phc.phone}`}
-                    className="inline-flex items-center justify-center p-2 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-600 border border-teal-100 dark:border-teal-900"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              ))}
             </div>
           </div>
         </Modal>
