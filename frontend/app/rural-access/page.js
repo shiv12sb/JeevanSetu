@@ -50,6 +50,10 @@ import {
   FileCheck,
   Server,
   Send,
+  ShieldCheck,
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 export function RuralAccessPage() {
@@ -69,6 +73,7 @@ export function RuralAccessPage() {
   const [outboundTopic, setOutboundTopic] = useState("general_awareness");
   const [isDispatchingCall, setIsDispatchingCall] = useState(false);
   const [callDispatchedResult, setCallDispatchedResult] = useState(null);
+  const [showRegulatoryDetails, setShowRegulatoryDetails] = useState(false);
 
   // ASHA Live Inbound Queue state
   const [ashaQueue, setAshaQueue] = useState([]);
@@ -136,7 +141,7 @@ export function RuralAccessPage() {
     }, 600);
   };
 
-  // Trigger Outbound AI Voice Call (Clean Enterprise Telephony Dispatch)
+  // Trigger Outbound AI Voice Call
   const handleTriggerOutboundCall = async (e) => {
     e.preventDefault();
     if (!outboundPhone || !outboundPhone.trim()) return;
@@ -186,7 +191,7 @@ export function RuralAccessPage() {
     }
   };
 
-  // ASHA updates ticket (records citizen name & home visit vitals)
+  // ASHA updates ticket
   const handleSaveTicketResolution = async (e) => {
     e.preventDefault();
     if (!resolvingTicket) return;
@@ -313,7 +318,7 @@ export function RuralAccessPage() {
           <div>
             <p className="font-bold text-xs">How JeevanSetu Reaches Keypad Feature Phone Users Without Smartphones</p>
             <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-              If a village elder, pregnant mother, or resident has only a basic keypad phone, enter their mobile number below. JeevanSetu triggers an automated call from <strong>Toll-Free 1800-108-102</strong> in <strong>Marathi / Hindi / English</strong>. When the citizen requests personal assistance (Key 4), their number is automatically pushed into the <strong>Live ASHA Worker Home Visit Queue</strong>.
+              If a village elder, pregnant mother, or resident has only a basic keypad phone, enter their mobile number below. JeevanSetu triggers an automated call from <strong>Toll-Free 1800-108-102</strong> in <strong>Marathi / Hindi / English</strong>. When the citizen requests personal assistance, their number is automatically pushed into the <strong>Live ASHA Worker Home Visit Queue</strong>.
             </p>
           </div>
         </Alert>
@@ -600,7 +605,7 @@ export function RuralAccessPage() {
         </div>
       </main>
 
-      {/* MODAL 1: CLEAN ENTERPRISE TELEPHONY DISPATCHER */}
+      {/* MODAL 1: ENTERPRISE TELEPHONY DISPATCHER */}
       {isOutboundCallModalOpen && (
         <Modal
           isOpen={true}
@@ -705,7 +710,7 @@ export function RuralAccessPage() {
               </form>
             ) : (
               <div className="space-y-4">
-                {/* Clean Telephony Dispatch Confirmation Card */}
+                {/* Telephony Dispatch Confirmation Card */}
                 <div className="p-4 rounded-2xl bg-slate-900 text-white font-mono text-xs space-y-2 border border-slate-800 shadow-inner">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                     <span className="flex items-center gap-2 text-emerald-400 font-bold">
@@ -740,6 +745,39 @@ export function RuralAccessPage() {
                   <p className="text-[11px] text-emerald-800 dark:text-emerald-300 leading-relaxed">
                     Mobile number <strong>{callDispatchedResult.phone}</strong> is now registered under <strong>{callDispatchedResult.district} District</strong>. The village ASHA worker will see this incoming callback ticket and contact the citizen.
                   </p>
+                </div>
+
+                {/* Statutory Telecommunications & Commercial Gateways Notice Accordion */}
+                <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-950/60">
+                  <button
+                    type="button"
+                    onClick={() => setShowRegulatoryDetails(!showRegulatoryDetails)}
+                    className="w-full p-3 flex items-center justify-between text-left hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
+                  >
+                    <span className="font-bold text-[11px] text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-teal-600" />
+                      Statutory Telephony Architecture & Production Activation Framework (TRAI Compliance)
+                    </span>
+                    {showRegulatoryDetails ? (
+                      <ChevronUp className="w-4 h-4 text-slate-400" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-slate-400" />
+                    )}
+                  </button>
+
+                  {showRegulatoryDetails && (
+                    <div className="p-3.5 pt-0 space-y-2 text-[10px] text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+                      <p className="leading-relaxed">
+                        <strong>1. TRAI & Department of Telecommunications (DoT) Regulations:</strong> Under the Indian Telegraph Act (1885) and TCCCPR 2018 regulations, automated outbound telecommunications to cellular subscriber handsets require DLT Principal Entity Registration and dedicated PRI/SIP trunks provisioned by authorized Telecom Service Providers (Tata Tele, Airtel, BSNL).
+                      </p>
+                      <p className="leading-relaxed">
+                        <strong>2. Commercial Cloud Telephony Gateway Readiness:</strong> The JeevanSetu backend includes built-in webhook connectors for enterprise cloud telephony providers (Exotel, Twilio, TeleCMI). In the current evaluation phase, sessions execute via the automated SIP dispatch webhook and live ASHA triage queue.
+                      </p>
+                      <p className="leading-relaxed">
+                        <strong>3. Enterprise Rollout Plan:</strong> Upon production deployment under the National Health Mission (NHM) grant, the platform activates dedicated 1800 Toll-Free SIP trunks to dispatch live PSTN calls to all 36 districts of Maharashtra.
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800">
