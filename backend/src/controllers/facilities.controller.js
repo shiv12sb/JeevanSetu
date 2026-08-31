@@ -1,6 +1,18 @@
 const facilitiesService = require("../services/facilities.service");
 const { sendSuccess } = require("../utils/response");
 
+const getHospitals = async (req, res, next) => {
+  try {
+    const hospitals = await facilitiesService.getHospitals(req.query);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: hospitals,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getPhcById = async (req, res, next) => {
   try {
     const phc = await facilitiesService.getPhcById(req.params.id);
@@ -25,7 +37,21 @@ const getHospitalById = async (req, res, next) => {
   }
 };
 
+const getHospitalDoctors = async (req, res, next) => {
+  try {
+    const doctors = await facilitiesService.getHospitalDoctors(req.params.id);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: doctors,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
+  getHospitals,
   getPhcById,
   getHospitalById,
+  getHospitalDoctors,
 };

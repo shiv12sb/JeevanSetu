@@ -3,8 +3,7 @@ const { sendSuccess } = require("../utils/response");
 
 const getDoctors = async (req, res, next) => {
   try {
-    const { phc_id, hospital_id, specialization, is_on_duty } = req.query;
-    const doctors = await doctorsService.getDoctors({ phc_id, hospital_id, specialization, is_on_duty });
+    const doctors = await doctorsService.getDoctors(req.query);
     return sendSuccess(res, {
       statusCode: 200,
       data: doctors,
@@ -17,9 +16,27 @@ const getDoctors = async (req, res, next) => {
 const getDoctorById = async (req, res, next) => {
   try {
     const doctor = await doctorsService.getDoctorById(req.params.id);
+    if (!doctor) {
+      return res.status(404).json({
+        success: false,
+        error: { message: "Doctor not found in verified registry" },
+      });
+    }
     return sendSuccess(res, {
       statusCode: 200,
       data: doctor,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getDoctorProvenance = async (req, res, next) => {
+  try {
+    const provenance = await doctorsService.getDoctorProvenance(req.params.id);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: provenance,
     });
   } catch (err) {
     next(err);
@@ -32,7 +49,7 @@ const checkInDoctor = async (req, res, next) => {
     return sendSuccess(res, {
       statusCode: 200,
       message: result.message,
-      data: result.doctor,
+      data: result,
     });
   } catch (err) {
     next(err);
@@ -45,7 +62,7 @@ const checkOutDoctor = async (req, res, next) => {
     return sendSuccess(res, {
       statusCode: 200,
       message: result.message,
-      data: result.doctor,
+      data: result,
     });
   } catch (err) {
     next(err);
@@ -95,12 +112,27 @@ const updateDoctorFacilityStatus = async (req, res, next) => {
   }
 };
 
+const importDoctors = async (req, res, next) => {
+  try {
+    const result = await doctorsService.importDoctors(req.body.records || [], req.user);
+    return sendSuccess(res, {
+      statusCode: 200,
+      message: `Successfully imported ${result.importedCount} doctors (${result.rejectedCount} rejected).`,
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getDoctors,
   getDoctorById,
+  getDoctorProvenance,
   checkInDoctor,
   checkOutDoctor,
   getDutySchedule,
   getDoctorFacilities,
   updateDoctorFacilityStatus,
+  importDoctors,
 };

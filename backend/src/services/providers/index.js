@@ -28,6 +28,17 @@ const pharmacyProvider = process.env.MOCK_PROVIDERS === "false" && process.env.P
 
 const n8nAdapter = new N8NOrchestrationAdapter();
 
+const {
+  DoctorAvailabilityProvider,
+  MaharashtraHospitalEhrAdapter,
+  MockDoctorAvailabilityProvider,
+} = require("./doctorAvailability.provider");
+
+const doctorAvailabilityProvider =
+  process.env.NODE_ENV !== "production" && process.env.MOCK_DOCTOR_PROVIDER === "true"
+    ? new MockDoctorAvailabilityProvider()
+    : new MaharashtraHospitalEhrAdapter();
+
 /**
  * Get comprehensive health and configuration status of all external providers
  * Guaranteed to never expose secrets, keys, or passwords.
@@ -40,6 +51,7 @@ const getAllProvidersHealth = () => {
     telephony: telephonyProvider.getHealthStatus(),
     weather: weatherProvider.getHealthStatus(),
     pharmacy: pharmacyProvider.getHealthStatus(),
+    doctorAvailability: doctorAvailabilityProvider.getHealthStatus(),
     isMockEnvironment: process.env.MOCK_PROVIDERS !== "false",
     timestamp: new Date().toISOString(),
   };
@@ -52,5 +64,6 @@ module.exports = {
   weatherProvider,
   pharmacyProvider,
   n8nAdapter,
+  doctorAvailabilityProvider,
   getAllProvidersHealth,
 };

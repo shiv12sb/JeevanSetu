@@ -25,6 +25,7 @@ const testSuites = [
   "tests/phase42_observability_sre.test.js",
   "tests/phase43_ambulance_tracking.test.js",
   "tests/phase44_rural_health_access.test.js",
+  "tests/phase45_maharashtra_doctor_directory.test.js",
   "tests/ai_assistant_voice.test.js",
   "tests/theme_consistency.test.js",
 ];

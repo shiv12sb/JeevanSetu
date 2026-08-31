@@ -2,11 +2,13 @@ const express = require("express");
 const {
   getDoctors,
   getDoctorById,
+  getDoctorProvenance,
   checkInDoctor,
   checkOutDoctor,
   getDutySchedule,
   getDoctorFacilities,
   updateDoctorFacilityStatus,
+  importDoctors,
 } = require("../controllers/doctors.controller");
 const { requireAuth, requireRole } = require("../middleware/auth.middleware");
 const { validateUuidParam } = require("../validators/common.validator");
@@ -16,11 +18,14 @@ const router = express.Router();
 // GET /api/doctors/schedule - Doctor duty schedule & roster
 router.get("/schedule", getDutySchedule);
 
+// POST /api/doctors/import - Safe admin data import pipeline (Admin only)
+router.post("/import", requireAuth, requireRole("district_admin"), importDoctors);
+
 // GET /api/doctors - Verified doctors registry
 router.get("/", getDoctors);
 
-// GET /api/doctors/:id - Single doctor details
-router.get("/:id", validateUuidParam("id"), getDoctorById);
+// GET /api/doctors/:id/provenance - Data source and verification metadata
+router.get("/:id/provenance", validateUuidParam("id"), getDoctorProvenance);
 
 // GET /api/doctors/:id/facilities - List multiple facility mappings
 router.get("/:id/facilities", validateUuidParam("id"), getDoctorFacilities);
@@ -51,5 +56,8 @@ router.post(
   validateUuidParam("id"),
   checkOutDoctor
 );
+
+// GET /api/doctors/:id - Single doctor details
+router.get("/:id", validateUuidParam("id"), getDoctorById);
 
 module.exports = router;

@@ -421,6 +421,7 @@ export const facilitiesApi = {
     return request(`/doctors${query ? `?${query}` : ""}`);
   },
   getDoctor: (id) => request(`/doctors/${id}`),
+  getDoctorProvenance: (id) => request(`/doctors/${id}/provenance`),
   checkInDoctor: (id, data = {}) =>
     request(`/doctors/${id}/check-in`, {
       method: "POST",
@@ -441,9 +442,21 @@ export const facilitiesApi = {
       method: "POST",
       body: JSON.stringify(data),
     }),
-  getPhc: (id) => request(`/facilities/phcs/${id}`),
+  getHospitals: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/facilities/hospitals${query ? `?${query}` : ""}`);
+  },
   getHospital: (id) => request(`/facilities/hospitals/${id}`),
+  getHospitalDoctors: (id) => request(`/facilities/hospitals/${id}/doctors`),
+  getPhc: (id) => request(`/facilities/phcs/${id}`),
+  importDoctors: (records) =>
+    request("/doctors/import", {
+      method: "POST",
+      body: JSON.stringify({ records }),
+    }),
 };
+
+export const doctorsApi = facilitiesApi;
 
 // 9. Admin Monitoring & Audit API
 export const adminApi = {
