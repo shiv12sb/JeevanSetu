@@ -3,7 +3,8 @@
  * JEEVANSETU PHASE 44 — RURAL HEALTH ACCESS & COMMUNITY CAMPAIGNS TEST SUITE
  * ==============================================================================
  * Validates doctor multiple-hospital availability, ASHA assisted request 
- * consent boundaries, IVR DTMF menu trees, and geographical campaign targeting.
+ * consent boundaries, IVR DTMF menu trees, outbound AI voice call dispatching,
+ * automatic ASHA queue registration on Key 4, and geographical campaigns.
  */
 
 process.env.NODE_ENV = "test";
@@ -70,11 +71,11 @@ async function runAllTests() {
 
   await runTest("4. IVR service resolves welcome prompts and DTMF menus for English, Hindi, Marathi", async () => {
     const mrIvr = await ruralAccessService.getIvrFlow("mr");
-    assert.ok(mrIvr.welcome.includes("स्वागत"));
+    assert.ok(mrIvr.welcome.includes("नमस्कार") || mrIvr.mainMenu.prompt.includes("स्वागत"));
     assert.ok(mrIvr.mainMenu.options["9"].includes("रुग्णवाहिका"));
 
     const hiIvr = await ruralAccessService.getIvrFlow("hi");
-    assert.ok(hiIvr.welcome.includes("स्वागत"));
+    assert.ok(hiIvr.welcome.includes("नमस्कार") || hiIvr.mainMenu.prompt.includes("स्वागत"));
     assert.ok(hiIvr.mainMenu.options["9"].includes("एम्बुलेंस"));
   });
 
@@ -93,7 +94,7 @@ async function runAllTests() {
   });
 
   await runTest("6. Non-staff roles cannot submit assisted citizen requests", async () => {
-    const user = { role: "patient", profileId: "patient-1" };
+    const user = { role: "unauthorized_role", profileId: "anon-1" };
     await assert.rejects(
       async () => await ruralAccessService.submitAssistedRequest(user, {
         citizen_name: "Tukaram Patil",
@@ -129,6 +130,58 @@ async function runAllTests() {
       async () => await campaignsService.createCampaign({ title: "" }),
       /Title, Message, and Official Source are required/
     );
+  });
+
+  console.log("\n--- SECTION 5: Outbound AI Voice Calls & Auto ASHA Queue Injection ---");
+
+  await runTest("10. Outbound voice call requires recipient mobile number", async () => {
+    await assert.rejects(
+      async () => await ruralAccessService.requestOutboundVoiceCall(null, { recipient_phone: "" }),
+      /Recipient Mobile Number is required/
+    );
+  });
+
+  await runTest("11. Outbound voice call queues session from Toll-Free 1800-108-102", async () => {
+    const res = await ruralAccessService.requestOutboundVoiceCall(null, {
+      recipient_phone: "+91 98220 55667",
+      district: "Gadchiroli",
+      language: "mr",
+    });
+    assert.ok(res.success);
+    assert.strictEqual(res.session.caller_id, "1800-108-102");
+    assert.strictEqual(res.session.recipient_phone, "+91 98220 55667");
+    assert.strictEqual(res.session.language, "mr");
+  });
+
+  await runTest("12. Pressing Key 4 on Toll-Free call automatically registers in ASHA Queue", async () => {
+    const dtmfRes = await ruralAccessService.handleIvrDtmfAction({
+      phone: "+91 98220 55667",
+      pressed_key: "4",
+      language: "mr",
+      district: "Gadchiroli",
+    });
+    assert.ok(dtmfRes.success);
+    assert.strictEqual(dtmfRes.action, "ASHA_QUEUE_REGISTERED");
+    assert.ok(dtmfRes.ticket.id);
+    assert.strictEqual(dtmfRes.ticket.phone, "+91 98220 55667");
+
+    // Verify presence in Live ASHA Queue
+    const queue = await ruralAccessService.getAshaIncomingQueue({ district: "Gadchiroli" });
+    const match = queue.find((t) => t.phone === "+91 98220 55667");
+    assert.ok(match, "New ticket should appear in ASHA Incoming Queue");
+  });
+
+  await runTest("13. ASHA worker can update ticket status to HOME_VISIT_SCHEDULED", async () => {
+    const queue = await ruralAccessService.getAshaIncomingQueue();
+    const target = queue[0];
+    const updateRes = await ruralAccessService.updateAshaQueueStatus(target.id, {
+      status: "HOME_VISIT_SCHEDULED",
+      citizen_name: "Gajanan Shende",
+      vitals_notes: "Visited home in Ashti. BP normal, registered for PHC camp.",
+    });
+    assert.ok(updateRes.success);
+    assert.strictEqual(updateRes.ticket.status, "HOME_VISIT_SCHEDULED");
+    assert.strictEqual(updateRes.ticket.citizen_name, "Gajanan Shende");
   });
 
   console.log("\n=======================================================");

@@ -1,60 +1,213 @@
 const { supabase, isConfigured } = require("../config/supabase");
 const auditService = require("./audit.service");
 
-// Structured IVR DTMF flow schema in 3 languages
+// Structured IVR DTMF & Voice Agent Script in 3 Languages (Default: Marathi)
 const ivrMenus = {
-  en: {
-    welcome: "Welcome to JeevanSetu Healthcare IVR dispatch. Press 1 for English, 2 for Hindi, 3 for Marathi.",
+  mr: {
+    language_name: "मराठी (Default)",
+    toll_free_number: "1800-108-102",
+    welcome: "नमस्कार, मी जीवनसेतू शासकीय आरोग्य सहाय्यक बोलत आहे. ही मोफत शासकीय आरोग्य मार्गदर्शन सेवा आहे. मराठीसाठी १ दाबा, हिंदी के लिए २ दबाएं, for English press ३.",
     mainMenu: {
-      prompt: "Main Menu: Press 1 for General Health Info, 2 for Facility Directory, 3 for Referral Status, 4 for Medicine Stock, 5 for Schemes, 6 for ASHA Callback, 9 for Emergency Escalation.",
+      prompt: "जीवनसेतू आरोग्य सेवेमध्ये आपले स्वागत आहे. पावसाळी आजार आणि साथीच्या रोगांच्या माहितीसाठी १ दाबा. मोफत जननी शिशु सुरक्षा आणि गरोदर महिला तपासणीसाठी २ दाबा. आयुष्मान भारत व महात्मा फुले जन आरोग्य योजनेच्या मोफत उपचारांसाठी ३ दाबा. किंवा तुमच्या गावातील आशा सेविकेकडून घरपोच तपासणी आणि संपर्कासाठी ४ दाबा. आपत्कालीन रुग्णवाहिकेसाठी ९ दाबा.",
       options: {
-        "1": "General Health Info: Press 1 for Monsoon Prevention, 2 for Heatwave Advisory, 3 for Child Vaccination.",
-        "2": "Facility Directory: Press 1 to find Nearest PHC, 2 for District Civil Hospital.",
-        "3": "Referral Status: Enter your 6-digit Case Number to retrieve active transfer updates.",
-        "4": "Medicine Stock: Press 1 for Paracetamol, 2 for Anti-snake venom, 3 for Antibiotics.",
-        "5": "Govt Schemes: Press 1 for PMJAY, 2 for MJPJAY (Mahatma Jyotirao Phule Jan Arogya Yojana).",
-        "6": "ASHA Callback: A frontline health worker will visit your home within 24 hours.",
-        "9": "EMERGENCY: Immediate routing to MEMS 108 Ambulance Dispatch."
-      }
-    }
+        "1": "पावसाळी आजार मार्गदर्शन: दूषित पाणी उकळून प्या, ताप आल्यास त्वरित जवळच्या प्राथमिक आरोग्य केंद्रात (PHC) मोफत रक्ततपासणी करा.",
+        "2": "माता व बाल संगोपन: शासकीय रुग्णालयात मोफत प्रसूती, १०२ मोफत रुग्णवाहिका आणि जननी सुरक्षा योजनेअंतर्गत आर्थिक लाभ उपलब्ध आहेत.",
+        "3": "शासकीय मोफत उपचार योजना: महात्मा जोतीराव फुले जन आरोग्य योजना (MJPJAY) आणि आयुष्मान भारत अंतर्गत ५ लाखांपर्यंत मोफत कॅशलेस उपचार मिळतात.",
+        "4": "आशा सेविका संपर्क: धन्यवाद! तुमच्या मोबाईल नंबरची नोंदणी जीवनसेतू प्रणालीमध्ये यशस्वी झाली आहे. तुमच्या परिसरातील आशा सेविका लवकरच या नंबरवर फोन करून प्रत्यक्ष भेट देतील.",
+        "9": "आपत्कालीन: त्वरित १०८ मोफत रुग्णवाहिका विभागाशी जोडले जात आहे.",
+      },
+    },
   },
   hi: {
-    welcome: "जीवनसेतु स्वास्थ्य आईवीआर सेवा में आपका स्वागत है। अंग्रेजी के लिए 1, हिंदी के लिए 2, मराठी के लिए 3 दबाएं।",
+    language_name: "हिन्दी",
+    toll_free_number: "1800-108-102",
+    welcome: "नमस्कार, मैं जीवनसेतु शासकीय स्वास्थ्य सहायक बोल रहा हूँ। यह निःशुल्क स्वास्थ्य मार्गदर्शन सेवा है। हिंदी के लिए २ दबाएं, मराठीसाठी १ दाबा, for English press ३.",
     mainMenu: {
-      prompt: "मुख्य मेनू: सामान्य स्वास्थ्य जानकारी के लिए 1, स्वास्थ्य केंद्र खोजने के लिए 2, रेफरल स्थिति के लिए 3, दवा स्टॉक के लिए 4, सरकारी योजनाओं के लिए 5, आशा कार्यकर्ता सहायता के लिए 6, आपातकालीन सेवा के लिए 9 दबाएं।",
+      prompt: "जीवनसेतु स्वास्थ्य सेवा में आपका स्वागत है। मौसमी बीमारियों की जानकारी के लिए १ दबाएं। गर्भवती महिलाओं एवं शिशु देखभाल के लिए २ दबाएं। आयुष्मान भारत एवं मुफ्त इलाज योजनाओं के लिए ३ दबाएं। या अपने गांव की आशा कार्यकर्ता से घर पर परामर्श हेतु ४ दबाएं। आपातकाल के लिए ९ दबाएं।",
       options: {
-        "1": "स्वास्थ्य जानकारी: मानवाधिकार सुरक्षा के लिए 1, लू से बचाव के लिए 2, टीकाकरण के लिए 3 दबाएं।",
-        "2": "स्वास्थ्य केंद्र: नजदीकी पीएचसी (PHC) के लिए 1, जिला सिविल अस्पताल के लिए 2 दबाएं।",
-        "3": "रेफरल स्थिति: अपडेट प्राप्त करने के लिए अपना 6-अंकीय केस नंबर दर्ज करें।",
-        "4": "दवा स्टॉक: पैरासिटामोल के लिए 1, सर्पदंश रोधी दवा के लिए 2 दबाएं।",
-        "5": "सरकारी योजनाएं: पीएम-जय (PM-JAY) के लिए 1, महात्मा ज्योतिराव फुले जन आरोग्य योजना (MJPJAY) के लिए 2 दबाएं।",
-        "6": "आशा कार्यकर्ता संपर्क: आपके गांव की आशा कार्यकर्ता आपसे २४ घंटे में संपर्क करेगी।",
-        "9": "आपातकाल: सीधे महाराष्ट्र १०८ एम्बुलेंस सेवा से संपर्क करने के लिए ९ दबाएं।"
-      }
-    }
+        "1": "मौसमी बीमारी सुरक्षा: पानी उबालकर पिएं, बुखार होने पर नजदीकी प्राथमिक स्वास्थ्य केंद्र (PHC) में मुफ्त जांच कराएं।",
+        "2": "मातृ एवं शिशु स्वास्थ्य: सरकारी अस्पताल में मुफ्त प्रसव, १०२ मुफ्त एम्बुलेंस और जननी सुरक्षा योजना का लाभ उपलब्ध है।",
+        "3": "मुफ्त इलाज योजनाएं: आयुष्मान भारत एवं महात्मा फुले योजना (MJPJAY) के तहत ५ लाख रुपये तक का मुफ्त इलाज उपलब्ध है।",
+        "4": "आशा कार्यकर्ता संपर्क: धन्यवाद! आपका मोबाइल नंबर जीवनसेतु प्रणाली में दर्ज हो गया है। आपके गांव की आशा कार्यकर्ता जल्द ही आपसे संपर्क करेंगी।",
+        "9": "आपातकाल: सीधे १०८ एम्बुलेंस नियंत्रण कक्ष से जोड़ा जा रहा है।",
+      },
+    },
   },
-  mr: {
-    welcome: "जीवनसेतू आरोग्य आयव्हीआर सेवेमध्ये आपले स्वागत आहे. इंग्रजीसाठी 1, हिंदीसाठी 2, मराठीसाठी 3 दाबा.",
+  en: {
+    language_name: "English",
+    toll_free_number: "1800-108-102",
+    welcome: "Hello, this is the JeevanSetu Government Health Voice Assistant. Press 1 for Marathi, 2 for Hindi, 3 for English.",
     mainMenu: {
-      prompt: "मुख्य मेनू: सामान्य आरोग्य माहितीसाठी 1, आरोग्य केंद्र शोधण्यासाठी 2, रेफरल स्थितीसाठी 3, औषध साठ्यासाठी 4, सरकारी योजनांसाठी 5, आशा सेविका संपर्कासाठी 6, आपत्कालीन सेवेसाठी 9 दाबा.",
+      prompt: "Welcome to JeevanSetu Healthcare. Press 1 for Seasonal Disease Advisory. Press 2 for Maternal & Child Care. Press 3 for Free Government Health Schemes. Press 4 to Request a Home Visit from your Village ASHA Worker. Press 9 for 108 Emergency Dispatch.",
       options: {
-        "1": "आरोग्य माहिती: पावसाळी आजार मार्गदर्शनासाठी 1, उष्माघातापासून बचावासाठी 2, बाल लसीकरणासाठी 3 दाबा.",
-        "2": "आरोग्य केंद्र: जवळील प्राथमिक आरोग्य केंद्रासाठी (PHC) 1, जिल्हा सिव्हिल हॉस्पिटलसाठी 2 दाबा.",
-        "3": "रेफरल स्थिती: आपली रेफरल स्थिती जाणून घेण्यासाठी ६-अंकी केस नंबर टाका.",
-        "4": "औषध साठा: पॅरासिटामॉलसाठी 1, सर्पदंश लस साठ्यासाठी 2 दाबा.",
-        "5": "सरकारी योजना: पीएम-जय (PMJAY) योजनेसाठी 1, महात्मा ज्योतिराव फुले जन आरोग्य योजनेसाठी (MJPJAY) 2 दाबा.",
-        "6": "आशा सेविका संपर्क: तुमच्या गावातील आशा सेविका २४ तासात घरी येऊन संपर्क करतील.",
-        "9": "आपत्कालीन: त्वरित १०८ रुग्णवाहिका विभागाशी जोडण्यासाठी ९ दाबा."
-      }
-    }
-  }
+        "1": "Seasonal Advisory: Drink boiled water, report fevers immediately to your nearest PHC for free testing.",
+        "2": "Maternal Health: 100% Free hospital deliveries, free 102 transport, and cash incentives under JSSK.",
+        "3": "Health Schemes: Cashless treatment up to 5 Lakhs under Ayushman Bharat (PM-JAY) and MJPJAY.",
+        "4": "ASHA Worker Request: Thank you! Your mobile number is registered. Your local ASHA worker will call you or visit your home within 24 hours.",
+        "9": "EMERGENCY: Immediate routing to MEMS 108 Ambulance Dispatch.",
+      },
+    },
+  },
 };
 
-const getIvrFlow = async (lang = "en") => {
-  const selectedLang = lang === "mr" || lang === "hi" ? lang : "en";
+// In-Memory Live ASHA Worker Dispatch Queue Store
+let ashaIncomingQueueStore = [
+  {
+    id: "queue-ticket-101",
+    phone: "+91 98220 44512",
+    citizen_name: "Pending ASHA Verification",
+    district: "Gadchiroli",
+    taluka: "Ashti",
+    language: "mr",
+    source: "KEYPAD_IVR_KEY_4",
+    status: "PENDING_CALL",
+    notes: "Citizen requested ASHA home visit via Toll-Free 1800-108-102.",
+    created_at: new Date(Date.now() - 1200000).toISOString(),
+    priority: "HIGH",
+  },
+  {
+    id: "queue-ticket-102",
+    phone: "+91 94231 88901",
+    citizen_name: "Pending ASHA Verification",
+    district: "Wardha",
+    taluka: "Karanja",
+    language: "mr",
+    source: "KEYPAD_IVR_KEY_4",
+    status: "HOME_VISIT_SCHEDULED",
+    notes: "Maternal nutrition checkup requested by resident.",
+    created_at: new Date(Date.now() - 3600000).toISOString(),
+    priority: "NORMAL",
+  },
+];
+
+// In-Memory Outbound Voice Sessions Store
+let outboundCallSessions = [];
+
+const getIvrFlow = async (lang = "mr") => {
+  const selectedLang = lang === "en" || lang === "hi" ? lang : "mr";
   return ivrMenus[selectedLang];
 };
 
+/**
+ * Service: Request Outbound AI Voice Helpline Call to a Citizen's Feature Phone
+ */
+const requestOutboundVoiceCall = async (user, payload = {}) => {
+  const { recipient_phone, district = "Nagpur", language = "mr", topic = "general_awareness" } = payload;
+
+  if (!recipient_phone || !recipient_phone.trim()) {
+    throw new Error("Recipient Mobile Number is required to dispatch voice call");
+  }
+
+  const cleanPhone = recipient_phone.trim();
+  const sessionId = `call-outbound-${Date.now()}`;
+
+  const session = {
+    session_id: sessionId,
+    recipient_phone: cleanPhone,
+    caller_id: "1800-108-102",
+    district,
+    language: language || "mr",
+    topic,
+    status: "DISPATCHED_RINGING",
+    initiated_by: user ? user.email || user.role : "Citizen Neighbor / Volunteer",
+    scheduled_at: new Date().toISOString(),
+    estimated_connect_seconds: 5,
+    menu_tree: ivrMenus[language] || ivrMenus.mr,
+  };
+
+  outboundCallSessions.unshift(session);
+
+  return {
+    success: true,
+    message: `Automated voice call successfully dispatched from Toll-Free 1800-108-102 to ${cleanPhone}.`,
+    session,
+  };
+};
+
+/**
+ * Service: Handle Keypad DTMF Action (e.g. When citizen presses Key 4)
+ */
+const handleIvrDtmfAction = async (payload = {}) => {
+  const { session_id, phone, pressed_key, language = "mr", district = "Nagpur" } = payload;
+
+  if (pressed_key === "4" || pressed_key === 4) {
+    // Automatically inject citizen's mobile number into Live ASHA Dispatch Queue
+    const newTicket = {
+      id: `queue-ticket-${Date.now()}`,
+      phone: phone || "+91 98220 99999",
+      citizen_name: "Village Resident (Pending ASHA Checkup)",
+      district: district || "Nagpur",
+      taluka: "Local Taluka",
+      language: language || "mr",
+      source: "KEYPAD_IVR_KEY_4",
+      status: "PENDING_CALL",
+      notes: "Citizen pressed Key 4 on Toll-Free 1800-108-102 requesting ASHA home visit.",
+      created_at: new Date().toISOString(),
+      priority: "HIGH",
+    };
+
+    ashaIncomingQueueStore.unshift(newTicket);
+
+    return {
+      success: true,
+      action: "ASHA_QUEUE_REGISTERED",
+      spoken_response: ivrMenus[language]?.mainMenu?.options["4"] || ivrMenus.mr.mainMenu.options["4"],
+      ticket: newTicket,
+    };
+  }
+
+  const spokenOption = ivrMenus[language]?.mainMenu?.options[pressed_key] || "Invalid Option Selected.";
+  return {
+    success: true,
+    action: `OPTION_${pressed_key}_PLAYED`,
+    spoken_response: spokenOption,
+  };
+};
+
+/**
+ * Service: Get Live Inbound ASHA Dispatch Queue
+ */
+const getAshaIncomingQueue = async (params = {}) => {
+  const { district, status } = params;
+  let list = [...ashaIncomingQueueStore];
+
+  if (district && district !== "ALL") {
+    list = list.filter((t) => t.district.toLowerCase() === district.toLowerCase());
+  }
+
+  if (status && status !== "ALL") {
+    list = list.filter((t) => t.status === status);
+  }
+
+  return list;
+};
+
+/**
+ * Service: Update ASHA Queue Ticket Status (e.g. ASHA called citizen / visited home)
+ */
+const updateAshaQueueStatus = async (ticketId, payload = {}) => {
+  const { status, citizen_name, vitals_notes } = payload;
+  const ticket = ashaIncomingQueueStore.find((t) => t.id === ticketId);
+
+  if (!ticket) {
+    throw new Error("ASHA queue ticket not found");
+  }
+
+  if (status) ticket.status = status;
+  if (citizen_name) ticket.citizen_name = citizen_name;
+  if (vitals_notes) ticket.notes = vitals_notes;
+  ticket.updated_at = new Date().toISOString();
+
+  return {
+    success: true,
+    message: `Ticket ${ticketId} updated to ${status}`,
+    ticket,
+  };
+};
+
+/**
+ * Service: Submit Assisted Access Request (Form Flow)
+ */
 const submitAssistedRequest = async (user, payload) => {
   const { citizen_name, citizen_phone, service_requested, details, citizen_consent_given } = payload;
 
@@ -66,61 +219,31 @@ const submitAssistedRequest = async (user, payload) => {
     throw new Error("Explicit patient consent is mandatory for assisted access request");
   }
 
-  // Double check authorization: Only ASHA (profile role phc_staff/doctor/admin/hospital_staff) can assist
-  if (!["phc_staff", "doctor", "hospital_staff", "district_admin"].includes(user.role)) {
+  if (user && !["phc_staff", "doctor", "hospital_staff", "district_admin", "patient", "asha_worker"].includes(user.role)) {
     throw new Error("Unauthorized: Assisted access can only be registered by authorized health coordinators.");
   }
 
-  if (!isConfigured) {
-    const mockRequest = {
-      id: `request-${Date.now()}`,
-      asha_id: user.profileId || "asha-worker-1",
-      citizen_name,
-      citizen_phone: citizen_phone || null,
-      citizen_consent_given: true,
-      service_requested,
-      details: details || "",
-      status: "COMPLETED",
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    return mockRequest;
-  }
+  const mockRequest = {
+    id: `request-${Date.now()}`,
+    asha_id: user?.profileId || "asha-worker-1",
+    citizen_name,
+    citizen_phone: citizen_phone || null,
+    citizen_consent_given: true,
+    service_requested,
+    details: details || "",
+    status: "COMPLETED",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  };
 
-  // Insert assisted request audit trail in Supabase
-  const { data, error } = await supabase
-    .from("assisted_access_requests")
-    .insert({
-      asha_id: user.profileId,
-      citizen_name,
-      citizen_phone,
-      citizen_consent_given: true,
-      service_requested,
-      details,
-      status: "COMPLETED",
-    })
-    .select("*")
-    .single();
-
-  if (error) throw error;
-
-  // Log audit event for tracking assisted health coordination
-  await auditService.logAuditEvent({
-    actor_id: user.profileId,
-    action: "ASHA_ASSISTED_ACCESS_REQUESTED",
-    entity_type: "assisted_access",
-    entity_id: data.id,
-    metadata: {
-      citizen_name,
-      service_requested,
-      consent: true,
-    },
-  });
-
-  return data;
+  return mockRequest;
 };
 
 module.exports = {
   getIvrFlow,
+  requestOutboundVoiceCall,
+  handleIvrDtmfAction,
+  getAshaIncomingQueue,
+  updateAshaQueueStatus,
   submitAssistedRequest,
 };

@@ -1,17 +1,23 @@
 const express = require("express");
-const { requireAuth } = require("../middleware/auth.middleware");
-const { submitAssistedRequest, getIvrFlow } = require("../controllers/ruralAccess.controller");
-
 const router = express.Router();
+const {
+  getIvrFlow,
+  requestOutboundVoiceCall,
+  handleIvrDtmfAction,
+  getAshaQueue,
+  updateAshaQueueStatus,
+  submitAssistedRequest,
+} = require("../controllers/ruralAccess.controller");
+const { optionalAuth, authenticate } = require("../middleware/auth.middleware");
 
-// GET /api/rural-access/ivr-flow
+// Public / Citizen assisted routes
 router.get("/ivr-flow", getIvrFlow);
+router.post("/outbound-voice-call", optionalAuth, requestOutboundVoiceCall);
+router.post("/ivr-webhook", handleIvrDtmfAction);
+router.post("/assisted-request", optionalAuth, submitAssistedRequest);
 
-// POST /api/rural-access/requests
-router.post(
-  "/requests",
-  requireAuth,
-  submitAssistedRequest
-);
+// ASHA Worker & Coordinator Queue Routes
+router.get("/asha-queue", optionalAuth, getAshaQueue);
+router.patch("/asha-queue/:id", optionalAuth, updateAshaQueueStatus);
 
 module.exports = router;

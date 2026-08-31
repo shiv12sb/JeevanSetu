@@ -758,9 +758,28 @@ export const ambulanceApi = {
 
 // 18. Rural Access API
 export const ruralAccessApi = {
-  getIvrFlow: (lang = "en") => request(`/rural-access/ivr-flow?lang=${lang}`),
+  getIvrFlow: (lang = "mr") => request(`/rural-access/ivr-flow?lang=${lang}`),
+  requestOutboundVoiceCall: (data) =>
+    request("/rural-access/outbound-voice-call", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+  handleIvrDtmfAction: (data) =>
+    request("/rural-access/ivr-webhook", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+  getAshaQueue: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/rural-access/asha-queue${query ? `?${query}` : ""}`);
+  },
+  updateAshaQueueStatus: (id, data) =>
+    request(`/rural-access/asha-queue/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+    }),
   submitAssistedRequest: (data) =>
-    request("/rural-access/requests", {
+    request("/rural-access/assisted-request", {
       method: "POST",
       body: JSON.stringify(data),
     }),
