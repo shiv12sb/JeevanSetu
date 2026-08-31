@@ -21,6 +21,7 @@ const observabilityRoutes = require("./observability.routes");
 const ambulanceRoutes = require("./ambulance.routes");
 const ruralAccessRoutes = require("./ruralAccess.routes");
 const campaignsRoutes = require("./campaigns.routes");
+const registrySyncRoutes = require("./registrySync.routes");
 
 const router = Router();
 
@@ -47,6 +48,7 @@ router.use("/operations", observabilityRoutes);
 router.use("/ambulances", ambulanceRoutes);
 router.use("/rural-access", ruralAccessRoutes);
 router.use("/community-health", campaignsRoutes);
+router.use("/registry-sync", registrySyncRoutes);
 
 module.exports = router;
 
