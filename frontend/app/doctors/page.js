@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -13,6 +13,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { facilitiesApi } from "@/lib/api";
 import {
+  MAHARASHTRA_ALL_DISTRICTS,
   MAHARASHTRA_VERIFIED_DOCTORS,
   MAHARASHTRA_VERIFIED_HOSPITALS,
 } from "@/lib/maharashtraDoctorHospitalData";
@@ -39,26 +40,8 @@ import {
   HeartPulse,
   Eye,
   Activity,
+  Leaf,
 } from "lucide-react";
-
-// Maharashtra districts
-const MAHARASHTRA_DISTRICTS = [
-  "ALL",
-  "Nagpur",
-  "Pune",
-  "Mumbai",
-  "Nashik",
-  "Chhatrapati Sambhajinagar",
-  "Amravati",
-  "Gadchiroli",
-  "Thane",
-  "Wardha",
-  "Chandrapur",
-  "Akola",
-  "Yavatmal",
-  "Kolhapur",
-  "Solapur",
-];
 
 const NAGPUR_AREAS = [
   "ALL",
@@ -67,15 +50,22 @@ const NAGPUR_AREAS = [
   "Dhantoli",
   "Sitabuldi",
   "Dharampeth",
-  "Khamla",
-  "Medical Square",
   "Mahal",
   "Sadar",
+  "Khamla",
+  "Medical Square",
   "Wardha Road",
   "Pratap Nagar",
   "Trimurti Nagar",
   "Nandanvan",
   "Jaripatka",
+];
+
+const DEGREE_FILTER_PILLS = [
+  { key: "ALL", label: "All Qualifications", icon: Stethoscope },
+  { key: "MBBS", label: "🩺 MBBS / MD Specialists", icon: Activity },
+  { key: "BAMS", label: "🌿 BAMS (Ayurveda Clinics)", icon: Leaf },
+  { key: "Gynecology", label: "👶 OB/GYN & Maternity (स्त्रीरोग)", icon: Baby },
 ];
 
 const SPECIALTY_QUICK_FILTERS = [
@@ -105,6 +95,7 @@ export function DoctorsPage() {
   const [doctors, setDoctors] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("ALL");
+  const [selectedDegree, setSelectedDegree] = useState("ALL");
   const [selectedDistrict, setSelectedDistrict] = useState("Nagpur");
   const [selectedArea, setSelectedArea] = useState("ALL");
   const [selectedFacilityType, setSelectedFacilityType] = useState("ALL");
@@ -129,6 +120,7 @@ export function DoctorsPage() {
       if (selectedSpecialty !== "ALL") params.specialization = selectedSpecialty;
       if (selectedDistrict !== "ALL") params.district = selectedDistrict;
       if (selectedFacilityType !== "ALL") params.facility_type = selectedFacilityType;
+      if (selectedDegree !== "ALL") params.degree_type = selectedDegree;
       if (availableOnly) params.is_on_duty = true;
       if (selectedStatus !== "ALL") params.verification_status = selectedStatus;
 
@@ -140,6 +132,9 @@ export function DoctorsPage() {
         }
         if (selectedArea !== "ALL") {
           data = data.filter((d) => d.area && d.area.toLowerCase() === selectedArea.toLowerCase());
+        }
+        if (selectedDegree !== "ALL") {
+          data = data.filter((d) => (d.degree_type && d.degree_type.includes(selectedDegree)) || (d.degree && d.degree.includes(selectedDegree)) || (d.specialization && d.specialization.includes(selectedDegree)));
         }
         setDoctors(data);
       } else {
@@ -168,6 +163,10 @@ export function DoctorsPage() {
       list = list.filter((d) => d.facility_type === selectedFacilityType);
     }
 
+    if (selectedDegree !== "ALL") {
+      list = list.filter((d) => (d.degree_type && d.degree_type.includes(selectedDegree)) || (d.degree && d.degree.includes(selectedDegree)) || (d.specialization && d.specialization.includes(selectedDegree)));
+    }
+
     if (selectedSpecialty !== "ALL") {
       list = list.filter((d) =>
         d.specialization.toLowerCase().includes(selectedSpecialty.toLowerCase()) ||
@@ -180,6 +179,7 @@ export function DoctorsPage() {
       list = list.filter(
         (d) =>
           d.full_name.toLowerCase().includes(q) ||
+          (d.degree && d.degree.toLowerCase().includes(q)) ||
           d.specialization.toLowerCase().includes(q) ||
           (d.sub_specialization && d.sub_specialization.toLowerCase().includes(q)) ||
           (d.hospitals && d.hospitals.name.toLowerCase().includes(q)) ||
@@ -201,7 +201,7 @@ export function DoctorsPage() {
 
   useEffect(() => {
     loadDoctors();
-  }, [searchQuery, selectedSpecialty, selectedDistrict, selectedArea, selectedFacilityType, selectedStatus, availableOnly]);
+  }, [searchQuery, selectedSpecialty, selectedDegree, selectedDistrict, selectedArea, selectedFacilityType, selectedStatus, availableOnly]);
 
   const handleUpdateStatus = async (e) => {
     e.preventDefault();
@@ -344,17 +344,17 @@ export function DoctorsPage() {
         <div className="flex flex-col gap-2 mb-6">
           <div className="flex items-center gap-2 flex-wrap">
             <Badge className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 font-semibold px-2.5 py-0.5 border border-teal-200 dark:border-teal-800 text-[11px]">
-              Maharashtra Verified Healthcare Registry
+              Maharashtra Statewide Verified Healthcare Directory
             </Badge>
             <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 font-mono text-[10px] px-2 py-0.5">
-              OB/GYN Clinics • Family Dispensaries • Maternity Homes • MMC Verified
+              MBBS • BAMS (Ayurveda) • OB/GYN Clinics • MMC & MCIM Verified
             </Badge>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
             {t("findDoctor", "Find Doctors, Clinics & Hospitals Across Maharashtra")}
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl">
-            Search private clinics, gynecologists (OB/GYN), family dispensaries, nursing homes, surgery centers, and government medical colleges. 100% verified doctor registrations with authenticated reception phone numbers.
+            Complete directory of verified MBBS allopathic practitioners, BAMS ayurvedic dispensaries, OB/GYN maternity homes, and government medical colleges across all 36 Maharashtra districts.
           </p>
         </div>
 
@@ -374,14 +374,14 @@ export function DoctorsPage() {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <Input
                 type="text"
-                placeholder="Doctor name (e.g. Dr. Khan Shamim), clinic, specialty, area..."
+                placeholder="Search doctor (Dr. Khan Shamim), degree (BAMS/MBBS), area..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 text-xs py-2.5 bg-slate-50/50 dark:bg-slate-950/50"
               />
             </div>
 
-            {/* District Select */}
+            {/* District Select (All 36 Districts) */}
             <div className="md:col-span-3">
               <Select
                 value={selectedDistrict}
@@ -391,9 +391,9 @@ export function DoctorsPage() {
                 }}
                 className="text-xs py-2.5"
               >
-                {MAHARASHTRA_DISTRICTS.map((dist) => (
+                {MAHARASHTRA_ALL_DISTRICTS.map((dist) => (
                   <option key={dist} value={dist}>
-                    {dist === "ALL" ? "All Maharashtra Districts" : `${dist} District`}
+                    {dist === "ALL" ? "All Maharashtra Districts (36 Districts)" : `${dist} District`}
                   </option>
                 ))}
               </Select>
@@ -433,6 +433,30 @@ export function DoctorsPage() {
             </div>
           </div>
 
+          {/* Medical Qualification / Degree Type Filter Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
+              Degree:
+            </span>
+            {DEGREE_FILTER_PILLS.map((pill) => {
+              const Icon = pill.icon;
+              return (
+                <button
+                  key={pill.key}
+                  onClick={() => setSelectedDegree(pill.key)}
+                  className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap transition-all border ${
+                    selectedDegree === pill.key
+                      ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {pill.label}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Specialty Category Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
@@ -462,7 +486,7 @@ export function DoctorsPage() {
             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 shrink-0 mr-1">
               Districts:
             </span>
-            {MAHARASHTRA_DISTRICTS.slice(0, 10).map((dist) => (
+            {MAHARASHTRA_ALL_DISTRICTS.slice(0, 12).map((dist) => (
               <button
                 key={dist}
                 onClick={() => {
@@ -553,12 +577,13 @@ export function DoctorsPage() {
               No Doctors or Clinics Found in {selectedDistrict === "ALL" ? "Selected Criteria" : selectedDistrict}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
-              We did not find any matching verified practitioners with these exact filters. Try selecting "All Establishments" or clearing the specialty filter.
+              We did not find any matching verified practitioners with these exact filters. Try selecting "All Qualifications" or resetting filters.
             </p>
             <Button
               onClick={() => {
                 setSelectedDistrict("ALL");
                 setSelectedSpecialty("ALL");
+                setSelectedDegree("ALL");
                 setSelectedArea("ALL");
                 setSelectedFacilityType("ALL");
                 setSearchQuery("");
@@ -581,10 +606,15 @@ export function DoctorsPage() {
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-teal-500/40 transition-all duration-200"
                 >
                   <div className="space-y-4">
-                    {/* Facility Category & Verification Tag */}
+                    {/* Facility Category, Degree & Verification Tag */}
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         {getFacilityCategoryBadge(doctor.facility_type)}
+                        {doctor.degree && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
+                            🎓 {doctor.degree}
+                          </span>
+                        )}
                         {doctor.area && (
                           <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
                             <MapPin className="w-2.5 h-2.5 text-teal-600" />
@@ -616,7 +646,7 @@ export function DoctorsPage() {
                             {doctor.specialization}
                           </p>
                           <p className="text-[10px] text-slate-400 font-mono mt-0.5">
-                            MMC Reg: <strong>{doctor.medical_council_id}</strong>
+                            Council Reg: <strong>{doctor.medical_council_id}</strong>
                           </p>
                         </div>
                       </div>
@@ -735,7 +765,7 @@ export function DoctorsPage() {
                   <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="text-[10px] text-slate-400 space-y-0.5">
                       <p>
-                        <strong>Source:</strong> {doctor.source ? doctor.source.slice(0, 48) : "NOGS & DMER Maharashtra"}...
+                        <strong>Source:</strong> {doctor.source ? doctor.source.slice(0, 48) : "MMC / MCIM / DMER Maharashtra"}...
                       </p>
                     </div>
 
