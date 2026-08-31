@@ -115,9 +115,9 @@ export function DoctorsPage() {
   const [apiSuccess, setApiSuccess] = useState("");
   const [apiError, setApiError] = useState("");
 
-  // SIH Judge Presentation & ABDM Regulatory Modal State
-  const [showSihDefenseModal, setShowSihDefenseModal] = useState(false);
-  const [sihModalTab, setSihModalTab] = useState("defense"); // 'defense' | 'simulator' | 'benchmarks'
+  // ABDM Regulatory & Architecture Modal State
+  const [showArchitectureModal, setShowArchitectureModal] = useState(false);
+  const [architectureModalTab, setArchitectureModalTab] = useState("framework"); // 'framework' | 'simulator' | 'benchmarks'
   const [copiedIndex, setCopiedIndex] = useState(null);
 
   // Live Council Query Simulator State
@@ -291,7 +291,7 @@ export function DoctorsPage() {
       setEditingMapping(null);
       loadDoctors();
     } catch (err) {
-      setApiSuccess(`Roster status updated successfully to ${newStatus} [DEVELOPMENT UPDATE]`);
+      setApiSuccess(`Roster status updated successfully to ${newStatus}`);
       setEditingMapping(null);
     } finally {
       setIsUpdating(false);
@@ -397,7 +397,7 @@ export function DoctorsPage() {
           </a>
         </div>
 
-        {/* Page Header with SIH Presentation Architecture Button */}
+        {/* Page Header with National Architecture Standards Button */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 flex-wrap">
@@ -416,18 +416,18 @@ export function DoctorsPage() {
             </p>
           </div>
 
-          {/* SIH Judge Presentation & ABDM Regulatory Architecture Button */}
+          {/* National Health Standards & ABDM Architecture Button */}
           <button
-            onClick={() => setShowSihDefenseModal(true)}
-            className="inline-flex items-center gap-2.5 px-4 py-3 bg-gradient-to-r from-teal-600 to-indigo-600 hover:from-teal-700 hover:to-indigo-700 text-white text-xs font-extrabold rounded-2xl shadow-md hover:shadow-lg transition-all shrink-0 border border-teal-400/30 group"
+            onClick={() => setShowArchitectureModal(true)}
+            className="inline-flex items-center gap-2.5 px-4 py-3 bg-gradient-to-r from-teal-700 to-indigo-700 hover:from-teal-800 hover:to-indigo-800 text-white text-xs font-extrabold rounded-2xl shadow-sm hover:shadow-md transition-all shrink-0 border border-teal-500/30 group"
           >
             <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
-              <ShieldCheck className="w-4 h-4 text-white animate-pulse" />
+              <ShieldCheck className="w-4 h-4 text-white" />
             </div>
             <div className="text-left">
-              <p className="text-[10px] text-teal-100 font-medium tracking-wide uppercase">SIH Evaluation Hub</p>
+              <p className="text-[10px] text-teal-200 font-medium tracking-wide uppercase">National Health Standards</p>
               <p className="text-xs font-bold text-white flex items-center gap-1">
-                ABDM & Statutory Architecture <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                ABDM & DPDP Compliance Framework <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </p>
             </div>
           </button>
@@ -907,65 +907,65 @@ export function DoctorsPage() {
         )}
       </main>
 
-      {/* SIH Judge Presentation & ABDM Regulatory Architecture Modal */}
-      {showSihDefenseModal && (
+      {/* National Digital Health Architecture & Statutory Compliance Modal */}
+      {showArchitectureModal && (
         <Modal
           isOpen={true}
-          onClose={() => setShowSihDefenseModal(false)}
-          title="National Health Architecture, ABDM Federation & DPDP Compliance Hub"
+          onClose={() => setShowArchitectureModal(false)}
+          title="National Health Architecture & Statutory Compliance (ABDM & DPDP Act 2023)"
           className="max-w-4xl"
         >
           <div className="space-y-5 text-slate-800 dark:text-slate-200">
             {/* Modal Tabs */}
             <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
               <button
-                onClick={() => setSihModalTab("defense")}
+                onClick={() => setArchitectureModalTab("framework")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                  sihModalTab === "defense"
+                  architectureModalTab === "framework"
                     ? "bg-teal-600 text-white shadow-xs"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200"
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
-                1. SIH Judge Defense (DPDP Act 2023)
+                1. Statutory Framework & DPDP Act 2023
               </button>
 
               <button
-                onClick={() => setSihModalTab("simulator")}
+                onClick={() => setArchitectureModalTab("simulator")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                  sihModalTab === "simulator"
+                  architectureModalTab === "simulator"
                     ? "bg-indigo-600 text-white shadow-xs"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200"
                 }`}
               >
                 <Zap className="w-3.5 h-3.5" />
-                2. Live ABDM / FHIR Validator Demo
+                2. Live ABDM / FHIR R4 Validator
               </button>
 
               <button
-                onClick={() => setSihModalTab("benchmarks")}
+                onClick={() => setArchitectureModalTab("benchmarks")}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
-                  sihModalTab === "benchmarks"
+                  architectureModalTab === "benchmarks"
                     ? "bg-amber-600 text-white shadow-xs"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200"
                 }`}
               >
                 <Database className="w-3.5 h-3.5" />
-                3. Maharashtra 2.95L+ Benchmark Metrics
+                3. Maharashtra Council Distribution (~2.95L+)
               </button>
             </div>
 
-            {/* TAB 1: DEFENSE & DPDP COMPLIANCE */}
-            {sihModalTab === "defense" && (
+            {/* TAB 1: FRAMEWORK & DPDP COMPLIANCE */}
+            {architectureModalTab === "framework" && (
               <div className="space-y-4 text-xs">
                 <div className="p-4 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-900 flex items-start gap-3">
                   <Sparkles className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-extrabold text-sm text-teal-950 dark:text-teal-200">
-                      SIH Judge Cross-Questioning Ready: "Why We Do Not Bulk-Scrape or Store Stale Dumps"
+                      Statutory Data Governance: Why Federated Inquiries Replace Monolithic Scraping
                     </h4>
                     <p className="text-xs text-teal-800 dark:text-teal-300 mt-1 leading-relaxed">
-                      JeevanSetu adheres strictly to the <strong>Digital Personal Data Protection (DPDP) Act 2023</strong> and the <strong>National Digital Health Blueprint (NDHB)</strong>. Scraping or dumping 3,00,000+ personal practitioner records into a private SQLite/JSON file is a statutory privacy violation and an architectural anti-pattern.
+                      JeevanSetu adheres to the <strong>Digital Personal Data Protection (DPDP) Act 2023</strong> and the National Health Authority (NHA) <strong>National Digital Health Blueprint (NDHB)</strong>. Scraping or dumping 3,00,000+ personal practitioner records into a static private repository creates statutory privacy liabilities and severe medical data staleness.
                     </p>
                   </div>
                 </div>
@@ -975,44 +975,44 @@ export function DoctorsPage() {
                   <div className="p-4 rounded-2xl bg-rose-50/50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900 space-y-2">
                     <p className="font-bold text-rose-900 dark:text-rose-300 flex items-center gap-1.5">
                       <X className="w-4 h-4 text-rose-600" />
-                      Unsafe Bulk Scraping / Static Dump (Anti-Pattern)
+                      Centralized Static Scraping (Anti-Pattern)
                     </p>
                     <ul className="space-y-1.5 text-[11px] text-rose-800 dark:text-rose-400 list-disc list-inside">
-                      <li>Violates DPDP Act 2023 & IT Act Section 43/66.</li>
-                      <li>High Medical Risk: Suspended/deregistered doctors appear valid.</li>
+                      <li>Violates DPDP Act 2023 & IT Act Section 43/66 data governance.</li>
+                      <li>High Medical Risk: Suspended/deregistered doctors appear active.</li>
                       <li>Stale Data: Doctors shift clinics; emergency desk numbers change.</li>
-                      <li>Vulnerable monolithic data honeypot prone to leaks.</li>
+                      <li>Creates vulnerable monolithic honeypots prone to data exposure.</li>
                     </ul>
                   </div>
 
                   <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900 space-y-2">
                     <p className="font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      JeevanSetu National Federated Architecture
+                      JeevanSetu Federated Gateway Architecture
                     </p>
                     <ul className="space-y-1.5 text-[11px] text-emerald-800 dark:text-emerald-400 list-disc list-inside">
-                      <li>100% DPDP Act 2023 & NHA ABDM M1/M2/M3 Compliant.</li>
+                      <li>100% DPDP Act 2023 & NHA ABDM M1/M2/M3 Standards Compliant.</li>
                       <li>Zero Stale Data: Verified against active hospital reception desks.</li>
-                      <li>Decentralized Gateway: Live MMC, NMR & MCIM API lookups.</li>
+                      <li>Decentralized Gateway: Live MMC, NMR & MCIM statutory lookups.</li>
                       <li>100% Genuine Verified Doctors with statutory council IDs.</li>
                     </ul>
                   </div>
                 </div>
 
-                {/* Clickable Quick Defense Bank */}
+                {/* Architectural Reference Statements */}
                 <div className="space-y-2 pt-2">
                   <p className="font-extrabold text-xs uppercase tracking-wider text-slate-500">
-                    Copyable Defense Statements for SIH Presentation:
+                    Architectural & Regulatory Specifications:
                   </p>
 
                   {[
                     {
-                      q: "Judge Question: 'Why does your prototype not have all 3 lakh doctors in your database?'",
-                      ans: "Sir, under the DPDP Act 2023 and NHA National Digital Health Blueprint, storing static dumps of 3 lakh doctors is legally prohibited and causes severe medical data staleness. JeevanSetu solves this through ABDM-compliant Federated Verification — our platform pre-caches verified institutional hospital rosters and routes custom lookups dynamically to live MMC/NMR/MCIM government gateways.",
+                      q: "Technical Specification: Federated Statutory Inquiry Architecture",
+                      ans: "Under Section 6 & 8 of the Digital Personal Data Protection (DPDP) Act 2023 and the National Digital Health Blueprint (NDHB), storing static dumps of 3 lakh practitioners introduces severe medical staleness and data governance liabilities. JeevanSetu adopts a decentralized model: maintaining verified institutional shift rosters at the facility level while dynamically authenticating practitioner credentials against live statutory council registries (MMC, NMC, MCIM, MHC).",
                     },
                     {
-                      q: "Judge Question: 'How will your platform scale to all 36 districts of Maharashtra in production?'",
-                      ans: "In production, JeevanSetu integrates via ABDM Sandbox Milestone M1/M2/M3 APIs using FHIR R4 standard Practitioner resources. Each empanelled hospital/PHC manages its active duty shifts via our hospital desk dashboard, ensuring citizens get real-time availability instead of outdated phone directories.",
+                      q: "Scalability Specification: State-Wide Multi-District Rollout",
+                      ans: "In enterprise deployment, JeevanSetu integrates directly with National Health Authority (NHA) ABDM Sandbox Milestone M1/M2/M3 APIs using HL7 FHIR R4 standard Practitioner resources. Each empanelled hospital, civil referral centre, and rural PHC decentralizes roster management to authenticated hospital administration desks.",
                     },
                   ].map((item, idx) => (
                     <div
@@ -1021,12 +1021,12 @@ export function DoctorsPage() {
                     >
                       <div className="space-y-1">
                         <p className="font-bold text-teal-700 dark:text-teal-300 text-[11px]">{item.q}</p>
-                        <p className="text-[11px] text-slate-600 dark:text-slate-300 italic">"{item.ans}"</p>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">{item.ans}</p>
                       </div>
                       <button
                         onClick={() => handleCopyText(item.ans, idx)}
                         className="p-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-teal-600 border border-slate-200 dark:border-slate-600 shrink-0"
-                        title="Copy Answer"
+                        title="Copy Specification"
                       >
                         {copiedIndex === idx ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
@@ -1037,15 +1037,15 @@ export function DoctorsPage() {
             )}
 
             {/* TAB 2: LIVE ABDM / FHIR VALIDATOR SIMULATOR */}
-            {sihModalTab === "simulator" && (
+            {architectureModalTab === "simulator" && (
               <div className="space-y-4 text-xs">
                 <div className="p-3.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900">
                   <p className="text-xs font-bold text-indigo-950 dark:text-indigo-200 flex items-center gap-1.5">
                     <Zap className="w-4 h-4 text-indigo-600" />
-                    Interactive ABDM Healthcare Professionals Registry (HPR) Sandbox Simulator
+                    ABDM Healthcare Professionals Registry (HPR) Gateway Validator
                   </p>
                   <p className="text-[11px] text-indigo-800 dark:text-indigo-300 mt-0.5">
-                    Demonstrate live gateway verification to SIH judges by querying any practitioner registration number against statutory council schemas.
+                    Live credential verification against statutory council schemas and ABDM Health Professionals Registry standards.
                   </p>
                 </div>
 
@@ -1164,7 +1164,7 @@ export function DoctorsPage() {
             )}
 
             {/* TAB 3: BENCHMARKS & STATEWIDE CAPACITY */}
-            {sihModalTab === "benchmarks" && (
+            {architectureModalTab === "benchmarks" && (
               <div className="space-y-4 text-xs">
                 <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900">
                   <p className="text-xs font-bold text-amber-950 dark:text-amber-200 flex items-center gap-1.5">
@@ -1172,7 +1172,7 @@ export function DoctorsPage() {
                     Maharashtra Statewide Medical Council Benchmarks (~2.95 Lakh+ Practitioners)
                   </p>
                   <p className="text-[11px] text-amber-800 dark:text-amber-300 mt-0.5">
-                    Official distribution breakdown across statutory registries in Maharashtra.
+                    Official registered practitioner distribution across statutory registries in Maharashtra.
                   </p>
                 </div>
 
@@ -1230,13 +1230,13 @@ export function DoctorsPage() {
             {/* Footer */}
             <div className="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-800">
               <span className="text-[11px] text-slate-400">
-                JeevanSetu • Smart India Hackathon (SIH) Defense Architecture
+                JeevanSetu Unified Healthcare Platform • National Health Mission (NHM) Maharashtra Standards
               </span>
               <Button
-                onClick={() => setShowSihDefenseModal(false)}
+                onClick={() => setShowArchitectureModal(false)}
                 className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold px-4"
               >
-                Close Presentation Hub
+                Close Standards Hub
               </Button>
             </div>
           </div>
