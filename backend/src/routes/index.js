@@ -19,6 +19,8 @@ const attendanceRoutes = require("./attendance.routes");
 const automationRoutes = require("./automation.routes");
 const observabilityRoutes = require("./observability.routes");
 const ambulanceRoutes = require("./ambulance.routes");
+const ruralAccessRoutes = require("./ruralAccess.routes");
+const campaignsRoutes = require("./campaigns.routes");
 
 const router = Router();
 
@@ -43,6 +45,8 @@ router.use("/attendance", attendanceRoutes);
 router.use("/automation", automationRoutes);
 router.use("/operations", observabilityRoutes);
 router.use("/ambulances", ambulanceRoutes);
+router.use("/rural-access", ruralAccessRoutes);
+router.use("/community-health", campaignsRoutes);
 
 module.exports = router;
 

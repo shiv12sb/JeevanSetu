@@ -435,6 +435,12 @@ export const facilitiesApi = {
     const query = new URLSearchParams(params).toString();
     return request(`/doctors/schedule${query ? `?${query}` : ""}`);
   },
+  getDoctorFacilities: (id) => request(`/doctors/${id}/facilities`),
+  updateDoctorFacilityStatus: (id, facilityId, data = {}) =>
+    request(`/doctors/${id}/facilities/${facilityId}/status`, {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
   getPhc: (id) => request(`/facilities/phcs/${id}`),
   getHospital: (id) => request(`/facilities/hospitals/${id}`),
 };
@@ -737,6 +743,29 @@ export const ambulanceApi = {
     }),
 };
 
+// 18. Rural Access API
+export const ruralAccessApi = {
+  getIvrFlow: (lang = "en") => request(`/rural-access/ivr-flow?lang=${lang}`),
+  submitAssistedRequest: (data) =>
+    request("/rural-access/requests", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+};
+
+// 19. Community Health API
+export const communityHealthApi = {
+  getCampaigns: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/community-health/campaigns${query ? `?${query}` : ""}`);
+  },
+  createCampaign: (data) =>
+    request("/community-health/campaigns", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+};
+
 export default {
   profile: profileApi,
   cases: casesApi,
@@ -755,4 +784,6 @@ export default {
   automation: automationApi,
   operations: operationsApi,
   ambulance: ambulanceApi,
+  ruralAccess: ruralAccessApi,
+  communityHealth: communityHealthApi,
 };

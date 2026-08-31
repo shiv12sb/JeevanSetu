@@ -192,7 +192,7 @@ async function runTests() {
     const files = fs.readdirSync(migDir).filter((f) => f.endsWith(".sql")).sort();
     assert.ok(files.length >= 22);
     assert.ok(files[0].startsWith("20260822000001_"));
-    assert.ok(files[files.length - 1].startsWith("20260822000023_"));
+    assert.ok(files[files.length - 1].startsWith("20260822000024_"));
   });
 
   // 16. Seed Data Isolation

@@ -65,10 +65,42 @@ const getDutySchedule = async (req, res, next) => {
   }
 };
 
+const getDoctorFacilities = async (req, res, next) => {
+  try {
+    const facilities = await doctorsService.getDoctorFacilities(req.params.id);
+    return sendSuccess(res, {
+      statusCode: 200,
+      data: facilities,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const updateDoctorFacilityStatus = async (req, res, next) => {
+  try {
+    const result = await doctorsService.updateDoctorFacilityStatus(
+      req.user,
+      req.params.id,
+      req.params.facilityId,
+      req.body
+    );
+    return sendSuccess(res, {
+      statusCode: 200,
+      message: result.message,
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getDoctors,
   getDoctorById,
   checkInDoctor,
   checkOutDoctor,
   getDutySchedule,
+  getDoctorFacilities,
+  updateDoctorFacilityStatus,
 };

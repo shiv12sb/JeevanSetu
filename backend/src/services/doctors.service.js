@@ -250,10 +250,168 @@ const getDutySchedule = async ({ phc_id, hospital_id } = {}) => {
   }));
 };
 
+/**
+ * Service: Get facilities mapped to a doctor and their status
+ */
+const getDoctorFacilities = async (doctorId) => {
+  if (!isConfigured) {
+    const doc = mockDoctorsStore.find((d) => d.id === doctorId);
+    if (!doc) return [];
+    if (doctorId === "doc-1") {
+      return [
+        {
+          id: "df-1-1",
+          doctor_id: doctorId,
+          phc_id: "phc-1",
+          hospital_id: null,
+          status: doc.is_on_duty ? "ON_DUTY" : "OFF_DUTY",
+          next_available_time: null,
+          last_updated_at: new Date(Date.now() - 3600000).toISOString(),
+          facility_name: "Ashti Primary Health Centre",
+          facility_type: "phc",
+          location: "Ashti, Wardha District, Maharashtra",
+        },
+        {
+          id: "df-1-2",
+          doctor_id: doctorId,
+          phc_id: null,
+          hospital_id: "hosp-1",
+          status: "AVAILABLE",
+          next_available_time: null,
+          last_updated_at: new Date(Date.now() - 14400000).toISOString(),
+          facility_name: "District Civil Hospital Gadchiroli",
+          facility_type: "hospital",
+          location: "Complex Area, Gadchiroli, Maharashtra",
+        }
+      ];
+    } else if (doctorId === "doc-2") {
+      return [
+        {
+          id: "df-2-1",
+          doctor_id: doctorId,
+          phc_id: null,
+          hospital_id: "hosp-1",
+          status: doc.is_on_duty ? "ON_DUTY" : "AVAILABLE",
+          next_available_time: null,
+          last_updated_at: new Date(Date.now() - 7200000).toISOString(),
+          facility_name: "District Civil Hospital Gadchiroli",
+          facility_type: "hospital",
+          location: "Complex Area, Gadchiroli, Maharashtra",
+        },
+        {
+          id: "df-2-2",
+          doctor_id: doctorId,
+          phc_id: null,
+          hospital_id: "hosp-2",
+          status: "IN_CONSULTATION",
+          next_available_time: new Date(Date.now() + 7200000).toISOString(),
+          last_updated_at: new Date(Date.now() - 3600000).toISOString(),
+          facility_name: "Sub-District Hospital Aheri Base",
+          facility_type: "hospital",
+          location: "Allapalli-Aheri Road, Maharashtra",
+        }
+      ];
+    } else {
+      return [
+        {
+          id: "df-3-1",
+          doctor_id: doctorId,
+          phc_id: "phc-1",
+          hospital_id: null,
+          status: doc.is_on_duty ? "ON_DUTY" : "OFF_DUTY",
+          next_available_time: new Date(Date.now() + 86400000).toISOString(),
+          last_updated_at: new Date(Date.now() - 28800000).toISOString(),
+          facility_name: "Ashti Primary Health Centre",
+          facility_type: "phc",
+          location: "Ashti, Wardha District, Maharashtra",
+        }
+      ];
+    }
+  }
+
+  const { data, error } = await supabase
+    .from("doctor_facilities")
+    .select("*, phcs(id, name, address, taluka, district), hospitals(id, name, address, district)")
+    .eq("doctor_id", doctorId);
+
+  if (error) throw error;
+  
+  return (data || []).map(item => ({
+    ...item,
+    facility_name: item.phcs?.name || item.hospitals?.name,
+    facility_type: item.phc_id ? "phc" : "hospital",
+    location: item.phcs?.address || item.hospitals?.address,
+  }));
+};
+
+/**
+ * Service: Update doctor facility status
+ */
+const updateDoctorFacilityStatus = async (user, doctorId, facilityId, { status, next_available_time }) => {
+  if (!["district_admin", "phc_staff", "hospital_staff", "doctor"].includes(user.role)) {
+    throw new Error("Unauthorized to update doctor status");
+  }
+
+  if (!isConfigured) {
+    const doc = mockDoctorsStore.find((d) => d.id === doctorId);
+    if (!doc) throw new Error("Doctor not found");
+    const isOnDuty = ["ON_DUTY", "AVAILABLE", "IN_CONSULTATION"].includes(status);
+    doc.is_on_duty = isOnDuty;
+    return { success: true, message: `Status updated to ${status} for Dr. ${doc.full_name}` };
+  }
+
+  const { data: mapping, error: findError } = await supabase
+    .from("doctor_facilities")
+    .select("*")
+    .eq("doctor_id", doctorId)
+    .or(`phc_id.eq.${facilityId},hospital_id.eq.${facilityId}`)
+    .maybeSingle();
+
+  if (findError) throw findError;
+
+  if (!mapping) {
+    const insertPayload = {
+      doctor_id: doctorId,
+      status,
+      next_available_time: next_available_time || null,
+      last_updated_at: new Date().toISOString(),
+    };
+    if (facilityId.includes("-") || facilityId.startsWith("phc")) {
+      insertPayload.phc_id = facilityId;
+    } else {
+      insertPayload.hospital_id = facilityId;
+    }
+    const { error: insertError } = await supabase
+      .from("doctor_facilities")
+      .insert(insertPayload);
+    if (insertError) throw insertError;
+  } else {
+    const { error: updateError } = await supabase
+      .from("doctor_facilities")
+      .update({
+        status,
+        next_available_time: next_available_time || null,
+        last_updated_at: new Date().toISOString(),
+      })
+      .eq("id", mapping.id);
+    if (updateError) throw updateError;
+  }
+
+  const isOnDuty = ["ON_DUTY", "AVAILABLE", "IN_CONSULTATION"].includes(status);
+  await supabase
+    .from("doctors")
+    .update({ is_on_duty: isOnDuty, updated_at: new Date().toISOString() })
+    .eq("id", doctorId);
+
+  return { success: true, message: "Status updated successfully" };
+};
+
 module.exports = {
   getDoctors,
   getDoctorById,
   checkInDoctor,
   checkOutDoctor,
   getDutySchedule,
+  getDoctorFacilities,
+  updateDoctorFacilityStatus,
 };

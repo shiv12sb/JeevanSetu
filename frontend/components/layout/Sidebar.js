@@ -34,6 +34,9 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
     [USER_ROLES.PATIENT]: [
       { href: "/dashboard/patient", label: t("healthcarePortal", "Patient Dashboard"), icon: LayoutDashboard },
       { href: "/ambulance", label: t("ambulanceNearMe", "Ambulance Near Me"), icon: Siren },
+      { href: "/doctors", label: t("findDoctor", "Find Doctor"), icon: Stethoscope },
+      { href: "/rural-access", label: t("ruralAccess", "Rural Access"), icon: Compass },
+      { href: "/community-health", label: t("communityHealth", "Community Health"), icon: Activity },
       { href: "/navigate", label: t("whatShouldIDo", "What Should I Do Now?"), icon: Compass },
       { href: "/cases", label: t("myCases", "My Health Cases"), icon: FileText },
       { href: "/resources", label: t("verifiedDirectory", "Verified Directory"), icon: Building2 },
@@ -46,6 +49,8 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
     [USER_ROLES.PHC_STAFF]: [
       { href: "/dashboard/phc", label: t("phcOverview", "PHC Overview"), icon: LayoutDashboard },
       { href: "/ambulance", label: t("emergencyAmbulanceDispatch", "Ambulance Dispatch"), icon: Siren },
+      { href: "/rural-access", label: t("ruralAccess", "Rural Access"), icon: Compass },
+      { href: "/community-health", label: t("communityHealth", "Community Health"), icon: Activity },
       { href: "/inventory", label: t("phcInventory", "Medicine Stock & Alerts"), icon: Package },
       { href: "/referrals", label: t("outgoingReferrals", "Outgoing Referrals"), icon: GitPullRequest },
       { href: "/cases", label: t("registeredCases", "Registered Patient Cases"), icon: FileText },
@@ -53,12 +58,14 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
     ],
     [USER_ROLES.DOCTOR]: [
       { href: "/dashboard/doctor", label: t("doctorPortal", "Doctor Portal"), icon: Stethoscope },
+      { href: "/doctors", label: t("findDoctor", "Find Doctor"), icon: Stethoscope },
       { href: "/referrals", label: t("incomingReferrals", "Incoming Referrals Queue"), icon: GitPullRequest },
       { href: "/cases", label: t("patientHistory", "Patient Clinical History"), icon: FileText },
       { href: "/assistant", label: t("clinicalResourceMatch", "Clinical Resource Match"), icon: Sparkles },
     ],
     [USER_ROLES.HOSPITAL]: [
       { href: "/dashboard/hospital", label: t("hospitalDesk", "Hospital Desk"), icon: Building2 },
+      { href: "/doctors", label: t("findDoctor", "Find Doctor"), icon: Stethoscope },
       { href: "/referrals", label: t("referralAdmissions", "Referral Admissions"), icon: GitPullRequest },
       { href: "/resources", label: t("schemeEmpanelment", "Scheme Empanelment"), icon: ShieldCheck },
     ],
@@ -69,6 +76,8 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
     ],
     [USER_ROLES.ADMIN]: [
       { href: "/dashboard/admin", label: t("adminControlCenter", "Admin Control Center"), icon: ShieldCheck },
+      { href: "/doctors", label: t("findDoctor", "Find Doctor"), icon: Stethoscope },
+      { href: "/community-health", label: t("communityHealth", "Community Health"), icon: Activity },
       { href: "/inventory", label: t("districtStockMonitor", "District Stock Monitor"), icon: Package },
       { href: "/referrals", label: t("districtReferralsFlow", "District Referrals Flow"), icon: GitPullRequest },
       { href: "/resources", label: t("facilityVerification", "Facility Verification"), icon: Building2 },
