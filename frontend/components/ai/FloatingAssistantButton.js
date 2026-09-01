@@ -25,25 +25,32 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { GeminiLiveVoiceModal } from "@/components/domain/GeminiLiveVoiceModal";
+import { useLanguage } from "@/context/LanguageContext";
+import { RealtimeVoiceModal } from "@/components/ai/RealtimeVoiceModal";
 
 export function FloatingAssistantButton() {
   const pathname = usePathname();
+  const { language: contextLang, setLanguage: setContextLang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isLiveVoiceOpen, setIsLiveVoiceOpen] = useState(false);
-  const [language, setLanguage] = useState("hi");
+  const [language, setLanguage] = useState(contextLang || "mr");
   const [inputQuery, setInputQuery] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [voiceState, setVoiceState] = useState("IDLE"); // IDLE, LISTENING, TRANSCRIBING, THINKING, SPEAKING, ERROR
   const [voiceTranscript, setVoiceTranscript] = useState("");
   const [speakingMsgId, setSpeakingMsgId] = useState(null);
 
+  useEffect(() => {
+    if (contextLang) {
+      setLanguage(contextLang);
+    }
+  }, [contextLang]);
+
   const [messages, setMessages] = useState([
     {
       id: "quick-1",
       sender: "assistant",
-      text: "नमस्ते! मैं आपका जीवनसेतु AI सहायक हूँ। अस्पताल, योजना या दवाओं की जानकारी के लिए पूछें या बोलें।",
+      text: "नमस्कार! मी आपला जीवनसेतू शासकीय आरोग्य सहाय्यक आहे. प्रमाणित रुग्णालये, डॉक्टर, योजना किंवा औषध साठ्याच्या माहितीसाठी विचारा किंवा बोला.",
     },
   ]);
 

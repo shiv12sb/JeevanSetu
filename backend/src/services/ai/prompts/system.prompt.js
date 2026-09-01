@@ -63,9 +63,9 @@ const LANGUAGE_INSTRUCTIONS = {
 /**
  * Construct the complete prompt with layered security and grounded context
  */
-const buildSystemPrompt = ({ role = "patient", language = "en", verifiedContext = "" }) => {
+const buildSystemPrompt = ({ role = "patient", language = "mr", verifiedContext = "" }) => {
   const roleInstruction = ROLE_SPECIFIC_INSTRUCTIONS[role] || ROLE_SPECIFIC_INSTRUCTIONS.patient;
-  const langInstruction = LANGUAGE_INSTRUCTIONS[language] || LANGUAGE_INSTRUCTIONS.en;
+  const langInstruction = LANGUAGE_INSTRUCTIONS[language] || LANGUAGE_INSTRUCTIONS.mr;
 
   return `
 ${BASE_SAFETY_INSTRUCTIONS}

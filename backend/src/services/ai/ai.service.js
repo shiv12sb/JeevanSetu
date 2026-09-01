@@ -35,12 +35,12 @@ class AIService {
    * @param {Array<{role: string, content: string}>} [params.conversationHistory] - Previous chat turns
    * @param {string} [params.ipAddress]
    */
-  async processChat({ user, message, language = "en", conversationHistory = [], ipAddress = null }) {
+  async processChat({ user, message, language = "mr", conversationHistory = [], ipAddress = null }) {
     const startTime = Date.now();
     const safeUser = user || { profileId: null, role: "patient", fullName: "Healthcare Citizen" };
 
     // 1. Language Auto-Detection if not explicitly set or if message is in vernacular
-    let lang = ["en", "hi", "mr"].includes(language) ? language : "en";
+    let lang = ["en", "hi", "mr"].includes(language) ? language : "mr";
     if (typeof message === "string") {
       if (/[\u0900-\u097F]/.test(message)) {
         lang = /(आहे|नाही|झाले|औषध|रुग्ण|रुग्णालय|करावे|कुठे|कधी|सांगा)/.test(message) ? "mr" : "hi";

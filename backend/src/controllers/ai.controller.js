@@ -7,7 +7,7 @@ const { sendSuccess, sendError } = require("../utils/response");
  */
 const handleChat = async (req, res, next) => {
   try {
-    const { message, language = "en", conversationHistory = [] } = req.body;
+    const { message, language = "mr", conversationHistory = [] } = req.body;
     const ipAddress = req.ip || req.headers["x-forwarded-for"] || null;
 
     const response = await aiService.processChat({
