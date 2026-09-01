@@ -62,33 +62,34 @@ export default function HospitalDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 bg-linear-to-r from-sky-900 to-teal-900 rounded-2xl text-white shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="space-y-1">
+      <div className="p-6 sm:p-7 bg-gradient-to-r from-sky-950/90 via-slate-900/90 to-teal-950/90 backdrop-blur-2xl rounded-3xl text-white shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-sky-500/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="space-y-1.5 text-left relative z-10">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-sky-200 bg-sky-800/80 px-2.5 py-0.5 rounded-full border border-sky-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-300 bg-sky-950/80 px-3 py-1 rounded-full font-mono border border-sky-500/30 shadow-xs shadow-sky-500/20">
               Hospital Admission & Specialty Triage
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
             {hospital.name}
           </h2>
-          <p className="text-xs sm:text-sm text-sky-100/90">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
             {hospital.address} • 24x7 Emergency Desk: {hospital.phone}
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5 relative z-10 flex-wrap">
           <Button
             size="sm"
             variant="outline"
-            className="bg-white/10 text-white border-white/20 hover:bg-white/20 gap-1.5"
+            className="bg-slate-900/60 text-slate-300 hover:text-white border-white/15 hover:bg-slate-800/80 backdrop-blur-md rounded-2xl gap-1.5 font-bold px-4 py-2"
             onClick={loadHospitalReferrals}
             disabled={isLoading}
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
             <span>Refresh Queue</span>
           </Button>
-          <Badge variant="success" size="lg" className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40">
+          <Badge variant="teal" size="lg" className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold px-3 py-1.5 rounded-2xl">
             Ayushman Mitra Counter Active
           </Badge>
         </div>

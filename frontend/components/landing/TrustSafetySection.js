@@ -85,32 +85,39 @@ export function TrustSafetySection() {
   const txt = SAFETY_CONTENT[language] || SAFETY_CONTENT.en;
 
   return (
-    <section className="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative bg-slate-50/50 dark:bg-slate-950/40 border-b border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-300">
+      {/* Ambient background lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none -z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-500/10 px-3.5 py-1.5 rounded-full border border-teal-500/20 backdrop-blur-md shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse" />
             {txt.badge}
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
             {txt.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
             {txt.subtitle}
           </p>
         </div>
 
         {/* Highlighted Safety Banner */}
-        <div className="mt-10 max-w-4xl mx-auto">
-          <Alert variant="safety" className="p-5">
+        <div className="mt-12 max-w-4xl mx-auto">
+          <div className="p-6 rounded-2xl bg-teal-900/90 dark:bg-gradient-to-r dark:from-teal-950/50 dark:via-slate-900/70 dark:to-teal-950/50 backdrop-blur-2xl border border-teal-500/30 shadow-xl shadow-teal-500/10 flex items-start gap-4 text-white">
+            <div className="w-10 h-10 rounded-xl bg-teal-400/20 text-teal-300 flex items-center justify-center shrink-0 border border-teal-400/30">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-teal-950 dark:text-teal-200">
+              <h4 className="text-sm sm:text-base font-bold text-teal-200">
                 {txt.bannerTitle}
               </h4>
-              <p className="text-xs text-teal-900 dark:text-teal-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-teal-100/90 leading-relaxed">
                 {txt.bannerText}
               </p>
             </div>
-          </Alert>
+          </div>
         </div>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -119,13 +126,15 @@ export function TrustSafetySection() {
             return (
               <div
                 key={idx}
-                className="p-5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 hover:border-teal-300 dark:hover:border-teal-600 transition-all"
+                className="p-6 rounded-2xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-3 hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 group"
               >
-                <div className="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 flex items-center justify-center border border-teal-200 dark:border-teal-800">
-                  <Icon className="w-4 h-4" />
+                <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center border border-teal-500/20 group-hover:scale-105 group-hover:bg-teal-500/20 transition-all duration-300">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">{b.title}</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                <h4 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition-colors">
+                  {b.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   {b.detail}
                 </p>
               </div>

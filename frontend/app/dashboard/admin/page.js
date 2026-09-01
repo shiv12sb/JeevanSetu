@@ -112,33 +112,34 @@ export function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 bg-linear-to-r from-slate-900 via-teal-950 to-slate-900 rounded-2xl text-white shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="space-y-1">
+      <div className="p-6 sm:p-7 bg-gradient-to-r from-slate-950/90 via-teal-950/90 to-slate-950/90 backdrop-blur-2xl rounded-3xl text-white shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-500/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="space-y-1.5 text-left relative z-10">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-300 bg-teal-900/80 px-2.5 py-0.5 rounded-full border border-teal-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full font-mono border border-teal-500/30 shadow-xs shadow-teal-500/20">
               District Health Administration Control Center
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
             Gadchiroli & Chandrapur Public Health Monitoring
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
             Monitoring 42 PHCs, 4 Sub-District Hospitals, and 1 District Civil Hospital
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5 relative z-10 flex-wrap">
           <Button
             size="sm"
             variant="outline"
-            className="bg-white/10 text-white border-white/20 hover:bg-white/20 gap-1.5"
+            className="bg-slate-900/60 text-slate-300 hover:text-white border-white/15 hover:bg-slate-800/80 backdrop-blur-md rounded-2xl gap-1.5 font-bold px-4 py-2"
             onClick={loadAdminMonitoring}
             disabled={isLoading}
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
             <span>Sync Live</span>
           </Button>
-          <Badge variant="success" size="lg" className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40">
+          <Badge variant="teal" size="lg" className="bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold px-3 py-1.5 rounded-2xl">
             System Online
           </Badge>
         </div>
@@ -184,53 +185,54 @@ export function AdminDashboardPage() {
 
       {/* Health Early-Warning Surveillance Section */}
       {earlyWarningSignals.length > 0 && (
-        <Card className="border-l-4 border-l-rose-500 p-5 space-y-4">
+        <div className="rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-rose-500/30 p-6 space-y-4 shadow-xl">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Activity className="w-5 h-5 text-rose-600" />
+            <div className="flex items-center gap-2.5">
+              <Activity className="w-5 h-5 text-rose-400 animate-pulse" />
               <div>
-                <h3 className="text-sm font-bold text-slate-900">
+                <h3 className="text-sm font-black text-white">
                   Health Early-Warning Surveillance Signals (Operational Anomaly Detection)
                 </h3>
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[11px] text-slate-400">
                   Detects statistical variations against 28-day baseline moving averages. Not a medical diagnosis or confirmed outbreak.
                 </p>
               </div>
             </div>
-            <Badge variant="danger" size="sm">
+            <Badge variant="rose" size="sm" className="font-bold">
               {activeEwSignals.length} Under Surveillance
             </Badge>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {earlyWarningSignals.map((signal) => (
               <div
                 key={signal.id}
-                className={`p-4 rounded-xl border ${
+                className={`p-4 rounded-2xl border transition-all ${
                   signal.signal_level === "HIGH"
-                    ? "bg-rose-50/60 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800"
+                    ? "bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-500/30"
                     : signal.signal_level === "ELEVATED"
-                    ? "bg-amber-50/60 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800"
-                    : "bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700"
-                } text-xs space-y-2`}
+                    ? "bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-500/30"
+                    : "bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-white/10"
+                } text-xs space-y-2.5`}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
                     <Badge
                       variant={
                         signal.signal_level === "HIGH"
-                          ? "danger"
+                          ? "rose"
                           : signal.signal_level === "ELEVATED"
-                          ? "warning"
-                          : "info"
+                          ? "amber"
+                          : "blue"
                       }
                       size="sm"
+                      className="font-bold"
                     >
                       {signal.signal_level} SIGNAL
                     </Badge>
                     <span className="font-bold text-slate-900 dark:text-white">{signal.phc_name || signal.district}</span>
                   </div>
-                  <Badge variant="outline" size="sm" className="text-[10px] uppercase font-mono">
+                  <Badge variant="outline" size="sm" className="text-[10px] uppercase font-mono border-slate-200 dark:border-white/15 text-slate-600 dark:text-slate-300">
                     Status: {signal.status.replace(/_/g, " ")}
                   </Badge>
                 </div>
@@ -239,14 +241,14 @@ export function AdminDashboardPage() {
                   {signal.notes}
                 </p>
 
-                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-200/60 dark:border-slate-700">
+                <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 pt-1.5 border-t border-slate-100 dark:border-white/10">
                   <span>
-                    Observed: <strong>{signal.observed_value}</strong> vs Base: <strong>{signal.baseline_value}</strong> (+{signal.deviation_percentage}%)
+                    Observed: <strong className="text-slate-900 dark:text-white">{signal.observed_value}</strong> vs Base: <strong className="text-slate-900 dark:text-white">{signal.baseline_value}</strong> (+{signal.deviation_percentage}%)
                   </span>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-6 px-2 text-[11px] border-slate-300 dark:border-slate-700 font-bold"
+                    className="h-7 px-3 text-[11px] border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-900/60 font-bold rounded-xl"
                     onClick={() => {
                       setSelectedSignal(signal);
                       setReviewStatus(signal.status === "new" ? "acknowledged" : "under_review");
@@ -259,7 +261,7 @@ export function AdminDashboardPage() {
               </div>
             ))}
           </div>
-        </Card>
+        </div>
       )}
 
       {/* Admin Monitoring Grid */}

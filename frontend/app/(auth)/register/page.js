@@ -198,22 +198,26 @@ function RegisterForm() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-10 sm:px-6 lg:px-8 text-left transition-colors">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center space-y-2 mb-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-10 sm:px-6 lg:px-8 text-left transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/10 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none -z-0" />
+
+      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center space-y-2 mb-6 relative z-10">
         <Link href="/" className="inline-flex items-center gap-2.5 group">
           <img
             src="/logo.png"
             alt="JeevanSetu Logo"
-            className="w-12 h-12 rounded-xl object-contain shadow-md bg-white p-0.5 border border-slate-200 dark:border-slate-700"
+            className="w-12 h-12 rounded-2xl object-contain shadow-lg bg-white dark:bg-slate-950 p-1 border border-slate-200 dark:border-white/15 group-hover:scale-105 transition-transform"
           />
           <span className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Jeevan<span className="text-teal-600 dark:text-teal-400">Setu</span>
           </span>
         </Link>
-        <h2 className="text-xl font-bold text-slate-800 dark:text-white">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">
           {txt.heading}
         </h2>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-slate-600 dark:text-slate-400">
           {txt.subheading}
         </p>
 
@@ -224,28 +228,28 @@ function RegisterForm() {
         </div>
       </div>
 
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <Card className="shadow-xl border-slate-200 dark:border-slate-800 dark:bg-slate-900 overflow-hidden">
-          <CardHeader className="bg-gradient-to-r from-teal-700 to-teal-900 text-white p-4">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+        <div className="rounded-3xl bg-white dark:bg-slate-900/80 backdrop-blur-2xl border border-slate-200/90 dark:border-white/10 shadow-2xl overflow-hidden">
+          <div className="bg-teal-900 dark:bg-gradient-to-r dark:from-teal-950/90 dark:via-slate-900/90 dark:to-teal-950/90 border-b border-teal-800 dark:border-white/10 text-white p-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-teal-300" />
-                <CardTitle className="text-sm font-bold text-white">
+                <h3 className="text-sm font-bold text-white">
                   {txt.networkTitle}
-                </CardTitle>
+                </h3>
               </div>
-              <span className="text-[11px] bg-teal-800/80 px-2 py-0.5 rounded text-teal-200 font-bold border border-teal-600">
+              <span className="text-[11px] bg-teal-400/20 px-2.5 py-0.5 rounded-full text-teal-200 font-bold border border-teal-400/30">
                 {txt.badge}
               </span>
             </div>
-          </CardHeader>
+          </div>
 
-          <CardContent className="p-6 space-y-4">
+          <div className="p-6 sm:p-7 space-y-4">
             {/* Error Message */}
             {errorMessage && (
               <Alert variant="danger" className="text-xs">
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
               </Alert>
@@ -255,15 +259,15 @@ function RegisterForm() {
             {successMessage && !errorMessage && (
               <Alert variant="success" className="text-xs">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <span>{successMessage}</span>
                 </div>
               </Alert>
             )}
 
-            {/* Role Switcher */}
+            {/* Role Selector */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <label className="block text-xs font-bold text-slate-800 dark:text-slate-300">
                 {txt.selectRole}
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
@@ -272,10 +276,10 @@ function RegisterForm() {
                     key={r.id}
                     type="button"
                     onClick={() => setRole(r.id)}
-                    className={`py-2 px-1.5 rounded-lg text-xs font-bold text-center border transition-all cursor-pointer ${
+                    className={`py-2 px-1.5 rounded-xl text-xs font-bold text-center border transition-all cursor-pointer ${
                       role === r.id
-                        ? "bg-teal-600 text-white border-teal-600 shadow-xs"
-                        : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50"
+                        ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 border-teal-400 shadow-md font-black shadow-teal-500/20"
+                        : "bg-slate-100 dark:bg-slate-950/60 text-slate-700 dark:text-slate-400 border-slate-200 dark:border-white/10 hover:border-teal-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     {r.label}
@@ -288,7 +292,7 @@ function RegisterForm() {
             <form onSubmit={handleRegister} className="space-y-3.5 pt-1">
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
                   {txt.fullName}
                 </label>
                 <div className="relative">
@@ -300,13 +304,13 @@ function RegisterForm() {
                     placeholder={txt.fullNamePlaceholder}
                     className="pl-9 text-xs"
                   />
-                  <User className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                  <User className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 </div>
               </div>
 
               {/* Mobile / Email */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
                   {txt.phoneOrEmail}
                 </label>
                 <div className="relative">
@@ -316,15 +320,15 @@ function RegisterForm() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder={txt.phonePlaceholder}
-                    className="pl-9 text-xs font-medium"
+                    className="pl-9 text-xs"
                   />
-                  <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                  <Phone className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 </div>
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
                   {txt.password}
                 </label>
                 <div className="relative">
@@ -336,20 +340,20 @@ function RegisterForm() {
                     placeholder={txt.passwordPlaceholder}
                     className="pl-9 text-xs"
                   />
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                  <Lock className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 </div>
               </div>
 
-              {/* District Selection */}
+              {/* District Selector */}
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
                     {txt.district}
                   </label>
                   <Select
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
-                    className="text-xs font-semibold"
+                    className="text-xs font-bold bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-slate-200 dark:border-white/10"
                   >
                     {MAHARASHTRA_DISTRICTS.map((d) => (
                       <option key={d.id} value={d.name}>
@@ -359,40 +363,42 @@ function RegisterForm() {
                   </Select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
                     {txt.state}
                   </label>
                   <Input
                     type="text"
                     disabled
                     value={state}
-                    className="text-xs bg-slate-100 dark:bg-slate-800"
+                    className="text-xs bg-slate-100 dark:bg-slate-950/80 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-white/10"
                   />
                 </div>
               </div>
 
-              {/* ABHA ID (Optional) */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                  {txt.abhaId}
-                </label>
-                <div className="relative">
-                  <Input
-                    type="text"
-                    value={abhaId}
-                    onChange={(e) => setAbhaId(e.target.value)}
-                    placeholder={txt.abhaPlaceholder}
-                    className="pl-9 text-xs font-mono"
-                  />
-                  <CreditCard className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+              {/* ABHA ID (Optional for Patient) */}
+              {role === USER_ROLES.PATIENT && (
+                <div>
+                  <label className="block text-xs font-bold text-slate-800 dark:text-slate-300 mb-1">
+                    {txt.abhaId}
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      value={abhaId}
+                      onChange={(e) => setAbhaId(e.target.value)}
+                      placeholder={txt.abhaPlaceholder}
+                      className="pl-9 text-xs font-mono"
+                    />
+                    <CreditCard className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Submit Button */}
               <Button
                 type="submit"
                 disabled={isLoading || !fullName || !phone || !password}
-                className="w-full bg-linear-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold text-sm py-3 shadow-md gap-2 cursor-pointer mt-2"
+                className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black text-sm py-3 shadow-lg shadow-teal-500/20 rounded-2xl gap-2 cursor-pointer mt-2"
               >
                 {isLoading ? (
                   <RefreshCw className="w-4 h-4 animate-spin" />
@@ -402,21 +408,21 @@ function RegisterForm() {
                 <span>{txt.submitBtn}</span>
               </Button>
             </form>
-          </CardContent>
+          </div>
 
-          <CardFooter className="bg-slate-50 dark:bg-slate-900/50 p-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
-            <span className="text-slate-500 dark:text-slate-400">
+          <div className="bg-slate-50 dark:bg-slate-950/60 p-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs">
+            <span className="text-slate-600 dark:text-slate-400">
               {txt.alreadyHaveAccount}
             </span>
             <Link
               href="/login"
-              className="font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 cursor-pointer"
+              className="font-bold text-teal-700 dark:text-teal-400 hover:text-teal-600 dark:hover:text-teal-300 hover:underline flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>{txt.signInLink}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-          </CardFooter>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

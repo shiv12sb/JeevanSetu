@@ -65,8 +65,16 @@ export function FloatingAssistantButton() {
     }
   }, [isOpen]);
 
-  // If already on the dedicated /assistant page, hide the floating button to prevent redundancy
-  if (pathname === "/assistant") {
+  // If on login, register or dedicated assistant page, hide the floating button to prevent clutter
+  if (
+    !pathname ||
+    pathname === "/login" ||
+    pathname.startsWith("/login") ||
+    pathname === "/register" ||
+    pathname.startsWith("/register") ||
+    pathname === "/assistant" ||
+    pathname.startsWith("/assistant")
+  ) {
     return null;
   }
 

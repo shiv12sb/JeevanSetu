@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils";
 
 export function Table({ className = "", children, ...props }) {
   return (
-    <div className="w-full overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
+    <div className="w-full overflow-x-auto rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-slate-900/60 backdrop-blur-xl shadow-lg shadow-slate-200/50 dark:shadow-black/30">
       <table
-        className={cn("w-full text-left text-sm text-slate-700 dark:text-slate-200 divide-y divide-slate-200 dark:divide-slate-800", className)}
+        className={cn("w-full text-left text-sm text-slate-800 dark:text-slate-200 divide-y divide-slate-200/80 dark:divide-white/5", className)}
         {...props}
       >
         {children}
@@ -17,7 +17,7 @@ export function Table({ className = "", children, ...props }) {
 export function TableHeader({ className = "", children, ...props }) {
   return (
     <thead
-      className={cn("bg-slate-50/80 dark:bg-slate-800/80 text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider", className)}
+      className={cn("bg-slate-100/90 dark:bg-white/5 text-xs font-bold text-slate-900 dark:text-slate-300 uppercase tracking-wider backdrop-blur-md", className)}
       {...props}
     >
       {children}
@@ -28,7 +28,7 @@ export function TableHeader({ className = "", children, ...props }) {
 export function TableBody({ className = "", children, ...props }) {
   return (
     <tbody
-      className={cn("divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900", className)}
+      className={cn("divide-y divide-slate-200/80 dark:divide-white/5 bg-transparent", className)}
       {...props}
     >
       {children}
@@ -39,7 +39,7 @@ export function TableBody({ className = "", children, ...props }) {
 export function TableRow({ className = "", children, ...props }) {
   return (
     <tr
-      className={cn("hover:bg-slate-50/70 dark:hover:bg-slate-800/60 transition-colors", className)}
+      className={cn("hover:bg-slate-50 dark:hover:bg-white/5 transition-colors duration-150", className)}
       {...props}
     >
       {children}
@@ -49,7 +49,7 @@ export function TableRow({ className = "", children, ...props }) {
 
 export function TableHead({ className = "", children, ...props }) {
   return (
-    <th className={cn("px-4 py-3 text-xs font-semibold text-slate-600 dark:text-slate-300", className)} {...props}>
+    <th className={cn("px-5 py-3.5 text-xs font-bold text-slate-900 dark:text-slate-300", className)} {...props}>
       {children}
     </th>
   );
@@ -57,7 +57,7 @@ export function TableHead({ className = "", children, ...props }) {
 
 export function TableCell({ className = "", children, ...props }) {
   return (
-    <td className={cn("px-4 py-3.5 text-sm whitespace-nowrap text-slate-800 dark:text-slate-200", className)} {...props}>
+    <td className={cn("px-5 py-4 text-xs sm:text-sm whitespace-nowrap text-slate-800 dark:text-slate-200", className)} {...props}>
       {children}
     </td>
   );

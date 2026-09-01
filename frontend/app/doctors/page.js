@@ -9,6 +9,8 @@ import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { Modal } from "@/components/ui/Modal";
+import { SkeletonDoctorCard } from "@/components/ui/Skeleton";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { facilitiesApi } from "@/lib/api";
@@ -487,28 +489,32 @@ export function DoctorsPage() {
   const isStaff = user && ["district_admin", "phc_staff", "hospital_staff", "doctor"].includes(user.role);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 relative z-10">
         {/* Top Emergency Header */}
-        <div className="mb-6 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="mb-6 bg-rose-50 dark:bg-rose-500/10 backdrop-blur-md border border-rose-200 dark:border-rose-500/20 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
               108
             </div>
             <div>
-              <p className="font-extrabold text-xs text-rose-950 dark:text-rose-200">
+              <p className="font-extrabold text-xs text-rose-900 dark:text-rose-200">
                 Medical Emergency / Polytrauma / Chest Pain / Acute Labor
               </p>
-              <p className="text-[11px] text-rose-800 dark:text-rose-400">
+              <p className="text-[11px] text-rose-700 dark:text-rose-300/80">
                 Do not wait for outpatient clinic bookings during acute emergencies. Call 108 immediately for government ambulance dispatch.
               </p>
             </div>
           </div>
           <a
             href="tel:108"
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl shrink-0 transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-xl shrink-0 transition-all shadow-lg shadow-rose-600/20"
           >
             <Phone className="w-3.5 h-3.5" />
             Dial 108 Dispatch
@@ -517,19 +523,19 @@ export function DoctorsPage() {
 
         {/* Page Header with National Architecture Standards Button */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 text-left">
             <div className="flex items-center gap-2 flex-wrap">
-              <Badge className="bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 font-semibold px-2.5 py-0.5 border border-teal-200 dark:border-teal-800 text-[11px]">
+              <Badge className="bg-teal-500/10 text-teal-800 dark:text-teal-300 border border-teal-500/20 font-semibold px-2.5 py-0.5 text-[11px] backdrop-blur-md">
                 100% Genuine Verified Maharashtra Doctor Directory
               </Badge>
-              <Badge className="bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 font-mono text-[10px] px-2 py-0.5">
+              <Badge className="bg-slate-100 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 font-mono text-[10px] px-2 py-0.5 backdrop-blur-md">
                 MMC & MCIM Council Verified Records
               </Badge>
             </div>
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               {t("findDoctor", "Find Verified Doctors, Clinics & Hospitals in Nagpur & Maharashtra")}
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-3xl">
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
               Authentic directory of practicing medical specialists, OB/GYN clinics, cardiologists, neurosurgeons, and BAMS Ayurvedic dispensaries with real clinic addresses and telephone numbers.
             </p>
           </div>
@@ -537,7 +543,7 @@ export function DoctorsPage() {
           {/* National Health Standards & ABDM Architecture Button */}
           <button
             onClick={() => setShowArchitectureModal(true)}
-            className="inline-flex items-center gap-2.5 px-4 py-3 bg-gradient-to-r from-teal-700 to-indigo-700 hover:from-teal-800 hover:to-indigo-800 text-white text-xs font-extrabold rounded-2xl shadow-sm hover:shadow-md transition-all shrink-0 border border-teal-500/30 group"
+            className="inline-flex items-center gap-2.5 px-4 py-3 bg-gradient-to-r from-teal-600 to-indigo-600 hover:from-teal-500 hover:to-indigo-500 text-white text-xs font-extrabold rounded-2xl shadow-lg shadow-teal-500/20 hover:shadow-xl transition-all shrink-0 border border-teal-400/30 group"
           >
             <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
               <ShieldCheck className="w-4 h-4 text-white" />
@@ -553,14 +559,14 @@ export function DoctorsPage() {
 
         {apiSuccess && (
           <div className="mb-6">
-            <Alert className="bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-900 text-emerald-900 dark:text-emerald-300">
+            <Alert className="bg-emerald-500/10 border-emerald-500/20 text-emerald-800 dark:text-emerald-300 backdrop-blur-md">
               {apiSuccess}
             </Alert>
           </div>
         )}
 
         {/* Search & Multi-Filter Control Panel */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 mb-6 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200/90 dark:border-white/10 rounded-3xl p-5 sm:p-6 mb-6 shadow-lg shadow-slate-200/50 dark:shadow-2xl space-y-4 text-left">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
             {/* Search Input */}
             <div className="md:col-span-4 relative">
@@ -570,7 +576,7 @@ export function DoctorsPage() {
                 placeholder="Search real doctor (Dr. Arneja, Dr. Khan Shamim, Dr. Meshram)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 text-xs py-2.5 bg-slate-50/50 dark:bg-slate-950/50"
+                className="pl-10 text-xs py-2.5 bg-slate-50 dark:bg-slate-950/80 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-teal-500/60"
               />
             </div>
 
@@ -759,9 +765,13 @@ export function DoctorsPage() {
 
         {/* Doctor Directory Cards Grid */}
         {isLoading ? (
-          <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <RefreshCw className="w-8 h-8 text-teal-600 animate-spin" />
-            <p className="text-xs text-slate-500">Loading verified Maharashtra doctor directory...</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <SkeletonDoctorCard />
+            <SkeletonDoctorCard />
+            <SkeletonDoctorCard />
+            <SkeletonDoctorCard />
+            <SkeletonDoctorCard />
+            <SkeletonDoctorCard />
           </div>
         ) : doctors.length === 0 ? (
           <div className="space-y-6">
@@ -858,7 +868,7 @@ export function DoctorsPage() {
               return (
                 <div
                   key={doctor.id}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-teal-500/40 transition-all duration-200"
+                  className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-lg flex flex-col justify-between hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 text-left"
                 >
                   <div className="space-y-4">
                     {/* Facility Category, Degree & Verification Tag */}
@@ -866,14 +876,14 @@ export function DoctorsPage() {
                       <div className="flex items-center gap-1.5 flex-wrap">
                         {getFacilityCategoryBadge(doctor.facility_type)}
                         {doctor.degree && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-white/10 px-2.5 py-0.5 rounded-lg backdrop-blur-md">
                             🎓 {doctor.degree}
                           </span>
                         )}
                         {doctor.area && (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-                            <MapPin className="w-2.5 h-2.5 text-teal-600" />
-                            {doctor.area}, {doctor.district}
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-white/10 px-2.5 py-0.5 rounded-lg backdrop-blur-md">
+                            <MapPin className="w-2.5 h-2.5 text-teal-600 dark:text-teal-400" />
+                            {doctor.area}{doctor.district ? `, ${doctor.district}` : ""}
                           </span>
                         )}
                       </div>
@@ -885,7 +895,7 @@ export function DoctorsPage() {
                     {/* Header Info */}
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
-                        <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-900 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+                        <div className="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 shadow-inner">
                           <Stethoscope className="w-6 h-6" />
                         </div>
                         <div>
@@ -897,16 +907,16 @@ export function DoctorsPage() {
                               <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
                             )}
                           </div>
-                          <p className="text-xs font-bold text-teal-700 dark:text-teal-400 mt-0.5">
+                          <p className="text-xs font-bold text-teal-700 dark:text-teal-300 mt-0.5">
                             {doctor.specialization}
                           </p>
-                          <p className="text-[10px] text-slate-400 font-mono mt-0.5">
-                            Council Reg: <strong>{doctor.medical_council_id}</strong>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                            Council Reg: <strong className="text-slate-700 dark:text-slate-300">{doctor.medical_council_id}</strong>
                           </p>
                         </div>
                       </div>
 
-                      <span className="text-[10px] text-slate-400 font-mono shrink-0">
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono shrink-0">
                         {formatElapsed(doctor.verified_at)}
                       </span>
                     </div>
@@ -914,14 +924,14 @@ export function DoctorsPage() {
                     {/* Patient Volume & Experience Badges */}
                     <div className="flex flex-wrap items-center gap-2 pt-1">
                       {doctor.patients_treated && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 px-2 py-0.5 rounded-lg">
-                          <Users className="w-3 h-3 text-emerald-600" />
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 px-2.5 py-0.5 rounded-lg backdrop-blur-md">
+                          <Users className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                           {doctor.patients_treated}
                         </span>
                       )}
                       {doctor.years_of_practice && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-800 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900 px-2 py-0.5 rounded-lg">
-                          <Award className="w-3 h-3 text-indigo-600" />
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-indigo-800 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 px-2.5 py-0.5 rounded-lg backdrop-blur-md">
+                          <Award className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
                           {doctor.years_of_practice}
                         </span>
                       )}
@@ -929,27 +939,27 @@ export function DoctorsPage() {
 
                     {/* Sub-specialty & Focus */}
                     {doctor.sub_specialization && (
-                      <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">
-                        <strong>Clinical Focus:</strong> {doctor.sub_specialization}
+                      <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">
+                        <strong className="text-slate-900 dark:text-slate-200">Clinical Focus:</strong> {doctor.sub_specialization}
                       </p>
                     )}
 
                     {/* Practice Establishment Details */}
                     {primaryHospital && (
                       <div className="space-y-2.5 pt-1">
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                           Practice Hospital / Clinic & Reception Desk
                         </p>
 
-                        <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="bg-slate-50 dark:bg-slate-950/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 rounded-2xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
                           <div className="space-y-1">
-                            <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1">
-                              <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                            <p className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                              <Building2 className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" />
                               {primaryHospital.name}
                             </p>
-                            <p className="text-[10px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                              <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
-                              {primaryHospital.address || `${doctor.area}, ${doctor.district}, Maharashtra`}
+                            <p className="text-[10px] text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
+                              <MapPin className="w-3 h-3 text-slate-500 dark:text-slate-400 shrink-0" />
+                              {primaryHospital.address || `${doctor.area ? `${doctor.area}, ` : ""}${doctor.district}, Maharashtra`}
                             </p>
                           </div>
 
@@ -957,7 +967,7 @@ export function DoctorsPage() {
                             {/* Call Verified Reception Button */}
                             <a
                               href={`tel:${primaryHospital.reception_phone || doctor.phone || "+917126661800"}`}
-                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 hover:bg-teal-100 text-[11px] font-bold border border-teal-200 dark:border-teal-800 transition-colors"
+                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 text-teal-800 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 text-[11px] font-bold border border-teal-200 dark:border-teal-800 transition-colors"
                             >
                               <Phone className="w-3 h-3" />
                               Call Reception
@@ -977,7 +987,7 @@ export function DoctorsPage() {
                                   });
                                   setNewStatus(doctor.is_on_duty ? "ON_DUTY" : "AVAILABLE");
                                 }}
-                                className="text-[10px] h-7 px-2 border-teal-500/30 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-950/30"
+                                className="text-[10px] h-7 px-2 border-teal-500/30 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/30"
                               >
                                 <Edit3 className="w-3 h-3" />
                               </Button>
@@ -990,7 +1000,7 @@ export function DoctorsPage() {
 
                   {/* Actions & Provenance Footer */}
                   <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="text-[10px] text-slate-400 space-y-0.5">
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 space-y-0.5">
                       <p>
                         <strong>Source:</strong> {doctor.source ? doctor.source.slice(0, 48) : "MMC / MCIM / DMER Maharashtra"}...
                       </p>
@@ -1003,7 +1013,7 @@ export function DoctorsPage() {
                         )}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:text-teal-600 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700"
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-700 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 shadow-xs"
                       >
                         <Compass className="w-3.5 h-3.5" />
                         Directions
@@ -1011,7 +1021,7 @@ export function DoctorsPage() {
 
                       <Link
                         href={`/doctors/${doctor.id}`}
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-teal-600 hover:bg-teal-700 px-3 py-1.5 rounded-xl transition-colors"
+                        className="inline-flex items-center gap-1 text-[11px] font-black text-slate-950 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 px-3.5 py-1.5 rounded-xl shadow-md shadow-teal-500/20 transition-all"
                       >
                         View Profile
                         <ArrowRight className="w-3.5 h-3.5" />

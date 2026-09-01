@@ -175,25 +175,29 @@ export function FeedbackPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 text-left transition-colors">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 text-left transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-sky-500/10 dark:bg-sky-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
         {/* Banner */}
-        <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3 text-left">
+        <div className="bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl space-y-3 text-left">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded border border-teal-200 dark:border-teal-800 flex items-center gap-1">
-              <MessageSquare className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/30 flex items-center gap-1.5 backdrop-blur-md">
+              <MessageSquare className="w-3.5 h-3.5 text-teal-400" />
               {t("feedback", "Citizen Feedback Portal")}
             </span>
-            <Badge variant="teal" size="sm">Phase 26 Privacy Model</Badge>
-            <Badge variant="default" size="sm">Anonymous Access</Badge>
+            <Badge variant="teal" size="sm" className="font-bold">Phase 26 Privacy Model</Badge>
+            <Badge variant="outline" size="sm" className="border-white/15 text-slate-300 font-bold">Anonymous Access</Badge>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
             {t("feedbackHeading", "Healthcare Service Quality & Facility Feedback")}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl">
             {t(
               "feedbackSubheading",
               "Share your experience at Primary Health Centres (PHC), district hospitals, or during referral transit. Feedback helps health administrators optimize medicine supplies, doctor schedules, and care quality."
@@ -201,33 +205,33 @@ export function FeedbackPage() {
           </p>
 
           {/* Navigation Tabs */}
-          <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-2 pt-3 border-t border-white/10 flex-wrap">
             <button
               onClick={() => setActiveTab("submit")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === "submit"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-900/80 backdrop-blur-md text-slate-300 hover:text-white border border-white/10 hover:bg-slate-800"
               }`}
             >
               Submit Feedback
             </button>
             <button
               onClick={() => setActiveTab("track")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === "track"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-900/80 backdrop-blur-md text-slate-300 hover:text-white border border-white/10 hover:bg-slate-800"
               }`}
             >
               Track by Token
             </button>
             <button
               onClick={() => setActiveTab("missed-call")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab === "missed-call"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-900/80 backdrop-blur-md text-slate-300 hover:text-white border border-white/10 hover:bg-slate-800"
               }`}
             >
               Feature Phone / Missed-Call

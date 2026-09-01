@@ -358,37 +358,41 @@ export function InventoryPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-emerald-500/10 dark:bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 relative z-10">
         <AuthGuard featureName="औषध साठा व इन्व्हेंटरी (Medicine Inventory & Depletion Tracking)">
           {/* Header Title */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4 text-left">
           <div>
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
               <Badge variant="teal" size="sm" className="font-bold">
                 Maharashtra DHS • DVDMS e-Aushadhi
               </Badge>
-              <span className="text-xs bg-slate-100 dark:bg-slate-800 text-teal-800 dark:text-teal-300 font-bold px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-teal-600" />
+              <span className="text-xs bg-slate-100 dark:bg-slate-900/80 text-teal-800 dark:text-teal-300 font-bold px-2.5 py-0.5 rounded-lg border border-slate-200 dark:border-white/10 flex items-center gap-1.5 backdrop-blur-md">
+                <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                 <span>Active District: {selectedDistrict} ({currentDistrictObj?.marathiName || ""})</span>
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
               {selectedDistrict} District PHC & Warehouse Medicine Inventory
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mt-0.5">
               Real-time stock surveillance synced with Maharashtra State Medical Supplies Procurement Authority (MSMSPA), statistical depletion forecasting, and automated indent replenishment.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0 flex-wrap">
+          <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
             <LocationSelector />
             <Button
               size="md"
               variant="default"
-              className="bg-teal-700 hover:bg-teal-800 text-white font-bold gap-2 shadow-xs"
+              className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black gap-2 shadow-lg shadow-teal-500/20 rounded-2xl"
               onClick={handleSyncWithDvdms}
               disabled={isDvdmsSyncing}
             >
@@ -399,9 +403,9 @@ export function InventoryPage() {
         </div>
 
         {dvdmsSyncNotice && (
-          <Alert variant="success" className="text-xs font-medium border-teal-300 dark:border-teal-700 bg-teal-50/80 dark:bg-teal-950/60">
+          <div className="p-3.5 rounded-2xl text-xs font-medium border border-teal-500/30 bg-teal-500/10 text-teal-200 backdrop-blur-md shadow-xs shadow-teal-500/10">
             {dvdmsSyncNotice}
-          </Alert>
+          </div>
         )}
 
         {/* Operational Guardrail Notice */}
@@ -489,7 +493,7 @@ export function InventoryPage() {
 
         {/* Tab 1: Inventory & Forecasts */}
         {activeMainTab === "inventory" && (
-          <div className="space-y-4">
+          <div className="space-y-4 text-left">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <Tabs tabs={categoryTabs} activeTab={activeCategory} onChange={setActiveCategory} />
               <div className="relative w-full sm:w-72">
@@ -499,23 +503,23 @@ export function InventoryPage() {
                   placeholder="Search medicine name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                  className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900/80 border border-slate-200/90 dark:border-white/10 rounded-2xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
                 />
               </div>
             </div>
 
-            <Card className="overflow-hidden border-slate-200">
+            <Card className="overflow-hidden border-slate-200/90 dark:border-white/10 bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl shadow-lg">
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-slate-50/80">
-                      <TableHead className="font-bold text-slate-700">Medicine & Generic Name</TableHead>
-                      <TableHead className="font-bold text-slate-700">Current Stock</TableHead>
-                      <TableHead className="font-bold text-slate-700">Daily Burn Rate</TableHead>
-                      <TableHead className="font-bold text-slate-700">Est. Days Remaining</TableHead>
-                      <TableHead className="font-bold text-slate-700">Depletion Risk</TableHead>
-                      <TableHead className="font-bold text-slate-700">Suggested Order</TableHead>
-                      <TableHead className="font-bold text-slate-700 text-right">Actions</TableHead>
+                    <TableRow className="bg-slate-50/90 dark:bg-white/5 border-b border-slate-200/90 dark:border-white/10">
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Medicine & Generic Name</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Current Stock</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Daily Burn Rate</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Est. Days Remaining</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Depletion Risk</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200">Suggested Order</TableHead>
+                      <TableHead className="font-bold text-slate-800 dark:text-slate-200 text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -527,27 +531,27 @@ export function InventoryPage() {
                       const suggestedQty = fc?.suggested_replenishment_quantity || (item.currentStock <= item.minimumThreshold ? item.minimumThreshold * 2 - item.currentStock : 0);
 
                       return (
-                        <TableRow key={item.id} className="hover:bg-slate-50/50">
+                        <TableRow key={item.id} className="hover:bg-slate-50/70 dark:hover:bg-white/5 border-b border-slate-100 dark:border-white/5">
                           <TableCell>
                             <div>
-                              <div className="font-bold text-slate-900 text-sm">{item.name}</div>
-                              <div className="text-xs text-slate-500">{item.generic_name} • {item.category}</div>
-                              <div className="text-[11px] text-slate-400 mt-0.5">Threshold: {item.minimumThreshold} {item.unit}</div>
+                              <div className="font-bold text-slate-900 dark:text-white text-sm">{item.name}</div>
+                              <div className="text-xs text-slate-600 dark:text-slate-400">{item.generic_name} • {item.category}</div>
+                              <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Threshold: {item.minimumThreshold} {item.unit}</div>
                             </div>
                           </TableCell>
                           <TableCell>
-                            <span className={`font-mono font-bold text-sm ${item.currentStock === 0 ? "text-rose-600" : item.currentStock <= item.minimumThreshold ? "text-amber-600" : "text-slate-900"}`}>
+                            <span className={`font-mono font-bold text-sm ${item.currentStock === 0 ? "text-rose-600 dark:text-rose-400" : item.currentStock <= item.minimumThreshold ? "text-amber-600 dark:text-amber-400" : "text-slate-900 dark:text-white"}`}>
                               {item.currentStock} {item.unit}
                             </span>
                           </TableCell>
                           <TableCell>
-                            <span className="text-xs font-mono font-medium text-slate-700">
+                            <span className="text-xs font-mono font-medium text-slate-700 dark:text-slate-300">
                               {dailyBurn > 0 ? `${dailyBurn} / day` : "No recent usage"}
                             </span>
                           </TableCell>
                           <TableCell>
                             {daysRemaining !== null && daysRemaining !== undefined ? (
-                              <span className={`text-xs font-bold font-mono ${daysRemaining <= 3 ? "text-rose-600" : daysRemaining <= 7 ? "text-amber-600" : "text-slate-800"}`}>
+                              <span className={`text-xs font-bold font-mono ${daysRemaining <= 3 ? "text-rose-600 dark:text-rose-400" : daysRemaining <= 7 ? "text-amber-600 dark:text-amber-400" : "text-slate-800 dark:text-slate-200"}`}>
                                 {daysRemaining} days
                               </span>
                             ) : (
@@ -571,7 +575,7 @@ export function InventoryPage() {
                           </TableCell>
                           <TableCell>
                             {suggestedQty > 0 ? (
-                              <span className="text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
+                              <span className="text-xs font-bold text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-500/10 px-2 py-0.5 rounded-lg border border-teal-200 dark:border-teal-500/30">
                                 ~{suggestedQty} {item.unit}
                               </span>
                             ) : (
@@ -579,11 +583,11 @@ export function InventoryPage() {
                             )}
                           </TableCell>
                           <TableCell className="text-right">
-                            <div className="flex items-center justify-end gap-1.5">
+                            <div className="flex items-center justify-end gap-1.5 flex-wrap">
                               <Button
                                 size="sm"
                                 variant="outline"
-                                className="h-7 text-xs border-slate-300 text-slate-700"
+                                className="h-7 text-xs border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold rounded-lg"
                                 onClick={() => {
                                   setSelectedMedicine(item);
                                   setIsUsageModalOpen(true);
@@ -594,7 +598,7 @@ export function InventoryPage() {
                               <Button
                                 size="sm"
                                 variant="outline"
-                                className="h-7 text-xs border-teal-300 text-teal-700 hover:bg-teal-50"
+                                className="h-7 text-xs border-teal-300 dark:border-teal-500/30 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/40 font-bold rounded-lg"
                                 onClick={() => {
                                   setSelectedMedicine(item);
                                   setReplenishQty(suggestedQty > 0 ? suggestedQty.toString() : "200");
@@ -606,7 +610,7 @@ export function InventoryPage() {
                               <Button
                                 size="sm"
                                 variant="outline"
-                                className="h-7 text-xs border-slate-300 text-slate-700"
+                                className="h-7 text-xs border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold rounded-lg"
                                 onClick={() => {
                                   setSelectedMedicine(item);
                                   setIsRestockModalOpen(true);

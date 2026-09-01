@@ -153,19 +153,23 @@ export function OrganDonationPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-rose-500/10 dark:bg-rose-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 relative z-10">
         
         {/* Hero Section */}
-        <section className="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+        <section className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-xl space-y-4 text-left">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/30 flex items-center gap-1.5 backdrop-blur-md">
               <Heart className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 fill-teal-600/20" />
               Public Healthcare Education & Navigation
             </span>
-            <Badge variant="teal" size="sm">Neutral Information</Badge>
+            <Badge variant="teal" size="sm" className="font-bold">Neutral Information</Badge>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
@@ -176,16 +180,16 @@ export function OrganDonationPage() {
             {t("organDonationSubheading", "Organ and tissue donation is a voluntary medical contribution that can provide life-saving support for patients with end-stage organ failure. Explore verified information for donors, transplant patients, and families below.")}
           </p>
 
-          <div className="pt-2 flex flex-wrap gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium border-t border-slate-100 dark:border-slate-800">
-            <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
+          <div className="pt-2 flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-400 font-medium border-t border-slate-100 dark:border-white/10">
+            <span className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-semibold">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               Educational & Non-Coercive
             </span>
-            <span className="flex items-center gap-1 text-sky-800 dark:text-sky-300">
+            <span className="flex items-center gap-1.5 text-sky-700 dark:text-sky-400 font-semibold">
               <ShieldCheck className="w-4 h-4 text-sky-600 dark:text-sky-400" />
               Strict Legal & Ethical Alignment
             </span>
-            <span className="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+            <span className="flex items-center gap-1.5 text-teal-700 dark:text-teal-400 font-semibold">
               <Lock className="w-4 h-4 text-teal-600 dark:text-teal-400" />
               Zero Commercialization Supported
             </span>
@@ -193,12 +197,12 @@ export function OrganDonationPage() {
         </section>
 
         {/* User Intent Selection Grid - Single Language Display */}
-        <section className="space-y-4">
+        <section className="space-y-4 text-left">
           <div className="space-y-1">
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
               What Are You Looking For Today?
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-600 dark:text-slate-400">
               Choose your area of inquiry to jump directly to relevant guidance.
             </p>
           </div>
@@ -213,24 +217,24 @@ export function OrganDonationPage() {
                   key={card.id}
                   type="button"
                   onClick={() => setActiveIntent(isSelected ? "all" : card.id)}
-                  className={`p-5 rounded-2xl border text-left transition-all space-y-2 flex flex-col justify-between cursor-pointer ${
+                  className={`p-5 rounded-3xl border text-left transition-all space-y-2 flex flex-col justify-between cursor-pointer ${
                     isSelected
-                      ? "bg-teal-50 dark:bg-teal-950/60 border-teal-600 dark:border-teal-400 shadow-md ring-2 ring-teal-600/20"
-                      : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-2xs hover:border-teal-300 dark:hover:border-teal-600"
+                      ? "bg-teal-50 dark:bg-teal-950/60 border-teal-500 shadow-xl shadow-teal-500/10 ring-2 ring-teal-500/20 backdrop-blur-xl"
+                      : "bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200/90 dark:border-white/10 hover:border-teal-500/40 hover:shadow-lg"
                   }`}
                 >
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 flex items-center justify-center border border-teal-100 dark:border-teal-800">
+                      <div className="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-950/80 text-teal-700 dark:text-teal-300 flex items-center justify-center border border-slate-200/80 dark:border-white/10">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <Badge variant={card.badgeVariant} size="sm">{card.badge}</Badge>
+                      <Badge variant={card.badgeVariant} size="sm" className="font-bold">{card.badge}</Badge>
                     </div>
                     <h3 className="text-sm font-bold text-slate-900 dark:text-white leading-snug">{translatedTitle}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{card.description}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{card.description}</p>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-bold text-teal-700 dark:text-teal-300 flex items-center justify-between">
+                  <div className="pt-2.5 border-t border-slate-100 dark:border-white/10 text-xs font-bold text-teal-700 dark:text-teal-400 flex items-center justify-between">
                     <span>{isSelected ? "Section Active" : "Explore Section"}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>

@@ -182,17 +182,21 @@ export function ResourcesDirectoryPage() {
     (showNGOs ? filteredNGOs.length : 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-sky-500/10 dark:bg-sky-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
         {/* Header Title Banner */}
-        <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+        <div className="bg-white dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-2xl space-y-2 text-left transition-colors">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/20 dark:border-teal-500/30 backdrop-blur-md">
               Verified Public Registry
             </span>
-            <span className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">
+            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
               <CheckCircle2 className="w-3.5 h-3.5" /> 100% Accredited Resources
             </span>
           </div>
@@ -205,55 +209,55 @@ export function ResourcesDirectoryPage() {
         </div>
 
         {/* Care Pathway Progression Strip */}
-        <div className="p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-2">
-          <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
-            <span className="flex items-center gap-1.5 text-teal-800 dark:text-teal-300">
+        <div className="p-5 bg-white dark:bg-slate-900/60 backdrop-blur-xl rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-lg space-y-3 text-left transition-colors">
+          <div className="flex items-center justify-between text-xs font-bold text-slate-900 dark:text-white">
+            <span className="flex items-center gap-2 text-teal-700 dark:text-teal-300">
               <Compass className="w-4 h-4 text-teal-600 dark:text-teal-400" />
               Public Healthcare Delivery Pathway:
             </span>
             <span className="text-[11px] text-slate-500 dark:text-slate-400 font-normal">Graduated referral levels</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
-            <div className="p-2.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
-              <span className="text-[10px] text-teal-700 dark:text-teal-400 font-bold block">Level 1</span>
-              <strong className="text-slate-800 dark:text-slate-200 block text-xs">Village / ASHA</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400">First screening</span>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-center text-xs">
+            <div className="p-3 bg-slate-950/60 rounded-2xl border border-white/5">
+              <span className="text-[10px] text-teal-400 font-bold block">Level 1</span>
+              <strong className="text-white block text-xs mt-0.5">Village / ASHA</strong>
+              <span className="text-[10px] text-slate-400">First screening</span>
             </div>
-            <div className="p-2.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
-              <span className="text-[10px] text-teal-700 dark:text-teal-400 font-bold block">Level 2</span>
-              <strong className="text-slate-800 dark:text-slate-200 block text-xs">Primary Health Centre</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400">Doctor consultation</span>
+            <div className="p-3 bg-slate-950/60 rounded-2xl border border-white/5">
+              <span className="text-[10px] text-teal-400 font-bold block">Level 2</span>
+              <strong className="text-white block text-xs mt-0.5">Primary Health Centre</strong>
+              <span className="text-[10px] text-slate-400">Doctor consultation</span>
             </div>
-            <div className="p-2.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
-              <span className="text-[10px] text-teal-700 dark:text-teal-400 font-bold block">Level 3</span>
-              <strong className="text-slate-800 dark:text-slate-200 block text-xs">CHC / Sub-District</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400">Maternity & Lab</span>
+            <div className="p-3 bg-slate-950/60 rounded-2xl border border-white/5">
+              <span className="text-[10px] text-teal-400 font-bold block">Level 3</span>
+              <strong className="text-white block text-xs mt-0.5">CHC / Sub-District</strong>
+              <span className="text-[10px] text-slate-400">Maternity & Lab</span>
             </div>
-            <div className="p-2.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700">
-              <span className="text-[10px] text-teal-700 dark:text-teal-400 font-bold block">Level 4</span>
-              <strong className="text-slate-800 dark:text-slate-200 block text-xs">District Civil Hospital</strong>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400">24x7 ICU & Surgery</span>
+            <div className="p-3 bg-slate-950/60 rounded-2xl border border-white/5">
+              <span className="text-[10px] text-teal-400 font-bold block">Level 4</span>
+              <strong className="text-white block text-xs mt-0.5">District Civil Hospital</strong>
+              <span className="text-[10px] text-slate-400">24x7 ICU & Surgery</span>
             </div>
-            <div className="p-2.5 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800">
-              <span className="text-[10px] text-teal-800 dark:text-teal-300 font-bold block">Level 5</span>
-              <strong className="text-teal-950 dark:text-teal-200 block text-xs">Tertiary / Teaching</strong>
-              <span className="text-[10px] text-teal-700 dark:text-teal-400">Super-speciality & Transplant</span>
+            <div className="p-3 bg-teal-500/10 rounded-2xl border border-teal-500/30">
+              <span className="text-[10px] text-teal-300 font-bold block">Level 5</span>
+              <strong className="text-teal-200 block text-xs mt-0.5">Tertiary / Teaching</strong>
+              <span className="text-[10px] text-teal-400/80">Super-speciality & Transplant</span>
             </div>
           </div>
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+        <div className="bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl p-5 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-2xl space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
             <div className="sm:col-span-8 relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by facility name, specialty (Cardiology, Surgery), transplant organ, or scheme..."
-                className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-teal-600 focus:ring-2 focus:ring-teal-100 dark:focus:ring-teal-950 focus:outline-none"
+                className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-slate-950/80 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-teal-500/60 focus:outline-none transition-all"
               />
             </div>
 
@@ -267,11 +271,11 @@ export function ResourcesDirectoryPage() {
                     changeDistrict(val);
                   }
                 }}
-                className="w-full px-3 py-2 text-sm font-semibold rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-teal-600 focus:ring-2 focus:ring-teal-100 dark:focus:ring-teal-950 focus:outline-none"
+                className="w-full px-3.5 py-2.5 text-xs sm:text-sm font-bold rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-slate-950 text-slate-900 dark:text-white focus:border-teal-500/60 focus:outline-none cursor-pointer"
               >
                 <option value="all">🌐 All Maharashtra Districts ({hospitals.length} Facilities)</option>
                 {allDistricts.map((d) => (
-                  <option key={d.id} value={d.name}>
+                  <option key={d.id} value={d.name} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
                     📍 {d.name} ({d.marathiName}) — {d.region}
                   </option>
                 ))}

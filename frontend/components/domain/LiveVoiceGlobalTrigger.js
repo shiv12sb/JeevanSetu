@@ -1,11 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { OneOnOneVoiceCallScreen } from "@/components/domain/OneOnOneVoiceCallScreen";
 import { PhoneCall } from "lucide-react";
 
 export function LiveVoiceGlobalTrigger() {
+  const pathname = usePathname();
   const [isCallOpen, setIsCallOpen] = useState(false);
+
+  // Strictly hide floating voice / AI widget on Login, Register, and dedicated Assistant pages
+  if (
+    !pathname ||
+    pathname === "/login" ||
+    pathname.startsWith("/login") ||
+    pathname === "/register" ||
+    pathname.startsWith("/register") ||
+    pathname === "/assistant" ||
+    pathname.startsWith("/assistant")
+  ) {
+    return null;
+  }
 
   return (
     <>

@@ -264,47 +264,40 @@ export function CallAssistancePage() {
     }
   };
 
-  const filteredCallbacks = callbacks.filter((c) => {
-    if (callbackFilter === "all") return true;
-    return c.status === callbackFilter;
-  });
-
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* Banner */}
-        <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-0.5 rounded border border-teal-200 dark:border-teal-800 flex items-center gap-1">
-                <PhoneCall className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                Inclusive Rural Health Access
-              </span>
-              <Badge variant="teal" size="sm">Feature Phone & IVR (2G)</Badge>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Provider:</span>
-              <Badge variant="outline" size="sm">{analytics.telephony_provider}</Badge>
-            </div>
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
+        {/* Header Title Banner */}
+        <div className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-xl space-y-3 text-left">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-500/10 dark:bg-teal-950/80 px-3 py-1 rounded-full border border-teal-500/30 backdrop-blur-md">
+              Voice IVR & 2G Toll-Free Access
+            </span>
+            <span className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5" /> Offline & Feature Phone Enabled
+            </span>
           </div>
-
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-            Voice Call & IVR Phone Health Access
+            Automated Voice Call Assistance (IVR 2.0)
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            Engineered for rural citizens without smartphones or internet access. Accessible from any basic 2G feature phone with deterministic local-language voice prompts (हिंदी, मराठी, English), referral tracking, medicine lookup, government schemes, and ASHA health worker callbacks.
+            Accessible via any standard feature phone or landline without internet connection. Interactive voice guidance in Hindi, Marathi, and English for triage guidance, hospital referrals, medicine availability, and ASHA callbacks.
           </p>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-100 dark:border-white/10">
             <button
               onClick={() => setActiveTab("simulator")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "simulator"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-100 dark:bg-slate-900/80 backdrop-blur-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10"
               }`}
             >
               <Radio className="w-3.5 h-3.5" />
@@ -313,16 +306,16 @@ export function CallAssistancePage() {
 
             <button
               onClick={() => setActiveTab("callbacks")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "callbacks"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-100 dark:bg-slate-900/80 backdrop-blur-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10"
               }`}
             >
               <Users className="w-3.5 h-3.5" />
               <span>ASHA Callback Queue</span>
               {callbacks.filter((c) => c.status === "pending").length > 0 && (
-                <span className="px-1.5 py-0.2 bg-amber-500 text-white rounded-full text-[10px]">
+                <span className="px-2 py-0.5 bg-amber-500 text-slate-950 font-black rounded-full text-[10px]">
                   {callbacks.filter((c) => c.status === "pending").length}
                 </span>
               )}
@@ -330,10 +323,10 @@ export function CallAssistancePage() {
 
             <button
               onClick={() => setActiveTab("schemes")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "schemes"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-100 dark:bg-slate-900/80 backdrop-blur-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10"
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
@@ -342,10 +335,10 @@ export function CallAssistancePage() {
 
             <button
               onClick={() => setActiveTab("analytics")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "analytics"
-                  ? "bg-teal-600 text-white shadow-xs"
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 shadow-lg shadow-teal-500/20 font-black"
+                  : "bg-slate-100 dark:bg-slate-900/80 backdrop-blur-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10"
               }`}
             >
               <BarChart3 className="w-3.5 h-3.5" />
@@ -356,28 +349,26 @@ export function CallAssistancePage() {
 
         {/* Tab 1: Simulator */}
         {activeTab === "simulator" && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-left">
             {/* Interactive Phone Simulator Column */}
             <div className="lg:col-span-2 space-y-6">
-              <Card className="border-teal-200 bg-linear-to-b from-teal-50/40 to-white shadow-xs overflow-hidden">
-                <CardHeader className="pb-3 border-b border-teal-100 bg-teal-50/60">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Radio className="w-4 h-4 text-teal-600 animate-pulse" />
-                      <CardTitle className="text-sm text-teal-950 font-bold">
-                        Interactive Feature Phone Keypad Simulator
-                      </CardTitle>
-                    </div>
-                    <Badge variant={isCallActive ? "success" : "teal"} size="sm">
-                      {isCallActive ? "Call In Progress" : "Dialer Ready"}
-                    </Badge>
+              <div className="rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-xl overflow-hidden">
+                <div className="p-5 border-b border-slate-100 dark:border-white/10 bg-slate-50 dark:bg-slate-950/60 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Radio className="w-4 h-4 text-teal-600 dark:text-teal-400 animate-pulse" />
+                    <h3 className="text-sm text-slate-900 dark:text-white font-bold">
+                      Interactive Feature Phone Keypad Simulator
+                    </h3>
                   </div>
-                </CardHeader>
+                  <Badge variant={isCallActive ? "success" : "teal"} size="sm" className="font-bold">
+                    {isCallActive ? "Call In Progress" : "Dialer Ready"}
+                  </Badge>
+                </div>
 
-                <CardContent className="p-6 space-y-6">
+                <div className="p-6 space-y-6">
                   {!isCallActive ? (
                     <div className="space-y-4 max-w-lg">
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-400 leading-relaxed">
                         Test incoming voice call interaction from a simulated 2G mobile phone. The system responds with deterministic audio prompts in Hindi, Marathi, and English.
                       </p>
 
@@ -402,7 +393,7 @@ export function CallAssistancePage() {
                       <Button
                         onClick={handleStartCall}
                         disabled={isLoading}
-                        className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold gap-2"
+                        className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 text-xs font-black gap-2 rounded-2xl shadow-lg shadow-teal-500/20 px-5 py-2.5"
                       >
                         <PhoneCall className="w-4 h-4" />
                         <span>{isLoading ? "Connecting Call..." : "Dial In / Start IVR Session"}</span>
@@ -411,13 +402,13 @@ export function CallAssistancePage() {
                   ) : (
                     <div className="space-y-5">
                       {/* Active Call Header & Voice Prompt Display */}
-                      <div className="p-4 bg-slate-900 rounded-xl text-white space-y-3 shadow-inner">
-                        <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-                          <span className="flex items-center gap-1.5 text-teal-400 font-mono">
+                      <div className="p-5 bg-slate-950/80 backdrop-blur-md rounded-2xl text-white space-y-3 shadow-inner border border-white/10">
+                        <div className="flex items-center justify-between text-xs text-slate-400 border-b border-white/10 pb-2.5">
+                          <span className="flex items-center gap-2 text-teal-400 font-mono font-bold">
                             <Volume2 className="w-4 h-4 animate-bounce" />
                             Status: {callStatus}
                           </span>
-                          <span className="font-mono text-[11px] bg-slate-800 px-2 py-0.5 rounded text-teal-300">
+                          <span className="font-mono text-[11px] bg-teal-950/80 border border-teal-500/30 px-2.5 py-0.5 rounded-lg text-teal-300">
                             Menu: {currentMenu}
                           </span>
                         </div>
@@ -426,15 +417,15 @@ export function CallAssistancePage() {
                           <span className="text-[10px] text-teal-300 font-bold uppercase tracking-wider">
                             Simulated Voice Prompt Output:
                           </span>
-                          <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed bg-slate-800/90 p-3.5 rounded-lg border border-slate-700">
+                          <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed bg-slate-900/90 p-4 rounded-xl border border-white/10">
                             "{voicePrompt}"
                           </p>
                         </div>
                       </div>
 
                       {/* Phone Keypad */}
-                      <div className="space-y-2">
-                        <span className="text-xs font-bold text-slate-700 block text-center">
+                      <div className="space-y-2.5">
+                        <span className="text-xs font-bold text-slate-300 block text-center">
                           Feature Phone Keypad (Press Digits to Navigate):
                         </span>
                         <div className="grid grid-cols-3 gap-2.5 max-w-xs mx-auto">
@@ -444,7 +435,7 @@ export function CallAssistancePage() {
                               type="button"
                               onClick={() => handleKeypress(key)}
                               disabled={isLoading}
-                              className="p-3.5 bg-white hover:bg-teal-50 border border-slate-300 hover:border-teal-400 rounded-xl font-mono text-base font-black text-slate-800 shadow-xs active:scale-95 transition-all flex flex-col items-center justify-center cursor-pointer"
+                              className="p-3.5 bg-slate-900/80 hover:bg-slate-800 border border-white/10 hover:border-teal-500/40 rounded-2xl font-mono text-base font-black text-white shadow-lg active:scale-95 transition-all flex flex-col items-center justify-center cursor-pointer"
                             >
                               <span>{key}</span>
                             </button>
@@ -456,7 +447,7 @@ export function CallAssistancePage() {
                             size="sm"
                             variant="danger"
                             onClick={handleEndCall}
-                            className="text-xs font-bold gap-1.5 bg-rose-600 hover:bg-rose-700 text-white"
+                            className="text-xs font-black gap-1.5 bg-rose-600 hover:bg-rose-500 text-white rounded-2xl px-4 py-2 shadow-lg shadow-rose-600/30"
                           >
                             <PhoneOff className="w-3.5 h-3.5" />
                             <span>Hang Up / End Call</span>
@@ -465,81 +456,75 @@ export function CallAssistancePage() {
                       </div>
                     </div>
                   )}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
               {/* Call Transcript History */}
               {callHistory.length > 0 && (
-                <Card>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-xs font-bold text-slate-800">
-                      Live Call Session Log & Navigation History
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2 text-xs">
+                <div className="p-5 rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-lg space-y-3">
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+                    Live Call Session Log & Navigation History
+                  </h4>
+                  <div className="space-y-2 text-xs">
                     {callHistory.map((item, idx) => (
                       <div
                         key={idx}
-                        className={`p-2.5 rounded-lg leading-relaxed ${
+                        className={`p-3 rounded-2xl leading-relaxed ${
                           item.role === "user"
-                            ? "bg-teal-50 text-teal-900 font-mono font-bold border border-teal-200 max-w-xs ml-auto text-right"
-                            : "bg-slate-100 text-slate-800 border border-slate-200"
+                            ? "bg-teal-500/10 text-teal-300 font-mono font-bold border border-teal-500/30 max-w-xs ml-auto text-right"
+                            : "bg-slate-950/60 text-slate-300 border border-white/5"
                         }`}
                       >
                         {item.text}
                       </div>
                     ))}
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               )}
             </div>
 
             {/* Menu Tree Reference Column */}
             <div className="space-y-4">
-              <Card>
-                <CardHeader className="pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <ListOrdered className="w-4 h-4 text-teal-600" />
-                    <CardTitle className="text-sm font-bold text-slate-900">
-                      IVR DTMF Menu Tree
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-4 space-y-3 text-xs">
+              <div className="p-5 rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-lg space-y-3">
+                <div className="flex items-center gap-2 pb-2 border-b border-white/10">
+                  <ListOrdered className="w-4 h-4 text-teal-400" />
+                  <h4 className="text-sm font-bold text-white">
+                    IVR DTMF Menu Tree
+                  </h4>
+                </div>
+                <div className="space-y-2.5 text-xs">
                   {menuTree.map((item) => (
-                    <div key={item.key} className="p-2.5 bg-slate-50 rounded-lg border border-slate-200/80 space-y-1">
-                      <div className="flex items-center gap-2 font-bold text-slate-800">
-                        <span className="w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center font-mono text-[11px]">
+                    <div key={item.key} className="p-3 bg-slate-950/60 rounded-2xl border border-white/5 space-y-1">
+                      <div className="flex items-center gap-2 font-bold text-white">
+                        <span className="w-5 h-5 rounded-full bg-teal-500 text-slate-950 flex items-center justify-center font-mono font-black text-[11px]">
                           {item.key}
                         </span>
                         <span>{item.title}</span>
                       </div>
-                      <p className="text-[11px] text-slate-600 pl-7">{item.desc}</p>
+                      <p className="text-[11px] text-slate-400 pl-7">{item.desc}</p>
                     </div>
                   ))}
 
-                  <div className="p-2.5 bg-amber-50 rounded-lg border border-amber-200 text-amber-900 text-[11px] space-y-1">
-                    <strong className="block">Global Navigation Keys:</strong>
+                  <div className="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-200 text-[11px] space-y-1">
+                    <strong className="block text-amber-300">Global Navigation Keys:</strong>
                     <p>• <strong>*</strong> : Repeat current audio menu prompt</p>
                     <p>• <strong>#</strong> : Return to main menu</p>
                     <p>• <strong>0</strong> : Disconnect / Exit call</p>
                     <p>• <strong>108</strong> : Emergency Ambulance hotline</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
               {/* Safety Boundary Notice */}
-              <Card className="border-rose-200 bg-rose-50/40">
-                <CardContent className="p-4 space-y-2 text-xs text-rose-950">
-                  <div className="flex items-center gap-1.5 font-bold text-rose-800">
-                    <AlertTriangle className="w-4 h-4 text-rose-600" />
-                    <span>Non-Diagnostic Safety Boundary</span>
-                  </div>
-                  <p className="text-[11px] leading-relaxed text-rose-800">
-                    JeevanSetu IVR strictly provides informational guidance and facility coordination. It does not diagnose diseases, prescribe medicine doses, or replace clinical consultation. Emergency symptoms route directly to 108.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="rounded-3xl border border-rose-500/30 bg-rose-950/30 backdrop-blur-xl p-5 space-y-2 text-xs">
+                <div className="flex items-center gap-2 font-bold text-rose-300">
+                  <AlertTriangle className="w-4 h-4 text-rose-400" />
+                  <span>Non-Diagnostic Safety Boundary</span>
+                </div>
+                <p className="text-[11px] leading-relaxed text-slate-300">
+                  JeevanSetu IVR strictly provides informational guidance and facility coordination. It does not diagnose diseases, prescribe medicine doses, or replace clinical consultation. Emergency symptoms route directly to 108.
+                </p>
+              </div>
             </div>
           </div>
         )}

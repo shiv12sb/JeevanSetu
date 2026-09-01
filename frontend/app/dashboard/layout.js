@@ -33,9 +33,13 @@ export default function DashboardLayout({ children }) {
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="min-h-screen flex bg-slate-100/90 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       {/* Desktop Persistent Sidebar */}
-      <div className="hidden md:flex flex-col">
+      <div className="hidden md:flex flex-col relative z-20">
         <Sidebar currentRole={currentRole} onRoleChange={handleRoleChange} />
       </div>
 
@@ -43,7 +47,7 @@ export default function DashboardLayout({ children }) {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 flex md:hidden">
           <div
-            className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="relative z-10">
@@ -58,7 +62,7 @@ export default function DashboardLayout({ children }) {
       )}
 
       {/* Main Content Viewport */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 relative z-10">
         <Topbar
           currentRole={currentRole}
           onOpenMobileMenu={() => setMobileMenuOpen(true)}

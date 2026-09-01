@@ -30,6 +30,10 @@ import {
   User,
   Settings,
   Shield,
+  Home,
+  Stethoscope,
+  Truck,
+  Bot,
 } from "lucide-react";
 import { ROLE_LABELS } from "@/lib/constants";
 
@@ -48,10 +52,11 @@ export function Navbar() {
 
   const primaryNavLinks = [
     { href: "/", label: t("home", "Home") },
-    { href: "/navigate", label: t("navGuide", "Guide") },
+    { href: "/dashboard/patient", label: t("patientPortal", "Patient Portal"), isHighlighted: true },
+    { href: "/doctors", label: t("findDoctor", "Find Doctor") },
+    { href: "/ambulance", label: t("ambulance", "Ambulance") },
     { href: "/resources", label: t("verifiedDirectory", "Directory") },
     { href: "/referrals", label: t("referralTracking", "Referrals") },
-    { href: "/inventory", label: t("phcInventory", "Inventory") },
     { href: "/assistant", label: t("aiAssistant", "Assistant") },
   ];
 
@@ -109,15 +114,15 @@ export function Navbar() {
   const roleLabel = user ? t(`role_${user.role}`, ROLE_LABELS[user.role] || user.role) : "";
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-2xs transition-colors">
+    <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/30 dark:shadow-black/40 transition-colors">
       {/* Top Emergency, Theme & Language Bar */}
-      <div className="bg-teal-950 text-teal-100 text-xs py-1.5 px-4 border-b border-teal-900">
+      <div className="bg-slate-900/90 dark:bg-[#050811] text-teal-100 text-xs py-1.5 px-4 border-b border-white/5 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-left">
             <Link
               href="/ambulance"
               id="emergency-ambulance-trigger"
-              className="inline-flex items-center gap-2 px-3 py-1 rounded bg-rose-600 hover:bg-rose-700 active:scale-95 transition-all text-white font-extrabold text-xs shadow-xs border border-rose-500 cursor-pointer shrink-0"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 active:scale-95 transition-all text-white font-extrabold text-xs shadow-md shadow-rose-600/30 border border-rose-400/40 cursor-pointer shrink-0"
               title="Click to Open Ambulance Near Me & Live Emergency Dispatch"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping shrink-0" />
@@ -162,7 +167,7 @@ export function Navbar() {
             <img
               src="/logo.png"
               alt="JeevanSetu Logo"
-              className="w-10 h-10 rounded-xl object-contain shadow-xs group-hover:scale-105 transition-transform bg-white p-0.5 border border-slate-200 dark:border-slate-700"
+              className="w-10 h-10 rounded-xl object-contain shadow-xs group-hover:scale-105 transition-transform bg-white dark:bg-slate-900 p-0.5 border border-slate-200 dark:border-slate-700"
             />
             <div className="flex flex-col text-left">
               <span className="text-lg font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
@@ -175,19 +180,19 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1.5">
             {primaryNavLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive
-                      ? "text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 font-bold"
+                      ? "text-teal-700 dark:text-teal-300 bg-teal-500/15 dark:bg-teal-500/20 border border-teal-500/30 dark:border-teal-500/40 shadow-xs"
                       : link.isHighlighted
-                      ? "text-teal-900 dark:text-teal-200 bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 font-bold hover:bg-teal-100"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
+                      ? "text-teal-900 dark:text-white bg-gradient-to-r from-teal-500/20 to-emerald-500/20 dark:from-teal-500/30 dark:to-emerald-500/30 border border-teal-400/50 shadow-xs hover:border-teal-500"
+                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 border border-transparent"
                   }`}
                 >
                   {link.label}
@@ -200,10 +205,10 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setCommunityDropdownOpen(!communityDropdownOpen)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 whitespace-nowrap ${
                   isSecondaryActive
-                    ? "text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
+                    ? "text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 font-bold border border-teal-200 dark:border-teal-800"
+                    : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
                 }`}
               >
                 <span>{t("communityAwareness", "Community")}</span>
@@ -211,8 +216,8 @@ export function Navbar() {
               </button>
 
               {communityDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 py-2 z-50 animate-in fade-in zoom-in-95 duration-100 text-left">
-                  <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                <div className="absolute right-0 mt-2 w-72 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/10 dark:shadow-black/80 border border-slate-200/90 dark:border-white/15 py-3 z-50 animate-in fade-in zoom-in-95 duration-150 text-left">
+                  <div className="px-4 py-1 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     {t("communityAwareness", "Secondary Services & Guidance")}
                   </div>
                   {secondaryNavLinks.map((item) => {
@@ -223,15 +228,15 @@ export function Navbar() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setCommunityDropdownOpen(false)}
-                        className={`flex items-start gap-2.5 px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${
-                          isActive ? "bg-teal-50/70 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300" : "text-slate-700 dark:text-slate-300"
+                        className={`flex items-start gap-2.5 px-4 py-2.5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors ${
+                          isActive ? "bg-teal-500/10 text-teal-700 dark:text-teal-300" : "text-slate-700 dark:text-slate-300"
                         }`}
                       >
-                        <div className="w-7 h-7 rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 flex items-center justify-center shrink-0 mt-0.5 border border-teal-100 dark:border-teal-800">
-                          <Icon className="w-3.5 h-3.5" />
+                        <div className="w-8 h-8 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/20">
+                          <Icon className="w-4 h-4" />
                         </div>
                         <div className="flex-1 text-left">
-                          <span className="text-xs font-semibold block leading-tight text-slate-900 dark:text-white">
+                          <span className="text-xs font-bold block leading-tight text-slate-900 dark:text-white">
                             {item.label}
                           </span>
                           <span className="text-[11px] text-slate-500 dark:text-slate-400 block leading-snug">
@@ -355,10 +360,10 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-150 text-left">
+        <div className="lg:hidden border-t border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-150 text-left">
           {/* User Status in Mobile */}
           {isAuthenticated && user && (
-            <div className="p-3 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 flex items-center justify-between">
+            <div className="p-3 bg-teal-50/80 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm">
                   {user.name ? user.name.charAt(0).toUpperCase() : "U"}
@@ -377,7 +382,7 @@ export function Navbar() {
           )}
 
           {/* Mobile Location, Language & Theme Controls */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+          <div className="p-3 bg-slate-50/80 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300">📍 Active Location:</span>
               <LocationSelector />
@@ -473,6 +478,84 @@ export function Navbar() {
           </div>
         </div>
       )}
+
+      {/* =========================================================================
+          MOBILE BOTTOM NAVIGATION BAR (FIXED 5-TAB ACCESSIBLE BAR)
+          ========================================================================= */}
+      <nav
+        aria-label="Mobile Navigation Bar"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white/85 dark:bg-slate-950/85 backdrop-blur-2xl border-t border-slate-200/80 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/10 dark:shadow-black/80"
+      >
+        <div className="grid grid-cols-5 h-16 max-w-lg mx-auto">
+          {/* 1. Home */}
+          <Link
+            href="/"
+            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
+              pathname === "/"
+                ? "text-teal-600 dark:text-teal-400 font-extrabold"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            }`}
+          >
+            <Home className={`w-4 h-4 ${pathname === "/" ? "stroke-[2.5]" : ""}`} />
+            <span>Home</span>
+          </Link>
+
+          {/* 2. Patient Portal */}
+          <Link
+            href="/dashboard/patient"
+            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
+              pathname.startsWith("/dashboard/patient")
+                ? "text-teal-600 dark:text-teal-400 font-extrabold"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            }`}
+          >
+            <div className="relative">
+              <User className={`w-4 h-4 ${pathname.startsWith("/dashboard/patient") ? "stroke-[2.5]" : ""}`} />
+              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-teal-500 animate-ping" />
+            </div>
+            <span>Portal</span>
+          </Link>
+
+          {/* 3. Find Doctor */}
+          <Link
+            href="/doctors"
+            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
+              pathname.startsWith("/doctors")
+                ? "text-teal-600 dark:text-teal-400 font-extrabold"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            }`}
+          >
+            <Stethoscope className={`w-4 h-4 ${pathname.startsWith("/doctors") ? "stroke-[2.5]" : ""}`} />
+            <span>Doctors</span>
+          </Link>
+
+          {/* 4. Ambulance */}
+          <Link
+            href="/ambulance"
+            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
+              pathname.startsWith("/ambulance")
+                ? "text-rose-600 dark:text-rose-400 font-extrabold"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            }`}
+          >
+            <Truck className={`w-4 h-4 ${pathname.startsWith("/ambulance") ? "stroke-[2.5]" : ""}`} />
+            <span>108 Live</span>
+          </Link>
+
+          {/* 5. Assistant */}
+          <Link
+            href="/assistant"
+            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
+              pathname.startsWith("/assistant")
+                ? "text-teal-600 dark:text-teal-400 font-extrabold"
+                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            }`}
+          >
+            <Bot className={`w-4 h-4 ${pathname.startsWith("/assistant") ? "stroke-[2.5]" : ""}`} />
+            <span>Assistant</span>
+          </Link>
+        </div>
+      </nav>
     </header>
   );
 }

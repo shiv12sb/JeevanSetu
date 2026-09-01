@@ -35,44 +35,47 @@ export function CtaSection() {
   const txt = CTA_CONTENT[language] || CTA_CONTENT.en;
 
   return (
-    <section className="py-20 bg-linear-to-br from-teal-900 via-teal-800 to-slate-900 text-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-600/20 rounded-full blur-3xl -z-0 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-600/20 rounded-full blur-3xl -z-0 pointer-events-none" />
+    <section className="py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+      {/* Background ambient decorations */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[140px] pointer-events-none -z-0" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-0" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-700/60 border border-teal-500/40 text-teal-200 text-xs font-semibold">
-          <ShieldCheck className="w-3.5 h-3.5" />
-          <span>{txt.badge}</span>
-        </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 backdrop-blur-2xl border border-teal-500/30 shadow-2xl text-center space-y-6 text-white">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-semibold backdrop-blur-md shadow-xs shadow-teal-500/10">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+            <ShieldCheck className="w-4 h-4" />
+            <span>{txt.badge}</span>
+          </div>
 
-        <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight max-w-2xl mx-auto">
-          {txt.title}
-        </h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight max-w-3xl mx-auto text-white">
+            {txt.title}
+          </h2>
 
-        <p className="text-sm sm:text-base text-teal-100/90 max-w-xl mx-auto leading-relaxed">
-          {txt.subtitle}
-        </p>
+          <p className="text-sm sm:text-base text-teal-100/90 max-w-2xl mx-auto leading-relaxed">
+            {txt.subtitle}
+          </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-          <Link href="/dashboard/patient" className="w-full sm:w-auto">
-            <Button size="lg" className="w-full bg-white text-teal-900 hover:bg-teal-50 font-bold shadow-lg gap-2">
-              <Heart className="w-4 h-4 text-teal-700 fill-teal-700/20" />
-              <span>{txt.patientBtn}</span>
-              <ArrowRight className="w-4 h-4 text-teal-700" />
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Link href="/dashboard/patient" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full bg-gradient-to-r from-teal-400 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 text-slate-950 font-black shadow-lg shadow-teal-500/25 gap-2 rounded-2xl px-8 h-12">
+                <Heart className="w-4 h-4 fill-slate-950/20" />
+                <span>{txt.patientBtn}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
 
-          <Link href="/dashboard/phc" className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full border-teal-300/40 text-white bg-teal-800/40 hover:bg-teal-700/50 gap-2"
-            >
-              <Building2 className="w-4 h-4 text-teal-300" />
-              <span>{txt.phcBtn}</span>
-            </Button>
-          </Link>
+            <Link href="/dashboard/phc" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-white/20 text-white bg-white/10 hover:bg-white/20 hover:border-teal-400/60 gap-2 rounded-2xl px-8 h-12 backdrop-blur-md"
+              >
+                <Building2 className="w-4 h-4 text-teal-300" />
+                <span>{txt.phcBtn}</span>
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -121,14 +121,14 @@ export function Topbar({
   const alertCount = unreadCount;
 
   return (
-    <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 shadow-2xs transition-colors">
+    <header className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 h-16 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 shadow-lg shadow-slate-200/30 dark:shadow-black/20 transition-colors">
       {/* Left: Mobile menu toggle + Page Title */}
       <div className="flex items-center gap-3">
         {onOpenMobileMenu && (
           <button
             type="button"
             onClick={onOpenMobileMenu}
-            className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 md:hidden"
+            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white md:hidden transition-colors"
             aria-label="Open Sidebar Menu"
           >
             <Menu className="w-5 h-5" />
@@ -142,7 +142,7 @@ export function Topbar({
             <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
               {t("govtVerifiedStrip", "JeevanSetu Rural Public Health System")}
             </span>
-            <Badge variant="teal" size="sm" className="hidden sm:inline-flex">
+            <Badge variant="teal" size="sm" className="hidden sm:inline-flex font-bold">
               {t(`role_${currentRole}`, ROLE_LABELS[currentRole] || "Verified User")}
             </Badge>
           </div>
@@ -168,13 +168,13 @@ export function Topbar({
               setIsOpen(!isOpen);
               if (!isOpen) fetchNotifications();
             }}
-            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-white transition-colors relative"
+            className="p-2.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all relative cursor-pointer"
             aria-label="Notifications"
             aria-expanded={isOpen}
           >
             <Bell className="w-4 h-4" />
             {alertCount > 0 && (
-              <span className="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-slate-900 animate-pulse">
+              <span className="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white text-[10px] font-black rounded-full flex items-center justify-center ring-2 ring-white dark:ring-slate-950 animate-pulse shadow-md shadow-rose-500/50">
                 {alertCount}
               </span>
             )}
@@ -182,12 +182,12 @@ export function Topbar({
 
           {/* Notifications Popover Dropdown */}
           {isOpen && (
-            <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-left">
-              <div className="px-4 pb-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/10 dark:shadow-black/80 border border-slate-200/90 dark:border-white/15 py-3.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-left">
+              <div className="px-4 pb-3 border-b border-slate-200/80 dark:border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-slate-900 dark:text-white">Notifications</span>
+                  <span className="text-sm font-black text-slate-900 dark:text-white">Notifications</span>
                   {alertCount > 0 && (
-                    <Badge variant="teal" size="sm">
+                    <Badge variant="teal" size="sm" className="font-bold">
                       {alertCount} new
                     </Badge>
                   )}
@@ -196,36 +196,35 @@ export function Topbar({
                   <button
                     type="button"
                     onClick={handleMarkAllAsRead}
-                    className="text-xs text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300 font-semibold hover:underline"
+                    className="text-xs text-teal-600 dark:text-teal-300 hover:text-teal-700 dark:hover:text-teal-200 font-bold hover:underline cursor-pointer transition-colors"
                   >
                     Mark all read
                   </button>
                 )}
               </div>
 
-              <div className="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800">
-                {isLoading && notifications.length === 0 ? (
-                  <div className="p-6 text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
-                    <p>Checking for healthcare alerts...</p>
+              <div className="max-h-[340px] overflow-y-auto divide-y divide-slate-100 dark:divide-white/5">
+                {isLoading ? (
+                  <div className="py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+                    Loading notifications...
                   </div>
                 ) : notifications.length === 0 ? (
-                  <div className="p-8 text-center space-y-2">
-                    <CheckCircle2 className="w-8 h-8 text-slate-300 dark:text-slate-600 mx-auto" />
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">All caught up!</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">No new healthcare notifications right now.</p>
+                  <div className="py-8 text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                    <p className="font-semibold text-slate-700 dark:text-slate-300">All caught up!</p>
+                    <p className="text-[11px]">No active notifications</p>
                   </div>
                 ) : (
                   notifications.map((n) => (
                     <div
                       key={n.id}
-                      className={`p-3.5 sm:p-4 hover:bg-slate-50/80 dark:hover:bg-slate-800/80 transition-colors flex items-start justify-between gap-3 text-left ${
-                        !n.is_read ? "bg-teal-50/40 dark:bg-teal-950/40" : ""
+                      className={`p-3.5 hover:bg-slate-50/80 dark:hover:bg-white/5 transition-colors flex items-start justify-between gap-3 text-left ${
+                        !n.is_read ? "bg-teal-500/5 dark:bg-teal-500/10 border-l-2 border-teal-500" : ""
                       }`}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
                         <div className="mt-0.5">{getNotificationIcon(n.type)}</div>
-                        <div className="space-y-1">
-                          <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">
+                        <div className="space-y-1 min-w-0">
+                          <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight truncate">
                             {n.title}
                           </p>
                           <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -242,7 +241,7 @@ export function Topbar({
                           type="button"
                           onClick={(e) => handleMarkAsRead(n.id, e)}
                           title="Mark as read"
-                          className="p-1 rounded-md text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900 shrink-0 transition-colors"
+                          className="p-1.5 rounded-lg text-teal-600 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-500/20 shrink-0 transition-colors cursor-pointer"
                         >
                           <Check className="w-3.5 h-3.5" />
                         </button>
@@ -252,8 +251,8 @@ export function Topbar({
                 )}
               </div>
 
-              <div className="px-4 pt-2.5 border-t border-slate-100 dark:border-slate-800 text-center">
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+              <div className="px-4 pt-3 border-t border-slate-200/80 dark:border-white/10 text-center">
+                <span className="text-[11px] text-slate-500 font-medium">
                   Real-time alerts powered by JeevanSetu
                 </span>
               </div>
@@ -262,8 +261,8 @@ export function Topbar({
         </div>
 
         {/* Facility Connectivity Status */}
-        <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-full text-xs text-emerald-800 dark:text-emerald-300 font-medium">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
+        <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs text-emerald-300 font-bold backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
           <span>PHC Network Live</span>
         </div>
       </div>

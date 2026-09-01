@@ -2,97 +2,85 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-const THEME_STORAGE_KEY = "jeevansetu_theme";
-const ALLOWED_THEMES = ["light", "dark"];
+export const THEME_STORAGE_KEY = "jeevansetu_theme";
+export const ALLOWED_THEMES = ["light", "dark"];
 
 const ThemeContext = createContext({
-  theme: "light",
-  setTheme: () => {},
-  resolvedTheme: "light",
-  isDark: false,
+  theme: "dark",
   toggleTheme: () => {},
+  setThemeState: () => {},
 });
 
 export function ThemeProvider({ children }) {
-  // Default is ALWAYS strictly 'light' mode
-  const [theme, setThemeState] = useState("light");
+  // Default is strictly Dark Mode ('dark') for modern glassmorphism aesthetic
+  const [theme, setTheme] = useState("dark");
 
-  // Helper to apply theme classes and attributes to DOM
-  const applyThemeToDOM = (themeToApply) => {
-    if (typeof document === "undefined") return;
-    const root = document.documentElement;
-    const isDark = themeToApply === "dark";
-
-    if (isDark) {
-      root.classList.add("dark");
-      root.setAttribute("data-theme", "dark");
-      root.style.colorScheme = "dark";
-    } else {
-      root.classList.remove("dark");
-      root.setAttribute("data-theme", "light");
-      root.style.colorScheme = "light";
-    }
-  };
-
-  // On mount: Read saved user choice from localStorage (strictly 'light' or 'dark')
   useEffect(() => {
     try {
       const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-      if (savedTheme && ALLOWED_THEMES.includes(savedTheme)) {
-        setThemeState(savedTheme);
-        applyThemeToDOM(savedTheme);
+      if (ALLOWED_THEMES.includes(savedTheme)) {
+        setTheme(savedTheme);
+        applyThemeClass(savedTheme);
       } else {
-        // Fallback for fresh browser, invalid value, or 'system' -> default to 'light'
-        setThemeState("light");
-        applyThemeToDOM("light");
-        localStorage.setItem(THEME_STORAGE_KEY, "light");
+        setTheme("dark");
+        applyThemeClass("dark");
+        localStorage.setItem(THEME_STORAGE_KEY, "dark");
       }
     } catch (e) {
-      // Fallback in case localStorage access is restricted
-      setThemeState("light");
-      applyThemeToDOM("light");
+      // ignore in ssr
+      applyThemeClass("dark");
     }
   }, []);
 
-  const setTheme = (newTheme) => {
-    // Only 'light' and 'dark' are valid explicit selections
-    const validatedTheme = newTheme === "dark" ? "dark" : "light";
-    setThemeState(validatedTheme);
-    applyThemeToDOM(validatedTheme);
+  const applyThemeClass = (targetTheme) => {
+    if (typeof document !== "undefined") {
+      const root = document.documentElement;
+      if (targetTheme === "dark") {
+        root.classList.add("dark");
+        root.setAttribute("data-theme", "dark");
+        root.style.colorScheme = "dark";
+      } else {
+        root.classList.remove("dark");
+        root.setAttribute("data-theme", "light");
+        root.style.colorScheme = "light";
+      }
+    }
+  };
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    applyThemeClass(nextTheme);
     try {
-      localStorage.setItem(THEME_STORAGE_KEY, validatedTheme);
+      localStorage.setItem("jeevansetu_theme", nextTheme);
     } catch (e) {
       // ignore
     }
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+  const setThemeState = (newTheme) => {
+    if (newTheme === "light" || newTheme === "dark") {
+      setTheme(newTheme);
+      applyThemeClass(newTheme);
+      try {
+        localStorage.setItem("jeevansetu_theme", newTheme);
+      } catch (e) {
+        // ignore
+      }
+    }
   };
 
   const isDark = theme === "dark";
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        setTheme,
-        resolvedTheme: theme,
-        isDark,
-        toggleTheme,
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, isDark, toggleTheme, setThemeState }}>
       {children}
     </ThemeContext.Provider>
   );
 }
 
 export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
+  return useContext(ThemeContext);
 }
 
 export default ThemeContext;

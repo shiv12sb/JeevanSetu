@@ -11,6 +11,8 @@ import { Input, Select, Textarea } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { SkeletonCard } from "@/components/ui/Skeleton";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { StatusTimeline } from "@/components/shared/StatusTimeline";
 import { mockReferrals, mockHospitals } from "@/lib/mockData";
 import { referralsApi } from "@/lib/api";
@@ -272,37 +274,41 @@ export function ReferralsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 relative z-10">
         <AuthGuard featureName="रेफरल ट्रॅकिंग (Referral Intelligence & Care Tracking)">
           {/* Header Title */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4 text-left">
           <div>
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
               <Badge variant="teal" size="sm" className="font-bold">
                 Closed-Loop Care Coordination
               </Badge>
-              <span className="text-xs bg-slate-100 dark:bg-slate-800 text-teal-800 dark:text-teal-300 font-bold px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-teal-600" />
+              <span className="text-xs bg-slate-100 dark:bg-slate-900/80 text-teal-800 dark:text-teal-300 font-bold px-2.5 py-0.5 rounded-lg border border-slate-200 dark:border-white/10 flex items-center gap-1.5 backdrop-blur-md">
+                <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                 <span>Active District: {selectedDistrict} ({currentDistrictObj?.marathiName || ""})</span>
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
               Patient Referral Intelligence & Closed-Loop Care — {selectedDistrict}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mt-0.5">
               Track referrals seamlessly from PHC creation through transport, hospital triage, specialist treatment, and post-discharge follow-up.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
             <LocationSelector />
             <Button
               size="md"
               variant="outline"
-              className="border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold gap-2"
+              className="border-slate-200 dark:border-white/15 text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800/80 font-bold gap-2 rounded-2xl backdrop-blur-md"
               onClick={loadReferrals}
               disabled={isLoading}
             >
@@ -312,7 +318,7 @@ export function ReferralsPage() {
             <Button
               size="md"
               variant="primary"
-              className="bg-teal-600 hover:bg-teal-700 text-white font-bold gap-2"
+              className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black gap-2 rounded-2xl shadow-lg shadow-teal-500/20"
               onClick={() => setIsCreateModalOpen(true)}
             >
               <Plus className="w-4 h-4" />
@@ -322,7 +328,7 @@ export function ReferralsPage() {
         </div>
 
         {/* Clinical Safety Notice */}
-        <Alert variant="info" className="text-xs py-2">
+        <Alert variant="info" className="text-xs py-2.5">
           <strong>Care-Coordination Boundary:</strong> JeevanSetu referral intelligence manages operational logistics and care continuity. It does not replace medical practitioners or make autonomous clinical diagnoses.
         </Alert>
 
@@ -339,64 +345,77 @@ export function ReferralsPage() {
         )}
 
         {/* Closed Loop Analytics KPIs */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-          <Card className="p-4 border-slate-200 dark:border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
             <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Tracked</div>
-            <div className="text-2xl font-bold text-slate-900 dark:text-white mt-1 font-mono">{referrals.length} Referrals</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Across district health network</div>
-          </Card>
-          <Card className="p-4 border-slate-200 dark:border-slate-800">
-            <div className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-wider">Hospital Arrival Rate</div>
-            <div className="text-2xl font-bold text-teal-700 dark:text-teal-300 mt-1 font-mono">{analytics?.hospital_arrival_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Avg. transit: {analytics?.average_transit_to_hospital_hours || 3.5}h</div>
-          </Card>
-          <Card className="p-4 border-slate-200 dark:border-slate-800">
-            <div className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Treatment Start Rate</div>
-            <div className="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mt-1 font-mono">{analytics?.treatment_initiation_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Triage to care: {analytics?.average_arrival_to_treatment_hours || 1.2}h</div>
-          </Card>
-          <Card className="p-4 border-slate-200 dark:border-slate-800">
-            <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Closed-Loop Completion</div>
-            <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-300 mt-1 font-mono">{analytics?.completion_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Follow-up verified & closed</div>
-          </Card>
+            <div className="text-2xl font-black text-slate-900 dark:text-white mt-1 font-mono">{referrals.length} Referrals</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400">Across district health network</div>
+          </div>
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+            <div className="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Hospital Arrival Rate</div>
+            <div className="text-2xl font-black text-teal-700 dark:text-teal-300 mt-1 font-mono">{analytics?.hospital_arrival_rate_percentage || 100}%</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400">Avg. transit: {analytics?.average_transit_to_hospital_hours || 3.5}h</div>
+          </div>
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+            <div className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider">Treatment Start Rate</div>
+            <div className="text-2xl font-black text-indigo-700 dark:text-indigo-300 mt-1 font-mono">{analytics?.treatment_initiation_rate_percentage || 100}%</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400">Triage to care: {analytics?.average_arrival_to_treatment_hours || 1.2}h</div>
+          </div>
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+            <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Closed-Loop Completion</div>
+            <div className="text-2xl font-black text-emerald-700 dark:text-emerald-300 mt-1 font-mono">{analytics?.completion_rate_percentage || 100}%</div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400">Follow-up verified & closed</div>
+          </div>
         </div>
 
         {/* Search & Tabs */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <Tabs tabs={categoryTabs} activeTab={filterStage} onChange={setFilterStage} />
           <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Search referral ID or patient..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/90 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-teal-500/60 transition-all"
             />
           </div>
         </div>
 
         {/* Referral Cards List */}
         <div className="space-y-4">
-          {filteredReferrals.length === 0 ? (
-            <Card className="p-8 text-center border-slate-200 dark:border-slate-800">
-              <p className="text-slate-500 dark:text-slate-400 text-sm">No referrals match the selected criteria.</p>
-            </Card>
+          {isLoading ? (
+            <div className="space-y-4">
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+            </div>
+          ) : filteredReferrals.length === 0 ? (
+            <EmptyState
+              icon={GitPullRequest}
+              title="No referrals match the selected criteria"
+              description="Try adjusting your search filter or selecting a different milestone tab."
+              actionLabel="Show All Referrals"
+              onAction={() => {
+                setFilterStage("all");
+                setSearchQuery("");
+              }}
+            />
           ) : (
             filteredReferrals.map((referral) => {
               const currentStageObj = CLOSED_LOOP_STAGES.find((s) => s.id === referral.currentStage) || CLOSED_LOOP_STAGES[0];
               const isClosed = referral.currentStage === "completed" || referral.currentStage === "closed";
 
               return (
-                <Card key={referral.id} className="p-5 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all space-y-4">
+                <div key={referral.id} className="p-6 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 space-y-4 text-left">
                   {/* Top Bar */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-white/10 pb-3">
                     <div className="flex items-center gap-3">
-                      <span className="font-mono font-bold text-sm text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+                      <span className="font-mono font-bold text-xs text-teal-800 dark:text-teal-300 bg-teal-500/10 border border-teal-500/20 px-2.5 py-1 rounded-lg">
                         {referral.id}
                       </span>
-                      <span className="font-bold text-slate-800 dark:text-slate-200 text-sm">{referral.patientName}</span>
+                      <span className="font-bold text-slate-900 dark:text-white text-base">{referral.patientName}</span>
                       <Badge
                         variant={referral.priority === "emergency" ? "rose" : referral.priority === "urgent" ? "amber" : "slate"}
                         size="sm"
@@ -419,26 +438,26 @@ export function ReferralsPage() {
 
                   {/* Route & Department Info */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                    <div>
-                      <div className="text-slate-400 font-medium">Originating PHC</div>
-                      <div className="font-semibold text-slate-800 mt-0.5">{referral.fromFacility}</div>
+                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-white/5">
+                      <div className="text-slate-500 dark:text-slate-400 font-medium">Originating PHC</div>
+                      <div className="font-bold text-slate-800 dark:text-slate-200 mt-0.5">{referral.fromFacility}</div>
                     </div>
-                    <div>
-                      <div className="text-slate-400 font-medium">Destination Hospital</div>
-                      <div className="font-semibold text-slate-800 mt-0.5">{referral.toFacility}</div>
+                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-white/5">
+                      <div className="text-slate-500 dark:text-slate-400 font-medium">Destination Hospital</div>
+                      <div className="font-bold text-slate-800 dark:text-slate-200 mt-0.5">{referral.toFacility}</div>
                     </div>
-                    <div>
-                      <div className="text-slate-400 font-medium">Specialty / Department</div>
-                      <div className="font-semibold text-slate-800 mt-0.5">{referral.department}</div>
+                    <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-white/5">
+                      <div className="text-slate-500 dark:text-slate-400 font-medium">Specialty / Department</div>
+                      <div className="font-bold text-teal-700 dark:text-teal-300 mt-0.5">{referral.department}</div>
                     </div>
                   </div>
 
                   {/* 10-Step Milestone Visualizer */}
                   <div className="pt-2">
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                    <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">
                       Care Continuity Milestone Progress
                     </div>
-                    <div className="grid grid-cols-5 sm:grid-cols-10 gap-1 text-center">
+                    <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5 text-center">
                       {CLOSED_LOOP_STAGES.map((st) => {
                         const isCompleted = currentStageObj.step >= st.step;
                         const isCurrent = currentStageObj.id === st.id;
@@ -446,16 +465,16 @@ export function ReferralsPage() {
                         return (
                           <div
                             key={st.id}
-                            className={`p-1 rounded text-[10px] font-semibold border transition-all ${
+                            className={`p-1.5 rounded-xl text-[10px] font-semibold border transition-all ${
                               isCurrent
-                                ? "bg-teal-600 text-white border-teal-700 font-bold shadow-sm"
+                                ? "bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 border-teal-400 font-black shadow-lg shadow-teal-500/20 scale-105"
                                 : isCompleted
-                                ? "bg-teal-50 text-teal-800 border-teal-200"
-                                : "bg-slate-50 text-slate-400 border-slate-200"
+                                ? "bg-teal-500/10 text-teal-800 dark:text-teal-300 border-teal-500/30 font-bold"
+                                : "bg-slate-100 dark:bg-slate-950/60 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-white/5"
                             }`}
                             title={st.label}
                           >
-                            <div className="font-mono">{st.step}</div>
+                            <div className="font-mono font-bold">{st.step}</div>
                             <div className="truncate text-[9px]">{st.label.split(" ")[0]}</div>
                           </div>
                         );
@@ -464,35 +483,35 @@ export function ReferralsPage() {
                   </div>
 
                   {/* Action Bar */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
-                    <div className="text-xs text-slate-500">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100 dark:border-white/10">
+                    <div className="text-xs text-slate-500 dark:text-slate-400">
                       {referral.requiresFollowUp && (
-                        <span className="font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                        <span className="font-semibold text-indigo-800 dark:text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-lg border border-indigo-500/20 backdrop-blur-md">
                           Follow-up Scheduled: {referral.followUpDate || "Pending"}
                         </span>
                       )}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
                       {!isClosed && (
                         <>
                           <Button
                             size="sm"
                             variant="outline"
-                            className="h-7 text-xs border-slate-300 text-slate-700 font-bold"
+                            className="h-8 text-xs border-slate-200 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800/60 font-bold rounded-xl backdrop-blur-md"
                             onClick={() => {
                               setSelectedReferral(referral);
                               setIsTransportModalOpen(true);
                             }}
                           >
-                            <Truck className="w-3.5 h-3.5 mr-1" />
+                            <Truck className="w-3.5 h-3.5 mr-1 text-teal-600 dark:text-teal-400" />
                             Assign Transport
                           </Button>
 
                           <Button
                             size="sm"
                             variant="outline"
-                            className="h-7 text-xs border-indigo-300 text-indigo-700 hover:bg-indigo-50 font-bold"
+                            className="h-8 text-xs border-indigo-500/30 text-indigo-700 dark:text-indigo-300 bg-indigo-500/10 hover:bg-indigo-500/20 font-bold rounded-xl backdrop-blur-md"
                             onClick={() => {
                               setSelectedReferral(referral);
                               setIsFollowUpModalOpen(true);
@@ -505,7 +524,7 @@ export function ReferralsPage() {
                           <Button
                             size="sm"
                             variant="primary"
-                            className="h-7 text-xs bg-teal-600 hover:bg-teal-700 text-white font-bold"
+                            className="h-8 text-xs bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black rounded-xl shadow-md shadow-teal-500/20"
                             onClick={() => {
                               setSelectedReferral(referral);
                               setIsUpdateStageModalOpen(true);
@@ -520,16 +539,16 @@ export function ReferralsPage() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="h-7 text-xs border-emerald-400 text-emerald-700 hover:bg-emerald-50 font-bold"
+                          className="h-8 text-xs border-emerald-500/30 text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 font-bold rounded-xl backdrop-blur-md"
                           onClick={() => handleCompleteFollowUp(referral.rawId || referral.id)}
                         >
-                          <CheckCheck className="w-3.5 h-3.5 mr-1" />
+                          <CheckCheck className="w-3.5 h-3.5 mr-1 text-emerald-600 dark:text-emerald-400" />
                           Complete & Close
                         </Button>
                       )}
                     </div>
                   </div>
-                </Card>
+                </div>
               );
             })
           )}

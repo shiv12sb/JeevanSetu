@@ -107,37 +107,41 @@ export function PatientJourneySection() {
   const txt = JOURNEY_CONTENT[language] || JOURNEY_CONTENT.en;
 
   return (
-    <section className="py-16 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative bg-slate-100/60 dark:bg-slate-950/40 border-b border-slate-200/80 dark:border-white/10 overflow-hidden transition-colors duration-300">
+      {/* Ambient glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-teal-500/5 blur-[130px] rounded-full pointer-events-none -z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-100/80 dark:bg-teal-950/80 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300 bg-teal-500/10 px-3.5 py-1.5 rounded-full border border-teal-500/20 backdrop-blur-md shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 animate-pulse" />
             {txt.badge}
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
             {txt.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
             {txt.subtitle}
           </p>
         </div>
 
-        <div className="mt-12 max-w-4xl mx-auto space-y-4">
+        <div className="mt-14 max-w-4xl mx-auto space-y-4">
           {txt.steps.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:border-teal-300 dark:hover:border-teal-600 transition-all"
+              className="p-6 bg-white dark:bg-slate-900/60 backdrop-blur-xl rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none flex flex-col sm:flex-row items-start sm:items-center gap-5 hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-teal-600 text-white font-bold flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 text-slate-950 font-black text-base flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform">
                 {idx + 1}
               </div>
-              <div className="flex-1 space-y-1">
-                <span className="text-[10px] font-bold text-teal-800 dark:text-teal-300 uppercase tracking-wider bg-teal-50 dark:bg-teal-950/60 px-2 py-0.5 rounded border border-teal-100 dark:border-teal-800">
+              <div className="flex-1 space-y-1.5">
+                <span className="inline-block text-[11px] font-bold text-teal-800 dark:text-teal-300 uppercase tracking-wider bg-teal-500/10 px-2.5 py-0.5 rounded-md border border-teal-500/20">
                   {item.actor}
                 </span>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   {item.detail}
                 </p>
               </div>

@@ -148,26 +148,27 @@ export default function DoctorDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 bg-linear-to-r from-teal-800 to-sky-900 rounded-2xl text-white shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="space-y-1">
+      <div className="p-6 sm:p-7 bg-gradient-to-r from-teal-950/90 via-slate-900/90 to-sky-950/90 backdrop-blur-2xl rounded-3xl text-white shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-500/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="space-y-1.5 text-left relative z-10">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-200 bg-teal-900/80 px-2.5 py-0.5 rounded-full border border-teal-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full font-mono border border-teal-500/30 shadow-xs shadow-teal-500/20">
               Clinician Portal • Registration #MCI-2014-98124
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
             Dr. Vivek Kulkarni
           </h2>
-          <p className="text-xs sm:text-sm text-teal-100/90">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
             Senior Consultant (General Medicine & Cardiology) • District Civil Hospital Gadchiroli
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 relative z-10">
           <Button
             size="sm"
             variant={isOnDuty ? "outline" : "primary"}
-            className={isOnDuty ? "bg-white/10 text-white border-white/20 hover:bg-white/20" : "bg-emerald-600 hover:bg-emerald-700 text-white"}
+            className={isOnDuty ? "bg-slate-900/80 text-teal-300 border-teal-500/30 hover:bg-slate-800 backdrop-blur-md rounded-2xl font-bold px-4 py-2" : "bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black rounded-2xl px-4 py-2 shadow-lg shadow-teal-500/20"}
             onClick={handleToggleDuty}
             disabled={isLoading}
           >
@@ -184,29 +185,29 @@ export default function DoctorDashboardPage() {
       )}
 
       {/* Live OPD Queue & Token Control Bar */}
-      <div className="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-teal-200 dark:border-teal-800 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+      <div className="p-6 bg-slate-900/60 backdrop-blur-xl rounded-3xl border border-white/10 shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-teal-600 text-white flex flex-col items-center justify-center font-bold shadow-xs shrink-0">
-            <span className="text-[10px] uppercase tracking-wider text-teal-100 font-semibold">Token</span>
-            <span className="text-xl leading-tight font-black">#{currentToken}</span>
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-400 to-emerald-500 text-slate-950 flex flex-col items-center justify-center font-bold shadow-lg shadow-teal-500/20 shrink-0">
+            <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-900/80">Token</span>
+            <span className="text-2xl leading-tight font-black">#{currentToken}</span>
           </div>
-          <div className="space-y-0.5">
+          <div className="space-y-0.5 text-left">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-800 dark:text-teal-300">
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-400">
                 Live OPD Triage Queue
               </span>
-              <Badge variant="success" size="sm">Session Active</Badge>
+              <Badge variant="teal" size="sm" className="font-bold">Session Active</Badge>
             </div>
-            <p className="text-xs text-slate-600 dark:text-slate-400">
-              <strong className="text-slate-900 dark:text-white">{queueWaiting} Patients Waiting</strong> in OPD Corridor • Est. Wait Time: <strong className="text-teal-700 dark:text-teal-400">~{queueWaiting * 3} mins</strong>
+            <p className="text-xs text-slate-400">
+              <strong className="text-white font-bold">{queueWaiting} Patients Waiting</strong> in OPD Corridor • Est. Wait Time: <strong className="text-teal-300">~{queueWaiting * 3} mins</strong>
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto">
+        <div className="flex items-center gap-2.5 w-full sm:w-auto">
           <Button
             size="sm"
-            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs gap-1.5 shadow-xs"
+            className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black text-xs gap-1.5 shadow-lg shadow-teal-500/20 rounded-2xl px-4 py-2.5"
             onClick={handleNextToken}
           >
             <Users className="w-3.5 h-3.5" />
@@ -217,9 +218,9 @@ export default function DoctorDashboardPage() {
             <Button
               size="sm"
               variant="outline"
-              className="text-xs gap-1.5 border-slate-300 dark:border-slate-700"
+              className="text-xs gap-1.5 border-white/15 text-slate-300 hover:text-white bg-slate-900/60 backdrop-blur-md rounded-2xl font-bold px-4 py-2.5"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-3.5 h-3.5 text-teal-400" />
               <span>Full Case Registry</span>
             </Button>
           </Link>

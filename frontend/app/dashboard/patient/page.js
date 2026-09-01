@@ -10,6 +10,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Modal } from "@/components/ui/Modal";
+import { SkeletonMetricCard, SkeletonCard } from "@/components/ui/Skeleton";
 import { DashboardMetricCard } from "@/components/domain/DashboardMetricCard";
 import { CaseSummaryCard } from "@/components/domain/CaseSummaryCard";
 import { ReferralCard } from "@/components/domain/ReferralCard";
@@ -36,6 +37,10 @@ import {
   Compass,
   Luggage,
   MapPin,
+  Siren,
+  Stethoscope,
+  Truck,
+  Bot,
 } from "lucide-react";
 
 export function PatientDashboardPage() {
@@ -44,6 +49,7 @@ export function PatientDashboardPage() {
   const { t, language } = useLanguage();
   const [activeCase, setActiveCase] = useState(mockPatientCases[0]);
   const [activeReferral, setActiveReferral] = useState(mockReferrals[0]);
+  const [isLoading, setIsLoading] = useState(true);
   const aiRecommendation = mockAiRecommendations[0];
   const destinationHospital = getFilteredFacilities()[0] || mockHospitals[0];
 
@@ -51,6 +57,7 @@ export function PatientDashboardPage() {
 
   useEffect(() => {
     const loadDashboardData = async () => {
+      setIsLoading(true);
       try {
         const casesRes = await casesApi.list({ limit: 1 });
         if (casesRes?.data && casesRes.data.length > 0) {
@@ -97,6 +104,8 @@ export function PatientDashboardPage() {
         }
       } catch (err) {
         console.warn("Dashboard live sync fallback:", err.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     loadDashboardData();
@@ -113,90 +122,145 @@ export function PatientDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="p-6 bg-linear-to-r from-teal-700 to-teal-900 rounded-2xl text-white shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="space-y-1">
+      <div className="p-6 sm:p-7 bg-gradient-to-r from-teal-950/90 via-slate-900/90 to-indigo-950/90 backdrop-blur-2xl rounded-3xl text-white shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-500/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="space-y-1.5 text-left relative z-10">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-200 bg-teal-800/80 px-2.5 py-0.5 rounded-full font-mono">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full font-mono border border-teal-500/30 shadow-xs shadow-teal-500/20">
               JeevanSetu Case ID: {activeCase.id}
             </span>
-            <Badge variant="teal" size="sm">{t("activeCare", "Active Care")}</Badge>
+            <Badge variant="teal" size="sm" className="font-bold">{t("activeCare", "Active Care")}</Badge>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
-            {language === "mr" ? "नमस्ते, " : language === "hi" ? "नमस्ते, " : "Namaste, "}
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+            {language === "mr" ? "नमस्कार, " : language === "hi" ? "नमस्ते, " : "Namaste, "}
             {userName}
           </h2>
-          <p className="text-xs sm:text-sm text-teal-100/90">
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
             {userLocation}
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5 flex-wrap relative z-10">
           <Link href="/navigate">
-            <Button size="sm" className="bg-teal-500 hover:bg-teal-400 text-teal-950 font-bold gap-1.5 shadow-sm text-xs">
-              <Compass className="w-3.5 h-3.5" />
+            <Button size="sm" className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black gap-1.5 shadow-lg shadow-teal-500/20 text-xs rounded-2xl min-h-[42px] px-4">
+              <Compass className="w-4 h-4" />
               <span>{t("whatShouldIDo", "What Should I Do Now?")}</span>
             </Button>
           </Link>
           <Link href="/cases">
-            <Button size="sm" className="bg-white text-teal-900 hover:bg-teal-50 font-bold gap-1.5 shadow-sm text-xs">
-              <Plus className="w-3.5 h-3.5" />
-              <span>{t("newCaseBtn", "New Case")}</span>
+            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 bg-slate-900/60 backdrop-blur-md text-xs rounded-2xl min-h-[42px] px-4 font-bold">
+              <Plus className="w-4 h-4 mr-1 text-teal-400" />
+              <span>{t("newCaseBtn", "New Health Concern")}</span>
             </Button>
           </Link>
         </div>
       </div>
 
-      {/* Metrics Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <DashboardMetricCard
-          title={t("activeHealthCase", "Active Health Case")}
-          value={activeCase.id}
-          subtitle="Cardiology Workup Referral"
-          icon={FileText}
-          status="info"
-        />
-        <DashboardMetricCard
-          title={t("referralProgress", "Referral Progress")}
-          value={t("step3of6", "Step 3 of 6")}
-          subtitle="Accepted by District Civil Hospital"
-          icon={GitPullRequest}
-          status="success"
-        />
-        <DashboardMetricCard
-          title={t("matchedScheme", "Matched Scheme")}
-          value="PM-JAY"
-          subtitle="100% Cashless Inpatient Treatment"
-          icon={ShieldCheck}
-          status="teal"
-        />
+      {/* Quick Action Pills for 11 Healthcare Pillars */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <Link
+          href="/doctors"
+          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+        >
+          <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <Stethoscope className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">Find Doctor</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">MMC Verified</p>
+          </div>
+        </Link>
+
+        <Link
+          href="/ambulance"
+          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+        >
+          <div className="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <Truck className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-300 transition-colors">108 Ambulance</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Live GPS Fleet</p>
+          </div>
+        </Link>
+
+        <Link
+          href="/assistant"
+          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+        >
+          <div className="w-10 h-10 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <Bot className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition-colors">AI Health Help</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Voice in Marathi</p>
+          </div>
+        </Link>
+
+        <Link
+          href="/resources"
+          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+        >
+          <div className="w-10 h-10 rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <Building2 className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors">PHCs & Hospitals</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Travel Status</p>
+          </div>
+        </Link>
       </div>
 
-      {/* Check Before You Travel Feature Widget */}
-      <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span>{t("checkBeforeTravelTitle", "Check Before You Travel — Destination Hospital Status")}</span>
-          </h3>
-          <button
-            type="button"
-            onClick={() => setIsChecklistModalOpen(true)}
-            className="text-xs font-semibold text-teal-700 dark:text-teal-400 hover:underline flex items-center gap-1 cursor-pointer"
-          >
-            <Luggage className="w-3.5 h-3.5" />
-            <span>{t("openChecklistBtn", "Open Travel Checklist")}</span>
-          </button>
+      {/* Facility Status Card */}
+      <FacilityTravelStatusCard
+        facility={destinationHospital}
+        onOpenChecklist={() => setIsChecklistModalOpen(true)}
+      />
+
+      {/* Metric Cards Row */}
+      {isLoading ? (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <SkeletonMetricCard />
+          <SkeletonMetricCard />
+          <SkeletonMetricCard />
+          <SkeletonMetricCard />
         </div>
+      ) : (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <DashboardMetricCard
+            title={t("activeCasesMetric", "Active Cases")}
+            value="1"
+            subtitle={t("phcSubTitle", "Ashti PHC Intake")}
+            icon={FileText}
+            variant="teal"
+          />
+          <DashboardMetricCard
+            title={t("referralStageMetric", "Referral Stage")}
+            value="Step 3 of 6"
+            subtitle={t("acceptedByHospital", "Accepted by Hospital")}
+            icon={GitPullRequest}
+            variant="sky"
+          />
+          <DashboardMetricCard
+            title={t("schemeCoverageMetric", "Scheme Coverage")}
+            value="100% Free"
+            subtitle={t("pmjayConfirmed", "PM-JAY Confirmed")}
+            icon={ShieldCheck}
+            variant="emerald"
+          />
+          <DashboardMetricCard
+            title={t("travelReadinessMetric", "Travel Readiness")}
+            value="3/3 Ready"
+            subtitle={t("allDocsPrepared", "All docs prepared")}
+            icon={Luggage}
+            variant="amber"
+          />
+        </div>
+      )}
 
-        <FacilityTravelStatusCard
-          facility={destinationHospital}
-          onOpenChecklist={() => setIsChecklistModalOpen(true)}
-        />
-      </div>
-
-      {/* Main Grid: Active Referral & AI Recommendations */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column: Active Referral Timeline & Case Snapshot (7 cols) */}
+      {/* Core Grid: Left (Referral & Case Summary), Right (AI Guidance & Resources) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
+        {/* Left Column: Referral & Case (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
@@ -208,14 +272,14 @@ export function PatientDashboardPage() {
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
-            <ReferralCard referral={activeReferral} />
+            {isLoading ? <SkeletonCard /> : <ReferralCard referral={activeReferral} />}
           </div>
 
           <div className="space-y-2">
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               {t("primaryCaseSummary", "Primary Case Summary & Vitals")}
             </h3>
-            <CaseSummaryCard patientCase={activeCase} />
+            {isLoading ? <SkeletonCard /> : <CaseSummaryCard patientCase={activeCase} />}
           </div>
         </div>
 
@@ -242,7 +306,7 @@ export function PatientDashboardPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 space-y-3 text-xs">
-              <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <div>
                   <strong className="block text-slate-900 dark:text-white">Gramin Arogya Sahayog Trust</strong>
                   <span className="text-slate-500 dark:text-slate-400">Patient Van Aid: +91 94228 71923</span>
@@ -250,7 +314,7 @@ export function PatientDashboardPage() {
                 <Badge variant="teal">{t("verifiedNgo", "Verified NGO")}</Badge>
               </div>
 
-              <div className="p-3 bg-rose-50 dark:bg-rose-950/40 rounded-xl border border-rose-200 dark:border-rose-800 flex items-center justify-between">
+              <div className="p-3 bg-rose-50 dark:bg-rose-950/40 rounded-2xl border border-rose-200 dark:border-rose-800 flex items-center justify-between">
                 <div>
                   <strong className="block text-rose-950 dark:text-rose-200">108 Free Medical Transit</strong>
                   <span className="text-rose-700 dark:text-rose-400">Govt 24x7 Ambulance Dispatch</span>

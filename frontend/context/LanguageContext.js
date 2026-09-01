@@ -5,21 +5,25 @@ import { translations } from "@/lib/i18n/translations";
 import { LANGUAGES } from "@/lib/constants";
 
 const LanguageContext = createContext({
-  language: "en",
+  language: "mr",
   setLanguage: () => {},
   t: (key, fallback) => fallback || key,
   languages: LANGUAGES,
 });
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguageState] = useState("en");
+  // Default is strictly Marathi ('mr') as per Maharashtra rural healthcare mandate
+  const [language, setLanguageState] = useState("mr");
 
-  // Load language preference from localStorage if in browser
+  // Load language preference from localStorage if available, default to 'mr'
   useEffect(() => {
     try {
       const savedLang = localStorage.getItem("jeevansetu_language");
       if (savedLang && (savedLang === "en" || savedLang === "hi" || savedLang === "mr")) {
         setLanguageState(savedLang);
+      } else {
+        setLanguageState("mr");
+        localStorage.setItem("jeevansetu_language", "mr");
       }
     } catch (e) {
       // ignore in ssr
@@ -38,11 +42,11 @@ export function LanguageProvider({ children }) {
   };
 
   const t = (key, fallback = "") => {
-    const langDict = translations[language] || translations.en;
+    const langDict = translations[language] || translations.mr || translations.en;
     if (langDict && langDict[key]) {
       return langDict[key];
     }
-    const defaultDict = translations.en;
+    const defaultDict = translations.mr || translations.en;
     if (defaultDict && defaultDict[key]) {
       return defaultDict[key];
     }

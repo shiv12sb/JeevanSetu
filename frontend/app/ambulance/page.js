@@ -392,11 +392,15 @@ export default function AmbulancePage() {
   const currentStageIdx = getStageIndex(tripStage);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-rose-500/10 dark:bg-rose-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/5 blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <Navbar />
 
       {/* Top National Emergency Helpline Strip */}
-      <div className="bg-red-600 dark:bg-red-700 text-white px-4 py-2.5 shadow-md">
+      <div className="bg-rose-600/90 backdrop-blur-md text-white px-4 py-2.5 shadow-md border-b border-rose-500/30 relative z-20">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
           <div className="flex items-center gap-2 font-bold tracking-wide">
             <span className="flex h-2.5 w-2.5 relative">
@@ -411,19 +415,19 @@ export default function AmbulancePage() {
             <a
               href="tel:108"
               id="emergency-call-108-cta"
-              className="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-red-700 font-extrabold rounded-md shadow hover:bg-red-50 transition active:scale-95"
+              className="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-rose-700 font-black rounded-lg shadow-lg hover:bg-rose-50 transition active:scale-95 text-xs"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               <span>Call 108 Directly</span>
             </a>
-            <span className="hidden md:inline text-red-100 border-l border-red-400 pl-3">
+            <span className="hidden md:inline text-rose-100 border-l border-rose-400 pl-3">
               Maternal & Infant Transit: <strong className="text-white">102</strong>
             </span>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 flex max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 gap-6">
+      <div className="flex-1 flex max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 gap-6 relative z-10">
         <Sidebar />
 
         <main className="flex-1 min-w-0 flex flex-col space-y-6">
@@ -433,7 +437,7 @@ export default function AmbulancePage() {
           {activeTrip && tripStage !== "CANCELLED" ? (
             <div className="flex flex-col space-y-4">
               {/* Header Floating Action Bar */}
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-lg flex flex-wrap items-center justify-between gap-4">
+              <div className="bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-3xl p-4 sm:p-5 shadow-2xl flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold relative">
                     <Siren className="w-6 h-6 animate-pulse" />
@@ -801,23 +805,23 @@ export default function AmbulancePage() {
             /* ========================================================================= */
             <div className="flex flex-col space-y-6">
               {/* Page Title & District Selection */}
-              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl border border-slate-200/90 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-3">
-                    <span className="p-2 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400">
+                    <span className="p-2 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 shadow-xs shadow-rose-500/10">
                       <Siren className="w-7 h-7" />
                     </span>
                     <span>{t.ambulanceNearMe || "Ambulance Near Me"}</span>
                   </h1>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
                     Discover verified emergency ambulances across all 36 districts of Maharashtra with live dispatch tracking.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
                   {/* District Switcher */}
-                  <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
-                    <MapPin className="w-4 h-4 text-red-600" />
+                  <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-950/80 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-white/10">
+                    <MapPin className="w-4 h-4 text-rose-500 dark:text-rose-400" />
                     <select
                       value={selectedDistrict}
                       onChange={(e) => changeDistrict(e.target.value)}
@@ -825,7 +829,7 @@ export default function AmbulancePage() {
                       className="bg-transparent text-sm font-bold text-slate-900 dark:text-white outline-none cursor-pointer"
                     >
                       {MAHARASHTRA_DISTRICTS.map((d) => (
-                        <option key={d.name} value={d.name} className="dark:bg-slate-800">
+                        <option key={d.name} value={d.name} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
                           {d.name} District
                         </option>
                       ))}
@@ -837,7 +841,7 @@ export default function AmbulancePage() {
                     onClick={handleRequestLiveLocation}
                     id="gps-location-detect-btn"
                     disabled={isLocating}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow transition active:scale-95 disabled:opacity-50"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-black bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 rounded-2xl shadow-lg shadow-teal-500/20 transition active:scale-95 disabled:opacity-50"
                   >
                     <Navigation className={`w-3.5 h-3.5 ${isLocating ? "animate-spin" : ""}`} />
                     <span>{isLocating ? "Detecting GPS..." : "Detect My Location"}</span>
@@ -846,33 +850,39 @@ export default function AmbulancePage() {
               </div>
 
               {/* District Emergency Control Hub Card */}
-              {districtHub && (
-                <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-5 shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div>
-                    <span className="text-[11px] uppercase font-bold tracking-widest text-red-400">
-                      Maharashtra MEMS 108 • Nodal Response Center
-                    </span>
-                    <h3 className="text-lg font-extrabold mt-0.5">{districtHub.district} District Emergency Dispatch Hub</h3>
-                    <p className="text-xs text-slate-300 mt-1">
-                      Nodal Base: <strong>{districtHub.nodalCenter}</strong> • Active Fleet: <strong>{districtHub.activeFleetALS + districtHub.activeFleetBLS + districtHub.activeFleet102} Units</strong>
-                    </p>
-                  </div>
+              {districtHub && (() => {
+                const nodalCenterName = districtHub.nodalEmergencyCenter || districtHub.nodalCenter || `District Civil Hospital Emergency Hub (${districtHub.district || selectedDistrict})`;
+                const totalFleetUnits = districtHub.activeBases?.reduce((acc, b) => acc + (b.fleetAvailable?.length || 0), 0) || (districtHub.activeFleetALS || 2) + (districtHub.activeFleetBLS || 4) + (districtHub.activeFleet102 || 6);
+                const helplinePhone = districtHub.primaryDispatchHelpline || districtHub.directHelpline || districtHub.nodalPhone || "108";
 
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={`tel:${districtHub.directHelpline}`}
-                      id="call-district-hub-btn"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow transition"
-                    >
-                      <PhoneCall className="w-3.5 h-3.5" />
-                      <span>Dial {districtHub.directHelpline}</span>
-                    </a>
+                return (
+                  <div className="bg-gradient-to-r from-slate-900/95 via-rose-950/80 to-slate-900/95 backdrop-blur-2xl border border-rose-500/30 text-white rounded-3xl p-6 shadow-xl flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-left">
+                    <div>
+                      <span className="text-[11px] uppercase font-bold tracking-widest text-rose-300">
+                        Maharashtra MEMS 108 • Nodal Response Center
+                      </span>
+                      <h3 className="text-lg font-extrabold mt-0.5 text-white">{districtHub.district} District Emergency Dispatch Hub</h3>
+                      <p className="text-xs text-slate-200 mt-1">
+                        Nodal Base: <strong className="text-white">{nodalCenterName}</strong> • Active Fleet: <strong className="text-white">{totalFleetUnits} Units Available</strong>
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={`tel:${helplinePhone}`}
+                        id="call-district-hub-btn"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-black text-xs rounded-2xl shadow-lg shadow-rose-600/30 transition"
+                      >
+                        <PhoneCall className="w-3.5 h-3.5" />
+                        <span>Dial {helplinePhone}</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
 
               {/* Filter Tabs (ALS, BLS, 102 JSSK, ALL) */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
                 {[
                   { id: "ALL", label: "All Types" },
                   { id: "ADVANCED_LIFE_SUPPORT", label: "ALS (ICU on Wheels)" },
@@ -883,10 +893,10 @@ export default function AmbulancePage() {
                     key={tab.id}
                     onClick={() => setSelectedTypeFilter(tab.id)}
                     id={`filter-${tab.id.toLowerCase()}`}
-                    className={`px-4 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition ${
+                    className={`px-4 py-2 text-xs font-bold rounded-2xl whitespace-nowrap transition-all ${
                       selectedTypeFilter === tab.id
-                        ? "bg-red-600 text-white shadow-md"
-                        : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800"
+                        ? "bg-rose-600 text-white shadow-lg shadow-rose-600/20"
+                        : "bg-white dark:bg-slate-900/80 backdrop-blur-md text-slate-700 dark:text-slate-400 border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     {tab.label}
@@ -899,7 +909,7 @@ export default function AmbulancePage() {
                 {ambulances.map((amb) => (
                   <div
                     key={amb.id}
-                    className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col justify-between space-y-4"
+                    className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 rounded-3xl p-5 sm:p-6 shadow-lg hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-500/5 transition-all duration-300 flex flex-col justify-between space-y-4 group text-left"
                   >
                     <div className="space-y-3">
                       {/* Top Badges */}
@@ -907,16 +917,16 @@ export default function AmbulancePage() {
                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400 font-mono">
                           {amb.vehicleNumber}
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20 backdrop-blur-md">
                           {amb.status}
                         </span>
                       </div>
 
                       <div>
-                        <h3 className="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                        <h3 className="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2 group-hover:text-rose-600 dark:group-hover:text-rose-300 transition-colors">
                           <span>{amb.publicIdentifier}</span>
                         </h3>
-                        <p className="text-xs text-red-600 dark:text-red-400 font-semibold mt-0.5">
+                        <p className="text-xs text-rose-600 dark:text-rose-400 font-bold mt-0.5">
                           {amb.categoryLabel}
                         </p>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 truncate">
@@ -929,7 +939,7 @@ export default function AmbulancePage() {
                         {amb.equipment?.slice(0, 4).map((eq, i) => (
                           <span
                             key={i}
-                            className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-md font-medium"
+                            className="text-[10px] bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 px-2 py-0.5 rounded-lg font-semibold"
                           >
                             {eq}
                           </span>
@@ -937,12 +947,12 @@ export default function AmbulancePage() {
                       </div>
 
                       {/* ETA & Distance Info */}
-                      <div className="bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-bold">
-                          <Clock className="w-3.5 h-3.5 text-red-600" />
+                      <div className="bg-slate-50 dark:bg-slate-950/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 p-3 rounded-2xl flex items-center justify-between text-xs shadow-xs">
+                        <div className="flex items-center gap-1.5 text-slate-800 dark:text-slate-200 font-bold">
+                          <Clock className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
                           <span>ETA: ~{amb.etaMinutes} min</span>
                         </div>
-                        <div className="text-slate-500 dark:text-slate-400">
+                        <div className="text-slate-600 dark:text-slate-400 font-medium">
                           {amb.distanceKm} km away
                         </div>
                       </div>
@@ -953,7 +963,7 @@ export default function AmbulancePage() {
                       <button
                         onClick={() => handleOpenBooking(amb)}
                         id={`request-amb-${amb.id}`}
-                        className="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow transition active:scale-95 flex items-center justify-center gap-1.5"
+                        className="w-full py-2.5 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-extrabold text-xs sm:text-sm rounded-2xl shadow-lg shadow-rose-600/20 transition active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
                       >
                         <Siren className="w-4 h-4" />
                         <span>Request This Ambulance</span>
