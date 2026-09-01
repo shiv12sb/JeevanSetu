@@ -1,5 +1,9 @@
 const express = require("express");
-const { handleChat } = require("../controllers/ai.controller");
+const {
+  handleChat,
+  handleCreateRealtimeSession,
+  handleExecuteRealtimeTool,
+} = require("../controllers/ai.controller");
 const { optionalAuth } = require("../middleware/auth.middleware");
 const { validateChatRequest } = require("../validators/ai.validator");
 const { sendError } = require("../utils/response");
@@ -15,7 +19,7 @@ const aiRateLimiter = (req, res, next) => {
   const identifier = req.user?.profileId || req.ip || "global";
   const now = Date.now();
   const windowMs = 60 * 1000; // 1 minute
-  const maxRequests = 20;
+  const maxRequests = 30;
 
   const clientData = rateLimitMap.get(identifier) || { count: 0, startTime: now };
 
@@ -54,6 +58,21 @@ router.post(
   aiRateLimiter,
   validateChatRequest,
   handleChat
+);
+
+// POST /api/ai/realtime/session - Initialize secure OpenAI Realtime ephemeral session token
+router.post(
+  "/realtime/session",
+  optionalAuth,
+  aiRateLimiter,
+  handleCreateRealtimeSession
+);
+
+// POST /api/ai/realtime/tool-execute - Execute function/tool call for OpenAI Realtime Voice
+router.post(
+  "/realtime/tool-execute",
+  optionalAuth,
+  handleExecuteRealtimeTool
 );
 
 module.exports = router;

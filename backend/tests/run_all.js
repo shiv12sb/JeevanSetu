@@ -27,6 +27,7 @@ const testSuites = [
   "tests/phase44_rural_health_access.test.js",
   "tests/phase45_maharashtra_doctor_directory.test.js",
   "tests/phase46_abdm_statewide_registry_sync.test.js",
+  "tests/phase47_openai_realtime_voice.test.js",
   "tests/ai_assistant_voice.test.js",
   "tests/theme_consistency.test.js",
 ];

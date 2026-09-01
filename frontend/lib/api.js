@@ -470,12 +470,22 @@ export const adminApi = {
   },
 };
 
-// 10. AI Assistant API (Safe Grounded Orchestration)
+// 10. AI Assistant API (Safe Grounded Orchestration & OpenAI Realtime Voice)
 export const aiApi = {
   chat: (chatData) =>
     request("/ai/chat", {
       method: "POST",
       body: JSON.stringify(chatData),
+    }),
+  createRealtimeSession: (sessionData = {}) =>
+    request("/ai/realtime/session", {
+      method: "POST",
+      body: JSON.stringify(sessionData),
+    }),
+  executeRealtimeTool: (toolName, args = {}) =>
+    request("/ai/realtime/tool-execute", {
+      method: "POST",
+      body: JSON.stringify({ toolName, arguments: args }),
     }),
 };
 

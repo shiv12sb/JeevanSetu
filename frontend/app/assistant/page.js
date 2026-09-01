@@ -43,6 +43,7 @@ import {
   Siren,
 } from "lucide-react";
 import { OneOnOneVoiceCallScreen } from "@/components/domain/OneOnOneVoiceCallScreen";
+import { RealtimeVoiceModal } from "@/components/ai/RealtimeVoiceModal";
 import { AuthGuard } from "@/components/shared/AuthGuard";
 
 export function AssistantPage() {
@@ -675,9 +676,26 @@ export function AssistantPage() {
       </main>
 
       {isLiveVoiceOpen && (
-        <OneOnOneVoiceCallScreen
+        <RealtimeVoiceModal
           isOpen={isLiveVoiceOpen}
           onClose={() => setIsLiveVoiceOpen(false)}
+          initialLanguage={language}
+          onSyncTranscript={(transcriptList) => {
+            if (Array.isArray(transcriptList) && transcriptList.length > 0) {
+              setMessages((prev) => {
+                const existingIds = new Set(prev.map((m) => m.id));
+                const newFormatted = transcriptList
+                  .filter((t) => !existingIds.has(t.id))
+                  .map((t) => ({
+                    id: t.id || `sync-${Date.now()}-${Math.random()}`,
+                    sender: t.sender,
+                    text: t.text,
+                    groundedCards: null,
+                  }));
+                return [...prev, ...newFormatted];
+              });
+            }
+          }}
         />
       )}
 
