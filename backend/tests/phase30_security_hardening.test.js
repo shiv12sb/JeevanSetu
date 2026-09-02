@@ -8,6 +8,9 @@
  * - 60-Point Read-Only Audit Checklist
  */
 
+process.env.NODE_ENV = "test";
+process.env.SUPABASE_URL = "https://placeholder-project.supabase.co";
+
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");

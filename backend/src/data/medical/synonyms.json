@@ -1,0 +1,7624 @@
+{
+  "14416": [
+    "suicidal_crisis_emergency"
+  ],
+  "viral fever": [
+    "viral_fever"
+  ],
+  "वायरल बुखार": [
+    "viral_fever"
+  ],
+  "व्हायरल ताप": [
+    "viral_fever"
+  ],
+  "viral infection": [
+    "viral_fever"
+  ],
+  "acute viral illness": [
+    "viral_fever"
+  ],
+  "temperature": [
+    "viral_fever"
+  ],
+  "वायरल फीवर": [
+    "viral_fever"
+  ],
+  "मौसमी बुखार": [
+    "viral_fever"
+  ],
+  "साधारण बुखार": [
+    "viral_fever"
+  ],
+  "अंगात ताप": [
+    "viral_fever"
+  ],
+  "साधा ताप": [
+    "viral_fever"
+  ],
+  "हंगामी ताप": [
+    "viral_fever"
+  ],
+  "viral bukhar": [
+    "viral_fever"
+  ],
+  "mausami bukhar": [
+    "viral_fever"
+  ],
+  "bukhar hai": [
+    "viral_fever"
+  ],
+  "body garam": [
+    "viral_fever"
+  ],
+  "tap aala": [
+    "viral_fever"
+  ],
+  "ang garam": [
+    "viral_fever"
+  ],
+  "viral tap": [
+    "viral_fever"
+  ],
+  "ang dukhtay": [
+    "viral_fever"
+  ],
+  "viral": [
+    "viral_fever"
+  ],
+  "tap": [
+    "viral_fever"
+  ],
+  "bukhar": [
+    "viral_fever"
+  ],
+  "temperature vadhl": [
+    "viral_fever"
+  ],
+  "dengue fever": [
+    "dengue_fever"
+  ],
+  "डेंगू बुखार": [
+    "dengue_fever"
+  ],
+  "डेंग्यू ताप": [
+    "dengue_fever"
+  ],
+  "breakbone fever": [
+    "dengue_fever"
+  ],
+  "dengue virus infection": [
+    "dengue_fever"
+  ],
+  "डेंगू": [
+    "dengue_fever"
+  ],
+  "हड्डी तोड़ बुखार": [
+    "dengue_fever"
+  ],
+  "डेंग्यू": [
+    "dengue_fever"
+  ],
+  "हाडमोडी ताप": [
+    "dengue_fever"
+  ],
+  "dengue bukhar": [
+    "dengue_fever"
+  ],
+  "platelet kam hona": [
+    "dengue_fever"
+  ],
+  "dengue tap": [
+    "dengue_fever"
+  ],
+  "platelets kami zale": [
+    "dengue_fever"
+  ],
+  "dengue": [
+    "dengue_fever"
+  ],
+  "breakbone": [
+    "dengue_fever"
+  ],
+  "malaria": [
+    "malaria"
+  ],
+  "मलेरिया": [
+    "malaria"
+  ],
+  "मलेरिया हिवताप": [
+    "malaria"
+  ],
+  "plasmodium infection": [
+    "malaria"
+  ],
+  "intermittent fever": [
+    "malaria"
+  ],
+  "मलेरिया बुखार": [
+    "malaria"
+  ],
+  "हिवताप": [
+    "malaria"
+  ],
+  "कंपकंपी वाला बुखार": [
+    "malaria"
+  ],
+  "मलेरिया ताप": [
+    "malaria"
+  ],
+  "थंडी वाजून येणारा ताप": [
+    "malaria"
+  ],
+  "malaria bukhar": [
+    "malaria"
+  ],
+  "thand lagke bukhar": [
+    "malaria"
+  ],
+  "hivtap": [
+    "malaria"
+  ],
+  "thandi wajun tap": [
+    "malaria"
+  ],
+  "typhoid fever": [
+    "typhoid_fever"
+  ],
+  "टाइफाइड मियादी बुखार": [
+    "typhoid_fever"
+  ],
+  "टायफॉइड विषमज्वर": [
+    "typhoid_fever"
+  ],
+  "enteric fever": [
+    "typhoid_fever"
+  ],
+  "salmonella typhi infection": [
+    "typhoid_fever"
+  ],
+  "टाइफाइड": [
+    "typhoid_fever"
+  ],
+  "मियादी बुखार": [
+    "typhoid_fever"
+  ],
+  "मोतीझरा": [
+    "typhoid_fever"
+  ],
+  "टायफॉइड": [
+    "typhoid_fever"
+  ],
+  "विषमज्वर": [
+    "typhoid_fever"
+  ],
+  "मोतीझरा ताप": [
+    "typhoid_fever"
+  ],
+  "typhoid": [
+    "typhoid_fever"
+  ],
+  "miyadi bukhar": [
+    "typhoid_fever"
+  ],
+  "motijhara": [
+    "typhoid_fever"
+  ],
+  "typhoid tap": [
+    "typhoid_fever"
+  ],
+  "vishamjwar": [
+    "typhoid_fever"
+  ],
+  "chikungunya": [
+    "chikungunya"
+  ],
+  "चिकनगुनिया": [
+    "chikungunya"
+  ],
+  "chikungunya virus": [
+    "chikungunya"
+  ],
+  "चिकनगुनिया बुखार": [
+    "chikungunya"
+  ],
+  "जोड़ों का दर्द बुखार": [
+    "chikungunya"
+  ],
+  "सांधेदुखीचा ताप": [
+    "chikungunya"
+  ],
+  "jodo me dard": [
+    "chikungunya"
+  ],
+  "chikungunya tap": [
+    "chikungunya"
+  ],
+  "sandhe dukhi": [
+    "chikungunya",
+    "osteoarthritis_knee"
+  ],
+  "pulmonary tuberculosis tb": [
+    "tuberculosis_pulmonary"
+  ],
+  "टीबी क्षय रोग": [
+    "tuberculosis_pulmonary"
+  ],
+  "क्षयरोग टीबी": [
+    "tuberculosis_pulmonary"
+  ],
+  "tuberculosis": [
+    "tuberculosis_pulmonary"
+  ],
+  "tb": [
+    "tuberculosis_pulmonary"
+  ],
+  "mycobacterium tuberculosis": [
+    "tuberculosis_pulmonary"
+  ],
+  "टीबी": [
+    "tuberculosis_pulmonary"
+  ],
+  "क्षय रोग": [
+    "tuberculosis_pulmonary"
+  ],
+  "तपेदिक": [
+    "tuberculosis_pulmonary"
+  ],
+  "क्षयरोग": [
+    "tuberculosis_pulmonary"
+  ],
+  "खोborderयाचा आजार": [
+    "tuberculosis_pulmonary"
+  ],
+  "tapedik": [
+    "tuberculosis_pulmonary"
+  ],
+  "khansi me khoon": [
+    "tuberculosis_pulmonary"
+  ],
+  "kshayrog": [
+    "tuberculosis_pulmonary"
+  ],
+  "khoklyat rakt": [
+    "tuberculosis_pulmonary"
+  ],
+  "dots": [
+    "tuberculosis_pulmonary"
+  ],
+  "kshay rog": [
+    "tuberculosis_pulmonary"
+  ],
+  "common cold": [
+    "common_cold"
+  ],
+  "सामान्य जुकाम / सर्दी": [
+    "common_cold"
+  ],
+  "सर्दी व पडसे": [
+    "common_cold"
+  ],
+  "rhinitis": [
+    "common_cold"
+  ],
+  "head cold": [
+    "common_cold"
+  ],
+  "coryza": [
+    "common_cold"
+  ],
+  "viral upper respiratory infection": [
+    "common_cold"
+  ],
+  "सर्दी": [
+    "common_cold"
+  ],
+  "जुकाम": [
+    "common_cold"
+  ],
+  "नजला": [
+    "common_cold"
+  ],
+  "पडसे": [
+    "common_cold"
+  ],
+  "नाक गळणे": [
+    "common_cold"
+  ],
+  "शिंका": [
+    "common_cold"
+  ],
+  "sardi": [
+    "common_cold"
+  ],
+  "jukham": [
+    "common_cold"
+  ],
+  "naak behna": [
+    "common_cold"
+  ],
+  "khansi": [
+    "common_cold"
+  ],
+  "sardi zali": [
+    "common_cold"
+  ],
+  "nak galtoy": [
+    "common_cold"
+  ],
+  "padse": [
+    "common_cold"
+  ],
+  "cold": [
+    "common_cold"
+  ],
+  "influenza flu": [
+    "influenza_flu"
+  ],
+  "इन्फ्लूएंजा फ्लू": [
+    "influenza_flu"
+  ],
+  "इन्फ्लूएंझा फ्लू": [
+    "influenza_flu"
+  ],
+  "flu": [
+    "influenza_flu"
+  ],
+  "seasonal influenza": [
+    "influenza_flu"
+  ],
+  "h1n1": [
+    "influenza_flu"
+  ],
+  "फ्लू": [
+    "influenza_flu"
+  ],
+  "इन्फ्लूएंजा": [
+    "influenza_flu"
+  ],
+  "इन्फ्लुएंझा": [
+    "influenza_flu"
+  ],
+  "mausami flu": [
+    "influenza_flu"
+  ],
+  "swine flu": [
+    "influenza_flu"
+  ],
+  "pneumonia": [
+    "pneumonia_community_acquired"
+  ],
+  "निमोनिया फेफड़ों का संक्रमण": [
+    "pneumonia_community_acquired"
+  ],
+  "न्युमोनिया फुफ्फुसाचा संसर्ग": [
+    "pneumonia_community_acquired"
+  ],
+  "chest infection": [
+    "pneumonia_community_acquired"
+  ],
+  "lung infection": [
+    "pneumonia_community_acquired"
+  ],
+  "bronchopneumonia": [
+    "pneumonia_community_acquired"
+  ],
+  "निमोनिया": [
+    "pneumonia_community_acquired"
+  ],
+  "फेफड़ों का इन्फेक्शन": [
+    "pneumonia_community_acquired"
+  ],
+  "पसली चलना": [
+    "pneumonia_community_acquired"
+  ],
+  "न्युमोनिया": [
+    "pneumonia_community_acquired"
+  ],
+  "छाती भरणे": [
+    "pneumonia_community_acquired"
+  ],
+  "फुफ्फुसात कफ": [
+    "pneumonia_community_acquired"
+  ],
+  "pasli chalna": [
+    "pneumonia_community_acquired"
+  ],
+  "chhati me balgam": [
+    "pneumonia_community_acquired"
+  ],
+  "chhati bharli": [
+    "pneumonia_community_acquired"
+  ],
+  "shwas ghenyala tras": [
+    "pneumonia_community_acquired",
+    "bronchial_asthma"
+  ],
+  "urinary tract infection uti": [
+    "urinary_tract_infection_uti"
+  ],
+  "मूत्र मार्ग संक्रमण uti": [
+    "urinary_tract_infection_uti"
+  ],
+  "मूत्रमार्ग संसर्ग uti": [
+    "urinary_tract_infection_uti"
+  ],
+  "cystitis": [
+    "urinary_tract_infection_uti"
+  ],
+  "bladder infection": [
+    "urinary_tract_infection_uti"
+  ],
+  "water infection": [
+    "urinary_tract_infection_uti"
+  ],
+  "यूटीआई": [
+    "urinary_tract_infection_uti"
+  ],
+  "पेशाब में जलन": [
+    "urinary_tract_infection_uti"
+  ],
+  "पेशाब का इन्फेक्शन": [
+    "urinary_tract_infection_uti"
+  ],
+  "लघवीची जळजळ": [
+    "urinary_tract_infection_uti"
+  ],
+  "मूत्रमार्गाचा संसर्ग": [
+    "urinary_tract_infection_uti"
+  ],
+  "लघवीला आग": [
+    "urinary_tract_infection_uti"
+  ],
+  "peshab me jalan": [
+    "urinary_tract_infection_uti"
+  ],
+  "uti": [
+    "urinary_tract_infection_uti"
+  ],
+  "bar bar peshab aana": [
+    "urinary_tract_infection_uti"
+  ],
+  "laghvila aag": [
+    "urinary_tract_infection_uti"
+  ],
+  "laghvi rokhne": [
+    "urinary_tract_infection_uti"
+  ],
+  "laghvi aag": [
+    "urinary_tract_infection_uti"
+  ],
+  "acute gastroenteritis": [
+    "acute_gastroenteritis"
+  ],
+  "गैस्ट्रोएंटेराइटिस उल्टी-दस्त": [
+    "acute_gastroenteritis"
+  ],
+  "गॅस्ट्रो उलटी-जुलाब": [
+    "acute_gastroenteritis"
+  ],
+  "cholera": [
+    "cholera"
+  ],
+  "हैजा": [
+    "cholera"
+  ],
+  "पटकी कॉलरा": [
+    "cholera"
+  ],
+  "leptospirosis": [
+    "leptospirosis"
+  ],
+  "लेप्टोस्पायरोसिस": [
+    "leptospirosis"
+  ],
+  "acute tonsillitis": [
+    "acute_tonsillitis"
+  ],
+  "टॉन्सिलाइटिस गले का संक्रमण": [
+    "acute_tonsillitis"
+  ],
+  "टॉन्सिल्सची सूज": [
+    "acute_tonsillitis"
+  ],
+  "acute pharyngitis": [
+    "acute_pharyngitis"
+  ],
+  "फैरिंजाइटिस गले में खराश": [
+    "acute_pharyngitis"
+  ],
+  "घशाची जळजळ": [
+    "acute_pharyngitis"
+  ],
+  "acute sinusitis": [
+    "acute_sinusitis"
+  ],
+  "साइनुसाइटिस": [
+    "acute_sinusitis"
+  ],
+  "सायनसचा त्रास": [
+    "acute_sinusitis"
+  ],
+  "acute otitis media": [
+    "acute_otitis_media"
+  ],
+  "मध्य कान का संक्रमण": [
+    "acute_otitis_media"
+  ],
+  "कानदुखी व संसर्ग": [
+    "acute_otitis_media"
+  ],
+  "chickenpox": [
+    "chickenpox_varicella"
+  ],
+  "चेचक छोटी माता": [
+    "chickenpox_varicella"
+  ],
+  "कांजण्या": [
+    "chickenpox_varicella"
+  ],
+  "chickenpox varicella": [
+    "chickenpox_varicella"
+  ],
+  "measles": [
+    "measles_rubeola"
+  ],
+  "खसरा": [
+    "measles_rubeola"
+  ],
+  "गोवर": [
+    "measles_rubeola"
+  ],
+  "measles rubeola": [
+    "measles_rubeola"
+  ],
+  "mumps": [
+    "mumps_parotitis"
+  ],
+  "गलसुआ": [
+    "mumps_parotitis"
+  ],
+  "गालगुंड": [
+    "mumps_parotitis"
+  ],
+  "mumps parotitis": [
+    "mumps_parotitis"
+  ],
+  "rubella": [
+    "rubella_german_measles"
+  ],
+  "रूबेला": [
+    "rubella_german_measles"
+  ],
+  "जर्मन गोवर": [
+    "rubella_german_measles"
+  ],
+  "rubella german measles": [
+    "rubella_german_measles"
+  ],
+  "whooping cough": [
+    "pertussis_whooping_cough"
+  ],
+  "काली खांसी": [
+    "pertussis_whooping_cough"
+  ],
+  "डांग्या खोकला": [
+    "pertussis_whooping_cough"
+  ],
+  "pertussis whooping cough": [
+    "pertussis_whooping_cough"
+  ],
+  "tetanus": [
+    "tetanus"
+  ],
+  "धनुस्तंभ टिटनेस": [
+    "tetanus"
+  ],
+  "धनुर्वात टिटॅनस": [
+    "tetanus"
+  ],
+  "rabies": [
+    "rabies"
+  ],
+  "रेबीज अलर्क रोग": [
+    "rabies"
+  ],
+  "रेबीज पिसाळणे": [
+    "rabies"
+  ],
+  "covid-19": [
+    "covid19_infection"
+  ],
+  "कोविड-19": [
+    "covid19_infection"
+  ],
+  "कोरोना संसर्ग": [
+    "covid19_infection"
+  ],
+  "covid19 infection": [
+    "covid19_infection"
+  ],
+  "scabies": [
+    "scabies_infestation"
+  ],
+  "खुजली स्केबीज": [
+    "scabies_infestation"
+  ],
+  "खरूज": [
+    "scabies_infestation"
+  ],
+  "scabies infestation": [
+    "scabies_infestation"
+  ],
+  "ringworm tinea": [
+    "ringworm_tinea"
+  ],
+  "दाद दाद-खाज": [
+    "ringworm_tinea"
+  ],
+  "गजकर्ण": [
+    "ringworm_tinea"
+  ],
+  "oral thrush": [
+    "candida_oral_thrush"
+  ],
+  "मुंह का फंगल संक्रमण": [
+    "candida_oral_thrush"
+  ],
+  "तोंडातील बुरशी संसर्ग": [
+    "candida_oral_thrush"
+  ],
+  "candida oral thrush": [
+    "candida_oral_thrush"
+  ],
+  "amoebic dysentery": [
+    "amoebic_dysentery"
+  ],
+  "अमीबिक पेचिश": [
+    "amoebic_dysentery"
+  ],
+  "आमांश आव पडणे": [
+    "amoebic_dysentery"
+  ],
+  "giardiasis": [
+    "giardiasis"
+  ],
+  "गियार्डियासिस": [
+    "giardiasis"
+  ],
+  "जिआर्डिया पोट संसर्ग": [
+    "giardiasis"
+  ],
+  "herpes zoster shingles": [
+    "herpes_zoster_shingles"
+  ],
+  "दादरा हर्पीस": [
+    "herpes_zoster_shingles"
+  ],
+  "नागीण हर्पिस": [
+    "herpes_zoster_shingles"
+  ],
+  "cellulitis": [
+    "cellulitis_bacterial"
+  ],
+  "सेल्युलाइटिस": [
+    "cellulitis_bacterial"
+  ],
+  "त्वचेखालील तीव्र संसर्ग": [
+    "cellulitis_bacterial"
+  ],
+  "cellulitis bacterial": [
+    "cellulitis_bacterial"
+  ],
+  "impetigo": [
+    "impetigo_contagiosa"
+  ],
+  "फुंसी इम्पेटिगो": [
+    "impetigo_contagiosa"
+  ],
+  "त्वचेवरील पूयुक्त फोड": [
+    "impetigo_contagiosa"
+  ],
+  "impetigo contagiosa": [
+    "impetigo_contagiosa"
+  ],
+  "folliculitis": [
+    "folliculitis_skin"
+  ],
+  "बालतोड़": [
+    "folliculitis_skin"
+  ],
+  "केसतोड व पुटी": [
+    "folliculitis_skin"
+  ],
+  "folliculitis skin": [
+    "folliculitis_skin"
+  ],
+  "boil furuncle": [
+    "furuncle_boil"
+  ],
+  "फोड़ा": [
+    "furuncle_boil"
+  ],
+  "मोठा गळू / गळू": [
+    "furuncle_boil"
+  ],
+  "furuncle boil": [
+    "furuncle_boil"
+  ],
+  "carbuncle": [
+    "carbuncle_deep_infection"
+  ],
+  "बड़ा फोड़ा": [
+    "carbuncle_deep_infection"
+  ],
+  "मोठा विषारी गळू": [
+    "carbuncle_deep_infection"
+  ],
+  "carbuncle deep infection": [
+    "carbuncle_deep_infection"
+  ],
+  "infectious mononucleosis": [
+    "infectious_mononucleosis"
+  ],
+  "मोनोन्यूक्लियोसिस": [
+    "infectious_mononucleosis"
+  ],
+  "ग्रंथिज्वर": [
+    "infectious_mononucleosis"
+  ],
+  "h pylori infection": [
+    "h_pylori_gastric_infection"
+  ],
+  "एच पाइलोरी इन्फेक्शन": [
+    "h_pylori_gastric_infection"
+  ],
+  "पोटातील जंतू संसर्ग": [
+    "h_pylori_gastric_infection"
+  ],
+  "h pylori gastric infection": [
+    "h_pylori_gastric_infection"
+  ],
+  "cutaneous larva migrans": [
+    "cutaneous_larva_migrans"
+  ],
+  "त्वचा लार्वा संक्रमण": [
+    "cutaneous_larva_migrans"
+  ],
+  "त्वचेखालील जंत संसर्ग": [
+    "cutaneous_larva_migrans"
+  ],
+  "filariasis elephantiasis": [
+    "filariasis_elephantiasis"
+  ],
+  "हाथीपांव फाइलेरिया": [
+    "filariasis_elephantiasis"
+  ],
+  "हत्तीरोग पाय सुजणे": [
+    "filariasis_elephantiasis"
+  ],
+  "hookworm infection": [
+    "hookworm_infestation"
+  ],
+  "हुकवर्म अंकुशकृमि": [
+    "hookworm_infestation"
+  ],
+  "अंकुशकृमी जंत संसर्ग": [
+    "hookworm_infestation"
+  ],
+  "hookworm infestation": [
+    "hookworm_infestation"
+  ],
+  "ascariasis": [
+    "roundworm_ascariasis"
+  ],
+  "पेट के कीड़े एस्केरियासिस": [
+    "roundworm_ascariasis"
+  ],
+  "जंत संसर्ग पोटातील किडे": [
+    "roundworm_ascariasis"
+  ],
+  "roundworm ascariasis": [
+    "roundworm_ascariasis"
+  ],
+  "pinworm infection": [
+    "pinworm_enterobiasis"
+  ],
+  "चिनौना पिनवर्म": [
+    "pinworm_enterobiasis"
+  ],
+  "लहान मुलांमधील चमुणे जंत": [
+    "pinworm_enterobiasis"
+  ],
+  "pinworm enterobiasis": [
+    "pinworm_enterobiasis"
+  ],
+  "tapeworm infection": [
+    "tapeworm_taeniasis"
+  ],
+  "फीताकृमि": [
+    "tapeworm_taeniasis"
+  ],
+  "पट्टकृमी संसर्ग": [
+    "tapeworm_taeniasis"
+  ],
+  "tapeworm taeniasis": [
+    "tapeworm_taeniasis"
+  ],
+  "sepsis systemic infection": [
+    "sepsis_severe_systemic"
+  ],
+  "सेप्सिस रक्त संक्रमण": [
+    "sepsis_severe_systemic"
+  ],
+  "रक्तातील तीव्र विषबाधा सेप्सिस": [
+    "sepsis_severe_systemic"
+  ],
+  "sepsis severe systemic": [
+    "sepsis_severe_systemic"
+  ],
+  "bronchial asthma": [
+    "bronchial_asthma"
+  ],
+  "दमा अस्थमा": [
+    "bronchial_asthma"
+  ],
+  "asthma": [
+    "bronchial_asthma"
+  ],
+  "wheezing": [
+    "bronchial_asthma"
+  ],
+  "bronchospasm": [
+    "bronchial_asthma"
+  ],
+  "दमा": [
+    "bronchial_asthma"
+  ],
+  "अस्थमा": [
+    "bronchial_asthma"
+  ],
+  "सांस फूलना": [
+    "bronchial_asthma"
+  ],
+  "घबराहट": [
+    "bronchial_asthma",
+    "generalized_anxiety_disorder"
+  ],
+  "दम लागणे": [
+    "bronchial_asthma"
+  ],
+  "श्वास रोखणे": [
+    "bronchial_asthma"
+  ],
+  "घरघर": [
+    "bronchial_asthma"
+  ],
+  "dama": [
+    "bronchial_asthma"
+  ],
+  "saans phoolna": [
+    "bronchial_asthma"
+  ],
+  "seena jakadna": [
+    "bronchial_asthma"
+  ],
+  "dam lagtoy": [
+    "bronchial_asthma"
+  ],
+  "puffer": [
+    "bronchial_asthma"
+  ],
+  "chronic obstructive pulmonary disease copd": [
+    "copd_chronic_obstructive"
+  ],
+  "copd": [
+    "copd_chronic_obstructive"
+  ],
+  "सीओपीडी फेफड़ों की पुरानी बीमारी": [
+    "copd_chronic_obstructive"
+  ],
+  "सीओपीडी दीर्घकालीन फुफ्फुस विकार": [
+    "copd_chronic_obstructive"
+  ],
+  "chronic bronchitis": [
+    "copd_chronic_obstructive",
+    "chronic_bronchitis"
+  ],
+  "emphysema": [
+    "copd_chronic_obstructive"
+  ],
+  "सीओपीडी": [
+    "copd_chronic_obstructive"
+  ],
+  "फेफड़ों की पुरानी बीमारी": [
+    "copd_chronic_obstructive"
+  ],
+  "धूम्रपान से खांसी": [
+    "copd_chronic_obstructive"
+  ],
+  "जुनाट खोकला व धाप": [
+    "copd_chronic_obstructive"
+  ],
+  "बिडीचा खोकला": [
+    "copd_chronic_obstructive"
+  ],
+  "purani khansi": [
+    "copd_chronic_obstructive"
+  ],
+  "bidi khansi": [
+    "copd_chronic_obstructive"
+  ],
+  "junat khokla": [
+    "copd_chronic_obstructive"
+  ],
+  "dam lagne": [
+    "copd_chronic_obstructive"
+  ],
+  "allergic rhinitis": [
+    "allergic_rhinitis"
+  ],
+  "एलर्जिक राइनाइटिस धूल-एलर्जी": [
+    "allergic_rhinitis"
+  ],
+  "ॲलर्जिक सर्दी धूळ ॲलर्जी": [
+    "allergic_rhinitis"
+  ],
+  "hay fever": [
+    "allergic_rhinitis"
+  ],
+  "nasal allergy": [
+    "allergic_rhinitis"
+  ],
+  "dust allergy": [
+    "allergic_rhinitis"
+  ],
+  "धूल से छींके": [
+    "allergic_rhinitis"
+  ],
+  "एलर्जी वाली सर्दी": [
+    "allergic_rhinitis"
+  ],
+  "नाक में खुजली": [
+    "allergic_rhinitis"
+  ],
+  "धूळ ॲलर्जी": [
+    "allergic_rhinitis"
+  ],
+  "सकाळी शिंका येणे": [
+    "allergic_rhinitis"
+  ],
+  "ॲलर्जिक सर्दी": [
+    "allergic_rhinitis"
+  ],
+  "dhool allergy": [
+    "allergic_rhinitis"
+  ],
+  "chheenk aana": [
+    "allergic_rhinitis"
+  ],
+  "naak khujli": [
+    "allergic_rhinitis"
+  ],
+  "dhul allergy": [
+    "allergic_rhinitis"
+  ],
+  "sakali shinka": [
+    "allergic_rhinitis"
+  ],
+  "nakala aag": [
+    "allergic_rhinitis"
+  ],
+  "gastroesophageal reflux disease gerd": [
+    "gerd_acid_reflux"
+  ],
+  "gerd acid reflux": [
+    "gerd_acid_reflux"
+  ],
+  "एसिडिटी / अम्लपित्त gerd": [
+    "gerd_acid_reflux"
+  ],
+  "अम्लपित्त / ॲसिडिटी gerd": [
+    "gerd_acid_reflux"
+  ],
+  "acid reflux": [
+    "gerd_acid_reflux"
+  ],
+  "heartburn": [
+    "gerd_acid_reflux"
+  ],
+  "hyperacidity": [
+    "gerd_acid_reflux"
+  ],
+  "gastroesophageal reflux": [
+    "gerd_acid_reflux"
+  ],
+  "upset stomach": [
+    "gerd_acid_reflux"
+  ],
+  "indigestion": [
+    "gerd_acid_reflux"
+  ],
+  "एसिडिटी": [
+    "gerd_acid_reflux"
+  ],
+  "सीने में जलन": [
+    "gerd_acid_reflux"
+  ],
+  "खट्टी डकार": [
+    "gerd_acid_reflux"
+  ],
+  "अम्लपित्त": [
+    "gerd_acid_reflux"
+  ],
+  "पेट खराब": [
+    "gerd_acid_reflux"
+  ],
+  "पेट में जलन": [
+    "gerd_acid_reflux"
+  ],
+  "पित्त": [
+    "gerd_acid_reflux"
+  ],
+  "ॲसिडिटी": [
+    "gerd_acid_reflux"
+  ],
+  "छातीत जळजळ": [
+    "gerd_acid_reflux"
+  ],
+  "आंबट ढेकर": [
+    "gerd_acid_reflux"
+  ],
+  "पोटात जळजळ": [
+    "gerd_acid_reflux"
+  ],
+  "पोट खराब": [
+    "gerd_acid_reflux"
+  ],
+  "acidity": [
+    "gerd_acid_reflux"
+  ],
+  "chhati me jalan": [
+    "gerd_acid_reflux"
+  ],
+  "khatti dakar": [
+    "gerd_acid_reflux"
+  ],
+  "pitta": [
+    "gerd_acid_reflux"
+  ],
+  "pet kharab": [
+    "gerd_acid_reflux"
+  ],
+  "pet kharab hai": [
+    "gerd_acid_reflux"
+  ],
+  "pet me jalan": [
+    "gerd_acid_reflux"
+  ],
+  "pet dard": [
+    "gerd_acid_reflux"
+  ],
+  "pitta vadhl": [
+    "gerd_acid_reflux"
+  ],
+  "chhatit jaljal": [
+    "gerd_acid_reflux"
+  ],
+  "ambat dhekar": [
+    "gerd_acid_reflux"
+  ],
+  "potat kal": [
+    "gerd_acid_reflux"
+  ],
+  "pot kharab": [
+    "gerd_acid_reflux"
+  ],
+  "gas": [
+    "gerd_acid_reflux"
+  ],
+  "peptic ulcer disease": [
+    "peptic_ulcer_disease"
+  ],
+  "पेट का अल्सर पेप्टिक अल्सर": [
+    "peptic_ulcer_disease"
+  ],
+  "पोटातील व्रण पेप्टिक अल्सर": [
+    "peptic_ulcer_disease"
+  ],
+  "stomach ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "gastric ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "duodenal ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "पेट में अल्सर": [
+    "peptic_ulcer_disease"
+  ],
+  "आमाशय का घाव": [
+    "peptic_ulcer_disease"
+  ],
+  "पोटात व्रण": [
+    "peptic_ulcer_disease"
+  ],
+  "अल्सर": [
+    "peptic_ulcer_disease"
+  ],
+  "पोटातील जखम": [
+    "peptic_ulcer_disease"
+  ],
+  "pet me ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "pet me ghav": [
+    "peptic_ulcer_disease"
+  ],
+  "potat ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "potat jakham": [
+    "peptic_ulcer_disease"
+  ],
+  "ulcer": [
+    "peptic_ulcer_disease"
+  ],
+  "hemorrhoids piles": [
+    "hemorrhoids_piles"
+  ],
+  "बवासीर पाइल्स": [
+    "hemorrhoids_piles"
+  ],
+  "मूळव्याध पाइल्स": [
+    "hemorrhoids_piles"
+  ],
+  "piles": [
+    "hemorrhoids_piles"
+  ],
+  "hemorrhoids": [
+    "hemorrhoids_piles"
+  ],
+  "anal bleeding": [
+    "hemorrhoids_piles"
+  ],
+  "बवासीर": [
+    "hemorrhoids_piles"
+  ],
+  "पाइल्स": [
+    "hemorrhoids_piles"
+  ],
+  "शौच में खून": [
+    "hemorrhoids_piles"
+  ],
+  "मूळव्याध": [
+    "hemorrhoids_piles"
+  ],
+  "शौचाच्या जागी रक्त": [
+    "hemorrhoids_piles"
+  ],
+  "bawasir": [
+    "hemorrhoids_piles"
+  ],
+  "shauch me khoon": [
+    "hemorrhoids_piles"
+  ],
+  "mulvyadh": [
+    "hemorrhoids_piles"
+  ],
+  "sandasat rakt": [
+    "hemorrhoids_piles"
+  ],
+  "acute appendicitis": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिसाइटिस अपेंडिक्स की सूजन": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिसायटिस अपेंडिक्सची सूज": [
+    "acute_appendicitis"
+  ],
+  "appendicitis": [
+    "acute_appendicitis"
+  ],
+  "appendix inflammation": [
+    "acute_appendicitis"
+  ],
+  "appendix pain": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिक्स का दर्द": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिसाइटिस": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिक्स": [
+    "acute_appendicitis"
+  ],
+  "अपेंडिसायटिस": [
+    "acute_appendicitis"
+  ],
+  "पोटाच्या उजव्या बाजूला कळ": [
+    "acute_appendicitis"
+  ],
+  "appendix": [
+    "acute_appendicitis"
+  ],
+  "pet ke dahine taraf dard": [
+    "acute_appendicitis"
+  ],
+  "potachya ujvya bajula kal": [
+    "acute_appendicitis"
+  ],
+  "acute bronchitis": [
+    "acute_bronchitis"
+  ],
+  "तीव्र ब्रोंकाइटिस": [
+    "acute_bronchitis"
+  ],
+  "तीव्र श्वासनलिका दाह": [
+    "acute_bronchitis"
+  ],
+  "क्रोनिक ब्रोंकाइटिस": [
+    "chronic_bronchitis"
+  ],
+  "जुनाट श्वासनलिका दाह": [
+    "chronic_bronchitis"
+  ],
+  "pleural effusion": [
+    "pleural_effusion"
+  ],
+  "फेफड़ों में पानी भरना": [
+    "pleural_effusion"
+  ],
+  "फुफ्फुसात पाणी भरणे": [
+    "pleural_effusion"
+  ],
+  "pneumothorax": [
+    "pneumothorax_spontaneous"
+  ],
+  "फेफड़े की हवा लीक होना": [
+    "pneumothorax_spontaneous"
+  ],
+  "फुफ्फुसातून हवा गळती": [
+    "pneumothorax_spontaneous"
+  ],
+  "pneumothorax spontaneous": [
+    "pneumothorax_spontaneous"
+  ],
+  "pulmonary embolism": [
+    "pulmonary_embolism"
+  ],
+  "फेफड़ों में खून का थक्का": [
+    "pulmonary_embolism"
+  ],
+  "फुफ्फुसातील रक्तवाहिनीत रक्ताची गाठ": [
+    "pulmonary_embolism"
+  ],
+  "obstructive sleep apnea": [
+    "sleep_apnea_obstructive"
+  ],
+  "स्लीप एप्निया नींद में सांस रुकना": [
+    "sleep_apnea_obstructive"
+  ],
+  "झोपेत श्वास अडखळणे स्लीप ॲप्निया": [
+    "sleep_apnea_obstructive"
+  ],
+  "sleep apnea obstructive": [
+    "sleep_apnea_obstructive"
+  ],
+  "interstitial lung disease ild": [
+    "interstitial_lung_disease"
+  ],
+  "फेफड़ों का फाइब्रोसिस": [
+    "interstitial_lung_disease"
+  ],
+  "फुफ्फुसांचा जुनाट आजार ild": [
+    "interstitial_lung_disease"
+  ],
+  "interstitial lung disease": [
+    "interstitial_lung_disease"
+  ],
+  "bronchiectasis": [
+    "bronchiectasis"
+  ],
+  "ब्रोन्किइक्टेसिस": [
+    "bronchiectasis"
+  ],
+  "श्वासनलिका विस्तार विकार": [
+    "bronchiectasis"
+  ],
+  "acute laryngitis": [
+    "laryngitis_acute"
+  ],
+  "स्वरयंत्र की सूजन गला बैठना": [
+    "laryngitis_acute"
+  ],
+  "आवाज बसणे स्वरयंत्र दाह": [
+    "laryngitis_acute"
+  ],
+  "laryngitis acute": [
+    "laryngitis_acute"
+  ],
+  "croup laryngotracheobronchitis": [
+    "croup_pediatric_stridor"
+  ],
+  "क्रुप कुत्ते जैसी खांसी": [
+    "croup_pediatric_stridor"
+  ],
+  "क्रूप खोकला घसा सूज": [
+    "croup_pediatric_stridor"
+  ],
+  "croup pediatric stridor": [
+    "croup_pediatric_stridor"
+  ],
+  "pneumoconiosis": [
+    "occupational_pneumoconiosis"
+  ],
+  "धूल से फेफड़ों की बीमारी": [
+    "occupational_pneumoconiosis"
+  ],
+  "कामाच्या ठिकाणच्या धुळीमुळे फुफ्फुस विकार": [
+    "occupational_pneumoconiosis"
+  ],
+  "occupational pneumoconiosis": [
+    "occupational_pneumoconiosis"
+  ],
+  "hyperventilation syndrome": [
+    "hyperventilation_syndrome"
+  ],
+  "अत्यधिक तेज सांस लेना": [
+    "hyperventilation_syndrome"
+  ],
+  "जलद श्वास घेणे घाबरल्यामुळे": [
+    "hyperventilation_syndrome"
+  ],
+  "acute gastritis": [
+    "acute_gastritis"
+  ],
+  "पेट की सूजन गैस्ट्राइटिस": [
+    "acute_gastritis"
+  ],
+  "जठराची तीव्र जळजळ": [
+    "acute_gastritis"
+  ],
+  "chronic gastritis": [
+    "chronic_gastritis"
+  ],
+  "क्रोनिक गैस्ट्राइटिस": [
+    "chronic_gastritis"
+  ],
+  "जुनाट जठर दाह": [
+    "chronic_gastritis"
+  ],
+  "irritable bowel syndrome ibs": [
+    "irritable_bowel_syndrome_ibs"
+  ],
+  "आईबीएस पेट की खराबी": [
+    "irritable_bowel_syndrome_ibs"
+  ],
+  "आतड्यांचे विकार ibs": [
+    "irritable_bowel_syndrome_ibs"
+  ],
+  "ulcerative colitis": [
+    "inflammatory_bowel_disease_uc"
+  ],
+  "अल्सरेटिव कोलाइटिस": [
+    "inflammatory_bowel_disease_uc"
+  ],
+  "आतड्यांवर व्रण कोलायटिस": [
+    "inflammatory_bowel_disease_uc"
+  ],
+  "inflammatory bowel disease uc": [
+    "inflammatory_bowel_disease_uc"
+  ],
+  "crohn's disease": [
+    "crohns_disease"
+  ],
+  "क्रोहन रोग": [
+    "crohns_disease"
+  ],
+  "क्रोहनचा आजार": [
+    "crohns_disease"
+  ],
+  "crohns disease": [
+    "crohns_disease"
+  ],
+  "anal fissure": [
+    "anal_fissure_acute"
+  ],
+  "एनल फिशर गुदा का चीरा": [
+    "anal_fissure_acute"
+  ],
+  "भगंदर / गुदद्वारातील चीर फिशर": [
+    "anal_fissure_acute"
+  ],
+  "anal fissure acute": [
+    "anal_fissure_acute"
+  ],
+  "fistula-in-ano": [
+    "fistula_in_ano"
+  ],
+  "भगंदर फिस्टुला": [
+    "fistula_in_ano"
+  ],
+  "भगंदर फिस्ट्युला": [
+    "fistula_in_ano"
+  ],
+  "fistula in ano": [
+    "fistula_in_ano"
+  ],
+  "perianal abscess": [
+    "perianal_abscess"
+  ],
+  "गुदा के पास फोड़ा": [
+    "perianal_abscess"
+  ],
+  "गुदद्वाराजवळील गळू": [
+    "perianal_abscess"
+  ],
+  "gallstones cholelithiasis": [
+    "gallstones_cholelithiasis"
+  ],
+  "पित्त की पथरी": [
+    "gallstones_cholelithiasis"
+  ],
+  "पित्ताशयातील खडे गॉलब्लाडर स्टोन": [
+    "gallstones_cholelithiasis"
+  ],
+  "acute cholecystitis": [
+    "acute_cholecystitis"
+  ],
+  "पित्ताशय की सूजन": [
+    "acute_cholecystitis"
+  ],
+  "पित्ताशयाची तीव्र सूज": [
+    "acute_cholecystitis"
+  ],
+  "acute pancreatitis": [
+    "acute_pancreatitis"
+  ],
+  "अग्न्याशय की सूजन पैंक्रियाटाइटिस": [
+    "acute_pancreatitis"
+  ],
+  "स्वादुपिंडाची तीव्र सूज": [
+    "acute_pancreatitis"
+  ],
+  "chronic pancreatitis": [
+    "chronic_pancreatitis"
+  ],
+  "क्रोनिक पैंक्रियाटाइटिस": [
+    "chronic_pancreatitis"
+  ],
+  "जुनाट स्वादुपिंड दाह": [
+    "chronic_pancreatitis"
+  ],
+  "intestinal obstruction": [
+    "intestinal_obstruction"
+  ],
+  "आंतों में रुकावट": [
+    "intestinal_obstruction"
+  ],
+  "आतड्यांचा अडथळा आतडे अडकणे": [
+    "intestinal_obstruction"
+  ],
+  "inguinal hernia": [
+    "inguinal_hernia"
+  ],
+  "हर्निया हर्निया की गांठ": [
+    "inguinal_hernia"
+  ],
+  "हर्निया जांघेतील गाठ": [
+    "inguinal_hernia"
+  ],
+  "strangulated hernia": [
+    "strangulated_hernia"
+  ],
+  "स्ट्रैंगुलेटेड हर्निया": [
+    "strangulated_hernia"
+  ],
+  "अडकलेला हर्निया रक्तपुरवठा बंद": [
+    "strangulated_hernia"
+  ],
+  "bacterial food poisoning": [
+    "food_poisoning_staph"
+  ],
+  "फूड पॉइजनिंग विषाक्त भोजन": [
+    "food_poisoning_staph"
+  ],
+  "अन्न विषबाधा फूड पॉयझनिंग": [
+    "food_poisoning_staph"
+  ],
+  "food poisoning staph": [
+    "food_poisoning_staph"
+  ],
+  "chronic constipation": [
+    "chronic_constipation"
+  ],
+  "कब्ज पुरानी कब्ज": [
+    "chronic_constipation"
+  ],
+  "जुनाट बद्धकोष्ठता / मलबद्धता": [
+    "chronic_constipation"
+  ],
+  "functional dyspepsia": [
+    "non_ulcer_dyspepsia"
+  ],
+  "अपच खट्टी डकार व भारीपन": [
+    "non_ulcer_dyspepsia"
+  ],
+  "अपचन व पोटफुगी": [
+    "non_ulcer_dyspepsia"
+  ],
+  "non ulcer dyspepsia": [
+    "non_ulcer_dyspepsia"
+  ],
+  "celiac disease": [
+    "celiac_disease_gluten"
+  ],
+  "सीलिएक रोग गेहूं से एलर्जी": [
+    "celiac_disease_gluten"
+  ],
+  "गहू ॲलर्जी सिलिॲक आजार": [
+    "celiac_disease_gluten"
+  ],
+  "celiac disease gluten": [
+    "celiac_disease_gluten"
+  ],
+  "rectal prolapse": [
+    "rectal_prolapse"
+  ],
+  "कांच निकलना गुदा बाहर आना": [
+    "rectal_prolapse"
+  ],
+  "गुदद्वार बाहेर येणे काच पडणे": [
+    "rectal_prolapse"
+  ],
+  "diverticulitis": [
+    "diverticulitis_colon"
+  ],
+  "डाइवर्टिकुलाइटिस": [
+    "diverticulitis_colon"
+  ],
+  "आतड्यांच्या पिशव्यांची सूज": [
+    "diverticulitis_colon"
+  ],
+  "diverticulitis colon": [
+    "diverticulitis_colon"
+  ],
+  "gastric polyps": [
+    "gastric_polyps"
+  ],
+  "पेट के पॉलीप्स": [
+    "gastric_polyps"
+  ],
+  "जठरातील गाठी पॉलीप्स": [
+    "gastric_polyps"
+  ],
+  "colonic polyps": [
+    "colonic_polyps"
+  ],
+  "बड़ी आंत के पॉलीप्स": [
+    "colonic_polyps"
+  ],
+  "मोठ्या आतड्यातील गाठी": [
+    "colonic_polyps"
+  ],
+  "essential hypertension high blood pressure": [
+    "essential_hypertension"
+  ],
+  "hypertension high blood pressure": [
+    "essential_hypertension"
+  ],
+  "उच्च रक्तचाप हाई ब्लड प्रेशर / bp": [
+    "essential_hypertension"
+  ],
+  "उच्च रक्तदाब हाय बीपी": [
+    "essential_hypertension"
+  ],
+  "high bp": [
+    "essential_hypertension"
+  ],
+  "hypertension": [
+    "essential_hypertension"
+  ],
+  "high blood pressure": [
+    "essential_hypertension"
+  ],
+  "elevated bp": [
+    "essential_hypertension"
+  ],
+  "हाई बीपी": [
+    "essential_hypertension"
+  ],
+  "उच्च रक्तचाप": [
+    "essential_hypertension"
+  ],
+  "ब्लड प्रेशर बढ़ जाना": [
+    "essential_hypertension"
+  ],
+  "हाय बीपी": [
+    "essential_hypertension"
+  ],
+  "उच्च रक्तदाब": [
+    "essential_hypertension"
+  ],
+  "बीपी वाढणे": [
+    "essential_hypertension"
+  ],
+  "रक्तदाब": [
+    "essential_hypertension"
+  ],
+  "blood pressure badhna": [
+    "essential_hypertension"
+  ],
+  "bp high hai": [
+    "essential_hypertension"
+  ],
+  "bp vadhla": [
+    "essential_hypertension"
+  ],
+  "raktdab": [
+    "essential_hypertension"
+  ],
+  "bp problem": [
+    "essential_hypertension"
+  ],
+  "blood pressure": [
+    "essential_hypertension"
+  ],
+  "acute myocardial infarction heart attack": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "heart attack myocardial infarction": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हार्ट अटैक दिल का दौरा": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हार्ट अटॅक हृदयविकाराचा झटका": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "heart attack": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "myocardial infarction": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "cardiac arrest": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "coronary thrombosis": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हार्ट अटैक": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "दिल का दौरा": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "सीने में तेज दर्द": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हार्ट अटॅक": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हृदयविकाराचा झटका": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "छातीत कळा": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "हार्टचा त्रास": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "dil ka daura": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "seene me dard": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "paseena aana": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "chhatit kal": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "dolyasomorkhari": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "gham yetoy": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "chhati dard": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "attack": [
+    "myocardial_infarction_heart_attack"
+  ],
+  "migraine headache": [
+    "migraine_headache"
+  ],
+  "माइग्रेन आधा सीसी सिरदर्द": [
+    "migraine_headache"
+  ],
+  "मायग्रेन अर्धे डोकेदुखी": [
+    "migraine_headache"
+  ],
+  "migraine": [
+    "migraine_headache"
+  ],
+  "vascular headache": [
+    "migraine_headache"
+  ],
+  "hemicrania": [
+    "migraine_headache"
+  ],
+  "माइग्रेन": [
+    "migraine_headache"
+  ],
+  "आधा सीसी दर्द": [
+    "migraine_headache"
+  ],
+  "सिर में धड़कन जैसा दर्द": [
+    "migraine_headache"
+  ],
+  "मायग्रेन": [
+    "migraine_headache"
+  ],
+  "अर्धे डोके दुखणे": [
+    "migraine_headache"
+  ],
+  "डोक्यात ठसठस": [
+    "migraine_headache"
+  ],
+  "aadha sir dard": [
+    "migraine_headache"
+  ],
+  "thas thas dard": [
+    "migraine_headache"
+  ],
+  "ardhe doke dukhtay": [
+    "migraine_headache"
+  ],
+  "thasthas": [
+    "migraine_headache"
+  ],
+  "aadha sirdard": [
+    "migraine_headache"
+  ],
+  "ardha doke": [
+    "migraine_headache"
+  ],
+  "acute ischemic stroke paralysis": [
+    "acute_ischemic_stroke"
+  ],
+  "acute ischemic stroke brain stroke": [
+    "acute_ischemic_stroke"
+  ],
+  "स्ट्रोक / लकवा ब्रेन अटैक": [
+    "acute_ischemic_stroke"
+  ],
+  "ब्रेन स्ट्रोक / पक्षाघात लकवा": [
+    "acute_ischemic_stroke"
+  ],
+  "stroke": [
+    "acute_ischemic_stroke"
+  ],
+  "brain attack": [
+    "acute_ischemic_stroke"
+  ],
+  "cerebrovascular accident": [
+    "acute_ischemic_stroke"
+  ],
+  "paralysis": [
+    "acute_ischemic_stroke"
+  ],
+  "स्ट्रोक": [
+    "acute_ischemic_stroke"
+  ],
+  "लकवा": [
+    "acute_ischemic_stroke"
+  ],
+  "फालिज": [
+    "acute_ischemic_stroke"
+  ],
+  "ब्रेन अटैक": [
+    "acute_ischemic_stroke"
+  ],
+  "पक्षाघात": [
+    "acute_ischemic_stroke"
+  ],
+  "मेंदूतील रक्तस्राव": [
+    "acute_ischemic_stroke"
+  ],
+  "lakwa": [
+    "acute_ischemic_stroke"
+  ],
+  "falij": [
+    "acute_ischemic_stroke"
+  ],
+  "bolne me dikkat": [
+    "acute_ischemic_stroke"
+  ],
+  "lakva": [
+    "acute_ischemic_stroke"
+  ],
+  "pakshaghat": [
+    "acute_ischemic_stroke"
+  ],
+  "ek baju thapali": [
+    "acute_ischemic_stroke"
+  ],
+  "angina pectoris": [
+    "angina_pectoris_stable"
+  ],
+  "एंजाइना सीने में जकड़न": [
+    "angina_pectoris_stable"
+  ],
+  "अँजायना हृदयावर ताण": [
+    "angina_pectoris_stable"
+  ],
+  "angina pectoris stable": [
+    "angina_pectoris_stable"
+  ],
+  "heart failure": [
+    "congestive_heart_failure"
+  ],
+  "हार्ट फेल्योर दिल की कमजोरी": [
+    "congestive_heart_failure"
+  ],
+  "हार्ट फेल्युअर हृदय दुर्बलता": [
+    "congestive_heart_failure"
+  ],
+  "congestive heart failure": [
+    "congestive_heart_failure"
+  ],
+  "atrial fibrillation": [
+    "atrial_fibrillation"
+  ],
+  "अनियमित दिल की धड़कन": [
+    "atrial_fibrillation"
+  ],
+  "हृदयाचे अनियमित ठोके": [
+    "atrial_fibrillation"
+  ],
+  "orthostatic hypotension": [
+    "postural_hypotension"
+  ],
+  "खड़े होने पर लो बीपी": [
+    "postural_hypotension"
+  ],
+  "अचानक उभे राहिल्यावर चक्कर": [
+    "postural_hypotension"
+  ],
+  "postural hypotension": [
+    "postural_hypotension"
+  ],
+  "deep vein thrombosis dvt": [
+    "deep_vein_thrombosis_dvt"
+  ],
+  "पैरों में खून का थक्का": [
+    "deep_vein_thrombosis_dvt"
+  ],
+  "पायातील शिरांमध्ये रक्ताची गाठ": [
+    "deep_vein_thrombosis_dvt"
+  ],
+  "varicose veins": [
+    "varicose_veins_legs"
+  ],
+  "वेरिकोज वेन्स फूली हुई नसें": [
+    "varicose_veins_legs"
+  ],
+  "फुगलेल्या शिरा व्हेरकोज व्हेन्स": [
+    "varicose_veins_legs"
+  ],
+  "varicose veins legs": [
+    "varicose_veins_legs"
+  ],
+  "rheumatic heart disease": [
+    "rheumatic_heart_disease"
+  ],
+  "रूमैटिक हार्ट डिजीज": [
+    "rheumatic_heart_disease"
+  ],
+  "हृदयाच्या झडपांचा आजार": [
+    "rheumatic_heart_disease"
+  ],
+  "infective endocarditis": [
+    "infective_endocarditis"
+  ],
+  "हृदय के वाल्व का संक्रमण": [
+    "infective_endocarditis"
+  ],
+  "हृदयाच्या झडपांचा जंतू संसर्ग": [
+    "infective_endocarditis"
+  ],
+  "acute pericarditis": [
+    "pericarditis_acute"
+  ],
+  "हृदय की झिल्ली की सूजन": [
+    "pericarditis_acute"
+  ],
+  "हृदयाच्या आवरणाची सूज": [
+    "pericarditis_acute"
+  ],
+  "pericarditis acute": [
+    "pericarditis_acute"
+  ],
+  "hypertrophic cardiomyopathy": [
+    "hypertrophic_cardiomyopathy"
+  ],
+  "कार्डियोमायोपैथी": [
+    "hypertrophic_cardiomyopathy"
+  ],
+  "हृदयाच्या स्नायूंचा जाडपणा": [
+    "hypertrophic_cardiomyopathy"
+  ],
+  "peripheral artery disease": [
+    "peripheral_artery_disease_pad"
+  ],
+  "पैरों की धमनियों की रुकावट": [
+    "peripheral_artery_disease_pad"
+  ],
+  "पायांच्या रक्तवाहिन्यांमधील अडथळा": [
+    "peripheral_artery_disease_pad"
+  ],
+  "peripheral artery disease pad": [
+    "peripheral_artery_disease_pad"
+  ],
+  "sinus tachycardia": [
+    "sinus_tachycardia"
+  ],
+  "तेज दिल की धड़कन": [
+    "sinus_tachycardia"
+  ],
+  "हृदयाचे वेगवान ठोके": [
+    "sinus_tachycardia"
+  ],
+  "sinus bradycardia": [
+    "sinus_bradycardia"
+  ],
+  "धीमी दिल की धड़कन": [
+    "sinus_bradycardia"
+  ],
+  "हृदयाचे अत्यंत मंद ठोके": [
+    "sinus_bradycardia"
+  ],
+  "tension headache": [
+    "tension_type_headache"
+  ],
+  "तनाव से सिरदर्द": [
+    "tension_type_headache"
+  ],
+  "तणावामुळे होणारी डोकेदुखी": [
+    "tension_type_headache"
+  ],
+  "tension type headache": [
+    "tension_type_headache"
+  ],
+  "cluster headache": [
+    "cluster_headache"
+  ],
+  "क्लस्टर सिरदर्द": [
+    "cluster_headache"
+  ],
+  "एका डोळ्याभोवती तीव्र डोकेदुखी": [
+    "cluster_headache"
+  ],
+  "bppv vertigo": [
+    "benign_paroxysmal_vertigo_bppv"
+  ],
+  "चक्कर आना वर्टिगो": [
+    "benign_paroxysmal_vertigo_bppv"
+  ],
+  "भोवळ / चक्कर येणे व्हर्टिगो": [
+    "benign_paroxysmal_vertigo_bppv"
+  ],
+  "benign paroxysmal vertigo bppv": [
+    "benign_paroxysmal_vertigo_bppv"
+  ],
+  "epileptic seizures mirgi": [
+    "general_epilepsy_seizure"
+  ],
+  "मिर्गी दौरे पड़ना": [
+    "general_epilepsy_seizure"
+  ],
+  "अपस्मार फेफरे / मिरगी": [
+    "general_epilepsy_seizure"
+  ],
+  "general epilepsy seizure": [
+    "general_epilepsy_seizure"
+  ],
+  "febrile seizure": [
+    "febrile_convulsion_child"
+  ],
+  "बुखार में झटका आना": [
+    "febrile_convulsion_child"
+  ],
+  "तापामुळे लहान मुलांमध्ये येणारे फेफरे": [
+    "febrile_convulsion_child"
+  ],
+  "febrile convulsion child": [
+    "febrile_convulsion_child"
+  ],
+  "bacterial meningitis": [
+    "acute_bacterial_meningitis"
+  ],
+  "दिमागी बुखार मेनिनजाइटिस": [
+    "acute_bacterial_meningitis"
+  ],
+  "मेंदूज्वर मेनिनजायटिस": [
+    "acute_bacterial_meningitis"
+  ],
+  "acute bacterial meningitis": [
+    "acute_bacterial_meningitis"
+  ],
+  "viral encephalitis": [
+    "viral_encephalitis"
+  ],
+  "मस्तिष्क ज्वर": [
+    "viral_encephalitis"
+  ],
+  "मेंदूची तीव्र जळजळ": [
+    "viral_encephalitis"
+  ],
+  "parkinson's disease": [
+    "parkinsons_disease"
+  ],
+  "पार्किंसंस कंपवात": [
+    "parkinsons_disease"
+  ],
+  "कंपवात पार्किन्सन्स": [
+    "parkinsons_disease"
+  ],
+  "parkinsons disease": [
+    "parkinsons_disease"
+  ],
+  "alzheimer's dementia": [
+    "alzheimers_dementia"
+  ],
+  "अल्जाइमर स्मृतिभ्रंश": [
+    "alzheimers_dementia"
+  ],
+  "स्मृतिभ्रंश अल्झायमर / विस्मरण": [
+    "alzheimers_dementia"
+  ],
+  "alzheimers dementia": [
+    "alzheimers_dementia"
+  ],
+  "bell's palsy": [
+    "bells_palsy_facial"
+  ],
+  "चेहरे का लकवा बेल्स पाल्सी": [
+    "bells_palsy_facial"
+  ],
+  "चेहऱ्याचा पक्षाघात बेल्स पाल्सी": [
+    "bells_palsy_facial"
+  ],
+  "bells palsy facial": [
+    "bells_palsy_facial"
+  ],
+  "trigeminal neuralgia": [
+    "trigeminal_neuralgia"
+  ],
+  "चेहरे की नसों का दर्द": [
+    "trigeminal_neuralgia"
+  ],
+  "चेहऱ्यावरील नसांची तीव्र कळ": [
+    "trigeminal_neuralgia"
+  ],
+  "diabetic neuropathy": [
+    "peripheral_neuropathy_diabetic"
+  ],
+  "डायबिटिक न्यूरोपैथी": [
+    "peripheral_neuropathy_diabetic"
+  ],
+  "मधुमेहामुळे पायांच्या नसा सुन्न होणे": [
+    "peripheral_neuropathy_diabetic"
+  ],
+  "peripheral neuropathy diabetic": [
+    "peripheral_neuropathy_diabetic"
+  ],
+  "sciatica nerve pain": [
+    "sciatica_nerve_pain"
+  ],
+  "साइटिका कमर से पैर तक दर्द": [
+    "sciatica_nerve_pain"
+  ],
+  "सायटिका कमरेतून पायात जाणारी कळ": [
+    "sciatica_nerve_pain"
+  ],
+  "cervical radiculopathy": [
+    "cervical_radiculopathy"
+  ],
+  "गर्दन से हाथ में दर्द": [
+    "cervical_radiculopathy"
+  ],
+  "मानेतून हातात जाणारी कळ": [
+    "cervical_radiculopathy"
+  ],
+  "carpal tunnel syndrome": [
+    "carpal_tunnel_syndrome",
+    "carpal_tunnel_syndrome_wrist"
+  ],
+  "कलाई की नस का दबना": [
+    "carpal_tunnel_syndrome"
+  ],
+  "मनगटातील नस दबणे कार्पल टनेल": [
+    "carpal_tunnel_syndrome"
+  ],
+  "transient ischemic attack mini-stroke": [
+    "transient_ischemic_attack_tia"
+  ],
+  "मिनी स्ट्रोक टीआईए": [
+    "transient_ischemic_attack_tia"
+  ],
+  "मिनी स्ट्रोक तात्पुरता पक्षाघात": [
+    "transient_ischemic_attack_tia"
+  ],
+  "transient ischemic attack tia": [
+    "transient_ischemic_attack_tia"
+  ],
+  "restless leg syndrome": [
+    "restless_leg_syndrome"
+  ],
+  "पैरों में बेचैनी": [
+    "restless_leg_syndrome"
+  ],
+  "पायांमध्ये अस्वस्थता": [
+    "restless_leg_syndrome"
+  ],
+  "type 2 diabetes mellitus": [
+    "type_2_diabetes_mellitus"
+  ],
+  "टाइप 2 डायबिटीज मधुमेह / शुगर": [
+    "type_2_diabetes_mellitus"
+  ],
+  "टाइप २ मधुमेह डायबिटीस / साखर": [
+    "type_2_diabetes_mellitus"
+  ],
+  "diabetes": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sugar": [
+    "type_2_diabetes_mellitus"
+  ],
+  "type 2 diabetes": [
+    "type_2_diabetes_mellitus"
+  ],
+  "hyperglycemia": [
+    "type_2_diabetes_mellitus"
+  ],
+  "high blood sugar": [
+    "type_2_diabetes_mellitus"
+  ],
+  "डायबिटीज": [
+    "type_2_diabetes_mellitus"
+  ],
+  "शुगर": [
+    "type_2_diabetes_mellitus"
+  ],
+  "मधुमेह": [
+    "type_2_diabetes_mellitus"
+  ],
+  "शक्कर की बीमारी": [
+    "type_2_diabetes_mellitus"
+  ],
+  "डायबिटीस": [
+    "type_2_diabetes_mellitus"
+  ],
+  "साखरेचा आजार": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sugar ki bimari": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sugar badhna": [
+    "type_2_diabetes_mellitus"
+  ],
+  "peshab me sugar": [
+    "type_2_diabetes_mellitus"
+  ],
+  "madhumeh": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sakhar vadhli": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sugar cha tras": [
+    "type_2_diabetes_mellitus"
+  ],
+  "sakhar": [
+    "type_2_diabetes_mellitus"
+  ],
+  "iron deficiency anemia": [
+    "iron_deficiency_anemia"
+  ],
+  "एनीमिया खून की कमी": [
+    "iron_deficiency_anemia"
+  ],
+  "रक्तक्षय ॲनिमिया / रक्ताची कमतरता": [
+    "iron_deficiency_anemia"
+  ],
+  "anemia": [
+    "iron_deficiency_anemia"
+  ],
+  "low hemoglobin": [
+    "iron_deficiency_anemia"
+  ],
+  "iron deficiency": [
+    "iron_deficiency_anemia"
+  ],
+  "pale skin": [
+    "iron_deficiency_anemia"
+  ],
+  "एनीमिया": [
+    "iron_deficiency_anemia"
+  ],
+  "खून की कमी": [
+    "iron_deficiency_anemia"
+  ],
+  "हीमोग्लोबिन कम होना": [
+    "iron_deficiency_anemia"
+  ],
+  "रक्तक्षय": [
+    "iron_deficiency_anemia"
+  ],
+  "ॲनिमिया": [
+    "iron_deficiency_anemia"
+  ],
+  "अशक्तपणा": [
+    "iron_deficiency_anemia"
+  ],
+  "रक्त कमी असणे": [
+    "iron_deficiency_anemia"
+  ],
+  "khoon ki kami": [
+    "iron_deficiency_anemia"
+  ],
+  "kamjori": [
+    "iron_deficiency_anemia"
+  ],
+  "hb kam hona": [
+    "iron_deficiency_anemia"
+  ],
+  "rakt kami ahe": [
+    "iron_deficiency_anemia"
+  ],
+  "raktakshay": [
+    "iron_deficiency_anemia"
+  ],
+  "ashaktapana": [
+    "iron_deficiency_anemia"
+  ],
+  "hb kam": [
+    "iron_deficiency_anemia"
+  ],
+  "polycystic ovary syndrome pcos": [
+    "pcos_polycystic_ovary"
+  ],
+  "पीसीओएस पॉलीसिस्टिक ओवरी सिंड्रोम": [
+    "pcos_polycystic_ovary"
+  ],
+  "पीसीओएस अंडाशयातील गाठी व पाळीचे विकार": [
+    "pcos_polycystic_ovary"
+  ],
+  "pcos": [
+    "pcos_polycystic_ovary"
+  ],
+  "pcod": [
+    "pcos_polycystic_ovary"
+  ],
+  "ovarian cysts": [
+    "pcos_polycystic_ovary"
+  ],
+  "hormonal imbalance in women": [
+    "pcos_polycystic_ovary"
+  ],
+  "पीसीओएस": [
+    "pcos_polycystic_ovary"
+  ],
+  "पीसीओडी": [
+    "pcos_polycystic_ovary"
+  ],
+  "माहवारी की अनियमितता": [
+    "pcos_polycystic_ovary"
+  ],
+  "चेहरे पर अनचाहे बाल": [
+    "pcos_polycystic_ovary"
+  ],
+  "मासिक पाळीची अनियमितता": [
+    "pcos_polycystic_ovary"
+  ],
+  "अंडाशयात गाठी": [
+    "pcos_polycystic_ovary"
+  ],
+  "periods time pe na aana": [
+    "pcos_polycystic_ovary"
+  ],
+  "wajan badhna": [
+    "pcos_polycystic_ovary"
+  ],
+  "pali velvar na yene": [
+    "pcos_polycystic_ovary"
+  ],
+  "wajan vadhl": [
+    "pcos_polycystic_ovary"
+  ],
+  "irregular periods": [
+    "pcos_polycystic_ovary"
+  ],
+  "pre-eclampsia pregnancy high bp": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "pre-eclampsia in pregnancy": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "प्री-एक्लेमप्सिया गर्भावस्था में हाई बीपी": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "प्री-एक्लेम्पसिया गरोदरपणातील उच्च रक्तदाब": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "preeclampsia": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "toxemia of pregnancy": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "gestational hypertension": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "गर्भावस्था में बीपी": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "प्री एक्लेम्पसिया": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "गर्भावस्था में सूजन": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "गरोदरपणातील बीपी": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "प्री-एक्लेम्पसिया": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "गरोदरपणात अंगावर सूज": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "garbh me bp badhna": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "chehre pe sujan": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "garodarpani bp": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "angavar suz": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "doke dukhtay": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "pregnancy bp": [
+    "preeclampsia_maternal_hypertension"
+  ],
+  "type 1 diabetes": [
+    "type_1_diabetes_mellitus"
+  ],
+  "टाइप 1 डायबिटीज इंसुलिन निर्भर": [
+    "type_1_diabetes_mellitus"
+  ],
+  "टाइप १ मधुमेह इन्सुलिन अवलंबित्व": [
+    "type_1_diabetes_mellitus"
+  ],
+  "type 1 diabetes mellitus": [
+    "type_1_diabetes_mellitus"
+  ],
+  "acute hypoglycemia low blood sugar": [
+    "hypoglycemia_acute"
+  ],
+  "लो शुगर हाइपोग्लाइसीमिया": [
+    "hypoglycemia_acute"
+  ],
+  "रक्तातील साखर अचानक कमी होणे लो शुगर": [
+    "hypoglycemia_acute"
+  ],
+  "hypoglycemia acute": [
+    "hypoglycemia_acute"
+  ],
+  "hypothyroidism": [
+    "primary_hypothyroidism"
+  ],
+  "हाइपोथायरायडिज्म थायराइड की कमी": [
+    "primary_hypothyroidism"
+  ],
+  "हायपोथायरॉईडीझम थायरॉईड ग्रंथीची कमतरता": [
+    "primary_hypothyroidism"
+  ],
+  "primary hypothyroidism": [
+    "primary_hypothyroidism"
+  ],
+  "hyperthyroidism": [
+    "hyperthyroidism_graves"
+  ],
+  "हाइपरथायरायडिज्म अतिसक्रिय थायराइड": [
+    "hyperthyroidism_graves"
+  ],
+  "हायपरथायरॉईडीझम अतिसक्रिय थायरॉईड": [
+    "hyperthyroidism_graves"
+  ],
+  "hyperthyroidism graves": [
+    "hyperthyroidism_graves"
+  ],
+  "goiter iodine deficiency": [
+    "goiter_iodine_deficiency"
+  ],
+  "घेंघा रोग गलगंड": [
+    "goiter_iodine_deficiency"
+  ],
+  "गलगंड गळ्यातील थायरॉईड ग्रंथीची वाढ": [
+    "goiter_iodine_deficiency"
+  ],
+  "vitamin d deficiency": [
+    "vitamin_d_deficiency"
+  ],
+  "विटामिन डी की कमी": [
+    "vitamin_d_deficiency"
+  ],
+  "व्हिटॅमिन-डी ची कमतरता": [
+    "vitamin_d_deficiency"
+  ],
+  "vitamin b12 deficiency": [
+    "vitamin_b12_deficiency"
+  ],
+  "विटामिन बी12 की कमी": [
+    "vitamin_b12_deficiency"
+  ],
+  "व्हिटॅमिन-बी१२ ची कमतरता": [
+    "vitamin_b12_deficiency"
+  ],
+  "hyperlipidemia high cholesterol": [
+    "hyperlipidemia_high_cholesterol"
+  ],
+  "हाई कोलेस्ट्रॉल": [
+    "hyperlipidemia_high_cholesterol"
+  ],
+  "रक्तातील अतिचरबी हाय कोलेस्ट्रॉल": [
+    "hyperlipidemia_high_cholesterol"
+  ],
+  "gout high uric acid": [
+    "gouty_arthritis_hyperuricemia"
+  ],
+  "गाउट यूरिक एसिड गठिया": [
+    "gouty_arthritis_hyperuricemia"
+  ],
+  "गाउट युरिक ॲसिड सांधेदुखी": [
+    "gouty_arthritis_hyperuricemia"
+  ],
+  "gouty arthritis hyperuricemia": [
+    "gouty_arthritis_hyperuricemia"
+  ],
+  "osteoporosis": [
+    "osteoporosis_bone_loss"
+  ],
+  "ऑस्टियोपोरोसिस हड्डियों का कमजोर होना": [
+    "osteoporosis_bone_loss"
+  ],
+  "हाडांची झीज ऑस्टिओपोरोसिस": [
+    "osteoporosis_bone_loss"
+  ],
+  "osteoporosis bone loss": [
+    "osteoporosis_bone_loss"
+  ],
+  "thalassemia major": [
+    "thalassemia_major"
+  ],
+  "थैलेसीमिया मेजर": [
+    "thalassemia_major"
+  ],
+  "थॅलेसेमिया रक्ताचा अनुवंशिक आजार": [
+    "thalassemia_major"
+  ],
+  "sickle cell disease": [
+    "sickle_cell_anemia"
+  ],
+  "सिकल सेल एनीमिया": [
+    "sickle_cell_anemia"
+  ],
+  "सिकलसेल विदर्भातील अनुवंशिक रक्तदोष": [
+    "sickle_cell_anemia"
+  ],
+  "sickle cell anemia": [
+    "sickle_cell_anemia"
+  ],
+  "metabolic syndrome & obesity": [
+    "obesity_metabolic_syndrome"
+  ],
+  "मोटापा ओबेसिटी": [
+    "obesity_metabolic_syndrome"
+  ],
+  "लठ्ठपणा व चयापचय विकार": [
+    "obesity_metabolic_syndrome"
+  ],
+  "obesity metabolic syndrome": [
+    "obesity_metabolic_syndrome"
+  ],
+  "primary dysmenorrhea": [
+    "dysmenorrhea_menstrual_pain"
+  ],
+  "माहवारी का तेज दर्द कष्टार्तव": [
+    "dysmenorrhea_menstrual_pain"
+  ],
+  "मासिक पाळीतील तीव्र पोटदुखी": [
+    "dysmenorrhea_menstrual_pain"
+  ],
+  "dysmenorrhea menstrual pain": [
+    "dysmenorrhea_menstrual_pain"
+  ],
+  "menorrhagia heavy menstrual bleeding": [
+    "menorrhagia_heavy_periods"
+  ],
+  "माहवारी में ज्यादा खून बहना": [
+    "menorrhagia_heavy_periods"
+  ],
+  "पाळीत अतिरक्तस्त्राव": [
+    "menorrhagia_heavy_periods"
+  ],
+  "menorrhagia heavy periods": [
+    "menorrhagia_heavy_periods"
+  ],
+  "bacterial vaginosis": [
+    "bacterial_vaginosis"
+  ],
+  "योनि का जीवाणु संक्रमण": [
+    "bacterial_vaginosis"
+  ],
+  "योनिमार्गाचा संसर्ग": [
+    "bacterial_vaginosis"
+  ],
+  "vaginal candidiasis": [
+    "vaginal_candidiasis_yeast"
+  ],
+  "योनि का फंगल इन्फेक्शन": [
+    "vaginal_candidiasis_yeast"
+  ],
+  "योनिमार्गातील बुरशी संसर्ग यीस्ट": [
+    "vaginal_candidiasis_yeast"
+  ],
+  "vaginal candidiasis yeast": [
+    "vaginal_candidiasis_yeast"
+  ],
+  "pelvic inflammatory disease pid": [
+    "pelvic_inflammatory_disease_pid"
+  ],
+  "श्रोणि सूजन रोग pid": [
+    "pelvic_inflammatory_disease_pid"
+  ],
+  "ओटीपोटातील अंतर्गत जंतू संसर्ग pid": [
+    "pelvic_inflammatory_disease_pid"
+  ],
+  "endometriosis": [
+    "endometriosis_pelvic_pain"
+  ],
+  "एंडोमेट्रिओसिस": [
+    "endometriosis_pelvic_pain"
+  ],
+  "गर्भाशयाच्या आवरणाचा विकार एंडोमेट्रिओसिस": [
+    "endometriosis_pelvic_pain"
+  ],
+  "endometriosis pelvic pain": [
+    "endometriosis_pelvic_pain"
+  ],
+  "uterine fibroids": [
+    "uterine_fibroids_leiomyoma"
+  ],
+  "गर्भाशय में रसौली फाइब्रॉयड": [
+    "uterine_fibroids_leiomyoma"
+  ],
+  "गर्भाशयातील गाठी फायब्रॉइड्स": [
+    "uterine_fibroids_leiomyoma"
+  ],
+  "uterine fibroids leiomyoma": [
+    "uterine_fibroids_leiomyoma"
+  ],
+  "postpartum hemorrhage pph": [
+    "postpartum_hemorrhage_pph"
+  ],
+  "प्रसव के बाद भारी रक्तस्राव": [
+    "postpartum_hemorrhage_pph"
+  ],
+  "बाळंतपणानंतरचा अतिरक्तस्त्राव pph": [
+    "postpartum_hemorrhage_pph"
+  ],
+  "puerperal mastitis": [
+    "acute_mastitis_breast_infection"
+  ],
+  "स्तन की सूजन / इन्फेक्शन": [
+    "acute_mastitis_breast_infection"
+  ],
+  "स्तनाची सूज व संसर्ग स्तनदाह": [
+    "acute_mastitis_breast_infection"
+  ],
+  "acute mastitis breast infection": [
+    "acute_mastitis_breast_infection"
+  ],
+  "hyperemesis gravidarum": [
+    "hyperemesis_gravidarum"
+  ],
+  "गर्भावस्था में अत्यधिक उल्टी": [
+    "hyperemesis_gravidarum"
+  ],
+  "गरोदरपणात अतिउलट्या": [
+    "hyperemesis_gravidarum"
+  ],
+  "postpartum depression": [
+    "postpartum_depression"
+  ],
+  "प्रसवोत्तर अवसाद": [
+    "postpartum_depression"
+  ],
+  "बाळंतपणानंतरचा मानसिक ताण व नैराश्य": [
+    "postpartum_depression"
+  ],
+  "menopausal syndrome": [
+    "menopause_vasomotor_symptoms"
+  ],
+  "रजोनिवृत्ति मेनोपॉज": [
+    "menopause_vasomotor_symptoms"
+  ],
+  "मासिक पाळी बंद होणे मेनोपॉज": [
+    "menopause_vasomotor_symptoms"
+  ],
+  "menopause vasomotor symptoms": [
+    "menopause_vasomotor_symptoms"
+  ],
+  "neonatal jaundice": [
+    "neonatal_hyperbilirubinemia_jaundice"
+  ],
+  "नवजात शिशु में पीलिया": [
+    "neonatal_hyperbilirubinemia_jaundice"
+  ],
+  "नवजात बाळाची कावीळ": [
+    "neonatal_hyperbilirubinemia_jaundice"
+  ],
+  "neonatal hyperbilirubinemia jaundice": [
+    "neonatal_hyperbilirubinemia_jaundice"
+  ],
+  "infant colic": [
+    "infantile_colic"
+  ],
+  "शिशु के पेट में गैस का दर्द": [
+    "infantile_colic"
+  ],
+  "लहान बाळाचे पोटदुखीने रडणे इन्फंट कोलिक": [
+    "infantile_colic"
+  ],
+  "infantile colic": [
+    "infantile_colic"
+  ],
+  "hand foot and mouth disease hfmd": [
+    "hand_foot_mouth_disease"
+  ],
+  "हाथ पैर और मुंह की बीमारी": [
+    "hand_foot_mouth_disease"
+  ],
+  "हात-पाय-तोंडाचे फोड hfmd": [
+    "hand_foot_mouth_disease"
+  ],
+  "hand foot mouth disease": [
+    "hand_foot_mouth_disease"
+  ],
+  "pediatric acute diarrhea & dehydration": [
+    "pediatric_acute_diarrhea"
+  ],
+  "बच्चों में दस्त और निर्जलीकरण": [
+    "pediatric_acute_diarrhea"
+  ],
+  "लहान मुलांमधील जुलाब व डिहायड्रेशन": [
+    "pediatric_acute_diarrhea"
+  ],
+  "pediatric acute diarrhea": [
+    "pediatric_acute_diarrhea"
+  ],
+  "infant teething": [
+    "teething_symptoms_infant"
+  ],
+  "दांत निकलना": [
+    "teething_symptoms_infant"
+  ],
+  "बाळाचे दात येणे": [
+    "teething_symptoms_infant"
+  ],
+  "teething symptoms infant": [
+    "teething_symptoms_infant"
+  ],
+  "diaper rash": [
+    "diaper_dermatitis_rash"
+  ],
+  "डायपर रैश": [
+    "diaper_dermatitis_rash"
+  ],
+  "डायपरमुळे येणारे लाल पुरळ": [
+    "diaper_dermatitis_rash"
+  ],
+  "diaper dermatitis rash": [
+    "diaper_dermatitis_rash"
+  ],
+  "nutritional rickets": [
+    "pediatric_rickets_vitamin_d"
+  ],
+  "रिकेट्स सूखा रोग": [
+    "pediatric_rickets_vitamin_d"
+  ],
+  "मुडदूस रिकेट्स - हाडांचा विकार": [
+    "pediatric_rickets_vitamin_d"
+  ],
+  "pediatric rickets vitamin d": [
+    "pediatric_rickets_vitamin_d"
+  ],
+  "severe acute malnutrition sam": [
+    "severe_acute_malnutrition_sam"
+  ],
+  "गंभीर कुपोषण सैम": [
+    "severe_acute_malnutrition_sam"
+  ],
+  "तीव्र कुपोषण सॅम": [
+    "severe_acute_malnutrition_sam"
+  ],
+  "nocturnal enuresis bedwetting": [
+    "nocturnal_enuresis_bedwetting"
+  ],
+  "बिस्तर गीला करना": [
+    "nocturnal_enuresis_bedwetting"
+  ],
+  "झोपेत बिछाना ओला करणे रात्री लघवी": [
+    "nocturnal_enuresis_bedwetting"
+  ],
+  "pediatric atopic dermatitis": [
+    "pediatric_atopic_eczema"
+  ],
+  "बच्चों का एक्जिमा": [
+    "pediatric_atopic_eczema"
+  ],
+  "लहान मुलांचे एक्झिमा खरुज": [
+    "pediatric_atopic_eczema"
+  ],
+  "pediatric atopic eczema": [
+    "pediatric_atopic_eczema"
+  ],
+  "acne vulgaris": [
+    "acne_vulgaris"
+  ],
+  "acne vulgaris pimples": [
+    "acne_vulgaris"
+  ],
+  "मुंहासे पिंपल्स / कील-मुहासे": [
+    "acne_vulgaris"
+  ],
+  "तारुण्यपिटिका पिंपल्स / मुरुमे": [
+    "acne_vulgaris"
+  ],
+  "pimples": [
+    "acne_vulgaris"
+  ],
+  "zits": [
+    "acne_vulgaris"
+  ],
+  "acne": [
+    "acne_vulgaris"
+  ],
+  "blackheads": [
+    "acne_vulgaris"
+  ],
+  "whiteheads": [
+    "acne_vulgaris"
+  ],
+  "मुहासे": [
+    "acne_vulgaris"
+  ],
+  "पिंपल्स": [
+    "acne_vulgaris"
+  ],
+  "कील मुहासे": [
+    "acne_vulgaris"
+  ],
+  "चेहरे पर दाने": [
+    "acne_vulgaris"
+  ],
+  "मुरुमे": [
+    "acne_vulgaris"
+  ],
+  "तारुण्यपिटिका": [
+    "acne_vulgaris"
+  ],
+  "चेहऱ्यावर फोड": [
+    "acne_vulgaris"
+  ],
+  "muhase": [
+    "acne_vulgaris"
+  ],
+  "chehre ke daane": [
+    "acne_vulgaris"
+  ],
+  "murum": [
+    "acne_vulgaris"
+  ],
+  "chehryavar fod": [
+    "acne_vulgaris"
+  ],
+  "osteoarthritis of knee": [
+    "osteoarthritis_knee"
+  ],
+  "घुटने का गठिया ऑस्टियोआर्थराइटिस": [
+    "osteoarthritis_knee"
+  ],
+  "गुडघेदुखी / सांध्याची झीज ऑस्टिओआर्थरायटिस": [
+    "osteoarthritis_knee"
+  ],
+  "knee arthritis": [
+    "osteoarthritis_knee"
+  ],
+  "degenerative joint disease": [
+    "osteoarthritis_knee"
+  ],
+  "knee pain in elderly": [
+    "osteoarthritis_knee"
+  ],
+  "घुटनों का दर्द": [
+    "osteoarthritis_knee"
+  ],
+  "गठिया": [
+    "osteoarthritis_knee"
+  ],
+  "घुटनों का घिसना": [
+    "osteoarthritis_knee"
+  ],
+  "जोड़ों का दर्द": [
+    "osteoarthritis_knee"
+  ],
+  "गुडघेदुखी": [
+    "osteoarthritis_knee"
+  ],
+  "सांधेदुखी": [
+    "osteoarthritis_knee"
+  ],
+  "गुडघ्यांची झीज": [
+    "osteoarthritis_knee"
+  ],
+  "गुडघ्यात कटकट": [
+    "osteoarthritis_knee"
+  ],
+  "ghutno me dard": [
+    "osteoarthritis_knee"
+  ],
+  "gathiya": [
+    "osteoarthritis_knee"
+  ],
+  "ghutna ghisna": [
+    "osteoarthritis_knee"
+  ],
+  "gudghe dukhi": [
+    "osteoarthritis_knee"
+  ],
+  "gudghyat katkat": [
+    "osteoarthritis_knee"
+  ],
+  "knee pain": [
+    "osteoarthritis_knee"
+  ],
+  "bacterial conjunctivitis pink eye": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "conjunctivitis eye flu / pink eye": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "कंजक्टिवाइटिस आंख आना / आई फ्लू": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "डोळे येणे कंजक्टिव्हायटिस / डोळ्यांचा संसर्ग": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "pink eye": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "eye flu": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "red eye": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "conjunctivitis": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "आंख आना": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "आई फ्लू": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "आंख लाल होना": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "आंखों में कीचड़": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "डोळे येणे": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "डोळा लाल होणे": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "डोळ्यातून घाण येणे": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "डोळे चिकटणे": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "aankh aana": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "aankh laal hona": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "dole aale": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "dola lal zala": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "dolyat kachra": [
+    "bacterial_conjunctivitis_eye"
+  ],
+  "eczema atopic dermatitis": [
+    "atopic_dermatitis_eczema"
+  ],
+  "एक्जिमा खाज-खुजली": [
+    "atopic_dermatitis_eczema"
+  ],
+  "एक्झिमा / खाज त्वचा विकार": [
+    "atopic_dermatitis_eczema"
+  ],
+  "atopic dermatitis eczema": [
+    "atopic_dermatitis_eczema"
+  ],
+  "psoriasis": [
+    "psoriasis_vulgaris"
+  ],
+  "सोरायसिस अपरा": [
+    "psoriasis_vulgaris"
+  ],
+  "सोरायसिस चांदीसारख्या खपल्यांची खाज": [
+    "psoriasis_vulgaris"
+  ],
+  "psoriasis vulgaris": [
+    "psoriasis_vulgaris"
+  ],
+  "urticaria hives": [
+    "urticaria_hives_allergy"
+  ],
+  "पित्ती उछलना शीतपित्त": [
+    "urticaria_hives_allergy"
+  ],
+  "अंगावर पित्त उठणे अर्टिकारिया / गांधी उठणे": [
+    "urticaria_hives_allergy"
+  ],
+  "urticaria hives allergy": [
+    "urticaria_hives_allergy"
+  ],
+  "tinea cruris jock itch": [
+    "tinea_cruris_jock_itch"
+  ],
+  "जांघों की दाद": [
+    "tinea_cruris_jock_itch"
+  ],
+  "जांघेतील बुरशी संसर्ग खाज": [
+    "tinea_cruris_jock_itch"
+  ],
+  "athlete's foot tinea pedis": [
+    "tinea_pedis_athletes_foot"
+  ],
+  "पैरों का फंगल इन्फेक्शन": [
+    "tinea_pedis_athletes_foot"
+  ],
+  "पायांच्या बोटांमधील चिखल्या": [
+    "tinea_pedis_athletes_foot"
+  ],
+  "tinea pedis athletes foot": [
+    "tinea_pedis_athletes_foot"
+  ],
+  "vitiligo leukoderma": [
+    "vitiligo_leukoderma"
+  ],
+  "सफेद दाग ल्यूकोडर्मा": [
+    "vitiligo_leukoderma"
+  ],
+  "पांढरे कोड श्वेतकुष्ठ": [
+    "vitiligo_leukoderma"
+  ],
+  "melasma facial pigmentation": [
+    "melasma_chloasma"
+  ],
+  "झाइयां चेहरे के काले दाग": [
+    "melasma_chloasma"
+  ],
+  "वांग / चेहऱ्यावरील काळे डाग मेलास्मा": [
+    "melasma_chloasma"
+  ],
+  "melasma chloasma": [
+    "melasma_chloasma"
+  ],
+  "alopecia areata": [
+    "alopecia_areata_hair_loss"
+  ],
+  "बाल झड़ना गंजापन": [
+    "alopecia_areata_hair_loss"
+  ],
+  "चाई पडणे केसांचे गोल चट्टे उडणे": [
+    "alopecia_areata_hair_loss"
+  ],
+  "alopecia areata hair loss": [
+    "alopecia_areata_hair_loss"
+  ],
+  "seborrheic dermatitis severe dandruff": [
+    "seborrheic_dermatitis_dandruff"
+  ],
+  "रूसी / डैंड्रफ": [
+    "seborrheic_dermatitis_dandruff"
+  ],
+  "डोक्यातील तीव्र कोंडा व खाज": [
+    "seborrheic_dermatitis_dandruff"
+  ],
+  "seborrheic dermatitis dandruff": [
+    "seborrheic_dermatitis_dandruff"
+  ],
+  "prickly heat miliaria": [
+    "prickly_heat_miliaria"
+  ],
+  "घमौरियां": [
+    "prickly_heat_miliaria"
+  ],
+  "घामोळ्या": [
+    "prickly_heat_miliaria"
+  ],
+  "first-degree minor burn": [
+    "burn_first_degree_minor"
+  ],
+  "हल्का जलना": [
+    "burn_first_degree_minor"
+  ],
+  "किरकोळ भाजणे": [
+    "burn_first_degree_minor"
+  ],
+  "burn first degree minor": [
+    "burn_first_degree_minor"
+  ],
+  "second-degree burn with blisters": [
+    "burn_second_degree_blister"
+  ],
+  "जलने के फफोले": [
+    "burn_second_degree_blister"
+  ],
+  "भाजून फोड येणे": [
+    "burn_second_degree_blister"
+  ],
+  "burn second degree blister": [
+    "burn_second_degree_blister"
+  ],
+  "insect bite / bee sting": [
+    "insect_bite_sting"
+  ],
+  "कीड़े या मधुमक्खी का काटना": [
+    "insect_bite_sting"
+  ],
+  "कीटक किंवा मधमाशी चावणे": [
+    "insect_bite_sting"
+  ],
+  "insect bite sting": [
+    "insect_bite_sting"
+  ],
+  "lumbar spondylosis lower back pain": [
+    "lumbar_spondylosis_backpain"
+  ],
+  "कमर दर्द स्पांडिलाइटिस": [
+    "lumbar_spondylosis_backpain"
+  ],
+  "कंबरदुखी मणक्याची झीज": [
+    "lumbar_spondylosis_backpain"
+  ],
+  "lumbar spondylosis backpain": [
+    "lumbar_spondylosis_backpain"
+  ],
+  "cervical spondylosis": [
+    "cervical_spondylosis_neck"
+  ],
+  "गर्दन का दर्द सर्वाइकल": [
+    "cervical_spondylosis_neck"
+  ],
+  "मानदुखी सर्व्हायकल स्पॉन्डिलायटिस": [
+    "cervical_spondylosis_neck"
+  ],
+  "cervical spondylosis neck": [
+    "cervical_spondylosis_neck"
+  ],
+  "herniated lumbar disc slipped disc": [
+    "herniated_disc_slipped_disc"
+  ],
+  "स्लिप डिस्क नस दबना": [
+    "herniated_disc_slipped_disc"
+  ],
+  "मणक्याची गादी सरकणे स्लिप डिस्क": [
+    "herniated_disc_slipped_disc"
+  ],
+  "herniated disc slipped disc": [
+    "herniated_disc_slipped_disc"
+  ],
+  "frozen shoulder adhesive capsulitis": [
+    "frozen_shoulder_capsulitis"
+  ],
+  "कंधा जाम होना फ्रोजन शोल्डर": [
+    "frozen_shoulder_capsulitis"
+  ],
+  "खांदा आखडणे फ्रोजन शोल्डर": [
+    "frozen_shoulder_capsulitis"
+  ],
+  "frozen shoulder capsulitis": [
+    "frozen_shoulder_capsulitis"
+  ],
+  "rotator cuff tendinitis": [
+    "rotator_cuff_tendinitis"
+  ],
+  "कंधे के लिगामेंट का दर्द": [
+    "rotator_cuff_tendinitis"
+  ],
+  "खांद्याच्या स्नायूंची सूज": [
+    "rotator_cuff_tendinitis"
+  ],
+  "plantar fasciitis heel pain": [
+    "plantar_fasciitis_heel_pain"
+  ],
+  "एड़ी का दर्द": [
+    "plantar_fasciitis_heel_pain"
+  ],
+  "टाचदुखी सकाळी उठल्यावर टाचेत वेदना": [
+    "plantar_fasciitis_heel_pain"
+  ],
+  "ankle sprain ligament tear": [
+    "ankle_sprain_ligament"
+  ],
+  "पैर में मोच आना": [
+    "ankle_sprain_ligament"
+  ],
+  "पायाचा घोटा मुरगळणे मोच": [
+    "ankle_sprain_ligament"
+  ],
+  "ankle sprain ligament": [
+    "ankle_sprain_ligament"
+  ],
+  "bone fracture closed": [
+    "closed_bone_fracture"
+  ],
+  "हड्डी टूटना फ्रैक्चर": [
+    "closed_bone_fracture"
+  ],
+  "हाड मोडणे फ्रॅक्चर": [
+    "closed_bone_fracture"
+  ],
+  "closed bone fracture": [
+    "closed_bone_fracture"
+  ],
+  "fibromyalgia": [
+    "fibromyalgia_chronic_pain"
+  ],
+  "पूरे शरीर में दर्द फाइब्रोमायल्जिया": [
+    "fibromyalgia_chronic_pain"
+  ],
+  "संपूर्ण शरीरात जुनाट स्नायूदुखी": [
+    "fibromyalgia_chronic_pain"
+  ],
+  "fibromyalgia chronic pain": [
+    "fibromyalgia_chronic_pain"
+  ],
+  "rheumatoid arthritis": [
+    "rheumatoid_arthritis_autoimmune"
+  ],
+  "रूमेटाइड गठिया आमवात": [
+    "rheumatoid_arthritis_autoimmune"
+  ],
+  "आमवात संधिवात / बोटांचे सांधे सुजणे": [
+    "rheumatoid_arthritis_autoimmune"
+  ],
+  "rheumatoid arthritis autoimmune": [
+    "rheumatoid_arthritis_autoimmune"
+  ],
+  "ankylosing spondylitis": [
+    "ankylosing_spondylitis"
+  ],
+  "रीढ़ की हड्डी का गठिया": [
+    "ankylosing_spondylitis"
+  ],
+  "मणक्याचा संधिवात": [
+    "ankylosing_spondylitis"
+  ],
+  "कलाई की नस का दर्द": [
+    "carpal_tunnel_syndrome_wrist"
+  ],
+  "मनगटाची नस दबणे": [
+    "carpal_tunnel_syndrome_wrist"
+  ],
+  "carpal tunnel syndrome wrist": [
+    "carpal_tunnel_syndrome_wrist"
+  ],
+  "tennis elbow lateral epicondylitis": [
+    "tennis_elbow_epicondylitis"
+  ],
+  "टेनिस एल्बो कोहनी का दर्द": [
+    "tennis_elbow_epicondylitis"
+  ],
+  "कोपराचे दुखणे टेनिस एल्बो": [
+    "tennis_elbow_epicondylitis"
+  ],
+  "tennis elbow epicondylitis": [
+    "tennis_elbow_epicondylitis"
+  ],
+  "cataract motiyabind": [
+    "senile_cataract_eye"
+  ],
+  "मोतियाबिंद": [
+    "senile_cataract_eye"
+  ],
+  "मोतीबिंदू": [
+    "senile_cataract_eye"
+  ],
+  "senile cataract eye": [
+    "senile_cataract_eye"
+  ],
+  "acute angle-closure glaucoma": [
+    "acute_angle_closure_glaucoma"
+  ],
+  "काला मोतिया ग्लूकोमा": [
+    "acute_angle_closure_glaucoma"
+  ],
+  "काचबिंदू अचानक डोळा दुखणे": [
+    "acute_angle_closure_glaucoma"
+  ],
+  "acute angle closure glaucoma": [
+    "acute_angle_closure_glaucoma"
+  ],
+  "dry eye syndrome": [
+    "dry_eye_syndrome"
+  ],
+  "आंखों का सूखापन": [
+    "dry_eye_syndrome"
+  ],
+  "डोळ्यांचा कोरडेपणा स्क्रीनमुळे डोळे चुरचुरणे": [
+    "dry_eye_syndrome"
+  ],
+  "stye hordeolum": [
+    "stye_hordeolum_eyelid"
+  ],
+  "गुहेरी आंख की फुंसी": [
+    "stye_hordeolum_eyelid"
+  ],
+  "रांजणवाडी डोळ्याच्या पापणीवर बारीक फोड": [
+    "stye_hordeolum_eyelid"
+  ],
+  "stye hordeolum eyelid": [
+    "stye_hordeolum_eyelid"
+  ],
+  "chalazion eyelid cyst": [
+    "chalazion_eyelid_cyst"
+  ],
+  "पलक की गांठ": [
+    "chalazion_eyelid_cyst"
+  ],
+  "पापणीवरील बिनवेदनेची गाठ": [
+    "chalazion_eyelid_cyst"
+  ],
+  "epistaxis nosebleed": [
+    "epistaxis_nosebleed"
+  ],
+  "नाक से खून आना नकसीर": [
+    "epistaxis_nosebleed"
+  ],
+  "नाकातून रक्त येणे घोळणा फुटणे": [
+    "epistaxis_nosebleed"
+  ],
+  "deviated nasal septum dns": [
+    "deviated_nasal_septum_dns"
+  ],
+  "नाक की हड्डी टेढ़ी होना": [
+    "deviated_nasal_septum_dns"
+  ],
+  "नाकाचे हाड वाकडे असणे dns": [
+    "deviated_nasal_septum_dns"
+  ],
+  "tinnitus ringing in ears": [
+    "tinnitus_ringing_ears"
+  ],
+  "कान में सीटी की आवाज आना": [
+    "tinnitus_ringing_ears"
+  ],
+  "कानात शिट्टी किंवा घंटा वाजल्यासारखा आवाज": [
+    "tinnitus_ringing_ears"
+  ],
+  "tinnitus ringing ears": [
+    "tinnitus_ringing_ears"
+  ],
+  "impacted ear wax": [
+    "impacted_ear_wax"
+  ],
+  "कान में मैल जमना": [
+    "impacted_ear_wax"
+  ],
+  "कानात मळ साचणे कान बंद होणे": [
+    "impacted_ear_wax"
+  ],
+  "foreign body in ear": [
+    "foreign_body_in_ear"
+  ],
+  "कान में कीड़ा या वस्तु जाना": [
+    "foreign_body_in_ear"
+  ],
+  "कानात कीटक किंवा खडा जाणे": [
+    "foreign_body_in_ear"
+  ],
+  "foreign body in eye": [
+    "foreign_body_in_eye"
+  ],
+  "आंख में कचरा जाना": [
+    "foreign_body_in_eye"
+  ],
+  "डोळ्यात कचरा किंवा लोखंडी कण जाणे": [
+    "foreign_body_in_eye"
+  ],
+  "labyrinthitis inner ear infection": [
+    "vertigo_labyrinthitis"
+  ],
+  "भीतरी कान का संक्रमण": [
+    "vertigo_labyrinthitis"
+  ],
+  "आतील कानाचा संसर्ग व तीव्र भोवळ": [
+    "vertigo_labyrinthitis"
+  ],
+  "vertigo labyrinthitis": [
+    "vertigo_labyrinthitis"
+  ],
+  "generalized anxiety disorder": [
+    "generalized_anxiety_disorder"
+  ],
+  "चिंता विकार एंग्जायटी / घबराहट": [
+    "generalized_anxiety_disorder"
+  ],
+  "चिंता विकार ॲन्झायटी / अस्वस्थता": [
+    "generalized_anxiety_disorder"
+  ],
+  "anxiety": [
+    "generalized_anxiety_disorder"
+  ],
+  "nervousness": [
+    "generalized_anxiety_disorder"
+  ],
+  "panic": [
+    "generalized_anxiety_disorder"
+  ],
+  "excessive worrying": [
+    "generalized_anxiety_disorder"
+  ],
+  "चिंता": [
+    "generalized_anxiety_disorder"
+  ],
+  "बेचैनी": [
+    "generalized_anxiety_disorder"
+  ],
+  "दिल की धड़कन तेज होना": [
+    "generalized_anxiety_disorder"
+  ],
+  "घाबरल्यासारखे वाटणे": [
+    "generalized_anxiety_disorder"
+  ],
+  "छातीत धडधडणे": [
+    "generalized_anxiety_disorder"
+  ],
+  "अस्वस्थता": [
+    "generalized_anxiety_disorder"
+  ],
+  "ghabrahat": [
+    "generalized_anxiety_disorder"
+  ],
+  "bechaini": [
+    "generalized_anxiety_disorder"
+  ],
+  "dar lagna": [
+    "generalized_anxiety_disorder"
+  ],
+  "ghabrayla hotay": [
+    "generalized_anxiety_disorder"
+  ],
+  "chhatit dhad dhad": [
+    "generalized_anxiety_disorder"
+  ],
+  "tension": [
+    "generalized_anxiety_disorder"
+  ],
+  "severe mental health crisis suicidal ideation": [
+    "suicidal_crisis_emergency"
+  ],
+  "mental health crisis / suicide risk": [
+    "suicidal_crisis_emergency"
+  ],
+  "मानसिक स्वास्थ्य आपातकाल आत्महत्या जोखिम": [
+    "suicidal_crisis_emergency"
+  ],
+  "मानसिक आरोग्य आणीबाणी आत्महत्या विचार / टोकाचे पाऊल": [
+    "suicidal_crisis_emergency"
+  ],
+  "suicide thoughts": [
+    "suicidal_crisis_emergency"
+  ],
+  "self harm": [
+    "suicidal_crisis_emergency"
+  ],
+  "mental crisis": [
+    "suicidal_crisis_emergency"
+  ],
+  "tele manas": [
+    "suicidal_crisis_emergency"
+  ],
+  "आत्महत्या का विचार": [
+    "suicidal_crisis_emergency"
+  ],
+  "खुद को नुकसान": [
+    "suicidal_crisis_emergency"
+  ],
+  "टेली मानस": [
+    "suicidal_crisis_emergency"
+  ],
+  "आत्महत्येचे विचार": [
+    "suicidal_crisis_emergency"
+  ],
+  "टोकाचे पाऊल": [
+    "suicidal_crisis_emergency"
+  ],
+  "मानसिक संकट": [
+    "suicidal_crisis_emergency"
+  ],
+  "marne ka man karna": [
+    "suicidal_crisis_emergency"
+  ],
+  "suicide": [
+    "suicidal_crisis_emergency"
+  ],
+  "tele manas 14416": [
+    "suicidal_crisis_emergency"
+  ],
+  "maraycha vichar": [
+    "suicidal_crisis_emergency"
+  ],
+  "jagne nako vatne": [
+    "suicidal_crisis_emergency"
+  ],
+  "suicide helpline": [
+    "suicidal_crisis_emergency"
+  ],
+  "tele-manas": [
+    "suicidal_crisis_emergency"
+  ],
+  "kiran": [
+    "suicidal_crisis_emergency"
+  ],
+  "dental caries & pulpitis toothache": [
+    "dental_caries_pulpitis"
+  ],
+  "दांत दर्द / कीड़ा लगना कैविटी": [
+    "dental_caries_pulpitis"
+  ],
+  "दातदुखी / दात किडणे कॅव्हिटी": [
+    "dental_caries_pulpitis"
+  ],
+  "toothache": [
+    "dental_caries_pulpitis"
+  ],
+  "cavity": [
+    "dental_caries_pulpitis"
+  ],
+  "dental caries": [
+    "dental_caries_pulpitis"
+  ],
+  "pulpitis": [
+    "dental_caries_pulpitis"
+  ],
+  "दांत में कीड़ा": [
+    "dental_caries_pulpitis"
+  ],
+  "दांत दर्द": [
+    "dental_caries_pulpitis"
+  ],
+  "दांत में गड्ढा": [
+    "dental_caries_pulpitis"
+  ],
+  "दांत में सड़न": [
+    "dental_caries_pulpitis"
+  ],
+  "दात किडणे": [
+    "dental_caries_pulpitis"
+  ],
+  "दात दुखणे": [
+    "dental_caries_pulpitis"
+  ],
+  "दाढेत ठसठस": [
+    "dental_caries_pulpitis"
+  ],
+  "कॅव्हिटी": [
+    "dental_caries_pulpitis"
+  ],
+  "daant dard": [
+    "dental_caries_pulpitis"
+  ],
+  "daant me keeda": [
+    "dental_caries_pulpitis"
+  ],
+  "thanda garam lagna": [
+    "dental_caries_pulpitis"
+  ],
+  "dat dukhtay": [
+    "dental_caries_pulpitis"
+  ],
+  "dadhet kal": [
+    "dental_caries_pulpitis"
+  ],
+  "thanda lagtay": [
+    "dental_caries_pulpitis"
+  ],
+  "dat dukhi": [
+    "dental_caries_pulpitis"
+  ],
+  "kidney stones renal calculi": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "गुर्दे की पथरी किडनी स्टोन": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "मुतखडा किडनी स्टोन / मूत्रखडा": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "kidney stone": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "renal calculi": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "ureteric colic": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "nephrolithiasis": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "गुर्दे की पथरी": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "किडनी स्टोन": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "पथरी का दर्द": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "मुतखडा": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "मूतखडा": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "कमरेत कळ": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "pathri": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "kamar me tez dard": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "mutkhada": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "kamret kal": [
+    "nephrolithiasis_kidney_stones"
+  ],
+  "viral hepatitis & jaundice piliya": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "viral hepatitis & jaundice": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "पीलिया हेपेटाइटिस / जॉन्डिस": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "कावीळ हेपॅटायटिस / जॉन्डिस": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "jaundice": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "hepatitis a": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "hepatitis b": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "liver infection": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "पीलिया": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "हेपेटाइटिस": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "जॉन्डिस": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "आंखें पीली होना": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "कावीळ": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "डोळे पिवळे होणे": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "पिवळी लघवी": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "piliya": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "hepatitis": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "aankh peeli": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "kavil": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "dole pivle": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "laghvi pivli": [
+    "acute_viral_hepatitis_jaundice"
+  ],
+  "panic attack": [
+    "panic_disorder_acute"
+  ],
+  "पैनिक अटैक": [
+    "panic_disorder_acute"
+  ],
+  "पॅनिक अटॅक अचानक भीतीचा झटका": [
+    "panic_disorder_acute"
+  ],
+  "panic disorder acute": [
+    "panic_disorder_acute"
+  ],
+  "major depression": [
+    "major_depressive_disorder"
+  ],
+  "गंभीर अवसाद डिप्रेशन": [
+    "major_depressive_disorder"
+  ],
+  "तीव्र नैराश्य डिप्रेशन": [
+    "major_depressive_disorder"
+  ],
+  "major depressive disorder": [
+    "major_depressive_disorder"
+  ],
+  "chronic insomnia": [
+    "chronic_insomnia_sleep"
+  ],
+  "अनिद्रा नींद न आना": [
+    "chronic_insomnia_sleep"
+  ],
+  "निद्रानाश झोप न येणे": [
+    "chronic_insomnia_sleep"
+  ],
+  "chronic insomnia sleep": [
+    "chronic_insomnia_sleep"
+  ],
+  "ptsd": [
+    "post_traumatic_stress_ptsd"
+  ],
+  "पोस्ट ट्रॉमेटिक स्ट्रेस": [
+    "post_traumatic_stress_ptsd"
+  ],
+  "आघातानंतरचा मानसिक ताण ptsd": [
+    "post_traumatic_stress_ptsd"
+  ],
+  "post traumatic stress ptsd": [
+    "post_traumatic_stress_ptsd"
+  ],
+  "bipolar disorder": [
+    "bipolar_mood_disorder"
+  ],
+  "बाइपोलर डिसऑर्डर": [
+    "bipolar_mood_disorder"
+  ],
+  "द्विध्रुवीय मनःस्थिती विकार": [
+    "bipolar_mood_disorder"
+  ],
+  "bipolar mood disorder": [
+    "bipolar_mood_disorder"
+  ],
+  "ocd": [
+    "obsessive_compulsive_disorder"
+  ],
+  "ओसीडी वहमी बीमारी": [
+    "obsessive_compulsive_disorder"
+  ],
+  "सतत हात धुणे किंवा संशय विकार ocd": [
+    "obsessive_compulsive_disorder"
+  ],
+  "obsessive compulsive disorder": [
+    "obsessive_compulsive_disorder"
+  ],
+  "gingivitis gum inflammation": [
+    "gingivitis_gum_inflammation"
+  ],
+  "मसूड़ों की सूजन": [
+    "gingivitis_gum_inflammation"
+  ],
+  "हिरड्यांची सूज व रक्त येणे": [
+    "gingivitis_gum_inflammation"
+  ],
+  "periodontitis pyorrhea": [
+    "periodontitis_pyorrhea"
+  ],
+  "पायरिया दांतों से मवाद": [
+    "periodontitis_pyorrhea"
+  ],
+  "पायरिया हिरड्यांमधून पू येणे": [
+    "periodontitis_pyorrhea"
+  ],
+  "aphthous ulcers mouth sores": [
+    "aphthous_ulcer_mouth"
+  ],
+  "मुंह के छाले": [
+    "aphthous_ulcer_mouth"
+  ],
+  "तोंडातील फोड / चट्टे तोंड येणे": [
+    "aphthous_ulcer_mouth"
+  ],
+  "aphthous ulcer mouth": [
+    "aphthous_ulcer_mouth"
+  ],
+  "oral submucous fibrosis osf": [
+    "oral_submucous_fibrosis_osf"
+  ],
+  "मुंह कम खुलना ओबीएमएफ": [
+    "oral_submucous_fibrosis_osf"
+  ],
+  "तोंड कमी उघडणे सुपारी-गुटखा विकार": [
+    "oral_submucous_fibrosis_osf"
+  ],
+  "oral leukoplakia": [
+    "leukoplakia_oral_patch"
+  ],
+  "मुंह में सफेद पैच": [
+    "leukoplakia_oral_patch"
+  ],
+  "तोंडातील न निघणारा पांढरा डाग": [
+    "leukoplakia_oral_patch"
+  ],
+  "leukoplakia oral patch": [
+    "leukoplakia_oral_patch"
+  ],
+  "dental abscess": [
+    "dental_abscess_facial_swelling"
+  ],
+  "दांत का मवाद / फोड़ा": [
+    "dental_abscess_facial_swelling"
+  ],
+  "दातातील पू व गालाला सूज": [
+    "dental_abscess_facial_swelling"
+  ],
+  "dental abscess facial swelling": [
+    "dental_abscess_facial_swelling"
+  ],
+  "acute pyelonephritis": [
+    "acute_pyelonephritis_kidney"
+  ],
+  "गुर्दे का संक्रमण": [
+    "acute_pyelonephritis_kidney"
+  ],
+  "मूत्रपिंडाचा तीव्र जंतू संसर्ग": [
+    "acute_pyelonephritis_kidney"
+  ],
+  "acute pyelonephritis kidney": [
+    "acute_pyelonephritis_kidney"
+  ],
+  "benign prostatic hyperplasia bph": [
+    "benign_prostatic_hyperplasia_bph"
+  ],
+  "गदूद बढ़ना प्रोस्टेट": [
+    "benign_prostatic_hyperplasia_bph"
+  ],
+  "प्रोस्टेट ग्रंथीची वाढ bph": [
+    "benign_prostatic_hyperplasia_bph"
+  ],
+  "chronic kidney disease ckd": [
+    "chronic_kidney_disease_ckd"
+  ],
+  "क्रोनिक किडनी डिजीज किडनी खराबी": [
+    "chronic_kidney_disease_ckd"
+  ],
+  "जुनाट मूत्रपिंड विकार किडनी फेल्युअर": [
+    "chronic_kidney_disease_ckd"
+  ],
+  "urinary incontinence": [
+    "urinary_incontinence_elderly"
+  ],
+  "पेशाब न रोक पाना": [
+    "urinary_incontinence_elderly"
+  ],
+  "लघवीवर नियंत्रण न राहणे": [
+    "urinary_incontinence_elderly"
+  ],
+  "urinary incontinence elderly": [
+    "urinary_incontinence_elderly"
+  ],
+  "gross hematuria blood in urine": [
+    "painless_gross_hematuria"
+  ],
+  "पेशाब में खून आना": [
+    "painless_gross_hematuria"
+  ],
+  "लघवीतून थेट लाल रक्त येणे": [
+    "painless_gross_hematuria"
+  ],
+  "painless gross hematuria": [
+    "painless_gross_hematuria"
+  ],
+  "acute kidney injury": [
+    "acute_kidney_injury_aki"
+  ],
+  "अचानक किडनी काम न करना": [
+    "acute_kidney_injury_aki"
+  ],
+  "मूत्रपिंड अचानक बंद पडणे aki": [
+    "acute_kidney_injury_aki"
+  ],
+  "acute kidney injury aki": [
+    "acute_kidney_injury_aki"
+  ],
+  "fatty liver disease nafld": [
+    "non_alcoholic_fatty_liver_nafld"
+  ],
+  "फैटी लिवर": [
+    "non_alcoholic_fatty_liver_nafld"
+  ],
+  "यकृतावर चरबी साचणे फॅटी लिव्हर": [
+    "non_alcoholic_fatty_liver_nafld"
+  ],
+  "non alcoholic fatty liver nafld": [
+    "non_alcoholic_fatty_liver_nafld"
+  ],
+  "alcoholic liver disease": [
+    "alcoholic_liver_disease"
+  ],
+  "शराब से लिवर खराबी": [
+    "alcoholic_liver_disease"
+  ],
+  "अल्कोहोलमुळे यकृताचे नुकसान": [
+    "alcoholic_liver_disease"
+  ],
+  "liver cirrhosis": [
+    "liver_cirrhosis_portal_htn"
+  ],
+  "लिवर सिरोसिस": [
+    "liver_cirrhosis_portal_htn"
+  ],
+  "यकृत निकामी होणे लिव्हर सिरॉसिस": [
+    "liver_cirrhosis_portal_htn"
+  ],
+  "liver cirrhosis portal htn": [
+    "liver_cirrhosis_portal_htn"
+  ],
+  "hepatic encephalopathy": [
+    "hepatic_encephalopathy"
+  ],
+  "लिवर के कारण बेहोशी": [
+    "hepatic_encephalopathy"
+  ],
+  "यकृताच्या विकारामुळे मेंदूवर परिणाम": [
+    "hepatic_encephalopathy"
+  ],
+  "chronic hepatitis b": [
+    "hepatitis_b_chronic"
+  ],
+  "हेपेटाइटिस बी": [
+    "hepatitis_b_chronic"
+  ],
+  "हेपॅटायटिस-बी संसर्ग": [
+    "hepatitis_b_chronic"
+  ],
+  "hepatitis b chronic": [
+    "hepatitis_b_chronic"
+  ],
+  "hepatitis c": [
+    "hepatitis_c_infection"
+  ],
+  "हेपेटाइटिस सी": [
+    "hepatitis_c_infection"
+  ],
+  "हेपॅटायटिस-सी संसर्ग": [
+    "hepatitis_c_infection"
+  ],
+  "hepatitis c infection": [
+    "hepatitis_c_infection"
+  ],
+  "breast cancer carcinoma of breast": [
+    "breast_cancer_carcinoma"
+  ],
+  "breast cancer": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तन कैंसर ब्रेस्ट कैंसर": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तनाचा कर्करोग ब्रेस्ट कॅन्सर": [
+    "breast_cancer_carcinoma"
+  ],
+  "breast lump": [
+    "breast_cancer_carcinoma"
+  ],
+  "mammary carcinoma": [
+    "breast_cancer_carcinoma"
+  ],
+  "breast tumor": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तन कैंसर": [
+    "breast_cancer_carcinoma"
+  ],
+  "ब्रेस्ट कैंसर": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तन में गांठ": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तनाचा कॅन्सर": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तनाचा कर्करोग": [
+    "breast_cancer_carcinoma"
+  ],
+  "स्तनात गाठ": [
+    "breast_cancer_carcinoma"
+  ],
+  "ब्रेस्ट कॅन्सर": [
+    "breast_cancer_carcinoma"
+  ],
+  "stan me gath": [
+    "breast_cancer_carcinoma"
+  ],
+  "chhati me gath": [
+    "breast_cancer_carcinoma"
+  ],
+  "stanat gath": [
+    "breast_cancer_carcinoma"
+  ],
+  "karkrog": [
+    "breast_cancer_carcinoma"
+  ],
+  "oral cavity cancer mouth cancer": [
+    "oral_cavity_cancer"
+  ],
+  "मुख का कैंसर मुंह का कैंसर": [
+    "oral_cavity_cancer"
+  ],
+  "तोंडाचा कर्करोग तोंडाचा कॅन्सर": [
+    "oral_cavity_cancer"
+  ],
+  "mouth cancer": [
+    "oral_cavity_cancer"
+  ],
+  "oral cancer": [
+    "oral_cavity_cancer"
+  ],
+  "tongue cancer": [
+    "oral_cavity_cancer"
+  ],
+  "buccal mucosa carcinoma": [
+    "oral_cavity_cancer"
+  ],
+  "मुंह का कैंसर": [
+    "oral_cavity_cancer"
+  ],
+  "जबड़े का कैंसर": [
+    "oral_cavity_cancer"
+  ],
+  "मुंह में न भरने वाला छाला": [
+    "oral_cavity_cancer"
+  ],
+  "तोंडाचा कर्करोग": [
+    "oral_cavity_cancer"
+  ],
+  "तोंडाचा कॅन्सर": [
+    "oral_cavity_cancer"
+  ],
+  "जिभेचा कॅन्सर": [
+    "oral_cavity_cancer"
+  ],
+  "गालाचा कॅन्सर": [
+    "oral_cavity_cancer"
+  ],
+  "muh ka cancer": [
+    "oral_cavity_cancer"
+  ],
+  "gutkha cancer": [
+    "oral_cavity_cancer"
+  ],
+  "muh me ghav": [
+    "oral_cavity_cancer"
+  ],
+  "tondacha cancer": [
+    "oral_cavity_cancer"
+  ],
+  "tondacha karkrog": [
+    "oral_cavity_cancer"
+  ],
+  "tambakhu cancer": [
+    "oral_cavity_cancer"
+  ],
+  "cervical cancer": [
+    "cervical_cancer"
+  ],
+  "गर्भाशय ग्रीवा कैंसर सर्वाइकल कैंसर": [
+    "cervical_cancer"
+  ],
+  "गर्भाशयाच्या मुखाचा कर्करोग सर्व्हायकल कॅन्सर": [
+    "cervical_cancer"
+  ],
+  "cervix carcinoma": [
+    "cervical_cancer"
+  ],
+  "hpv cancer": [
+    "cervical_cancer"
+  ],
+  "सर्वाइकल कैंसर": [
+    "cervical_cancer"
+  ],
+  "बच्चेदानी के मुंह का कैंसर": [
+    "cervical_cancer"
+  ],
+  "सर्व्हायकल कॅन्सर": [
+    "cervical_cancer"
+  ],
+  "गर्भाशय मुखाचा कर्करोग": [
+    "cervical_cancer"
+  ],
+  "safed pani me badbu": [
+    "cervical_cancer"
+  ],
+  "sambhandh ke baad khoon": [
+    "cervical_cancer"
+  ],
+  "garbhashay karkrog": [
+    "cervical_cancer"
+  ],
+  "pap smear": [
+    "cervical_cancer"
+  ],
+  "snakebite envenomation": [
+    "snakebite_envenomation"
+  ],
+  "सर्पदंश सांप का काटना": [
+    "snakebite_envenomation"
+  ],
+  "सर्पदंश साप चावणे": [
+    "snakebite_envenomation"
+  ],
+  "snakebite": [
+    "snakebite_envenomation"
+  ],
+  "snake bite": [
+    "snakebite_envenomation"
+  ],
+  "cobra bite": [
+    "snakebite_envenomation"
+  ],
+  "viper bite": [
+    "snakebite_envenomation"
+  ],
+  "krait bite": [
+    "snakebite_envenomation"
+  ],
+  "asv": [
+    "snakebite_envenomation"
+  ],
+  "सर्पदंश": [
+    "snakebite_envenomation"
+  ],
+  "सांप काटना": [
+    "snakebite_envenomation"
+  ],
+  "नाग का काटना": [
+    "snakebite_envenomation"
+  ],
+  "एंटी स्नेक वेनम": [
+    "snakebite_envenomation"
+  ],
+  "साप चावला": [
+    "snakebite_envenomation"
+  ],
+  "नाग चावला": [
+    "snakebite_envenomation"
+  ],
+  "घोणस": [
+    "snakebite_envenomation"
+  ],
+  "फुरसे चावणे": [
+    "snakebite_envenomation"
+  ],
+  "saanp kaatna": [
+    "snakebite_envenomation"
+  ],
+  "saap ne kata": [
+    "snakebite_envenomation"
+  ],
+  "sap chawla": [
+    "snakebite_envenomation"
+  ],
+  "sarpdansh": [
+    "snakebite_envenomation"
+  ],
+  "naag chawla": [
+    "snakebite_envenomation"
+  ],
+  "asv aushadh": [
+    "snakebite_envenomation"
+  ],
+  "saanp kata": [
+    "snakebite_envenomation"
+  ],
+  "organophosphate pesticide poisoning": [
+    "organophosphate_poisoning"
+  ],
+  "pesticide / poisoning organophosphate": [
+    "organophosphate_poisoning"
+  ],
+  "कीटनाशक / विषबाधा पॉइजनिंग": [
+    "organophosphate_poisoning"
+  ],
+  "कीटकनाशक विषबाधा पॉइझनिंग": [
+    "organophosphate_poisoning"
+  ],
+  "poisoning": [
+    "organophosphate_poisoning"
+  ],
+  "pesticide ingestion": [
+    "organophosphate_poisoning"
+  ],
+  "insecticide toxicity": [
+    "organophosphate_poisoning"
+  ],
+  "atropine": [
+    "organophosphate_poisoning"
+  ],
+  "जहर खाना": [
+    "organophosphate_poisoning"
+  ],
+  "कीटनाशक पीना": [
+    "organophosphate_poisoning"
+  ],
+  "पॉइजनिंग": [
+    "organophosphate_poisoning"
+  ],
+  "खेत की दवाई": [
+    "organophosphate_poisoning"
+  ],
+  "विषबाधा": [
+    "organophosphate_poisoning"
+  ],
+  "कीटकनाशक पिणे": [
+    "organophosphate_poisoning"
+  ],
+  "शेतातील औषध पोटात जाणे": [
+    "organophosphate_poisoning"
+  ],
+  "पॉइझनिंग": [
+    "organophosphate_poisoning"
+  ],
+  "zehar peena": [
+    "organophosphate_poisoning"
+  ],
+  "pesticide poisoning": [
+    "organophosphate_poisoning"
+  ],
+  "keetnashak": [
+    "organophosphate_poisoning"
+  ],
+  "vishbadha": [
+    "organophosphate_poisoning"
+  ],
+  "aushadh pile": [
+    "organophosphate_poisoning"
+  ],
+  "zehar": [
+    "organophosphate_poisoning"
+  ],
+  "lung cancer": [
+    "lung_cancer_bronchogenic"
+  ],
+  "फेफड़ों का कैंसर": [
+    "lung_cancer_bronchogenic"
+  ],
+  "फुफ्फुसाचा कर्करोग": [
+    "lung_cancer_bronchogenic"
+  ],
+  "lung cancer bronchogenic": [
+    "lung_cancer_bronchogenic"
+  ],
+  "colorectal cancer": [
+    "colorectal_cancer_colon"
+  ],
+  "बड़ी आंत का कैंसर": [
+    "colorectal_cancer_colon"
+  ],
+  "मोठ्या आतड्याचा कर्करोग": [
+    "colorectal_cancer_colon"
+  ],
+  "colorectal cancer colon": [
+    "colorectal_cancer_colon"
+  ],
+  "esophageal cancer": [
+    "esophageal_cancer_foodpipe"
+  ],
+  "अन्ननली का कैंसर": [
+    "esophageal_cancer_foodpipe"
+  ],
+  "अन्ननलिकेचा कर्करोग": [
+    "esophageal_cancer_foodpipe"
+  ],
+  "esophageal cancer foodpipe": [
+    "esophageal_cancer_foodpipe"
+  ],
+  "gastric stomach cancer": [
+    "stomach_gastric_cancer"
+  ],
+  "आमाशय पेट का कैंसर": [
+    "stomach_gastric_cancer"
+  ],
+  "जठराचा कर्करोग पोटाचा कॅन्सर": [
+    "stomach_gastric_cancer"
+  ],
+  "stomach gastric cancer": [
+    "stomach_gastric_cancer"
+  ],
+  "prostate cancer": [
+    "prostate_cancer_elderly"
+  ],
+  "प्रोस्टेट कैंसर": [
+    "prostate_cancer_elderly"
+  ],
+  "प्रोस्टेट ग्रंथीचा कर्करोग": [
+    "prostate_cancer_elderly"
+  ],
+  "prostate cancer elderly": [
+    "prostate_cancer_elderly"
+  ],
+  "ovarian cancer": [
+    "ovarian_cancer_female"
+  ],
+  "अंडाशय का कैंसर": [
+    "ovarian_cancer_female"
+  ],
+  "अंडाशयाचा कर्करोग": [
+    "ovarian_cancer_female"
+  ],
+  "ovarian cancer female": [
+    "ovarian_cancer_female"
+  ],
+  "leukemia blood cancer": [
+    "acute_leukemia_blood_cancer"
+  ],
+  "ब्लड कैंसर ल्यूकेमिया": [
+    "acute_leukemia_blood_cancer"
+  ],
+  "रक्ताचा कर्करोग ल्युकेमिया / ब्लड कॅन्सर": [
+    "acute_leukemia_blood_cancer"
+  ],
+  "acute leukemia blood cancer": [
+    "acute_leukemia_blood_cancer"
+  ],
+  "lymphoma": [
+    "lymphoma_hodgkin_nonhodgkin"
+  ],
+  "लिम्फोमा लसीका ग्रंथि कैंसर": [
+    "lymphoma_hodgkin_nonhodgkin"
+  ],
+  "लसिका ग्रंथींचा कर्करोग लिम्फोमा": [
+    "lymphoma_hodgkin_nonhodgkin"
+  ],
+  "lymphoma hodgkin nonhodgkin": [
+    "lymphoma_hodgkin_nonhodgkin"
+  ],
+  "multiple myeloma": [
+    "multiple_myeloma_bone_marrow"
+  ],
+  "मल्टीपल मायलोमा": [
+    "multiple_myeloma_bone_marrow"
+  ],
+  "अस्थिमज्जेचा कर्करोग": [
+    "multiple_myeloma_bone_marrow"
+  ],
+  "multiple myeloma bone marrow": [
+    "multiple_myeloma_bone_marrow"
+  ],
+  "pancreatic cancer": [
+    "pancreatic_cancer"
+  ],
+  "पैंक्रियाज का कैंसर": [
+    "pancreatic_cancer"
+  ],
+  "स्वादुपिंडाचा कर्करोग": [
+    "pancreatic_cancer"
+  ],
+  "liver cancer": [
+    "liver_cancer_hepatocellular"
+  ],
+  "लिवर का कैंसर": [
+    "liver_cancer_hepatocellular"
+  ],
+  "यकृताचा कर्करोग लिव्हर कॅन्सर": [
+    "liver_cancer_hepatocellular"
+  ],
+  "liver cancer hepatocellular": [
+    "liver_cancer_hepatocellular"
+  ],
+  "thyroid cancer": [
+    "thyroid_cancer_papillary"
+  ],
+  "थायराइड कैंसर": [
+    "thyroid_cancer_papillary"
+  ],
+  "थायरॉईड ग्रंथीचा कर्करोग": [
+    "thyroid_cancer_papillary"
+  ],
+  "thyroid cancer papillary": [
+    "thyroid_cancer_papillary"
+  ],
+  "brain tumor glioma": [
+    "brain_tumor_glioma"
+  ],
+  "ब्रेन ट्यूमर": [
+    "brain_tumor_glioma"
+  ],
+  "मेंदूतील गाठ ब्रेन ट्युमर": [
+    "brain_tumor_glioma"
+  ],
+  "laryngeal cancer": [
+    "laryngeal_cancer_vocal"
+  ],
+  "स्वरयंत्र गले का कैंसर": [
+    "laryngeal_cancer_vocal"
+  ],
+  "स्वरयंत्राचा कर्करोग घशाचा कॅन्सर": [
+    "laryngeal_cancer_vocal"
+  ],
+  "laryngeal cancer vocal": [
+    "laryngeal_cancer_vocal"
+  ],
+  "osteosarcoma bone cancer": [
+    "osteosarcoma_bone_cancer"
+  ],
+  "हड्डी का कैंसर": [
+    "osteosarcoma_bone_cancer"
+  ],
+  "हाडांचा कर्करोग बोन कॅन्सर": [
+    "osteosarcoma_bone_cancer"
+  ],
+  "anaphylaxis severe allergic reaction": [
+    "severe_anaphylaxis_allergy"
+  ],
+  "गंभीर एलर्जी एनाफिलेक्सिस": [
+    "severe_anaphylaxis_allergy"
+  ],
+  "तीव्र ॲलर्जी झटका ॲनाफायलेक्सिस": [
+    "severe_anaphylaxis_allergy"
+  ],
+  "severe anaphylaxis allergy": [
+    "severe_anaphylaxis_allergy"
+  ],
+  "status epilepticus": [
+    "status_epilepticus_prolonged"
+  ],
+  "लगातार दौरे पड़ना": [
+    "status_epilepticus_prolonged"
+  ],
+  "सलग येणारे फेफरे थांबणारे झटके": [
+    "status_epilepticus_prolonged"
+  ],
+  "status epilepticus prolonged": [
+    "status_epilepticus_prolonged"
+  ],
+  "severe head injury & concussion": [
+    "severe_head_injury_trauma"
+  ],
+  "सिर की गंभीर चोट": [
+    "severe_head_injury_trauma"
+  ],
+  "डोक्याला गंभीर मार हेड इन्जुरी": [
+    "severe_head_injury_trauma"
+  ],
+  "severe head injury trauma": [
+    "severe_head_injury_trauma"
+  ],
+  "polytrauma road traffic accident": [
+    "polytrauma_road_accident"
+  ],
+  "सड़क दुर्घटना / गंभीर चोट": [
+    "polytrauma_road_accident"
+  ],
+  "रस्ता अपघात व गंभीर दुखापत पॉलीट्रामा": [
+    "polytrauma_road_accident"
+  ],
+  "polytrauma road accident": [
+    "polytrauma_road_accident"
+  ],
+  "heat stroke loo lagna": [
+    "heat_stroke_hyperthermia"
+  ],
+  "लू लगना हीट स्ट्रोक": [
+    "heat_stroke_hyperthermia"
+  ],
+  "उष्माघात उन्हाचा झटका": [
+    "heat_stroke_hyperthermia"
+  ],
+  "heat stroke hyperthermia": [
+    "heat_stroke_hyperthermia"
+  ],
+  "choking foreign body airway obstruction": [
+    "foreign_body_airway_choking"
+  ],
+  "गले में कुछ अटकना दम घुटना": [
+    "foreign_body_airway_choking"
+  ],
+  "घशात घास किंवा वस्तू अडकणे दम भरणे": [
+    "foreign_body_airway_choking"
+  ],
+  "foreign body airway choking": [
+    "foreign_body_airway_choking"
+  ],
+  "severe active arterial bleeding": [
+    "severe_arterial_bleeding"
+  ],
+  "धमनी से तेज खून बहना": [
+    "severe_arterial_bleeding"
+  ],
+  "रक्तवाहिनीतून वेगाने रक्त वाहणे": [
+    "severe_arterial_bleeding"
+  ],
+  "severe arterial bleeding": [
+    "severe_arterial_bleeding"
+  ],
+  "hypovolemic shock": [
+    "hypovolemic_shock_blood_loss"
+  ],
+  "रक्त की कमी से सदमा": [
+    "hypovolemic_shock_blood_loss"
+  ],
+  "अति रक्तस्त्रावामुळे शॉक": [
+    "hypovolemic_shock_blood_loss"
+  ],
+  "hypovolemic shock blood loss": [
+    "hypovolemic_shock_blood_loss"
+  ],
+  "scorpion sting envenomation": [
+    "scorpion_sting_envenomation"
+  ],
+  "बिच्छू का डंक": [
+    "scorpion_sting_envenomation"
+  ],
+  "विंचू चावणे विंचूदंश": [
+    "scorpion_sting_envenomation"
+  ],
+  "drowning / near drowning": [
+    "drowning_submersion_injury"
+  ],
+  "डूबना पानी में दम घुटना": [
+    "drowning_submersion_injury"
+  ],
+  "पाण्यात बुडणे श्वास रोखणे": [
+    "drowning_submersion_injury"
+  ],
+  "drowning submersion injury": [
+    "drowning_submersion_injury"
+  ],
+  "syphilis": [
+    "syphilis_infection"
+  ],
+  "सिफलिस उपदंश": [
+    "syphilis_infection"
+  ],
+  "उपदंश सिफिलीस": [
+    "syphilis_infection"
+  ],
+  "syphilis infection": [
+    "syphilis_infection"
+  ],
+  "gonorrhea": [
+    "gonorrhea_infection"
+  ],
+  "गोनोरिया सुजाक": [
+    "gonorrhea_infection"
+  ],
+  "सुजाक गोनोरिया": [
+    "gonorrhea_infection"
+  ],
+  "gonorrhea infection": [
+    "gonorrhea_infection"
+  ],
+  "chlamydia infection": [
+    "chlamydia_trachomatis"
+  ],
+  "क्लैमाइडिया संक्रमण": [
+    "chlamydia_trachomatis"
+  ],
+  "क्लॅमिडीया संसर्ग": [
+    "chlamydia_trachomatis"
+  ],
+  "chlamydia trachomatis": [
+    "chlamydia_trachomatis"
+  ],
+  "genital warts hpv": [
+    "genital_warts_hpv"
+  ],
+  "गुप्तांग के मस्से": [
+    "genital_warts_hpv"
+  ],
+  "गुप्तांगावरील चामखीळ hpv": [
+    "genital_warts_hpv"
+  ],
+  "trichomoniasis": [
+    "trichomoniasis_infection"
+  ],
+  "ट्राइकोमोनिएसिस": [
+    "trichomoniasis_infection"
+  ],
+  "ट्रायकोमोनियासिस": [
+    "trichomoniasis_infection"
+  ],
+  "trichomoniasis infection": [
+    "trichomoniasis_infection"
+  ],
+  "dengue hemorrhagic fever / shock": [
+    "dengue_hemorrhagic_fever"
+  ],
+  "गंभीर डेंगू शॉक सिंड्रोम": [
+    "dengue_hemorrhagic_fever"
+  ],
+  "डेंग्यू रक्तस्त्राव व शॉक": [
+    "dengue_hemorrhagic_fever"
+  ],
+  "dengue hemorrhagic fever": [
+    "dengue_hemorrhagic_fever"
+  ],
+  "cerebral malaria falciparum": [
+    "cerebral_malaria_falciparum"
+  ],
+  "सेरेब्रल मलेरिया दिमागी मलेरिया": [
+    "cerebral_malaria_falciparum"
+  ],
+  "मेंदूचा मलेरिया फाल्सिपॅरम": [
+    "cerebral_malaria_falciparum"
+  ],
+  "kala-azar visceral leishmaniasis": [
+    "kala_azar_visceral_leishmania"
+  ],
+  "कालाजार काला अजार": [
+    "kala_azar_visceral_leishmania"
+  ],
+  "काला आजार काळा ताप": [
+    "kala_azar_visceral_leishmania"
+  ],
+  "kala azar visceral leishmania": [
+    "kala_azar_visceral_leishmania"
+  ],
+  "japanese encephalitis": [
+    "japanese_encephalitis_je"
+  ],
+  "जापानी एन्सेफलाइटिस": [
+    "japanese_encephalitis_je"
+  ],
+  "जपानी मेंदूज्वर je": [
+    "japanese_encephalitis_je"
+  ],
+  "japanese encephalitis je": [
+    "japanese_encephalitis_je"
+  ],
+  "scrub typhus orientia": [
+    "scrub_typhus_mite"
+  ],
+  "स्क्रब टाइफस": [
+    "scrub_typhus_mite"
+  ],
+  "स्क्रब टायफस किड्याचा ताप": [
+    "scrub_typhus_mite"
+  ],
+  "scrub typhus mite": [
+    "scrub_typhus_mite"
+  ],
+  "diphtheria galghotu": [
+    "diphtheria_respiratory"
+  ],
+  "डिप्थीरिया गलघोंटू": [
+    "diphtheria_respiratory"
+  ],
+  "घटसर्प घळघोटू": [
+    "diphtheria_respiratory"
+  ],
+  "diphtheria respiratory": [
+    "diphtheria_respiratory"
+  ],
+  "scarlet fever": [
+    "scarlet_fever_strep"
+  ],
+  "स्कार्लेट ज्वर": [
+    "scarlet_fever_strep"
+  ],
+  "स्कार्लेट ताप लाल पुरळ ताप": [
+    "scarlet_fever_strep"
+  ],
+  "scarlet fever strep": [
+    "scarlet_fever_strep"
+  ],
+  "cytomegalovirus cmv": [
+    "cytomegalovirus_cmv"
+  ],
+  "साइटोमेगालोवायरस": [
+    "cytomegalovirus_cmv"
+  ],
+  "सायटोमेगालोव्हायरस संसर्ग": [
+    "cytomegalovirus_cmv"
+  ],
+  "epstein-barr virus glandular fever": [
+    "epstein_barr_virus_ebv"
+  ],
+  "ईबीवी संक्रमण": [
+    "epstein_barr_virus_ebv"
+  ],
+  "ग्रंथिज्वर संसर्ग": [
+    "epstein_barr_virus_ebv"
+  ],
+  "epstein barr virus ebv": [
+    "epstein_barr_virus_ebv"
+  ],
+  "brucellosis malta fever": [
+    "brucellosis_undulant_fever"
+  ],
+  "ब्रुसेलोसिस पशु जन्य बुखार": [
+    "brucellosis_undulant_fever"
+  ],
+  "ब्रुसेलोसिस जनावरांच्या संपर्कातील ताप": [
+    "brucellosis_undulant_fever"
+  ],
+  "brucellosis undulant fever": [
+    "brucellosis_undulant_fever"
+  ],
+  "toxoplasmosis": [
+    "toxoplasmosis_parasitic"
+  ],
+  "टोक्सोप्लाज्मोसिस": [
+    "toxoplasmosis_parasitic"
+  ],
+  "टॉक्सोप्लाझ्मोसिस संसर्ग": [
+    "toxoplasmosis_parasitic"
+  ],
+  "toxoplasmosis parasitic": [
+    "toxoplasmosis_parasitic"
+  ],
+  "fifth disease parvovirus b19": [
+    "parvovirus_fifth_disease"
+  ],
+  "फिफ्थ डिजीज गाल पर लाल थप्पड़": [
+    "parvovirus_fifth_disease"
+  ],
+  "पाचवा आजार गालांवर लाल चट्टा": [
+    "parvovirus_fifth_disease"
+  ],
+  "parvovirus fifth disease": [
+    "parvovirus_fifth_disease"
+  ],
+  "hantavirus infection": [
+    "hanta_virus_pulmonary"
+  ],
+  "हंतावायरस": [
+    "hanta_virus_pulmonary"
+  ],
+  "हंताव्हायरस संसर्ग उंदरांपासून": [
+    "hanta_virus_pulmonary"
+  ],
+  "hanta virus pulmonary": [
+    "hanta_virus_pulmonary"
+  ],
+  "listeriosis foodborne infection": [
+    "listeria_monocytogenes"
+  ],
+  "लिस्टेरियोसिस": [
+    "listeria_monocytogenes"
+  ],
+  "लिस्टेरिओसिस अन्नसंसर्ग": [
+    "listeria_monocytogenes"
+  ],
+  "listeria monocytogenes": [
+    "listeria_monocytogenes"
+  ],
+  "schistosomiasis": [
+    "schistosomiasis_bilharzia"
+  ],
+  "सिस्टोसोमियासिस": [
+    "schistosomiasis_bilharzia"
+  ],
+  "सिस्टोसोमियासिस परजीवी संसर्ग": [
+    "schistosomiasis_bilharzia"
+  ],
+  "schistosomiasis bilharzia": [
+    "schistosomiasis_bilharzia"
+  ],
+  "pityriasis versicolor": [
+    "pityriasis_versicolor_fungus"
+  ],
+  "सेहुआ फंगल पैच": [
+    "pityriasis_versicolor_fungus"
+  ],
+  "शिबूक / छातीवर पांढरे-तपकिरी चट्टे": [
+    "pityriasis_versicolor_fungus"
+  ],
+  "pityriasis versicolor fungus": [
+    "pityriasis_versicolor_fungus"
+  ],
+  "paronychia nail fold infection": [
+    "paronychia_nail_infection"
+  ],
+  "नाखून का पकना": [
+    "paronychia_nail_infection"
+  ],
+  "नखवेढ नखाच्या बाजूला पू": [
+    "paronychia_nail_infection"
+  ],
+  "paronychia nail infection": [
+    "paronychia_nail_infection"
+  ],
+  "onychomycosis fungal nail": [
+    "onychomycosis_fungal_nail"
+  ],
+  "नाखून का फंगस": [
+    "onychomycosis_fungal_nail"
+  ],
+  "नखांमधील बुरशी नखे जाड होणे": [
+    "onychomycosis_fungal_nail"
+  ],
+  "molluscum contagiosum": [
+    "molluscum_contagiosum_skin"
+  ],
+  "मोलस्कम मोती जैसे दाने": [
+    "molluscum_contagiosum_skin"
+  ],
+  "मोत्यासारखे गुळगुळीत फोड": [
+    "molluscum_contagiosum_skin"
+  ],
+  "molluscum contagiosum skin": [
+    "molluscum_contagiosum_skin"
+  ],
+  "keloid & hypertrophic scar": [
+    "keloid_hypertrophic_scar"
+  ],
+  "केलोइड उभरी हुई गांठ": [
+    "keloid_hypertrophic_scar"
+  ],
+  "किलॉइड जखमेनंतरची फुगलेली गाठ": [
+    "keloid_hypertrophic_scar"
+  ],
+  "keloid hypertrophic scar": [
+    "keloid_hypertrophic_scar"
+  ],
+  "corns and calluses gokhru": [
+    "corns_and_calluses_feet"
+  ],
+  "गोखरू पैरों के कॉर्न": [
+    "corns_and_calluses_feet"
+  ],
+  "गोखरू / पायातील काटा गाठ कॉर्न": [
+    "corns_and_calluses_feet"
+  ],
+  "corns and calluses feet": [
+    "corns_and_calluses_feet"
+  ],
+  "rosacea": [
+    "rosacea_facial_erythema"
+  ],
+  "रोसैसिया चेहरे की लालिमा": [
+    "rosacea_facial_erythema"
+  ],
+  "चेहऱ्यावरील लालसरपणा रोझेशिया": [
+    "rosacea_facial_erythema"
+  ],
+  "rosacea facial erythema": [
+    "rosacea_facial_erythema"
+  ],
+  "lichen planus": [
+    "lichen_planus_skin_oral"
+  ],
+  "लाइकेन प्लेनस": [
+    "lichen_planus_skin_oral"
+  ],
+  "लायकेन प्लॅनस जांभळे चट्टे": [
+    "lichen_planus_skin_oral"
+  ],
+  "lichen planus skin oral": [
+    "lichen_planus_skin_oral"
+  ],
+  "hidradenitis suppurativa": [
+    "hidradenitis_suppurativa"
+  ],
+  "कांख या जांघ की गांठें": [
+    "hidradenitis_suppurativa"
+  ],
+  "काखेतील जुनाट पूयुक्त गाठी": [
+    "hidradenitis_suppurativa"
+  ],
+  "pemphigus vulgaris": [
+    "pemphigus_vulgaris_blisters"
+  ],
+  "पेम्फिगस त्वचा के छाले": [
+    "pemphigus_vulgaris_blisters"
+  ],
+  "पेम्फिगस त्वचेवरील मोठे फोड": [
+    "pemphigus_vulgaris_blisters"
+  ],
+  "pemphigus vulgaris blisters": [
+    "pemphigus_vulgaris_blisters"
+  ],
+  "bullous pemphigoid": [
+    "bullous_pemphigoid_elderly"
+  ],
+  "बुलोउस पेम्फिगोइड": [
+    "bullous_pemphigoid_elderly"
+  ],
+  "वृद्धांमधील मोठे फोड विकार": [
+    "bullous_pemphigoid_elderly"
+  ],
+  "bullous pemphigoid elderly": [
+    "bullous_pemphigoid_elderly"
+  ],
+  "erythema multiforme": [
+    "erythema_multiforme"
+  ],
+  "एरिथेमा मल्टीफॉर्म": [
+    "erythema_multiforme"
+  ],
+  "लक्ष्यवेधी लाल चट्टे टार्गेट लिजन्स": [
+    "erythema_multiforme"
+  ],
+  "stevens-johnson syndrome sjs": [
+    "stevens_johnson_syndrome_sjs"
+  ],
+  "एसजेएस दवा की गंभीर एलर्जी": [
+    "stevens_johnson_syndrome_sjs"
+  ],
+  "स्टीव्हन्स-जॉन्सन सिंड्रोम औषधाची तीव्र ॲलर्जी": [
+    "stevens_johnson_syndrome_sjs"
+  ],
+  "stevens johnson syndrome sjs": [
+    "stevens_johnson_syndrome_sjs"
+  ],
+  "keratosis pilaris strawberry skin": [
+    "keratosis_pilaris_strawberry"
+  ],
+  "स्ट्रॉबेरी स्किन": [
+    "keratosis_pilaris_strawberry"
+  ],
+  "त्वचेवरील बारीक खडबडीत दाणे": [
+    "keratosis_pilaris_strawberry"
+  ],
+  "keratosis pilaris strawberry": [
+    "keratosis_pilaris_strawberry"
+  ],
+  "stasis dermatitis & varicose ulcer": [
+    "stasis_dermatitis_leg_ulcer"
+  ],
+  "पैरों में सूजन व घाव": [
+    "stasis_dermatitis_leg_ulcer"
+  ],
+  "पायावरील काळे चट्टे व शिरांचा व्रण": [
+    "stasis_dermatitis_leg_ulcer"
+  ],
+  "stasis dermatitis leg ulcer": [
+    "stasis_dermatitis_leg_ulcer"
+  ],
+  "aspiration pneumonia": [
+    "aspiration_pneumonia"
+  ],
+  "एस्पिरेशन निमोनिया": [
+    "aspiration_pneumonia"
+  ],
+  "अन्न फुफ्फुसात गेल्याने न्युमोनिया": [
+    "aspiration_pneumonia"
+  ],
+  "hypersensitivity pneumonitis": [
+    "hypersensitivity_pneumonitis"
+  ],
+  "एलर्जिक फेफड़ों की सूजन": [
+    "hypersensitivity_pneumonitis"
+  ],
+  "ॲलर्जिक फुफ्फुसदाह पक्ष्यांच्या विष्ठेमुळे": [
+    "hypersensitivity_pneumonitis"
+  ],
+  "atelectasis lung collapse": [
+    "atelectasis_lung_collapse"
+  ],
+  "फेफड़े का सिकुड़ना": [
+    "atelectasis_lung_collapse"
+  ],
+  "फुफ्फुस आकुंचन पावणे": [
+    "atelectasis_lung_collapse"
+  ],
+  "silicosis stone dust lung": [
+    "silicosis_occupational"
+  ],
+  "सिलिकोसिस पत्थर धूलि रोग": [
+    "silicosis_occupational"
+  ],
+  "सिलिकॉसिस दगड खाण कामगार आजार": [
+    "silicosis_occupational"
+  ],
+  "silicosis occupational": [
+    "silicosis_occupational"
+  ],
+  "asbestosis": [
+    "asbestosis_lung_disease"
+  ],
+  "एस्बेस्टोसिस": [
+    "asbestosis_lung_disease"
+  ],
+  "ॲस्बेस्टॉसिस फुफ्फुस विकार": [
+    "asbestosis_lung_disease"
+  ],
+  "asbestosis lung disease": [
+    "asbestosis_lung_disease"
+  ],
+  "vocal cord nodules / polyps": [
+    "vocal_cord_nodules_polyps"
+  ],
+  "वोकल कॉर्ड नोड्यूल आवाज बैठना": [
+    "vocal_cord_nodules_polyps"
+  ],
+  "स्वरतंतूंवरील गाठी घोगरा आवाज": [
+    "vocal_cord_nodules_polyps"
+  ],
+  "vocal cord nodules polyps": [
+    "vocal_cord_nodules_polyps"
+  ],
+  "acute epiglottitis": [
+    "acute_epiglottitis_airway"
+  ],
+  "एपिग्लोटाइटिस गले का अवरोध": [
+    "acute_epiglottitis_airway"
+  ],
+  "स्वरद्वार झाकणीची तीव्र सूज श्वास अडथळा": [
+    "acute_epiglottitis_airway"
+  ],
+  "acute epiglottitis airway": [
+    "acute_epiglottitis_airway"
+  ],
+  "otitis externa swimmer's ear": [
+    "swimmers_ear_otitis_externa"
+  ],
+  "बाहरी कान का संक्रमण": [
+    "swimmers_ear_otitis_externa"
+  ],
+  "बाह्य कानाचा संसर्ग जलतरण कानदुखी": [
+    "swimmers_ear_otitis_externa"
+  ],
+  "swimmers ear otitis externa": [
+    "swimmers_ear_otitis_externa"
+  ],
+  "mastoiditis": [
+    "mastoiditis_ear_bone"
+  ],
+  "कान के पीछे की हड्डी में मवाद": [
+    "mastoiditis_ear_bone"
+  ],
+  "कानाच्या मागील हाडाचा संसर्ग मॅस्टॉइडायटिस": [
+    "mastoiditis_ear_bone"
+  ],
+  "mastoiditis ear bone": [
+    "mastoiditis_ear_bone"
+  ],
+  "eustachian tube dysfunction": [
+    "eustachian_tube_dysfunction"
+  ],
+  "कान का पर्दा बंद होना": [
+    "eustachian_tube_dysfunction"
+  ],
+  "कानाचा पडदा चोंदणे विमानात कान बंद": [
+    "eustachian_tube_dysfunction"
+  ],
+  "cholesteatoma": [
+    "cholesteatoma_chronic_ear"
+  ],
+  "कान में हड्डी गलना": [
+    "cholesteatoma_chronic_ear"
+  ],
+  "कानात हाड झिजवणारी गाठ कोलेस्टिटोमा": [
+    "cholesteatoma_chronic_ear"
+  ],
+  "cholesteatoma chronic ear": [
+    "cholesteatoma_chronic_ear"
+  ],
+  "meniere's disease": [
+    "menieres_disease_ear"
+  ],
+  "मेनियार्स रोग": [
+    "menieres_disease_ear"
+  ],
+  "मेनियर्स आजार कानाचा जुनाट आजार": [
+    "menieres_disease_ear"
+  ],
+  "menieres disease ear": [
+    "menieres_disease_ear"
+  ],
+  "peritonsillar abscess quinsy": [
+    "peritonsillar_abscess_quinsy"
+  ],
+  "टॉन्सिल का मवाद क्विंसी": [
+    "peritonsillar_abscess_quinsy"
+  ],
+  "टॉन्सिल्सच्या मागे पू भरणे क्विन्सी": [
+    "peritonsillar_abscess_quinsy"
+  ],
+  "corneal ulcer keratitis": [
+    "corneal_ulcer_keratitis"
+  ],
+  "कॉर्नियल अल्सर आंख की पुतली का घाव": [
+    "corneal_ulcer_keratitis"
+  ],
+  "डोळ्याच्या बाहुलीवरील व्रण कॉर्निया जखम": [
+    "corneal_ulcer_keratitis"
+  ],
+  "acute anterior uveitis iritis": [
+    "acute_anterior_uveitis_iritis"
+  ],
+  "आंख के भीतरी भाग की सूजन यूरिवाइटिस": [
+    "acute_anterior_uveitis_iritis"
+  ],
+  "डोळ्याच्या आतील आवरणाची सूज युव्हायटिस": [
+    "acute_anterior_uveitis_iritis"
+  ],
+  "retinal detachment": [
+    "retinal_detachment_eye"
+  ],
+  "रेटिना का फटना / हटना": [
+    "retinal_detachment_eye"
+  ],
+  "डोळ्याचा पडदा सरकणे रेटिनल डिटॅचमेंट": [
+    "retinal_detachment_eye"
+  ],
+  "retinal detachment eye": [
+    "retinal_detachment_eye"
+  ],
+  "age-related macular degeneration amd": [
+    "age_related_macular_degeneration"
+  ],
+  "मैक्युलर डिजनरेशन": [
+    "age_related_macular_degeneration"
+  ],
+  "वृद्धापकाळातील दृष्टी ऱ्हास मॅक्युलर डिजनरेशन": [
+    "age_related_macular_degeneration"
+  ],
+  "age related macular degeneration": [
+    "age_related_macular_degeneration"
+  ],
+  "strabismus squint": [
+    "strabismus_squint_eye"
+  ],
+  "भेंगापन आंख का तिरछा होना": [
+    "strabismus_squint_eye"
+  ],
+  "तिरळेपणा डोळ्यांचा तिरळेपणा": [
+    "strabismus_squint_eye"
+  ],
+  "strabismus squint eye": [
+    "strabismus_squint_eye"
+  ],
+  "pterygium surfer's eye": [
+    "pterygium_surfers_eye"
+  ],
+  "नाखूना आंख में मांस बढ़ना": [
+    "pterygium_surfers_eye"
+  ],
+  "डोळ्यातील मांसाची वाढ नाखून / टेरिजियम": [
+    "pterygium_surfers_eye"
+  ],
+  "pterygium surfers eye": [
+    "pterygium_surfers_eye"
+  ],
+  "achalasia cardia": [
+    "achalasia_cardia_esophagus"
+  ],
+  "अकेलेशिया खाना निगलने में रुकावट": [
+    "achalasia_cardia_esophagus"
+  ],
+  "अन्ननलिकेचा अडथळा अचलेशिया कार्डिया": [
+    "achalasia_cardia_esophagus"
+  ],
+  "achalasia cardia esophagus": [
+    "achalasia_cardia_esophagus"
+  ],
+  "mallory-weiss tear": [
+    "mallory_weiss_tear"
+  ],
+  "उल्टी के बाद खून आना": [
+    "mallory_weiss_tear"
+  ],
+  "वारंवार उलट्यांमुळे अन्ननलिकेत चीर व रक्त": [
+    "mallory_weiss_tear"
+  ],
+  "mallory weiss tear": [
+    "mallory_weiss_tear"
+  ],
+  "diabetic gastroparesis": [
+    "gastroparesis_diabetic"
+  ],
+  "पेट का धीरे खाली होना": [
+    "gastroparesis_diabetic"
+  ],
+  "पोट रिकामे होण्यास विलंब मधुमेही गॅस्ट्रोपेरेसिस": [
+    "gastroparesis_diabetic"
+  ],
+  "gastroparesis diabetic": [
+    "gastroparesis_diabetic"
+  ],
+  "acute mesenteric ischemia": [
+    "mesenteric_ischemia_bowel"
+  ],
+  "आंतों में खून की रुकावट": [
+    "mesenteric_ischemia_bowel"
+  ],
+  "आतड्यांचा रक्तपुरवठा खंडित होणे": [
+    "mesenteric_ischemia_bowel"
+  ],
+  "mesenteric ischemia bowel": [
+    "mesenteric_ischemia_bowel"
+  ],
+  "sigmoid / cecal volvulus": [
+    "volvulus_sigmoid_cecal"
+  ],
+  "आंतों में गांठ लगना वाल्वुलस": [
+    "volvulus_sigmoid_cecal"
+  ],
+  "आतड्यांना पीळ पडणे व्हॉल्व्ह्युलस": [
+    "volvulus_sigmoid_cecal"
+  ],
+  "volvulus sigmoid cecal": [
+    "volvulus_sigmoid_cecal"
+  ],
+  "intussusception bowel telescoping": [
+    "intussusception_bowel"
+  ],
+  "आंत का आंत में घुसना": [
+    "intussusception_bowel"
+  ],
+  "आतड्यात आतडे अडकणे इन्ट्युससेप्शन": [
+    "intussusception_bowel"
+  ],
+  "intussusception bowel": [
+    "intussusception_bowel"
+  ],
+  "toxic megacolon": [
+    "toxic_megacolon_colitis"
+  ],
+  "बड़ी आंत का अत्यधिक फूलना": [
+    "toxic_megacolon_colitis"
+  ],
+  "मोठ्या आतड्याची प्राणघातक सूज मेगाकोलोन": [
+    "toxic_megacolon_colitis"
+  ],
+  "toxic megacolon colitis": [
+    "toxic_megacolon_colitis"
+  ],
+  "biliary colic": [
+    "biliary_colic_spasm"
+  ],
+  "पित्त की नली का दर्द": [
+    "biliary_colic_spasm"
+  ],
+  "पित्तनलिकेची तीव्र कळ": [
+    "biliary_colic_spasm"
+  ],
+  "biliary colic spasm": [
+    "biliary_colic_spasm"
+  ],
+  "acute cholangitis": [
+    "acute_cholangitis_charcot"
+  ],
+  "पित्त नली का गंभीर संक्रमण": [
+    "acute_cholangitis_charcot"
+  ],
+  "पित्तनलिकेचा गंभीर संसर्ग कोलेंजायटिस": [
+    "acute_cholangitis_charcot"
+  ],
+  "acute cholangitis charcot": [
+    "acute_cholangitis_charcot"
+  ],
+  "aortic valve stenosis": [
+    "aortic_stenosis_heart_valve"
+  ],
+  "एओर्टिक वाल्व का सिकुड़ना": [
+    "aortic_stenosis_heart_valve"
+  ],
+  "हृदयाच्या महाधमनी झडपेचे आकुंचन": [
+    "aortic_stenosis_heart_valve"
+  ],
+  "aortic stenosis heart valve": [
+    "aortic_stenosis_heart_valve"
+  ],
+  "mitral valve prolapse mvp": [
+    "mitral_valve_prolapse"
+  ],
+  "माइट्रल वाल्व प्रोलैप्स": [
+    "mitral_valve_prolapse"
+  ],
+  "मायट्रल झडपेचा विकार mvp": [
+    "mitral_valve_prolapse"
+  ],
+  "mitral valve prolapse": [
+    "mitral_valve_prolapse"
+  ],
+  "acute aortic dissection": [
+    "aortic_dissection_tear"
+  ],
+  "महाधमनी का फटना": [
+    "aortic_dissection_tear"
+  ],
+  "हृदयाच्या मुख्य रक्तवाहिनीला चीर अओर्टिक डिसेक्शन": [
+    "aortic_dissection_tear"
+  ],
+  "aortic dissection tear": [
+    "aortic_dissection_tear"
+  ],
+  "thoracic aortic aneurysm": [
+    "thoracic_aortic_aneurysm"
+  ],
+  "महाधमनी की थैली": [
+    "thoracic_aortic_aneurysm"
+  ],
+  "छातीतील मुख्य रक्तवाहिनी फुगणे": [
+    "thoracic_aortic_aneurysm"
+  ],
+  "abdominal aortic aneurysm aaa": [
+    "abdominal_aortic_aneurysm_aaa"
+  ],
+  "पेट की मुख्य नस का फूलना": [
+    "abdominal_aortic_aneurysm_aaa"
+  ],
+  "पोटातील मुख्य रक्तवाहिनी फुगणे aaa": [
+    "abdominal_aortic_aneurysm_aaa"
+  ],
+  "raynaud's phenomenon": [
+    "raynauds_phenomenon"
+  ],
+  "ठंड से उंगलियां नीली पड़ना": [
+    "raynauds_phenomenon"
+  ],
+  "थंडीमुळे हाताची बोटे पांढरी-निळी पडणे": [
+    "raynauds_phenomenon"
+  ],
+  "raynauds phenomenon": [
+    "raynauds_phenomenon"
+  ],
+  "buerger's disease tao": [
+    "buergers_disease_thromboangiitis"
+  ],
+  "बीड़ी पीने से पैर की नसें बंद होना": [
+    "buergers_disease_thromboangiitis"
+  ],
+  "विडी पिण्यामुळे पायांची बोटे काळी पडणे बर्गर रोग": [
+    "buergers_disease_thromboangiitis"
+  ],
+  "buergers disease thromboangiitis": [
+    "buergers_disease_thromboangiitis"
+  ],
+  "vasovagal syncope fainting spell": [
+    "vasovagal_syncope_fainting"
+  ],
+  "घबराहट से बेहोश होना": [
+    "vasovagal_syncope_fainting"
+  ],
+  "ताण किंवा उभे राहिल्याने तात्पुरती भोवळ": [
+    "vasovagal_syncope_fainting"
+  ],
+  "vasovagal syncope fainting": [
+    "vasovagal_syncope_fainting"
+  ],
+  "supraventricular tachycardia svt": [
+    "supraventricular_tachycardia_svt"
+  ],
+  "अचानक तेज दिल की धड़कन एसवीटी": [
+    "supraventricular_tachycardia_svt"
+  ],
+  "हृदयाचे अचानक अतिवेगवान ठोके १५०-२००": [
+    "supraventricular_tachycardia_svt"
+  ],
+  "ventricular tachycardia": [
+    "ventricular_tachycardia_vt"
+  ],
+  "खतरनाक तेज धड़कन": [
+    "ventricular_tachycardia_vt"
+  ],
+  "हृदयाचे धोकादायक वेगवान ठोके": [
+    "ventricular_tachycardia_vt"
+  ],
+  "ventricular tachycardia vt": [
+    "ventricular_tachycardia_vt"
+  ],
+  "third-degree complete heart block": [
+    "complete_heart_block_third_degree"
+  ],
+  "हार्ट ब्लॉक पूर्ण ब्लॉकेज": [
+    "complete_heart_block_third_degree"
+  ],
+  "हार्ट ब्लॉक ठोके ३०-४० वर येणे": [
+    "complete_heart_block_third_degree"
+  ],
+  "complete heart block third degree": [
+    "complete_heart_block_third_degree"
+  ],
+  "subarachnoid hemorrhage aneurysm rupture": [
+    "subarachnoid_hemorrhage_sah"
+  ],
+  "दिमाग की नस फटना ब्रेन ब्लीडिंग": [
+    "subarachnoid_hemorrhage_sah"
+  ],
+  "मेंदूतील रक्तवाहिनी फुटून रक्तस्त्राव sah": [
+    "subarachnoid_hemorrhage_sah"
+  ],
+  "subarachnoid hemorrhage sah": [
+    "subarachnoid_hemorrhage_sah"
+  ],
+  "chronic subdural hematoma": [
+    "chronic_subdural_hematoma"
+  ],
+  "बुजुर्गों में सिर में खून जमना": [
+    "chronic_subdural_hematoma"
+  ],
+  "वृद्धांमध्ये मार लागल्यानंतर मेंदूत रक्त साचणे": [
+    "chronic_subdural_hematoma"
+  ],
+  "guillain-barre syndrome gbs": [
+    "guillain_barre_syndrome_gbs"
+  ],
+  "जीबीएस पैरों से ऊपर बढ़ता लकवा": [
+    "guillain_barre_syndrome_gbs"
+  ],
+  "पायांकडून वर सरकणारा पक्षाघात gbs": [
+    "guillain_barre_syndrome_gbs"
+  ],
+  "guillain barre syndrome gbs": [
+    "guillain_barre_syndrome_gbs"
+  ],
+  "myasthenia gravis": [
+    "myasthenia_gravis_muscle_weakness"
+  ],
+  "मायस्थेनिया मांसपेशियों की थकान": [
+    "myasthenia_gravis_muscle_weakness"
+  ],
+  "स्नायूंचा तीव्र थकवा विकार मायस्थेनिया": [
+    "myasthenia_gravis_muscle_weakness"
+  ],
+  "myasthenia gravis muscle weakness": [
+    "myasthenia_gravis_muscle_weakness"
+  ],
+  "amyotrophic lateral sclerosis als": [
+    "amyotrophic_lateral_sclerosis_als"
+  ],
+  "एएलएस मोटर न्यूरॉन डिजीज": [
+    "amyotrophic_lateral_sclerosis_als"
+  ],
+  "मोटर न्यूरॉन आजार als": [
+    "amyotrophic_lateral_sclerosis_als"
+  ],
+  "essential tremor": [
+    "essential_tremor_hands"
+  ],
+  "हाथ कांपना": [
+    "essential_tremor_hands"
+  ],
+  "हात थरथरणे काही काम करताना": [
+    "essential_tremor_hands"
+  ],
+  "essential tremor hands": [
+    "essential_tremor_hands"
+  ],
+  "normal pressure hydrocephalus nph": [
+    "normal_pressure_hydrocephalus_nph"
+  ],
+  "दिमाग में पानी का दबाव": [
+    "normal_pressure_hydrocephalus_nph"
+  ],
+  "मेंदूतील पाण्याचा दाब nph": [
+    "normal_pressure_hydrocephalus_nph"
+  ],
+  "cauda equina syndrome": [
+    "cauda_equina_syndrome_spine"
+  ],
+  "रीढ़ की हड्डी की नस दबना आपातकाल": [
+    "cauda_equina_syndrome_spine"
+  ],
+  "मणक्याच्या खालच्या नसांचा तातडीचा अडथळा": [
+    "cauda_equina_syndrome_spine"
+  ],
+  "cauda equina syndrome spine": [
+    "cauda_equina_syndrome_spine"
+  ],
+  "idiopathic intracranial hypertension": [
+    "idiopathic_intracranial_hypertension"
+  ],
+  "दिमाग का प्रेशर बढ़ना": [
+    "idiopathic_intracranial_hypertension"
+  ],
+  "मेंदूतील पाण्याचा दाब विनाकारण वाढणे": [
+    "idiopathic_intracranial_hypertension"
+  ],
+  "diabetic ketoacidosis dka": [
+    "diabetic_ketoacidosis_dka"
+  ],
+  "डीकेए डायबिटीज की गंभीर आपात स्थिति": [
+    "diabetic_ketoacidosis_dka"
+  ],
+  "डायबिटीज कोमा व आम्लबाधा dka": [
+    "diabetic_ketoacidosis_dka"
+  ],
+  "hyperosmolar hyperglycemic state hhs": [
+    "hyperosmolar_hyperglycemic_state"
+  ],
+  "अत्यधिक शुगर कोमा": [
+    "hyperosmolar_hyperglycemic_state"
+  ],
+  "अतिउच्च साखर कोमा साखर > ६००": [
+    "hyperosmolar_hyperglycemic_state"
+  ],
+  "hyperosmolar hyperglycemic state": [
+    "hyperosmolar_hyperglycemic_state"
+  ],
+  "cushing's syndrome": [
+    "cushings_syndrome_hypercortisol"
+  ],
+  "कुशिंग सिंड्रोम": [
+    "cushings_syndrome_hypercortisol"
+  ],
+  "कर्टिसोल संप्रेरक अतिवाढ कुशिंग सिंड्रोम": [
+    "cushings_syndrome_hypercortisol"
+  ],
+  "cushings syndrome hypercortisol": [
+    "cushings_syndrome_hypercortisol"
+  ],
+  "addison's disease": [
+    "addisons_disease_adrenal_failure"
+  ],
+  "एडिसन रोग एड्रीनल ग्रंथि खराबी": [
+    "addisons_disease_adrenal_failure"
+  ],
+  "ॲडिसन्स आजार ॲड्रिनल ग्रंथीची कमतरता": [
+    "addisons_disease_adrenal_failure"
+  ],
+  "addisons disease adrenal failure": [
+    "addisons_disease_adrenal_failure"
+  ],
+  "acromegaly excess growth hormone": [
+    "acromegaly_growth_hormone"
+  ],
+  "एक्रोमेगाली": [
+    "acromegaly_growth_hormone"
+  ],
+  "वाढीचे संप्रेरक वाढणे हात-पाय मोठे होणे": [
+    "acromegaly_growth_hormone"
+  ],
+  "acromegaly growth hormone": [
+    "acromegaly_growth_hormone"
+  ],
+  "hypercalcemia high blood calcium": [
+    "hypercalcemia_high_calcium"
+  ],
+  "कैल्शियम की अधिकता": [
+    "hypercalcemia_high_calcium"
+  ],
+  "रक्तातील कॅल्शियमचे अतिप्रमाण": [
+    "hypercalcemia_high_calcium"
+  ],
+  "hypercalcemia high calcium": [
+    "hypercalcemia_high_calcium"
+  ],
+  "hypocalcemia & tetany": [
+    "hypocalcemia_tetany_spasm"
+  ],
+  "कैल्शियम की कमी मांसपेशियों में ऐंठन": [
+    "hypocalcemia_tetany_spasm"
+  ],
+  "कॅल्शियमची तीव्र कमतरता व स्नायूंचा ताण टेटनी": [
+    "hypocalcemia_tetany_spasm"
+  ],
+  "hypocalcemia tetany spasm": [
+    "hypocalcemia_tetany_spasm"
+  ],
+  "diabetic foot ulcer": [
+    "diabetic_foot_ulcer"
+  ],
+  "डायबिटिक फुट अल्सर": [
+    "diabetic_foot_ulcer"
+  ],
+  "मधुमेहातील न भरणारी पायाची जखम": [
+    "diabetic_foot_ulcer"
+  ],
+  "ectopic pregnancy tubal rupture": [
+    "ectopic_pregnancy_tubal"
+  ],
+  "अस्थानिक गर्भावस्था एक्टोपिक प्रेग्नेंसी": [
+    "ectopic_pregnancy_tubal"
+  ],
+  "गर्भाशयाबाहेरील गर्भधारणा एक्टोपिक": [
+    "ectopic_pregnancy_tubal"
+  ],
+  "ectopic pregnancy tubal": [
+    "ectopic_pregnancy_tubal"
+  ],
+  "threatened miscarriage": [
+    "threatened_miscarriage_abortion"
+  ],
+  "गर्भपात का खतरा": [
+    "threatened_miscarriage_abortion"
+  ],
+  "गर्भपाताचा धोका रक्तस्त्राव": [
+    "threatened_miscarriage_abortion"
+  ],
+  "threatened miscarriage abortion": [
+    "threatened_miscarriage_abortion"
+  ],
+  "placenta previa painless bleeding": [
+    "placenta_previa_bleeding"
+  ],
+  "प्लेसेंटा प्रीविया आंवल नीचे होना": [
+    "placenta_previa_bleeding"
+  ],
+  "वार खाली असणे व वेदनाविरहित रक्तस्त्राव": [
+    "placenta_previa_bleeding"
+  ],
+  "placenta previa bleeding": [
+    "placenta_previa_bleeding"
+  ],
+  "abruptio placentae placental separation": [
+    "abruptio_placentae_emergency"
+  ],
+  "प्लेसेंटा का समय से पहले अलग होना": [
+    "abruptio_placentae_emergency"
+  ],
+  "वार गर्भाशयापासून आधीच सुटणे": [
+    "abruptio_placentae_emergency"
+  ],
+  "abruptio placentae emergency": [
+    "abruptio_placentae_emergency"
+  ],
+  "puerperal sepsis childbed fever": [
+    "postpartum_puerperal_sepsis"
+  ],
+  "प्रसव के बाद का संक्रमण सूतिका ज्वर": [
+    "postpartum_puerperal_sepsis"
+  ],
+  "बाळंतपणानंतरचा संसर्ग सूतिका ज्वर": [
+    "postpartum_puerperal_sepsis"
+  ],
+  "postpartum puerperal sepsis": [
+    "postpartum_puerperal_sepsis"
+  ],
+  "bartholin's cyst & abscess": [
+    "bartholins_abscess_vulva"
+  ],
+  "बार्थोलिन ग्रंथि का फोड़ा": [
+    "bartholins_abscess_vulva"
+  ],
+  "बार्थोलिन ग्रंथीचा पूयुक्त गळू": [
+    "bartholins_abscess_vulva"
+  ],
+  "bartholins abscess vulva": [
+    "bartholins_abscess_vulva"
+  ],
+  "premenstrual dysphoric disorder pmdd": [
+    "premenstrual_dysphoric_pmdd"
+  ],
+  "माहवारी से पहले गंभीर चिड़चिड़ापन": [
+    "premenstrual_dysphoric_pmdd"
+  ],
+  "पाळीपूर्व तीव्र मानसिक ताण pmdd": [
+    "premenstrual_dysphoric_pmdd"
+  ],
+  "premenstrual dysphoric pmdd": [
+    "premenstrual_dysphoric_pmdd"
+  ],
+  "adenomyosis": [
+    "adenomyosis_uterine_enlargement"
+  ],
+  "एडेनोमायोसिस": [
+    "adenomyosis_uterine_enlargement"
+  ],
+  "गर्भाशयाची सूज व वेदना ॲडिनोमायोसिस": [
+    "adenomyosis_uterine_enlargement"
+  ],
+  "adenomyosis uterine enlargement": [
+    "adenomyosis_uterine_enlargement"
+  ],
+  "neonatal sepsis": [
+    "neonatal_sepsis_infection"
+  ],
+  "नवजात शिशु का गंभीर संक्रमण": [
+    "neonatal_sepsis_infection"
+  ],
+  "नवजात बाळाचा गंभीर संसर्ग सेप्सिस": [
+    "neonatal_sepsis_infection"
+  ],
+  "neonatal sepsis infection": [
+    "neonatal_sepsis_infection"
+  ],
+  "infantile pyloric stenosis": [
+    "infantile_hypertrophic_pyloric_stenosis"
+  ],
+  "शिशु में उल्टी की रुकावट": [
+    "infantile_hypertrophic_pyloric_stenosis"
+  ],
+  "लहान बाळाच्या जठराचा अडथळा": [
+    "infantile_hypertrophic_pyloric_stenosis"
+  ],
+  "infantile hypertrophic pyloric stenosis": [
+    "infantile_hypertrophic_pyloric_stenosis"
+  ],
+  "laryngomalacia": [
+    "laryngomalacia_infant_stridor"
+  ],
+  "शिशु की सांस में आवाज": [
+    "laryngomalacia_infant_stridor"
+  ],
+  "लहान बाळाच्या श्वासातील घरघर लॅरिंजोमॅलेशिया": [
+    "laryngomalacia_infant_stridor"
+  ],
+  "laryngomalacia infant stridor": [
+    "laryngomalacia_infant_stridor"
+  ],
+  "vitamin a deficiency night blindness": [
+    "vitamin_a_deficiency_bitot"
+  ],
+  "रतौंधी विटामिन ए की कमी": [
+    "vitamin_a_deficiency_bitot"
+  ],
+  "रातांधळेपणा व्हिटॅमिन-ए ची कमतरता": [
+    "vitamin_a_deficiency_bitot"
+  ],
+  "vitamin a deficiency bitot": [
+    "vitamin_a_deficiency_bitot"
+  ],
+  "kwashiorkor protein malnutrition": [
+    "kwashiorkor_protein_deficiency"
+  ],
+  "क्वाशिओरकोर प्रोटीन कुपोषण": [
+    "kwashiorkor_protein_deficiency"
+  ],
+  "प्रथिनांच्या कमतरतेमुळे कुपोषण क्वाशिओरकॉर": [
+    "kwashiorkor_protein_deficiency"
+  ],
+  "kwashiorkor protein deficiency": [
+    "kwashiorkor_protein_deficiency"
+  ],
+  "marasmus severe calorie deficiency": [
+    "marasmus_calorie_wasting"
+  ],
+  "मरास्मस सूखा रोग": [
+    "marasmus_calorie_wasting"
+  ],
+  "कॅलरीजच्या अभावामुळे हाडकुळे होणे मरास्मस": [
+    "marasmus_calorie_wasting"
+  ],
+  "marasmus calorie wasting": [
+    "marasmus_calorie_wasting"
+  ],
+  "nephrotic syndrome": [
+    "nephrotic_syndrome_proteinuria"
+  ],
+  "नेफ्रोटिक सिंड्रोम प्रोटीन लीक होना": [
+    "nephrotic_syndrome_proteinuria"
+  ],
+  "नेफ्रोटिक सिंड्रोम लघवीतून प्रथिने जाणे": [
+    "nephrotic_syndrome_proteinuria"
+  ],
+  "nephrotic syndrome proteinuria": [
+    "nephrotic_syndrome_proteinuria"
+  ],
+  "post-streptococcal glomerulonephritis": [
+    "acute_post_strep_glomerulonephritis"
+  ],
+  "गले के संक्रमण के बाद किडनी रोग": [
+    "acute_post_strep_glomerulonephritis"
+  ],
+  "घशाच्या संसर्गानंतर मूत्रपिंडाचा दाह": [
+    "acute_post_strep_glomerulonephritis"
+  ],
+  "acute post strep glomerulonephritis": [
+    "acute_post_strep_glomerulonephritis"
+  ],
+  "polycystic kidney disease pkd": [
+    "autosomal_dominant_polycystic_kidney"
+  ],
+  "किडनी में गांठें पॉलीसिस्टिक": [
+    "autosomal_dominant_polycystic_kidney"
+  ],
+  "मूत्रपिंडात पाण्याच्या गाठी पॉलीसिस्टिक किडनी": [
+    "autosomal_dominant_polycystic_kidney"
+  ],
+  "autosomal dominant polycystic kidney": [
+    "autosomal_dominant_polycystic_kidney"
+  ],
+  "testicular torsion twisted testicle": [
+    "acute_testicular_torsion"
+  ],
+  "अंडकोष में अचानक तेज दर्द मरोड़": [
+    "acute_testicular_torsion"
+  ],
+  "वृषणाला पीळ पडणे टेस्टीक्युलर टॉर्शन": [
+    "acute_testicular_torsion"
+  ],
+  "acute testicular torsion": [
+    "acute_testicular_torsion"
+  ],
+  "epididymo-orchitis": [
+    "acute_epididymo_orchitis"
+  ],
+  "अंडकोष की सूजन व संक्रमण": [
+    "acute_epididymo_orchitis"
+  ],
+  "अंडकोषाची तीव्र सूज व संसर्ग": [
+    "acute_epididymo_orchitis"
+  ],
+  "acute epididymo orchitis": [
+    "acute_epididymo_orchitis"
+  ],
+  "hydrocele": [
+    "hydrocele_testicular_swelling"
+  ],
+  "अंडकोष में पानी भरना हाइड्रोसील": [
+    "hydrocele_testicular_swelling"
+  ],
+  "अंडकोषात पाणी भरणे हायड्रोसील": [
+    "hydrocele_testicular_swelling"
+  ],
+  "hydrocele testicular swelling": [
+    "hydrocele_testicular_swelling"
+  ],
+  "varicocele": [
+    "varicocele_scrotal_veins"
+  ],
+  "अंडकोष की नसों का फूलना": [
+    "varicocele_scrotal_veins"
+  ],
+  "अंडकोषातील फुगलेल्या शिरा व्हेरिकोसील": [
+    "varicocele_scrotal_veins"
+  ],
+  "varicocele scrotal veins": [
+    "varicocele_scrotal_veins"
+  ],
+  "phimosis": [
+    "phimosis_tight_foreskin"
+  ],
+  "लिंग की चमड़ी का पीछे न जाना": [
+    "phimosis_tight_foreskin"
+  ],
+  "शिश्नाची त्वचा मागे न जाणे फायमोसिस": [
+    "phimosis_tight_foreskin"
+  ],
+  "phimosis tight foreskin": [
+    "phimosis_tight_foreskin"
+  ],
+  "paraphimosis": [
+    "paraphimosis_strangulated_foreskin"
+  ],
+  "लिंग की चमड़ी का फंस जाना": [
+    "paraphimosis_strangulated_foreskin"
+  ],
+  "शिश्नाची त्वचा मागे अडकणे पॅराफायमोसिस": [
+    "paraphimosis_strangulated_foreskin"
+  ],
+  "paraphimosis strangulated foreskin": [
+    "paraphimosis_strangulated_foreskin"
+  ],
+  "social anxiety disorder": [
+    "social_anxiety_disorder"
+  ],
+  "सामाजिक भय सोशल एंग्जायटी": [
+    "social_anxiety_disorder"
+  ],
+  "लोकांमध्ये जाण्याची भीती सोशल ॲन्झायटी": [
+    "social_anxiety_disorder"
+  ],
+  "agoraphobia": [
+    "agoraphobia_open_spaces"
+  ],
+  "भीड़ या खुली जगहों का डर": [
+    "agoraphobia_open_spaces"
+  ],
+  "गर्दीच्या किंवा मोकळ्या जागेची भीती ॲगोराफोबिया": [
+    "agoraphobia_open_spaces"
+  ],
+  "agoraphobia open spaces": [
+    "agoraphobia_open_spaces"
+  ],
+  "acute stress reaction": [
+    "acute_stress_reaction"
+  ],
+  "अचानक मानसिक सदमा": [
+    "acute_stress_reaction"
+  ],
+  "अचानक मानसिक आघात / तीव्र ताण": [
+    "acute_stress_reaction"
+  ],
+  "somatic symptom disorder": [
+    "somatic_symptom_disorder"
+  ],
+  "शारीरिक लक्षणों की चिंता": [
+    "somatic_symptom_disorder"
+  ],
+  "शरीराच्या दुखण्यांची अतिचिंता विकार": [
+    "somatic_symptom_disorder"
+  ],
+  "alcohol withdrawal delirium tremens": [
+    "alcohol_withdrawal_delirium"
+  ],
+  "शराब छोड़ने पर कंपन व दौरा": [
+    "alcohol_withdrawal_delirium"
+  ],
+  "दारू सोडल्यानंतरचे झटके व भ्रम dt": [
+    "alcohol_withdrawal_delirium"
+  ],
+  "alcohol withdrawal delirium": [
+    "alcohol_withdrawal_delirium"
+  ],
+  "opioid overdose naloxone emergency": [
+    "opioid_overdose_emergency"
+  ],
+  "अफीम/ड्रग्स ओवरडोज": [
+    "opioid_overdose_emergency"
+  ],
+  "अंमली पदार्थांचे अतिसेवन ओव्हरडोस": [
+    "opioid_overdose_emergency"
+  ],
+  "opioid overdose emergency": [
+    "opioid_overdose_emergency"
+  ],
+  "geographic tongue": [
+    "geographic_tongue_benign"
+  ],
+  "जीभ पर नक्शे जैसे दाग": [
+    "geographic_tongue_benign"
+  ],
+  "जिभेवर नकाशासारखे लाल-पांढरे चट्टे": [
+    "geographic_tongue_benign"
+  ],
+  "geographic tongue benign": [
+    "geographic_tongue_benign"
+  ],
+  "burning mouth syndrome": [
+    "burning_mouth_syndrome"
+  ],
+  "मुंह में जलन": [
+    "burning_mouth_syndrome"
+  ],
+  "तोंडात व जिभेवर सतत जळजळ": [
+    "burning_mouth_syndrome"
+  ],
+  "angular cheilitis": [
+    "angular_cheilitis_mouth_corners"
+  ],
+  "होंठों के कोनों का फटना": [
+    "angular_cheilitis_mouth_corners"
+  ],
+  "ओठांच्या कोपऱ्यात भेगा पडणे व दुखणे": [
+    "angular_cheilitis_mouth_corners"
+  ],
+  "angular cheilitis mouth corners": [
+    "angular_cheilitis_mouth_corners"
+  ],
+  "dry socket post-extraction": [
+    "dry_socket_alveolar_osteitis"
+  ],
+  "दांत निकालने के बाद तेज दर्द": [
+    "dry_socket_alveolar_osteitis"
+  ],
+  "दाढ काढल्यानंतरचा तीव्र त्रास ड्राय सॉकेट": [
+    "dry_socket_alveolar_osteitis"
+  ],
+  "dry socket alveolar osteitis": [
+    "dry_socket_alveolar_osteitis"
+  ],
+  "pericoronitis wisdom tooth": [
+    "pericoronitis_wisdom_tooth"
+  ],
+  "अक्ल दाढ़ की सूजन": [
+    "pericoronitis_wisdom_tooth"
+  ],
+  "अक्कलदाढेवरील हिरडीची सूज": [
+    "pericoronitis_wisdom_tooth"
+  ],
+  "autoimmune hepatitis": [
+    "autoimmune_hepatitis_liver"
+  ],
+  "ऑटोइम्यून हेपेटाइटिस": [
+    "autoimmune_hepatitis_liver"
+  ],
+  "स्वप्रतिकारशक्तीमुळे यकृतदाह": [
+    "autoimmune_hepatitis_liver"
+  ],
+  "autoimmune hepatitis liver": [
+    "autoimmune_hepatitis_liver"
+  ],
+  "primary biliary cholangitis": [
+    "primary_biliary_cholangitis"
+  ],
+  "पित्त नलियों की बीमारी": [
+    "primary_biliary_cholangitis"
+  ],
+  "पित्तवाहिन्यांची झीज pbc": [
+    "primary_biliary_cholangitis"
+  ],
+  "amoebic liver abscess": [
+    "amoebic_liver_abscess"
+  ],
+  "लिवर में मवाद फोड़ा": [
+    "amoebic_liver_abscess"
+  ],
+  "यकृतात पू भरणे लिव्हर ॲब्सेस": [
+    "amoebic_liver_abscess"
+  ],
+  "hydatid cyst of liver": [
+    "hydatid_cyst_of_liver"
+  ],
+  "लिवर में कीड़े की गांठ": [
+    "hydatid_cyst_of_liver"
+  ],
+  "यकृतातील हायडॅटिड गाठ जंतांची गाठ": [
+    "hydatid_cyst_of_liver"
+  ],
+  "urinary bladder cancer": [
+    "bladder_cancer_urothelial"
+  ],
+  "मूत्राशय का कैंसर": [
+    "bladder_cancer_urothelial"
+  ],
+  "मूत्राशयाचा कर्करोग ब्लॅडर कॅन्सर": [
+    "bladder_cancer_urothelial"
+  ],
+  "bladder cancer urothelial": [
+    "bladder_cancer_urothelial"
+  ],
+  "renal cell carcinoma kidney cancer": [
+    "renal_cell_carcinoma_kidney"
+  ],
+  "गुर्दे का कैंसर": [
+    "renal_cell_carcinoma_kidney"
+  ],
+  "मूत्रपिंडाचा कर्करोग किडनी कॅन्सर": [
+    "renal_cell_carcinoma_kidney"
+  ],
+  "renal cell carcinoma kidney": [
+    "renal_cell_carcinoma_kidney"
+  ],
+  "endometrial uterine cancer": [
+    "endometrial_uterine_cancer"
+  ],
+  "गर्भाशय का कैंसर": [
+    "endometrial_uterine_cancer"
+  ],
+  "गर्भाशयाचा कर्करोग एंडोमेट्रिअल कॅन्सर": [
+    "endometrial_uterine_cancer"
+  ],
+  "testicular cancer": [
+    "testicular_cancer_seminoma"
+  ],
+  "अंडकोष का कैंसर": [
+    "testicular_cancer_seminoma"
+  ],
+  "वृषणाचा कर्करोग टेस्टीक्युलर कॅन्सर": [
+    "testicular_cancer_seminoma"
+  ],
+  "testicular cancer seminoma": [
+    "testicular_cancer_seminoma"
+  ],
+  "penile cancer": [
+    "penile_cancer_carcinoma"
+  ],
+  "लिंग का कैंसर": [
+    "penile_cancer_carcinoma"
+  ],
+  "शिश्नाचा कर्करोग पेनाईल कॅन्सर": [
+    "penile_cancer_carcinoma"
+  ],
+  "penile cancer carcinoma": [
+    "penile_cancer_carcinoma"
+  ],
+  "gallbladder cancer": [
+    "gallbladder_cancer"
+  ],
+  "पित्ताशय का कैंसर": [
+    "gallbladder_cancer"
+  ],
+  "पित्ताशयाचा कर्करोग गॉलब्लाडर कॅन्सर": [
+    "gallbladder_cancer"
+  ],
+  "cholangiocarcinoma bile duct cancer": [
+    "cholangiocarcinoma_bile_duct"
+  ],
+  "पित्त नली का कैंसर": [
+    "cholangiocarcinoma_bile_duct"
+  ],
+  "पित्तनलिकेचा कर्करोग": [
+    "cholangiocarcinoma_bile_duct"
+  ],
+  "cholangiocarcinoma bile duct": [
+    "cholangiocarcinoma_bile_duct"
+  ],
+  "malignant melanoma": [
+    "melanoma_skin_cancer"
+  ],
+  "त्वचा का काला कैंसर मेलेनोमा": [
+    "melanoma_skin_cancer"
+  ],
+  "त्वचेचा घातक काळा कर्करोग मेलानोमा": [
+    "melanoma_skin_cancer"
+  ],
+  "melanoma skin cancer": [
+    "melanoma_skin_cancer"
+  ],
+  "basal cell carcinoma bcc": [
+    "basal_cell_carcinoma_skin"
+  ],
+  "त्वचा का कैंसर बीसीसी": [
+    "basal_cell_carcinoma_skin"
+  ],
+  "त्वचेचा बेसल सेल कर्करोग": [
+    "basal_cell_carcinoma_skin"
+  ],
+  "basal cell carcinoma skin": [
+    "basal_cell_carcinoma_skin"
+  ],
+  "squamous cell carcinoma of skin": [
+    "squamous_cell_carcinoma_skin"
+  ],
+  "त्वचा का कैंसर एससीसी": [
+    "squamous_cell_carcinoma_skin"
+  ],
+  "त्वचेचा स्क्वॅमस सेल कर्करोग": [
+    "squamous_cell_carcinoma_skin"
+  ],
+  "squamous cell carcinoma skin": [
+    "squamous_cell_carcinoma_skin"
+  ],
+  "glioblastoma multiforme gbm": [
+    "glioblastoma_multiforme_gbm"
+  ],
+  "गंभीर ब्रेन ट्यूमर ग्लियोब्लास्टोमा": [
+    "glioblastoma_multiforme_gbm"
+  ],
+  "मेंदूचा अत्यंत घातक ट्युमर ग्लिओब्लास्टोमा": [
+    "glioblastoma_multiforme_gbm"
+  ],
+  "acute myeloid leukemia aml": [
+    "acute_myeloid_leukemia_aml"
+  ],
+  "तीव्र रक्त कैंसर एएमएल": [
+    "acute_myeloid_leukemia_aml"
+  ],
+  "तीव्र रक्ताचा कर्करोग एएमएल": [
+    "acute_myeloid_leukemia_aml"
+  ],
+  "chronic myeloid leukemia cml": [
+    "chronic_myeloid_leukemia_cml"
+  ],
+  "क्रोनिक ब्लड कैंसर": [
+    "chronic_myeloid_leukemia_cml"
+  ],
+  "जुनाट रक्ताचा कर्करोग सीएमएल": [
+    "chronic_myeloid_leukemia_cml"
+  ],
+  "chemical burn acid / alkali": [
+    "chemical_burn_eye_skin"
+  ],
+  "एसिड या केमिकल से जलना": [
+    "chemical_burn_eye_skin"
+  ],
+  "ॲसिड किंवा रासायनिक विषारी भाजणे": [
+    "chemical_burn_eye_skin"
+  ],
+  "chemical burn eye skin": [
+    "chemical_burn_eye_skin"
+  ],
+  "high-voltage electrical burn & shock": [
+    "electrical_burn_shock"
+  ],
+  "बिजली का करंट लगना": [
+    "electrical_burn_shock"
+  ],
+  "विजेचा तीव्र धक्का व भाजणे": [
+    "electrical_burn_shock"
+  ],
+  "electrical burn shock": [
+    "electrical_burn_shock"
+  ],
+  "cardiac tamponade": [
+    "cardiac_tamponade_shock"
+  ],
+  "हृदय के चारों ओर खून भरना": [
+    "cardiac_tamponade_shock"
+  ],
+  "हृदयाच्या आवरणात रक्त साचणे टॅम्पोनेड": [
+    "cardiac_tamponade_shock"
+  ],
+  "cardiac tamponade shock": [
+    "cardiac_tamponade_shock"
+  ],
+  "flail chest multiple rib fractures": [
+    "flail_chest_rib_fracture"
+  ],
+  "पसलियां टूटना छाती की गंभीर चोट": [
+    "flail_chest_rib_fracture"
+  ],
+  "बरगड्या अनेक ठिकाणी मोडणे": [
+    "flail_chest_rib_fracture"
+  ],
+  "flail chest rib fracture": [
+    "flail_chest_rib_fracture"
+  ],
+  "crush injury & compartment syndrome": [
+    "crush_injury_compartment_syndrome"
+  ],
+  "दबने से गंभीर चोट कंपार्टमेंट सिंड्रोम": [
+    "crush_injury_compartment_syndrome"
+  ],
+  "जड वस्तूखाली अवयव दबणे व स्नायूंचा दाब": [
+    "crush_injury_compartment_syndrome"
+  ],
+  "crush injury compartment syndrome": [
+    "crush_injury_compartment_syndrome"
+  ],
+  "acute spinal cord injury": [
+    "spinal_cord_injury_trauma"
+  ],
+  "रीढ़ की हड्डी की चोट लकवा": [
+    "spinal_cord_injury_trauma"
+  ],
+  "पाठीच्या कण्याला गंभीर मार व लुळे पडणे": [
+    "spinal_cord_injury_trauma"
+  ],
+  "spinal cord injury trauma": [
+    "spinal_cord_injury_trauma"
+  ],
+  "carbon monoxide poisoning chulha/heater": [
+    "carbon_monoxide_poisoning"
+  ],
+  "अंगीठी के धुएं से दम घुटना": [
+    "carbon_monoxide_poisoning"
+  ],
+  "बंद खोलीत चुलीच्या धुरामुळे विषबाधा": [
+    "carbon_monoxide_poisoning"
+  ],
+  "carbon monoxide poisoning": [
+    "carbon_monoxide_poisoning"
+  ],
+  "methanol poisoning spurious alcohol": [
+    "methanol_poisoning_illicit_liquor"
+  ],
+  "जहरीली शराब से अंधापन": [
+    "methanol_poisoning_illicit_liquor"
+  ],
+  "विषारी दारूमुळे विषबाधा मिथॅनॉल": [
+    "methanol_poisoning_illicit_liquor"
+  ],
+  "methanol poisoning illicit liquor": [
+    "methanol_poisoning_illicit_liquor"
+  ],
+  "kerosene / petrol ingestion in child": [
+    "kerosene_hydrocarbon_ingestion"
+  ],
+  "मिट्टी का तेल पीना केरोसिन": [
+    "kerosene_hydrocarbon_ingestion"
+  ],
+  "लहान मुलाने रॉकेल किंवा डिझेल पिणे": [
+    "kerosene_hydrocarbon_ingestion"
+  ],
+  "kerosene hydrocarbon ingestion": [
+    "kerosene_hydrocarbon_ingestion"
+  ],
+  "corrosive acid / toilet cleaner ingestion": [
+    "corrosive_acid_alkali_ingestion"
+  ],
+  "तेजाब पीना एसिड पॉइजनिंग": [
+    "corrosive_acid_alkali_ingestion"
+  ],
+  "ॲसिड किंवा टॉयलेट क्लिनर पोटात जाणे": [
+    "corrosive_acid_alkali_ingestion"
+  ],
+  "corrosive acid alkali ingestion": [
+    "corrosive_acid_alkali_ingestion"
+  ],
+  "chronic unexplained cough": [
+    "chronic_cough_unexplained"
+  ],
+  "पुरानी खांसी": [
+    "chronic_cough_unexplained"
+  ],
+  "जुनाट खोकला": [
+    "chronic_cough_unexplained"
+  ],
+  "chronic cough unexplained": [
+    "chronic_cough_unexplained"
+  ],
+  "occupational asthma": [
+    "occupational_asthma"
+  ],
+  "कार्यस्थल का दमा": [
+    "occupational_asthma"
+  ],
+  "कामाच्या ठिकाणचा दमा केमिकल / कापूस": [
+    "occupational_asthma"
+  ],
+  "exercise-induced bronchospasm": [
+    "bronchospasm_exercise_induced"
+  ],
+  "व्यायाम के बाद सांस फूलना": [
+    "bronchospasm_exercise_induced"
+  ],
+  "व्यायामानंतर श्वास भरून येणे": [
+    "bronchospasm_exercise_induced"
+  ],
+  "bronchospasm exercise induced": [
+    "bronchospasm_exercise_induced"
+  ],
+  "nasal polyps": [
+    "nasal_polyps_chronic"
+  ],
+  "नाक में मांस बढ़ना": [
+    "nasal_polyps_chronic"
+  ],
+  "नाकातील मांसाची गाठ पॉलिप्स": [
+    "nasal_polyps_chronic"
+  ],
+  "nasal polyps chronic": [
+    "nasal_polyps_chronic"
+  ],
+  "seasonal allergic conjunctivitis": [
+    "allergic_conjunctivitis_seasonal"
+  ],
+  "मौसमी आंख की एलर्जी": [
+    "allergic_conjunctivitis_seasonal"
+  ],
+  "हंगामी डोळ्यांची ॲलर्जी": [
+    "allergic_conjunctivitis_seasonal"
+  ],
+  "allergic conjunctivitis seasonal": [
+    "allergic_conjunctivitis_seasonal"
+  ],
+  "blepharitis eyelid inflammation": [
+    "blepharitis_eyelid_crusts"
+  ],
+  "पलकों की सूजन व रूसी": [
+    "blepharitis_eyelid_crusts"
+  ],
+  "पापण्यांची सूज व खपल्या": [
+    "blepharitis_eyelid_crusts"
+  ],
+  "blepharitis eyelid crusts": [
+    "blepharitis_eyelid_crusts"
+  ],
+  "subconjunctival hemorrhage": [
+    "subconjunctival_hemorrhage_red_spot"
+  ],
+  "आंख में खून का धब्बा": [
+    "subconjunctival_hemorrhage_red_spot"
+  ],
+  "डोळ्यात रक्ताचा ठिपका उमटणे": [
+    "subconjunctival_hemorrhage_red_spot"
+  ],
+  "subconjunctival hemorrhage red spot": [
+    "subconjunctival_hemorrhage_red_spot"
+  ],
+  "epiglottic cyst": [
+    "epiglottic_cyst_throat"
+  ],
+  "गले की गांठ": [
+    "epiglottic_cyst_throat"
+  ],
+  "घशातील गाठ": [
+    "epiglottic_cyst_throat"
+  ],
+  "epiglottic cyst throat": [
+    "epiglottic_cyst_throat"
+  ],
+  "ear wax impaction": [
+    "cerumen_impaction_wax"
+  ],
+  "कान में खूंट जमना": [
+    "cerumen_impaction_wax"
+  ],
+  "कानात मळ साचणे": [
+    "cerumen_impaction_wax"
+  ],
+  "cerumen impaction wax": [
+    "cerumen_impaction_wax"
+  ],
+  "glossitis inflamed tongue": [
+    "glossitis_swollen_tongue"
+  ],
+  "जीभ की सूजन": [
+    "glossitis_swollen_tongue"
+  ],
+  "जिभेची जळजळ व सूज": [
+    "glossitis_swollen_tongue"
+  ],
+  "glossitis swollen tongue": [
+    "glossitis_swollen_tongue"
+  ],
+  "tmj dysfunction": [
+    "temporomandibular_joint_tmj"
+  ],
+  "जबड़े का दर्द व चटकना": [
+    "temporomandibular_joint_tmj"
+  ],
+  "जबड्याचा सांधा दुखणे व चटकणे": [
+    "temporomandibular_joint_tmj"
+  ],
+  "temporomandibular joint tmj": [
+    "temporomandibular_joint_tmj"
+  ],
+  "chronic halitosis bad breath": [
+    "halitosis_bad_breath"
+  ],
+  "मुंह की बदबू": [
+    "halitosis_bad_breath"
+  ],
+  "तोंडाचा तीव्र दुर्गंध हॅलिटोसिस": [
+    "halitosis_bad_breath"
+  ],
+  "halitosis bad breath": [
+    "halitosis_bad_breath"
+  ],
+  "oral candidiasis in adults": [
+    "oral_thrush_candidiasis"
+  ],
+  "मुंह का फंगस": [
+    "oral_thrush_candidiasis"
+  ],
+  "तोंडातील पांढरी बुरशी": [
+    "oral_thrush_candidiasis"
+  ],
+  "oral thrush candidiasis": [
+    "oral_thrush_candidiasis"
+  ],
+  "tongue leukoplakia": [
+    "leukoplakia_tongue"
+  ],
+  "जीभ पर सफेद पैच": [
+    "leukoplakia_tongue"
+  ],
+  "जिभेवरील न निघणारा पांढरा डाग": [
+    "leukoplakia_tongue"
+  ],
+  "leukoplakia tongue": [
+    "leukoplakia_tongue"
+  ],
+  "salivary gland stone": [
+    "salivary_gland_stone_sialolithiasis"
+  ],
+  "लार ग्रंथि की पथरी": [
+    "salivary_gland_stone_sialolithiasis"
+  ],
+  "लाळग्रंथीतील खडा": [
+    "salivary_gland_stone_sialolithiasis"
+  ],
+  "salivary gland stone sialolithiasis": [
+    "salivary_gland_stone_sialolithiasis"
+  ],
+  "cervical myofascial pain": [
+    "cervical_myofascial_pain"
+  ],
+  "गर्दन की मांसपेशियों में जकड़न": [
+    "cervical_myofascial_pain"
+  ],
+  "मानेच्या स्नायूंमध्ये गाठी व ताठरता": [
+    "cervical_myofascial_pain"
+  ],
+  "patellofemoral pain runner's knee": [
+    "patellofemoral_pain_syndrome"
+  ],
+  "दौड़ने वालों का घुटना दर्द": [
+    "patellofemoral_pain_syndrome"
+  ],
+  "धावपटूंची गुडघेदुखी पटेलोफेमोरल": [
+    "patellofemoral_pain_syndrome"
+  ],
+  "patellofemoral pain syndrome": [
+    "patellofemoral_pain_syndrome"
+  ],
+  "achilles tendinitis": [
+    "achilles_tendonitis_heel"
+  ],
+  "एड़ी की नस की सूजन": [
+    "achilles_tendonitis_heel"
+  ],
+  "टाचेच्या मागील नसेची सूज": [
+    "achilles_tendonitis_heel"
+  ],
+  "achilles tendonitis heel": [
+    "achilles_tendonitis_heel"
+  ],
+  "shin splints medial tibial stress": [
+    "shin_splints_leg_pain"
+  ],
+  "पिंडली की हड्डी में दर्द": [
+    "shin_splints_leg_pain"
+  ],
+  "धावल्यानंतर नडगीच्या हाडात वेदना": [
+    "shin_splints_leg_pain"
+  ],
+  "shin splints leg pain": [
+    "shin_splints_leg_pain"
+  ],
+  "ganglion cyst of wrist": [
+    "ganglion_cyst_wrist"
+  ],
+  "कलाई की गांठ गैंग्लियन": [
+    "ganglion_cyst_wrist"
+  ],
+  "मनगटावरील मऊ गाठ गँग्लिऑन": [
+    "ganglion_cyst_wrist"
+  ],
+  "ganglion cyst wrist": [
+    "ganglion_cyst_wrist"
+  ],
+  "trigger finger stenosing tenosynovitis": [
+    "trigger_finger_stenosing"
+  ],
+  "उंगली का अटकना ट्रिगर फिंगर": [
+    "trigger_finger_stenosing"
+  ],
+  "बोट वाकवून सरळ करताना अडकणे": [
+    "trigger_finger_stenosing"
+  ],
+  "trigger finger stenosing": [
+    "trigger_finger_stenosing"
+  ],
+  "de quervain's tenosynovitis": [
+    "de_quervains_tenosynovitis"
+  ],
+  "अंगूठे की नस का दर्द": [
+    "de_quervains_tenosynovitis"
+  ],
+  "अंगठ्याच्या मुळाशी मनगटात तीव्र कळ": [
+    "de_quervains_tenosynovitis"
+  ],
+  "de quervains tenosynovitis": [
+    "de_quervains_tenosynovitis"
+  ],
+  "bunion hallux valgus": [
+    "bunion_hallux_valgus"
+  ],
+  "पैर के अंगूठे की हड्डी बढ़ना": [
+    "bunion_hallux_valgus"
+  ],
+  "पायाच्या अंगठ्याची हाड वाढणे बनियन": [
+    "bunion_hallux_valgus"
+  ],
+  "postural kyphosis hunchback": [
+    "kyphosis_hunchback"
+  ],
+  "कूबड़ निकलना कुबड़ापन": [
+    "kyphosis_hunchback"
+  ],
+  "पाठीला कुबड येणे कुबडेपणा": [
+    "kyphosis_hunchback"
+  ],
+  "kyphosis hunchback": [
+    "kyphosis_hunchback"
+  ],
+  "adolescent scoliosis": [
+    "scoliosis_spinal_curvature"
+  ],
+  "रीढ़ की हड्डी टेढ़ी होना": [
+    "scoliosis_spinal_curvature"
+  ],
+  "पाठीचा कणा एका बाजूला वाकडा होणे": [
+    "scoliosis_spinal_curvature"
+  ],
+  "scoliosis spinal curvature": [
+    "scoliosis_spinal_curvature"
+  ],
+  "olecranon bursitis student's elbow": [
+    "bursitis_olecranon_elbow"
+  ],
+  "कोहनी में पानी की थैली": [
+    "bursitis_olecranon_elbow"
+  ],
+  "कोपरावर मऊ पाचकळ गाठ बर्सायटिस": [
+    "bursitis_olecranon_elbow"
+  ],
+  "bursitis olecranon elbow": [
+    "bursitis_olecranon_elbow"
+  ],
+  "calcific tendinitis of shoulder": [
+    "calcific_tendinitis_shoulder"
+  ],
+  "कंधे में कैल्शियम जमाव": [
+    "calcific_tendinitis_shoulder"
+  ],
+  "खांद्यात कॅल्शियम साचून तीव्र वेदना": [
+    "calcific_tendinitis_shoulder"
+  ],
+  "calcific tendinitis shoulder": [
+    "calcific_tendinitis_shoulder"
+  ],
+  "respiratory sinus arrhythmia": [
+    "sinus_arrhythmia_respiratory"
+  ],
+  "सांस के साथ धड़कन बदलना": [
+    "sinus_arrhythmia_respiratory"
+  ],
+  "श्वासासोबत हृदयाचे ठोके बदलणे सामान्य": [
+    "sinus_arrhythmia_respiratory"
+  ],
+  "sinus arrhythmia respiratory": [
+    "sinus_arrhythmia_respiratory"
+  ],
+  "premature ventricular contractions pvc": [
+    "premature_ventricular_contractions_pvc"
+  ],
+  "दिल की छूटी हुई धड़कन स्किप बीट": [
+    "premature_ventricular_contractions_pvc"
+  ],
+  "हृदयाचा ठोका चुकल्यासारखे वाटणे स्किप बीट": [
+    "premature_ventricular_contractions_pvc"
+  ],
+  "thoracic outlet syndrome": [
+    "thoracic_outlet_syndrome"
+  ],
+  "कंधे और हाथ की नसों का दबाव": [
+    "thoracic_outlet_syndrome"
+  ],
+  "खांद्यातून हातात जाणाऱ्या नसांवर दाब": [
+    "thoracic_outlet_syndrome"
+  ],
+  "restless legs syndrome": [
+    "restless_legs_syndrome_rls"
+  ],
+  "पैरों में असहजता": [
+    "restless_legs_syndrome_rls"
+  ],
+  "रात्री पायांत अस्वस्थता व पाय हलवणे": [
+    "restless_legs_syndrome_rls"
+  ],
+  "restless legs syndrome rls": [
+    "restless_legs_syndrome_rls"
+  ],
+  "chronic tension-type headache": [
+    "tension_headache_chronic"
+  ],
+  "पुरानी तनाव सिरदर्द": [
+    "tension_headache_chronic"
+  ],
+  "जुनाट तणाव डोकेदुखी": [
+    "tension_headache_chronic"
+  ],
+  "tension headache chronic": [
+    "tension_headache_chronic"
+  ],
+  "occipital neuralgia": [
+    "occipital_neuralgia"
+  ],
+  "सिर के पिछले हिस्से में तेज दर्द": [
+    "occipital_neuralgia"
+  ],
+  "डोक्याच्या मागच्या बाजूला विजेसारखी कळ": [
+    "occipital_neuralgia"
+  ],
+  "post-herpetic neuralgia": [
+    "post_herpetic_neuralgia_shingles"
+  ],
+  "नागिन के बाद का दर्द": [
+    "post_herpetic_neuralgia_shingles"
+  ],
+  "नागीण बरी झाल्यानंतरची तीव्र जळजळ": [
+    "post_herpetic_neuralgia_shingles"
+  ],
+  "post herpetic neuralgia shingles": [
+    "post_herpetic_neuralgia_shingles"
+  ],
+  "complex regional pain syndrome crps": [
+    "complex_regional_pain_syndrome"
+  ],
+  "चोट के बाद अत्यधिक दर्द": [
+    "complex_regional_pain_syndrome"
+  ],
+  "अपघाताच्या जागेवर अतिसंवेदनशील असह्य जळजळ": [
+    "complex_regional_pain_syndrome"
+  ],
+  "complex regional pain syndrome": [
+    "complex_regional_pain_syndrome"
+  ],
+  "prediabetes impaired glucose": [
+    "impaired_fasting_glucose_prediabetes"
+  ],
+  "प्री-डायबिटीज शुगर की शुरुआत": [
+    "impaired_fasting_glucose_prediabetes"
+  ],
+  "मधुमेहाची पूर्वअवस्था प्री-डायबिटीज": [
+    "impaired_fasting_glucose_prediabetes"
+  ],
+  "impaired fasting glucose prediabetes": [
+    "impaired_fasting_glucose_prediabetes"
+  ],
+  "gestational diabetes mellitus gdm": [
+    "gestational_diabetes_mellitus"
+  ],
+  "गर्भावस्था में शुगर": [
+    "gestational_diabetes_mellitus"
+  ],
+  "गरोदरपणातील मधुमेह gdm": [
+    "gestational_diabetes_mellitus"
+  ],
+  "gestational diabetes mellitus": [
+    "gestational_diabetes_mellitus"
+  ],
+  "hypertriglyceridemia": [
+    "hypertriglyceridemia_fats"
+  ],
+  "ट्राइग्लिसराइड्स बढ़ना": [
+    "hypertriglyceridemia_fats"
+  ],
+  "रक्तातील ट्रायग्लिसराइड्स चरबी वाढणे": [
+    "hypertriglyceridemia_fats"
+  ],
+  "hypertriglyceridemia fats": [
+    "hypertriglyceridemia_fats"
+  ],
+  "metabolic syndrome x": [
+    "metabolic_syndrome_x"
+  ],
+  "मेटाबॉलिक सिंड्रोम": [
+    "metabolic_syndrome_x"
+  ],
+  "मेटाबॉलिक सिंड्रोम लठ्ठपणा बीपी शुगर": [
+    "metabolic_syndrome_x"
+  ],
+  "diabetic retinopathy early signs": [
+    "diabetic_retinopathy_early"
+  ],
+  "डायबिटीज से आंख की कमजोरी": [
+    "diabetic_retinopathy_early"
+  ],
+  "मधुमेहामुळे डोळ्यांच्या पडद्याची हानी": [
+    "diabetic_retinopathy_early"
+  ],
+  "diabetic retinopathy early": [
+    "diabetic_retinopathy_early"
+  ],
+  "diabetic nephropathy": [
+    "diabetic_nephropathy_microalbumin"
+  ],
+  "डायबिटीज से गुर्दे की खराबी": [
+    "diabetic_nephropathy_microalbumin"
+  ],
+  "मधुमेहामुळे मूत्रपिंडाची हानी": [
+    "diabetic_nephropathy_microalbumin"
+  ],
+  "diabetic nephropathy microalbumin": [
+    "diabetic_nephropathy_microalbumin"
+  ],
+  "asymptomatic hyperuricemia": [
+    "hyperuricemia_asymptomatic"
+  ],
+  "यूरिक एसिड बढ़ना": [
+    "hyperuricemia_asymptomatic"
+  ],
+  "युरिक ॲसिडचे प्रमाण वाढणे": [
+    "hyperuricemia_asymptomatic"
+  ],
+  "hyperuricemia asymptomatic": [
+    "hyperuricemia_asymptomatic"
+  ],
+  "osteopenia mild bone thinning": [
+    "osteopenia_low_bone_density"
+  ],
+  "हड्डियों का हल्का कमजोर होना": [
+    "osteopenia_low_bone_density"
+  ],
+  "हाडांची प्राथमिक झीज ऑस्टिओपेनिया": [
+    "osteopenia_low_bone_density"
+  ],
+  "osteopenia low bone density": [
+    "osteopenia_low_bone_density"
+  ],
+  "subclinical hypothyroidism": [
+    "hypothyroidism_subclinical"
+  ],
+  "थायराइड की हल्की कमी": [
+    "hypothyroidism_subclinical"
+  ],
+  "थायरॉईडची प्राथमिक कमतरता tsh वाढ": [
+    "hypothyroidism_subclinical"
+  ],
+  "hypothyroidism subclinical": [
+    "hypothyroidism_subclinical"
+  ],
+  "hashimoto's thyroiditis": [
+    "hashimotos_thyroiditis_autoimmune"
+  ],
+  "हाशिमोटो थायराइडाइटिस": [
+    "hashimotos_thyroiditis_autoimmune"
+  ],
+  "हाशिमोटो थायरॉईड विकार": [
+    "hashimotos_thyroiditis_autoimmune"
+  ],
+  "hashimotos thyroiditis autoimmune": [
+    "hashimotos_thyroiditis_autoimmune"
+  ],
+  "epigastric pain syndrome": [
+    "functional_dyspepsia_epigastric"
+  ],
+  "पेट के ऊपरी हिस्से में दर्द": [
+    "functional_dyspepsia_epigastric"
+  ],
+  "पोटाच्या वरच्या भागात जेवणानंतर दुखणे": [
+    "functional_dyspepsia_epigastric"
+  ],
+  "functional dyspepsia epigastric": [
+    "functional_dyspepsia_epigastric"
+  ],
+  "aerophagia excessive burping": [
+    "aerophagia_excessive_burping"
+  ],
+  "हवा निगलना व ज्यादा डकार": [
+    "aerophagia_excessive_burping"
+  ],
+  "जास्त हवा गिळल्यामुळे वारंवार ढेकर येणे": [
+    "aerophagia_excessive_burping"
+  ],
+  "proctalgia fugax rectal cramp": [
+    "proctalgia_fugax_rectal_cramp"
+  ],
+  "गुदा में अचानक ऐंठन का दर्द": [
+    "proctalgia_fugax_rectal_cramp"
+  ],
+  "रात्री गुदद्वारात अचानक येणारी तीव्र कळ": [
+    "proctalgia_fugax_rectal_cramp"
+  ],
+  "coccydynia tailbone pain": [
+    "coccydynia_tailbone_pain"
+  ],
+  "रीढ़ की पूंछ की हड्डी का दर्द": [
+    "coccydynia_tailbone_pain"
+  ],
+  "माकडहाड दुखणे टेलबोन पेन": [
+    "coccydynia_tailbone_pain"
+  ],
+  "grade 1 hepatic steatosis": [
+    "fatty_liver_grade_1"
+  ],
+  "ग्रेड 1 फैटी लिवर": [
+    "fatty_liver_grade_1"
+  ],
+  "ग्रेड १ फॅटी लिव्हर प्राथमिक चरबी": [
+    "fatty_liver_grade_1"
+  ],
+  "fatty liver grade 1": [
+    "fatty_liver_grade_1"
+  ],
+  "biliary sludge gallbladder sludge": [
+    "biliary_sludge_microlithiasis"
+  ],
+  "पित्ताशय में कीचड़ / गाद": [
+    "biliary_sludge_microlithiasis"
+  ],
+  "पित्ताशयातील गाळ स्लज": [
+    "biliary_sludge_microlithiasis"
+  ],
+  "biliary sludge microlithiasis": [
+    "biliary_sludge_microlithiasis"
+  ],
+  "gilbert's syndrome benign jaundice": [
+    "gilberts_syndrome_mild_jaundice"
+  ],
+  "गिल्बर्ट सिंड्रोम हल्का पीलिया": [
+    "gilberts_syndrome_mild_jaundice"
+  ],
+  "गिलबर्ट सिंड्रोम निरुपद्रवी हलकी कावीळ": [
+    "gilberts_syndrome_mild_jaundice"
+  ],
+  "gilberts syndrome mild jaundice": [
+    "gilberts_syndrome_mild_jaundice"
+  ],
+  "cyclical mastalgia breast pain": [
+    "mastodynia_cyclical_breast_pain"
+  ],
+  "माहवारी से पहले स्तन में दर्द": [
+    "mastodynia_cyclical_breast_pain"
+  ],
+  "मासिक पाळीपूर्वी स्तनामध्ये दुखणे व जडपणा": [
+    "mastodynia_cyclical_breast_pain"
+  ],
+  "mastodynia cyclical breast pain": [
+    "mastodynia_cyclical_breast_pain"
+  ],
+  "fibroadenoma of breast": [
+    "fibroadenoma_benign_breast_lump"
+  ],
+  "स्तन की सौम्य गांठ फाइब्रोएडेनोमा": [
+    "fibroadenoma_benign_breast_lump"
+  ],
+  "स्तनातील निरुपद्रवी मऊ गाठ फायब्रोॲडेनोमा": [
+    "fibroadenoma_benign_breast_lump"
+  ],
+  "fibroadenoma benign breast lump": [
+    "fibroadenoma_benign_breast_lump"
+  ],
+  "mittelschmerz ovulation pain": [
+    "mittelschmerz_ovulation_pain"
+  ],
+  "ओव्यूलेशन का हल्का दर्द": [
+    "mittelschmerz_ovulation_pain"
+  ],
+  "अंडी फुटताना पाळीच्या मध्यभागी होणारी पोटदुखी": [
+    "mittelschmerz_ovulation_pain"
+  ],
+  "cervical ectropion / erosion": [
+    "cervical_erosion_ectropion"
+  ],
+  "बच्चेदानी के मुंह पर लाली": [
+    "cervical_erosion_ectropion"
+  ],
+  "गर्भाशयाच्या मुखावर लालसरपणा व स्त्राव": [
+    "cervical_erosion_ectropion"
+  ],
+  "cervical erosion ectropion": [
+    "cervical_erosion_ectropion"
+  ],
+  "erythema toxic neonatorum": [
+    "neonatal_erythema_toxic_rash"
+  ],
+  "नवजात का लाल रैश सामान्य": [
+    "neonatal_erythema_toxic_rash"
+  ],
+  "नवजात बाळाच्या अंगावरील सामान्य लाल पुरळ": [
+    "neonatal_erythema_toxic_rash"
+  ],
+  "neonatal erythema toxic rash": [
+    "neonatal_erythema_toxic_rash"
+  ],
+  "neonatal milia milk spots": [
+    "milia_neonatal_white_bumps"
+  ],
+  "शिशु के चेहरे पर सफेद दाने": [
+    "milia_neonatal_white_bumps"
+  ],
+  "नवजात बाळाच्या नाकावरील बारीक पांढरे दाणे": [
+    "milia_neonatal_white_bumps"
+  ],
+  "milia neonatal white bumps": [
+    "milia_neonatal_white_bumps"
+  ],
+  "cradle cap infant dandruff": [
+    "cradle_cap_infant_seborrhea"
+  ],
+  "शिशु के सिर की पपड़ी": [
+    "cradle_cap_infant_seborrhea"
+  ],
+  "लहान बाळाच्या टाळूवरील पिवळी खपली": [
+    "cradle_cap_infant_seborrhea"
+  ],
+  "cradle cap infant seborrhea": [
+    "cradle_cap_infant_seborrhea"
+  ],
+  "early leptospirosis": [
+    "leptospirosis_mild"
+  ],
+  "हल्का लेप्टोस्पायरोसिस": [
+    "leptospirosis_mild"
+  ],
+  "सौम्य लेप्टोस्पायरोसिस": [
+    "leptospirosis_mild"
+  ],
+  "leptospirosis mild": [
+    "leptospirosis_mild"
+  ],
+  "swine flu h1n1 severe": [
+    "swine_flu_h1n1_severe"
+  ],
+  "स्वाइन फ्लू एच1एन1": [
+    "swine_flu_h1n1_severe"
+  ],
+  "स्वाइन फ्लू h1n1 तीव्र संसर्ग": [
+    "swine_flu_h1n1_severe"
+  ],
+  "chronic chikungunya arthritis": [
+    "chikungunya_chronic_arthritis"
+  ],
+  "चिकनगुनिया के बाद जोड़ों का दर्द": [
+    "chikungunya_chronic_arthritis"
+  ],
+  "चिकनगुनियानंतरची जुनाट सांधेदुखी": [
+    "chikungunya_chronic_arthritis"
+  ],
+  "chikungunya chronic arthritis": [
+    "chikungunya_chronic_arthritis"
+  ],
+  "cutaneous anthrax": [
+    "cutaneous_anthrax_pustule"
+  ],
+  "त्वचा का एंथ्रेक्स": [
+    "cutaneous_anthrax_pustule"
+  ],
+  "त्वचेचा ॲन्थ्रॅक्स संसर्ग": [
+    "cutaneous_anthrax_pustule"
+  ],
+  "cutaneous anthrax pustule": [
+    "cutaneous_anthrax_pustule"
+  ],
+  "cutaneous leishmaniasis": [
+    "cutaneous_leishmaniasis_oriental"
+  ],
+  "त्वचा का कालाजार": [
+    "cutaneous_leishmaniasis_oriental"
+  ],
+  "त्वचेचा ओरिएंटल व्रण": [
+    "cutaneous_leishmaniasis_oriental"
+  ],
+  "cutaneous leishmaniasis oriental": [
+    "cutaneous_leishmaniasis_oriental"
+  ],
+  "tinea barbae barber's itch": [
+    "tinea_barbae_bearded_ringworm"
+  ],
+  "दाढ़ी की दाद": [
+    "tinea_barbae_bearded_ringworm"
+  ],
+  "दाढीतील बुरशी संसर्ग खाज": [
+    "tinea_barbae_bearded_ringworm"
+  ],
+  "tinea barbae bearded ringworm": [
+    "tinea_barbae_bearded_ringworm"
+  ],
+  "tinea unguium toenail fungus": [
+    "tinea_unguium_toenail"
+  ],
+  "पैर के अंगूठे का फंगस": [
+    "tinea_unguium_toenail"
+  ],
+  "पायाच्या अंगठ्याच्या नखातील बुरशी": [
+    "tinea_unguium_toenail"
+  ],
+  "tinea unguium toenail": [
+    "tinea_unguium_toenail"
+  ],
+  "pityriasis rosea": [
+    "pityriasis_rosea_herald_patch"
+  ],
+  "पिटिरियासिस रोजिया": [
+    "pityriasis_rosea_herald_patch"
+  ],
+  "गुलाबी चट्टे पिटिरिॲसिस रोझिया": [
+    "pityriasis_rosea_herald_patch"
+  ],
+  "pityriasis rosea herald patch": [
+    "pityriasis_rosea_herald_patch"
+  ],
+  "granuloma annulare": [
+    "granuloma_annulare_skin"
+  ],
+  "त्वचा पर गोल छल्ले": [
+    "granuloma_annulare_skin"
+  ],
+  "त्वचेवरील वर्तुळाकार गुळगुळीत रिंग": [
+    "granuloma_annulare_skin"
+  ],
+  "granuloma annulare skin": [
+    "granuloma_annulare_skin"
+  ],
+  "cherry angioma red moles": [
+    "cherry_angioma_red_moles"
+  ],
+  "लाल तिल": [
+    "cherry_angioma_red_moles"
+  ],
+  "अंगावरील बारीक लाल तीळ": [
+    "cherry_angioma_red_moles"
+  ],
+  "seborrheic keratosis": [
+    "seborrheic_keratosis_barnacles"
+  ],
+  "उम्र के साथ काले मस्से": [
+    "seborrheic_keratosis_barnacles"
+  ],
+  "वृद्धापकाळातील तपकिरी-काळे चामखीळ": [
+    "seborrheic_keratosis_barnacles"
+  ],
+  "seborrheic keratosis barnacles": [
+    "seborrheic_keratosis_barnacles"
+  ],
+  "actinic keratosis solar keratosis": [
+    "actinic_keratosis_sun_spots"
+  ],
+  "धूप से खुरदुरी त्वचा": [
+    "actinic_keratosis_sun_spots"
+  ],
+  "उन्हामुळे त्वचेवर खडबडीत लाल खपली": [
+    "actinic_keratosis_sun_spots"
+  ],
+  "actinic keratosis sun spots": [
+    "actinic_keratosis_sun_spots"
+  ],
+  "nummular eczema discoid": [
+    "nummular_eczema_coin_shaped"
+  ],
+  "सिक्के जैसा एक्जिमा": [
+    "nummular_eczema_coin_shaped"
+  ],
+  "नाण्यासारखे गोल खाजणारे चट्टे": [
+    "nummular_eczema_coin_shaped"
+  ],
+  "nummular eczema coin shaped": [
+    "nummular_eczema_coin_shaped"
+  ],
+  "dyshidrotic eczema pompholyx": [
+    "pompholyx_dyshidrotic_eczema"
+  ],
+  "हथेलियों पर पानी भरे दाने": [
+    "pompholyx_dyshidrotic_eczema"
+  ],
+  "तळहात व बोटांच्या कडेला बारीक पाण्याचे फोड": [
+    "pompholyx_dyshidrotic_eczema"
+  ],
+  "pompholyx dyshidrotic eczema": [
+    "pompholyx_dyshidrotic_eczema"
+  ],
+  "contact dermatitis cement / jewellery": [
+    "contact_dermatitis_nickel_cement"
+  ],
+  "सीमेंट या धातु से एलर्जी": [
+    "contact_dermatitis_nickel_cement"
+  ],
+  "सिमेंट किंवा धातूची त्वचा ॲलर्जी": [
+    "contact_dermatitis_nickel_cement"
+  ],
+  "contact dermatitis nickel cement": [
+    "contact_dermatitis_nickel_cement"
+  ],
+  "xerosis severe winter dry skin": [
+    "xerosis_cutis_winter_dry_skin"
+  ],
+  "सर्दियों में त्वचा का फटना": [
+    "xerosis_cutis_winter_dry_skin"
+  ],
+  "हिवाळ्यात त्वचा अति कोरडी पडून भेगा पडणे": [
+    "xerosis_cutis_winter_dry_skin"
+  ],
+  "xerosis cutis winter dry skin": [
+    "xerosis_cutis_winter_dry_skin"
+  ],
+  "polymorphous light eruption sun allergy": [
+    "photodermatitis_sun_allergy"
+  ],
+  "धूप से एलर्जी": [
+    "photodermatitis_sun_allergy"
+  ],
+  "उन्हाची ॲलर्जी अंगावर पुरळ": [
+    "photodermatitis_sun_allergy"
+  ],
+  "photodermatitis sun allergy": [
+    "photodermatitis_sun_allergy"
+  ],
+  "acanthosis nigricans velvety dark neck": [
+    "acanthosis_nigricans_neck"
+  ],
+  "गर्दन का कालापन": [
+    "acanthosis_nigricans_neck"
+  ],
+  "मानेवरील काळे मखमली डाग इन्सुलिन प्रतिकार": [
+    "acanthosis_nigricans_neck"
+  ],
+  "acanthosis nigricans neck": [
+    "acanthosis_nigricans_neck"
+  ],
+  "skin tags acrochordons": [
+    "skin_tags_acrochordons"
+  ],
+  "गर्दन के मस्से": [
+    "skin_tags_acrochordons"
+  ],
+  "मानेवरील बारीक लोंबणारे चामखीळ": [
+    "skin_tags_acrochordons"
+  ],
+  "primary palmar hyperhidrosis": [
+    "hyperhidrosis_sweaty_palms"
+  ],
+  "हथेलियों में अत्यधिक पसीना": [
+    "hyperhidrosis_sweaty_palms"
+  ],
+  "तळहातांना व तळपायांना अति घाम येणे": [
+    "hyperhidrosis_sweaty_palms"
+  ],
+  "hyperhidrosis sweaty palms": [
+    "hyperhidrosis_sweaty_palms"
+  ],
+  "presbyopia aging eye vision": [
+    "presbyopia_aging_reading_vision"
+  ],
+  "उम्र से पास का कम दिखना चालीसी": [
+    "presbyopia_aging_reading_vision"
+  ],
+  "चाळिशी जवळचे बारीक अक्षर न दिसणे": [
+    "presbyopia_aging_reading_vision"
+  ],
+  "presbyopia aging reading vision": [
+    "presbyopia_aging_reading_vision"
+  ],
+  "myopia nearsightedness": [
+    "myopia_nearsightedness"
+  ],
+  "निकट दृष्टि दोष": [
+    "myopia_nearsightedness"
+  ],
+  "दूरचे अंधुक दिसणे मायोपिया / चष्मा": [
+    "myopia_nearsightedness"
+  ],
+  "hypermetropia farsightedness": [
+    "hypermetropia_farsightedness"
+  ],
+  "दूर दृष्टि दोष": [
+    "hypermetropia_farsightedness"
+  ],
+  "जवळचे अंधुक दिसणे हायपरमेट्रोपिया": [
+    "hypermetropia_farsightedness"
+  ],
+  "astigmatism cylindrical error": [
+    "astigmatism_cylindrical_power"
+  ],
+  "धुंधलापन सिलिंड्रिकल नंबर": [
+    "astigmatism_cylindrical_power"
+  ],
+  "सिलिंडर नंबर अक्षरे दुहेरी दिसणे": [
+    "astigmatism_cylindrical_power"
+  ],
+  "astigmatism cylindrical power": [
+    "astigmatism_cylindrical_power"
+  ],
+  "subacute de quervain's thyroiditis": [
+    "subacute_thyroiditis_neck_pain"
+  ],
+  "थायराइड में दर्दनाक सूजन": [
+    "subacute_thyroiditis_neck_pain"
+  ],
+  "थायरॉईड ग्रंथीची वेदनादायी सूज": [
+    "subacute_thyroiditis_neck_pain"
+  ],
+  "subacute thyroiditis neck pain": [
+    "subacute_thyroiditis_neck_pain"
+  ],
+  "vasomotor rhinitis": [
+    "non_allergic_vasomotor_rhinitis"
+  ],
+  "तापमान बदलने से नाक बहना": [
+    "non_allergic_vasomotor_rhinitis"
+  ],
+  "थंड हवेत किंवा गरम जेवताना नाक गळणे": [
+    "non_allergic_vasomotor_rhinitis"
+  ],
+  "non allergic vasomotor rhinitis": [
+    "non_allergic_vasomotor_rhinitis"
+  ],
+  "adenoid hypertrophy in children": [
+    "adenoid_hypertrophy_child"
+  ],
+  "बच्चों में नाक के पीछे मांस बढ़ना": [
+    "adenoid_hypertrophy_child"
+  ],
+  "लहान मुलांमध्ये ॲडिनॉइड वाढणे तोंड उघडे ठेवून झोपणे": [
+    "adenoid_hypertrophy_child"
+  ],
+  "adenoid hypertrophy child": [
+    "adenoid_hypertrophy_child"
+  ],
+  "unilateral vocal cord paralysis": [
+    "vocal_cord_paralysis_unilateral"
+  ],
+  "एक स्वरतंतु का लकवा": [
+    "vocal_cord_paralysis_unilateral"
+  ],
+  "एका बाजूचा स्वरतंतू निकामी होणे": [
+    "vocal_cord_paralysis_unilateral"
+  ],
+  "vocal cord paralysis unilateral": [
+    "vocal_cord_paralysis_unilateral"
+  ],
+  "sudden sensorineural hearing loss ssnhl": [
+    "sensory_neural_hearing_loss"
+  ],
+  "अचानक कान का बहरापन": [
+    "sensory_neural_hearing_loss"
+  ],
+  "एका कानाने अचानक ऐकू न येणे आणीबाणी": [
+    "sensory_neural_hearing_loss"
+  ],
+  "sensory neural hearing loss": [
+    "sensory_neural_hearing_loss"
+  ],
+  "presbycusis age-related hearing loss": [
+    "presbycusis_elderly_hearing_loss"
+  ],
+  "उम्र के साथ कम सुनना": [
+    "presbycusis_elderly_hearing_loss"
+  ],
+  "वृद्धापकाळातील बहिरेपणा कमी ऐकू येणे": [
+    "presbycusis_elderly_hearing_loss"
+  ],
+  "presbycusis elderly hearing loss": [
+    "presbycusis_elderly_hearing_loss"
+  ],
+  "ankylosing spondylitis hla-b27": [
+    "ankylosing_spondylitis_hla_b27"
+  ],
+  "कमर की रीढ़ का कड़ापन युवाओं में": [
+    "ankylosing_spondylitis_hla_b27"
+  ],
+  "तरुणांमधील मणक्याची ताठरता hla-b27": [
+    "ankylosing_spondylitis_hla_b27"
+  ],
+  "ankylosing spondylitis hla b27": [
+    "ankylosing_spondylitis_hla_b27"
+  ],
+  "pes anserine bursitis inner knee pain": [
+    "pes_anserine_bursitis_knee"
+  ],
+  "घुटने के भीतरी हिस्से में दर्द": [
+    "pes_anserine_bursitis_knee"
+  ],
+  "गुडघ्याच्या आतील बाजूस दुखणे": [
+    "pes_anserine_bursitis_knee"
+  ],
+  "pes anserine bursitis knee": [
+    "pes_anserine_bursitis_knee"
+  ],
+  "iliotibial band syndrome itbs": [
+    "iliotibial_band_syndrome"
+  ],
+  "जांघ की बाहरी पट्टी का दर्द": [
+    "iliotibial_band_syndrome"
+  ],
+  "मांड्यांच्या बाहेरील पट्टीत तीव्र वेदना": [
+    "iliotibial_band_syndrome"
+  ],
+  "iliotibial band syndrome": [
+    "iliotibial_band_syndrome"
+  ],
+  "hamstring muscle strain": [
+    "hamstring_muscle_strain"
+  ],
+  "जांघ के पीछे की नस खिंचना": [
+    "hamstring_muscle_strain"
+  ],
+  "मांडीच्या मागच्या स्नायूचा ताण हॅमस्ट्रिंग": [
+    "hamstring_muscle_strain"
+  ],
+  "quadriceps tendinitis": [
+    "quadriceps_tendonitis_knee"
+  ],
+  "घुटने के ऊपर का दर्द": [
+    "quadriceps_tendonitis_knee"
+  ],
+  "गुडघ्याच्या वरच्या भागाची स्नायूदुखी": [
+    "quadriceps_tendonitis_knee"
+  ],
+  "quadriceps tendonitis knee": [
+    "quadriceps_tendonitis_knee"
+  ],
+  "mechanical plantar callus": [
+    "plantar_corn_mechanical_callus"
+  ],
+  "पैर के तलवे का कड़ापन": [
+    "plantar_corn_mechanical_callus"
+  ],
+  "तळपायावरील चरबी कमी झाल्याने घट्टा पडणे": [
+    "plantar_corn_mechanical_callus"
+  ],
+  "plantar corn mechanical callus": [
+    "plantar_corn_mechanical_callus"
+  ],
+  "cervical rib thoracic outlet": [
+    "cervical_rib_syndrome"
+  ],
+  "गर्दन की अतिरिक्त पसली": [
+    "cervical_rib_syndrome"
+  ],
+  "मानेतील अतिरिक्त बरगडीमुळे हात दुखणे": [
+    "cervical_rib_syndrome"
+  ],
+  "cervical rib syndrome": [
+    "cervical_rib_syndrome"
+  ],
+  "acute torticollis wry neck / akdan": [
+    "torticollis_wry_neck"
+  ],
+  "गर्दन की मोच / अकड़न": [
+    "torticollis_wry_neck"
+  ],
+  "मानेचा झटका मान एकाच बाजूला वाकडी होणे": [
+    "torticollis_wry_neck"
+  ],
+  "torticollis wry neck": [
+    "torticollis_wry_neck"
+  ],
+  "costochondritis tietze syndrome": [
+    "costochondritis_tietze_syndrome"
+  ],
+  "पसलियों के जोड़ का दर्द": [
+    "costochondritis_tietze_syndrome"
+  ],
+  "बरगड्यांच्या सांध्याची सूज छातीत टोचणे": [
+    "costochondritis_tietze_syndrome"
+  ],
+  "snapping hip syndrome coxa saltans": [
+    "snapping_hip_syndrome"
+  ],
+  "कूल्हे में चटकने की आवाज": [
+    "snapping_hip_syndrome"
+  ],
+  "कमरेचा सांधा हलताना कटकट आवाज": [
+    "snapping_hip_syndrome"
+  ],
+  "snapping hip syndrome": [
+    "snapping_hip_syndrome"
+  ],
+  "proctitis rectal inflammation": [
+    "proctitis_radiation_infectious"
+  ],
+  "गुदा की सूजन व जलन": [
+    "proctitis_radiation_infectious"
+  ],
+  "गुदद्वाराची अंतर्गत जळजळ प्रॉक्टायटिस": [
+    "proctitis_radiation_infectious"
+  ],
+  "proctitis radiation infectious": [
+    "proctitis_radiation_infectious"
+  ],
+  "sphincter of oddi dysfunction": [
+    "sphincter_of_oddi_dysfunction"
+  ],
+  "पित्त मार्ग की मांसपेशियों में ऐंठन": [
+    "sphincter_of_oddi_dysfunction"
+  ],
+  "पित्तमार्गाच्या स्नायूंचा ताण": [
+    "sphincter_of_oddi_dysfunction"
+  ],
+  "dumping syndrome post-gastrectomy": [
+    "dumping_syndrome_post_gastric"
+  ],
+  "खाना खाने के बाद अचानक कमजोरी व दस्त": [
+    "dumping_syndrome_post_gastric"
+  ],
+  "जेवणानंतर लगेच घाम फुटणे व जुलाब": [
+    "dumping_syndrome_post_gastric"
+  ],
+  "dumping syndrome post gastric": [
+    "dumping_syndrome_post_gastric"
+  ],
+  "short bowel syndrome": [
+    "short_bowel_syndrome_malabsorption"
+  ],
+  "आंत छोटी होने से दस्त": [
+    "short_bowel_syndrome_malabsorption"
+  ],
+  "लहान आतडे लहान झाल्याने अन्नाचे शोषण न होणे": [
+    "short_bowel_syndrome_malabsorption"
+  ],
+  "short bowel syndrome malabsorption": [
+    "short_bowel_syndrome_malabsorption"
+  ],
+  "microscopic colitis": [
+    "microscopic_colitis_watery"
+  ],
+  "सूक्ष्म कोलाइटिस": [
+    "microscopic_colitis_watery"
+  ],
+  "पाण्यासारखे तीव्र जुलाब सूक्ष्म कोलायटिस": [
+    "microscopic_colitis_watery"
+  ],
+  "microscopic colitis watery": [
+    "microscopic_colitis_watery"
+  ],
+  "mesenteric adenitis in children": [
+    "mesenteric_adenitis_child_pain"
+  ],
+  "बच्चों में पेट की गांठों में सूजन": [
+    "mesenteric_adenitis_child_pain"
+  ],
+  "लहान मुलांच्या पोटातील गाठींची सूज": [
+    "mesenteric_adenitis_child_pain"
+  ],
+  "mesenteric adenitis child pain": [
+    "mesenteric_adenitis_child_pain"
+  ],
+  "rectocele posterior vaginal prolapse": [
+    "rectocele_pelvic_support_defect"
+  ],
+  "गुदा का योनि की तरफ उभार": [
+    "rectocele_pelvic_support_defect"
+  ],
+  "शौचाच्या वेळी बोटाने आधार द्यावा लागणे": [
+    "rectocele_pelvic_support_defect"
+  ],
+  "rectocele pelvic support defect": [
+    "rectocele_pelvic_support_defect"
+  ],
+  "cystocele bladder prolapse": [
+    "cystocele_bladder_prolapse"
+  ],
+  "मूत्राशय का नीचे खिसकना": [
+    "cystocele_bladder_prolapse"
+  ],
+  "लघवीची पिशवी खाली सरकणे सिस्टोसीस": [
+    "cystocele_bladder_prolapse"
+  ],
+  "uterine prolapse anga baher padne": [
+    "uterine_prolapse_grade_1_2"
+  ],
+  "बच्चेदानी का बाहर आना": [
+    "uterine_prolapse_grade_1_2"
+  ],
+  "गर्भाशय खाली सरकणे अंग बाहेर पडणे": [
+    "uterine_prolapse_grade_1_2"
+  ],
+  "uterine prolapse grade 1 2": [
+    "uterine_prolapse_grade_1_2"
+  ],
+  "sheehan's syndrome postpartum pituitary": [
+    "sheehans_syndrome_pituitary"
+  ],
+  "प्रसव के बाद दूध न आना व कमजोरी": [
+    "sheehans_syndrome_pituitary"
+  ],
+  "बाळंतपणानंतर अतिरक्तस्त्रावामुळे दूध न येणे": [
+    "sheehans_syndrome_pituitary"
+  ],
+  "sheehans syndrome pituitary": [
+    "sheehans_syndrome_pituitary"
+  ],
+  "occupational burnout syndrome": [
+    "burnout_occupational_exhaustion"
+  ],
+  "काम का अत्यधिक मानसिक तनाव बर्नआउट": [
+    "burnout_occupational_exhaustion"
+  ],
+  "कामाचा मानसिक थकवा बर्नआउट सिंड्रोम": [
+    "burnout_occupational_exhaustion"
+  ],
+  "burnout occupational exhaustion": [
+    "burnout_occupational_exhaustion"
+  ],
+  "persistent depressive disorder dysthymia": [
+    "dysthymia_persistent_mild_depression"
+  ],
+  "धीमा अवसाद उदासी": [
+    "dysthymia_persistent_mild_depression"
+  ],
+  "दीर्घकालीन सौम्य नैराश्य डिस्थायमिया": [
+    "dysthymia_persistent_mild_depression"
+  ],
+  "dysthymia persistent mild depression": [
+    "dysthymia_persistent_mild_depression"
+  ],
+  "cyclothymic disorder": [
+    "cyclothymic_mood_swings"
+  ],
+  "मन का बार-बार बदलना": [
+    "cyclothymic_mood_swings"
+  ],
+  "मनःस्थितीत वारंवार सौम्य चढ-उतार": [
+    "cyclothymic_mood_swings"
+  ],
+  "cyclothymic mood swings": [
+    "cyclothymic_mood_swings"
+  ],
+  "specific phobia heights/blood/animals": [
+    "specific_phobia_heights_blood"
+  ],
+  "विशिष्ट चीजों का तीव्र भय फोबिया": [
+    "specific_phobia_heights_blood"
+  ],
+  "विशिष्ट गोष्टींची तीव्र भीती उंची/रक्त/कुत्रे": [
+    "specific_phobia_heights_blood"
+  ],
+  "specific phobia heights blood": [
+    "specific_phobia_heights_blood"
+  ],
+  "illness anxiety disorder hypochondriasis": [
+    "illness_anxiety_hypochondria"
+  ],
+  "बीमारी का अत्यधिक वहम": [
+    "illness_anxiety_hypochondria"
+  ],
+  "सारखे गंभीर आजाराचा संशय येणे": [
+    "illness_anxiety_hypochondria"
+  ],
+  "illness anxiety hypochondria": [
+    "illness_anxiety_hypochondria"
+  ],
+  "anorexia nervosa": [
+    "anorexia_nervosa_eating"
+  ],
+  "खाना न खाने की बीमारी": [
+    "anorexia_nervosa_eating"
+  ],
+  "वजन वाढण्याच्या भीतीने उपाशी राहणे": [
+    "anorexia_nervosa_eating"
+  ],
+  "anorexia nervosa eating": [
+    "anorexia_nervosa_eating"
+  ],
+  "bulimia nervosa": [
+    "bulimia_nervosa_binge_purge"
+  ],
+  "ज्यादा खाकर उल्टी करना": [
+    "bulimia_nervosa_binge_purge"
+  ],
+  "अति खाऊन नंतर जबरदस्तीने उलटी करणे": [
+    "bulimia_nervosa_binge_purge"
+  ],
+  "bulimia nervosa binge purge": [
+    "bulimia_nervosa_binge_purge"
+  ],
+  "nicotine dependence gutkha / bidi": [
+    "nicotine_dependence_tobacco_cessation"
+  ],
+  "तंबाकू व गुटखे की लत": [
+    "nicotine_dependence_tobacco_cessation"
+  ],
+  "तंबाखू गुटखा व विडीचे व्यसन मुक्ती": [
+    "nicotine_dependence_tobacco_cessation"
+  ],
+  "nicotine dependence tobacco cessation": [
+    "nicotine_dependence_tobacco_cessation"
+  ],
+  "alcohol dependence syndrome": [
+    "alcohol_dependence_syndrome"
+  ],
+  "शराब की लत": [
+    "alcohol_dependence_syndrome"
+  ],
+  "दारूचे व्यसन व मुक्ती": [
+    "alcohol_dependence_syndrome"
+  ],
+  "digital eye strain & screen fatigue": [
+    "mobile_screen_addiction_digital_strain"
+  ],
+  "मोबाइल स्क्रीन की थकान": [
+    "mobile_screen_addiction_digital_strain"
+  ],
+  "मोबाईल स्क्रीनमुळे डोळ्यांचा व मेंदूचा ताण": [
+    "mobile_screen_addiction_digital_strain"
+  ],
+  "mobile screen addiction digital strain": [
+    "mobile_screen_addiction_digital_strain"
+  ]
+}

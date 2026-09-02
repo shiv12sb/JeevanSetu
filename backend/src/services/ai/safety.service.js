@@ -72,20 +72,26 @@ const INJECTION_PATTERNS = [
   /reveal\s+api\s*key/i,
 ];
 
+const medicalKnowledgeService = require("./medicalKnowledge.service");
+
 /**
  * Check if the text contains life-threatening emergency symptoms
  */
-const detectEmergency = (text, language = "en") => {
+const detectEmergency = (text, language = "mr") => {
   if (!text || typeof text !== "string") return null;
 
-  const isEmergency = EMERGENCY_PATTERNS.some((pattern) => pattern.test(text));
+  const lang = ["en", "hi", "mr"].includes(language) ? language : "mr";
+  const regexEmergency = EMERGENCY_PATTERNS.some((pattern) => pattern.test(text));
+  const knowledgeRedFlags = medicalKnowledgeService.checkRedFlags(text);
+
+  const isEmergency = regexEmergency || knowledgeRedFlags.isEmergency;
   if (!isEmergency) return null;
 
   let message = "";
-  if (language === "hi") {
-    message = "⚠️ आपातकालीन सूचना (EMERGENCY): आपने जो लक्षण बताए हैं वे गंभीर हो सकते हैं। कृपया तुरंत 108 पर कॉल करें या निकटतम अस्पताल के आपातकालीन विभाग में जाएँ। जीवनसेतु AI कोई नैदानिक उपकरण नहीं है।";
-  } else if (language === "mr") {
-    message = "⚠️ तातडीची सूचना (EMERGENCY): आपण नमूद केलेली लक्षणे गंभीर असू शकतात. कृपया त्वरित 108 डायल करा किंवा जवळच्या जिल्हा रुग्णालयाच्या आपत्कालीन विभागात जा. जीवनसेतू AI वैद्यकीय उपचारांचा पर्याय नाही.";
+  if (lang === "mr") {
+    message = "⚠️ तातडीची सूचना (EMERGENCY): आपण नमूद केलेली लक्षणे अत्यंत गंभीर असू शकतात. कृपया त्वरित १०८ वर कॉल करा किंवा जवळच्या शासकीय रुग्णालयाच्या आपत्कालीन (ICU/Casualty) विभागात जा. जीवनसेतू AI वैद्यकीय उपचारांचा पर्याय नाही.";
+  } else if (lang === "hi") {
+    message = "⚠️ आपातकालीन सूचना (EMERGENCY): आपने जो लक्षण बताए हैं वे गंभीर हो सकते हैं। कृपया तुरंत 108 पर कॉल करें या निकटतम सरकारी अस्पताल के आपातकालीन विभाग में जाएँ। जीवनसेतु AI कोई नैदानिक उपकरण नहीं है।";
   } else {
     message = "⚠️ MEDICAL EMERGENCY ALERT: The symptoms you described may require immediate medical intervention. Please call 108 (Free Emergency Ambulance) immediately or proceed directly to the nearest hospital emergency room. Do not rely on AI for emergency medical care.";
   }
@@ -95,6 +101,7 @@ const detectEmergency = (text, language = "en") => {
     safetyLevel: "emergency",
     message,
     emergencyPhone: "108",
+    matchedRedFlags: knowledgeRedFlags.redFlags || [],
     requiresHumanReview: true,
   };
 };

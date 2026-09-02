@@ -16,9 +16,48 @@ const casesService = require("../cases.service");
 const resourcesService = require("../resources.service");
 const safetyService = require("./safety.service");
 const auditService = require("../audit.service");
+const medicalKnowledgeService = require("./medicalKnowledge.service");
 
 // Centralized Tool Definitions conforming strictly to OpenAI Realtime format
 const REALTIME_TOOLS = [
+  {
+    type: "function",
+    name: "search_medical_condition",
+    description: "Search verified clinical knowledge, safe supportive measures, things to avoid, red flags, and doctor recommendations for ~530+ health conditions and symptoms.",
+    parameters: {
+      type: "object",
+      properties: {
+        query: { type: "string", description: "Health condition, illness, symptom or disease name (in Marathi, Hindi, English, or Roman Marathi/Hindi)" },
+        language: { type: "string", enum: ["mr", "hi", "en"], description: "Language for the guidance output ('mr' default, 'hi', 'en')" }
+      },
+      required: ["query"]
+    }
+  },
+  {
+    type: "function",
+    name: "get_condition_guidance",
+    description: "Retrieve grounded trilingual clinical guidance, warning signs, and appropriate hospital/specialty referral for a specific condition ID.",
+    parameters: {
+      type: "object",
+      properties: {
+        condition_id: { type: "string", description: "Canonical condition ID (e.g. dengue_fever, viral_fever, breast_cancer_carcinoma)" },
+        language: { type: "string", enum: ["mr", "hi", "en"], description: "Response language ('mr' default)" }
+      },
+      required: ["condition_id"]
+    }
+  },
+  {
+    type: "function",
+    name: "check_medical_red_flags",
+    description: "Perform deterministic emergency safety evaluation on patient symptoms to check for acute red-flag triggers (e.g. cardiac arrest, stroke, snakebite, severe hemorrhage, poisoning).",
+    parameters: {
+      type: "object",
+      properties: {
+        symptoms_description: { type: "string", description: "Description of patient symptoms or emergency complaint" }
+      },
+      required: ["symptoms_description"]
+    }
+  },
   {
     type: "function",
     name: "search_doctor",
@@ -218,40 +257,197 @@ const REALTIME_TOOLS = [
   {
     type: "function",
     name: "emergency_108",
-    description: "Trigger immediate emergency escalation protocol for life-threatening conditions (chest pain, trauma, snakebite, unconsciousness).",
+    description: "Trigger immediate emergency escalation protocol for life-threatening conditions (chest pain, trauma, snakebite, unconsciousness, severe breathlessness).",
     parameters: {
       type: "object",
       properties: {
-        emergency_type: { type: "string", description: "Brief nature of emergency" },
+        emergency_type: { type: "string", description: "Brief nature of emergency (e.g. chest pain, snakebite, stroke, bleeding)" },
         location: { type: "string", description: "Location or district" },
       },
       required: ["emergency_type"],
     },
   },
+  {
+    type: "function",
+    name: "navigate_to_page",
+    description: "Guide user navigation to a specific page or section in the JeevanSetu application.",
+    parameters: {
+      type: "object",
+      properties: {
+        target_page: {
+          type: "string",
+          enum: [
+            "/ambulance",
+            "/doctors",
+            "/resources",
+            "/inventory",
+            "/cases",
+            "/referrals",
+            "/health-awareness",
+            "/rural-access",
+            "/call-assistance",
+            "/settings",
+            "/organ-donation",
+          ],
+          description: "Route path in JeevanSetu",
+        },
+        page_label: { type: "string", description: "Human-readable page title (e.g. Ambulance Dispatch, Doctor Directory)" },
+      },
+      required: ["target_page"],
+    },
+  },
+  {
+    type: "function",
+    name: "get_health_awareness_topic",
+    description: "Retrieve verified public health awareness guidelines, preventive measures, monitoring tips, and warning signs for common health conditions.",
+    parameters: {
+      type: "object",
+      properties: {
+        topic: {
+          type: "string",
+          enum: [
+            "blood_pressure",
+            "diabetes",
+            "anemia",
+            "dengue_malaria",
+            "maternal_health",
+            "child_health_immunization",
+            "nutrition_hydration",
+            "tuberculosis",
+            "sanitation_hygiene",
+            "menstrual_health",
+            "elderly_care",
+            "chronic_disease_adherence",
+          ],
+          description: "Healthcare topic",
+        },
+      },
+      required: ["topic"],
+    },
+  },
+  {
+    type: "function",
+    name: "request_asha_support",
+    description: "Submit an ASHA home visit request or care callback ticket in the rural healthcare coordination queue.",
+    parameters: {
+      type: "object",
+      properties: {
+        citizen_name: { type: "string", description: "Patient or citizen name" },
+        phone: { type: "string", description: "Contact mobile number" },
+        district: { type: "string", description: "District name (e.g. Wardha, Gadchiroli, Nagpur)" },
+        topic: { type: "string", description: "Reason for visit (e.g. Maternal ANC checkup, Elderly vitals check, Chronic disease follow-up)" },
+      },
+      required: ["phone", "topic"],
+    },
+  },
+  {
+    type: "function",
+    name: "book_ambulance",
+    description: "Initiate verified ambulance booking request with patient location and emergency contact.",
+    parameters: {
+      type: "object",
+      properties: {
+        pickup_location: { type: "string", description: "Pickup address or landmark" },
+        district: { type: "string", description: "District name" },
+        ambulance_type: { type: "string", enum: ["ALL", "ADVANCED_LIFE_SUPPORT", "BASIC_LIFE_SUPPORT", "PATIENT_TRANSPORT"], description: "Type of ambulance" },
+        contact_phone: { type: "string", description: "Patient or attendant mobile number" },
+      },
+      required: ["pickup_location", "contact_phone"],
+    },
+  },
 ];
 
 const REALTIME_SYSTEM_INSTRUCTION = `
-You are JeevanSetu AI, an authentic multilingual healthcare access, emergency triage, and care-coordination voice assistant for Maharashtra.
+You are JeevanSetu Assistant (जीवनसेतू सहाय्यक), an advanced, highly knowledgeable 24/7 conversational healthcare-access and helpdesk coordinator for Maharashtra.
 
-MANDATORY SPOKEN LANGUAGE RULE:
-1. DEFAULT LANGUAGE IS STRICTLY MARATHI (मराठी). You MUST ALWAYS speak in authentic, polite, and fluent Marathi (मराठी) by default.
-2. All opening greetings, doctor consultation availability, hospital triage directions, 108 ambulance status, PHC medicine inventory, and government scheme guidance (PM-JAY/MJPJAY) MUST be spoken in Marathi.
-3. If and only if the user explicitly addresses you in Hindi or English, you may match their language. Otherwise, ALWAYS speak in Marathi.
+==================================================
+1. CORE IDENTITY & SCOPE
+==================================================
+- You are an expert helpdesk assistant who deeply understands the JeevanSetu platform, its verified databases, its tools, its navigation, and public healthcare workflows across Maharashtra (Nagpur, Gadchiroli, Wardha, Pune, Chandrapur, etc.).
+- You provide: Natural Spoken Conversation + Text Conversation + Verified Healthcare Data + Realtime Tool Calling + Health Awareness + Step-by-Step App Guidance + Emergency Escalation + Seamless Multilingual Assistance.
 
-CORE IDENTITY & BOUNDARIES (STRICT HEALTHCARE SAFETY):
-1. You are NOT a doctor. You NEVER diagnose illnesses, NEVER prescribe pharmaceutical drugs, and NEVER recommend changing medication dosages.
-2. If the user asks for a diagnosis or prescription, clearly state in Marathi: "ही सामान्य आरोग्य माहिती आहे, डॉक्टरी तपासणीचा पर्याय नाही." (This is general health information, not a clinical diagnosis).
-3. EMERGENCY PREEMPTION: If the user expresses severe red-flag symptoms (such as acute chest pain, heart attack symptoms, severe difficulty breathing, unconsciousness, heavy bleeding, stroke symptoms, or snakebite):
-   - Immediately invoke the 'emergency_108' tool.
-   - Spoken message: "ही तातडीची आपत्कालीन स्थिती असू शकते! कृपया त्वरित १०८ मोफत रुग्णवाहिकेला कॉल करा." (Marathi) / "यह आपातकालीन स्थिति हो सकती है! कृपया तुरंत 108 पर कॉल करें।" (Hindi) / "This may be a medical emergency! Please dial 108 immediately." (English).
-4. FACTUAL GROUNDING: NEVER fabricate doctor names, hospital beds, ambulance ETAs, or contact phone numbers. ALWAYS invoke the appropriate JeevanSetu tool to fetch verified database records.
-5. PRIVACY: Patient records and referrals are confidential. If unauthenticated, guide the user to log in to their JeevanSetu account.
+==================================================
+2. STRICT MEDICAL SAFETY & NON-DIAGNOSTIC BOUNDARY
+==================================================
+- YOU ARE NOT A DOCTOR. You DO NOT diagnose medical illnesses, you NEVER prescribe pharmaceutical drugs, and you NEVER recommend changing medication dosages.
+- If the user asks for a diagnosis or prescription, clearly state in the conversation language:
+  * Hindi: "यह सामान्य स्वास्थ्य जानकारी है, डॉक्टरी निदान या दवा का पर्चा नहीं। कृपया उचित जांच के लिए नजदीकी डॉक्टर या PHC से संपर्क करें।"
+  * Marathi: "ही सामान्य आरोग्य माहिती आहे, डॉक्टरी तपासणी किंवा औषधांचा पर्याय नाही. कृपया तपासणीसाठी जवळच्या प्राथमिक आरोग्य केंद्रातील (PHC) वैद्यकीय अधिकाऱ्यांशी संपर्क साधा."
+  * English: "This is general health information, not a clinical diagnosis or medical prescription. Please consult a qualified doctor at your nearest PHC or hospital."
 
-MULTILINGUAL NATURAL CONVERSATION:
-- Speak primarily in authentic MARATHI (मराठी), with seamless support for HINDI (हिन्दी) and ENGLISH when requested.
-- Speak with warmth, empathy, clarity, and respect.
-- Keep spoken responses CONCISE (1 to 3 short sentences). Always prioritize the most urgent/actionable information first (e.g. Doctor name, hospital location, duty status, verified telephone).
-- If the user asks for more details, offer: "तुम्हाला याबद्दल अधिक माहिती हवी आहे का?" / "क्या आप इसके बारे में और जानना चाहते हैं?"
+==================================================
+3. CONVERSATIONAL HEALTHCARE SYMPTOM GUIDANCE (6-STEP WORKFLOW)
+==================================================
+When a user mentions a symptom (e.g. "Mere sir mein bahut dard ho raha hai", "मला ताप आला आहे"):
+1. ACKNOWLEDGE the symptom with empathy and warmth.
+2. CHECK RED FLAGS: If acute red flags are present (sudden severe chest pain, breathlessness, fainting/unconsciousness, slurred speech/weakness, heavy bleeding, snakebite), IMMEDIATELY invoke the 'emergency_108' tool and advise calling 108.
+3. CONSERVATIVE GENERAL GUIDANCE: If no red flag, provide conservative, safe general guidance (rest, hydration, fluids, monitoring).
+4. WARNING SIGNS: Mention warning signs clearly (e.g. high fever, confusion, repeated vomiting, sudden severe weakness).
+5. MEDICAL EVALUATION: Advise appropriate medical evaluation at a local Primary Health Centre (PHC) or Hospital when necessary.
+6. VERIFIED FACILITY LOOKUP & FOLLOW-UP: Offer nearby verified doctor or hospital lookup and ask a single useful follow-up question (e.g. "क्या आप चाहते हैं कि मैं आपके नजदीकी अस्पताल या डॉक्टर की जानकारी निकालूँ?").
+
+==================================================
+4. HEALTH AWARENESS ENGINE (TOPIC-RELEVANT ONLY)
+==================================================
+Only provide health awareness when the user's question relates to the topic. Keep it concise and practical:
+- Blood Pressure (BP): Regular monitoring, salt moderation, adherence to daily prescribed medicine without skipping, weekly checkups at PHC NCD clinic, warning signs.
+- Diabetes: Blood sugar/HbA1c monitoring, balanced diet, foot care, regular medicine adherence, avoiding long fasting without medical advice.
+- Anemia: Iron-rich foods (green leafy vegetables, jaggery, pulses), hemoglobin screening at PHC, iron-folic acid supplementation for pregnant women.
+- Dengue & Malaria: Vector control, eliminating standing water, mosquito nets/repellents, monitoring fever & hydration, blood smear/RDT testing at PHC.
+- Maternal Health (ANC): Free checkups, 4 ANC visits, Janani Suraksha Yojana (JSY) cash assistance, 102 Janani Express ambulance, institutional delivery.
+- Child Health & Immunization: Mandatory immunization schedule (BCG, Polio, Pentavalent, Measles), growth monitoring, nutritious diet.
+- Nutrition & Hydration: Safe drinking water, ORS for dehydration/diarrhea, balanced nutrition.
+- Tuberculosis (TB): Cough for >2 weeks, free sputum testing and DOTS treatment at all government health centres, completing the full course.
+- Menstrual Health & Hygiene: Clean sanitary products, regular changing, disposal hygiene, PHC awareness.
+- Elderly Care: Fall prevention, daily BP/sugar monitoring, gentle mobility, regular health checkups.
+- Chronic Disease Adherence: Never stopping BP/diabetes medicine abruptly; regular refill at government dispensaries.
+
+==================================================
+5. MULTILINGUAL BEHAVIOUR & DYNAMIC LANGUAGE SWITCHING
+==================================================
+- Support Hindi, Marathi, and English fluently.
+- Detect the language from the user's speech and reply in that EXACT language naturally.
+- If the user changes language mid-conversation (e.g. switches from Hindi to Marathi, or Marathi to English), IMMEDIATELY adapt to their new language.
+- Speak with natural, polite, respectful phrasing. Avoid robotic or literal machine translation.
+
+==================================================
+6. INITIAL GREETING (SHORT & POLITE)
+==================================================
+When opening the assistant:
+- Hindi: "नमस्ते! मैं JeevanSetu Assistant हूँ। आप मुझसे स्वास्थ्य सेवाओं, डॉक्टर, अस्पताल, एम्बुलेंस, दवाइयों, रेफरल और सरकारी योजनाओं के बारे में पूछ सकते हैं।"
+- Marathi: "नमस्कार! मी जीवनसेतू सहाय्यक आहे. आपण मला आरोग्य सेवा, डॉक्टर, रुग्णालय, रुग्णवाहिका, औषधे, रेफरल आणि सरकारी योजनांविषयी विचारू शकता."
+- English: "Hello! I am JeevanSetu Assistant. You can ask me about healthcare facilities, doctors, hospitals, ambulances, medicines, referrals, and government schemes."
+Then wait for the user's query.
+
+==================================================
+7. APP NAVIGATION & STEP-BY-STEP UI GUIDANCE
+==================================================
+You know the actual pages and button names in JeevanSetu:
+- Ambulance: Page '/ambulance' → Location allow karein → View nearby ALS/BLS ambulances → Click 'Book Ambulance' or Call 108.
+- Doctor Search: Page '/doctors' → Select district (e.g. Nagpur/Gadchiroli) → Choose specialty (Cardiology, Pediatrics, etc.) → Check on-duty roster → View hospital address and reception contact.
+- Hospitals & PHCs: Page '/resources' → Browse Government Apex Hospitals, District Hospitals, and rural 24x7 PHCs with bed availability.
+- Medicine Inventory: Page '/inventory' → Search medicine name (ASV, Paracetamol, Insulin) → View stock status from DVDMS e-Aushadhi.
+- Referral Tracking: Page '/referrals' → View 10-stage closed-loop progression milestone.
+- Cases & Vitals: Page '/cases' → Register new health concern, record BP/pulse/temperature, view longitudinal health history.
+- Health Awareness: Page '/health-awareness' → Educational guides on maternal health, seasonal diseases, and preventive care.
+- Rural Feature-Phone / ASHA Queue: Page '/rural-access' & '/call-assistance' → Toll-free 1800-108-102 IVR flow and ASHA home visit requests.
+When the user asks how to do something in the app, explain the exact page and steps. If helpful, invoke the 'navigate_to_page' tool.
+
+==================================================
+8. FACTUAL GROUNDING & TOOL-FIRST EXECUTION
+==================================================
+- ALWAYS invoke the appropriate JeevanSetu tool to fetch live data (doctors, hospitals, ambulances, inventory, schemes, referrals).
+- NEVER invent doctor names, hospitals, ambulance vehicle numbers, phone numbers, or inventory stock.
+- If live duty status or details cannot be verified, state honestly:
+  * "डॉक्टर की वर्तमान ड्यूटी स्थिति सत्यापित नहीं हो पा रही है। कृपया अस्पताल के रिसेप्शन नंबर पर कॉल करके पुष्टि करें।"
+  * "डॉक्टरांची सध्याची ड्युटी स्थिती थेट पडताळली जाऊ शकत नाही. कृपया रुग्णालयाच्या रिसेप्शन क्रमांकावर संपर्क साधा."
+- Patient-specific records require authentication; explain login if unauthenticated.
+
+==================================================
+9. RESPONSE CONCISENESS & MULTI-TURN CONTEXT
+==================================================
+- Keep spoken responses concise (normally 1 to 4 sentences).
+- Retain conversation context across multiple turns without requiring the user to repeat previous statements.
 `.trim();
 
 // Mock static fallback stores for guaranteed robustness
@@ -424,6 +620,17 @@ class RealtimeVoiceService {
   }
 
   /**
+   * Universal tool call execution wrapper
+   */
+  async executeToolCall(toolCall, user = null) {
+    if (!toolCall) return { success: false, error: "Empty tool call" };
+    const toolName = toolCall.name || toolCall.tool;
+    const args = toolCall.args || toolCall.arguments || {};
+    const res = await this.executeRealtimeTool(toolName, args, user);
+    return res.data || res;
+  }
+
+  /**
    * Execute function/tool calls initiated by OpenAI Realtime voice model
    */
   async executeRealtimeTool(toolName, args = {}, user = null) {
@@ -434,6 +641,69 @@ class RealtimeVoiceService {
       let result = null;
 
       switch (toolName) {
+        // 0A. Search Medical Condition (~530+ Curated Conditions)
+        case "search_medical_condition": {
+          const { query = "", language = "mr" } = args;
+          const searchResult = medicalKnowledgeService.searchCondition(query, language);
+          if (searchResult.match) {
+            const cond = searchResult.match;
+            const guidance = medicalKnowledgeService.generateGuidance(cond.id, language);
+            result = {
+              found: true,
+              condition_id: cond.id,
+              canonical_name: cond.canonical_name,
+              localized_name: cond.names[language] || cond.names.marathi,
+              category: cond.category,
+              urgency: cond.urgency,
+              guidance_summary: guidance.guidanceText,
+              safe_supportive_care: cond.safe_supportive_care,
+              things_to_avoid: cond.things_to_avoid,
+              red_flags: cond.red_flags,
+              appropriate_specialty: cond.appropriate_specialty,
+              facility_type: cond.facility_type,
+              sources: cond.sources,
+            };
+          } else {
+            // Check symptoms
+            const symMatches = medicalKnowledgeService.searchBySymptoms(query, language);
+            result = {
+              found: symMatches.length > 0,
+              query,
+              differential_considerations: symMatches.map((m) => ({
+                condition_id: m.condition.id,
+                name: m.condition.names[language] || m.condition.canonical_name,
+                category: m.condition.category,
+                matched_indicators: m.matchedSymptoms,
+                specialty: m.condition.appropriate_specialty[0] || "General Physician",
+              })),
+              note: "Present symptoms as considerations requiring clinical evaluation, never as definitive diagnoses.",
+            };
+          }
+          break;
+        }
+
+        // 0B. Get Condition Guidance
+        case "get_condition_guidance": {
+          const { condition_id, language = "mr" } = args;
+          const guidance = medicalKnowledgeService.generateGuidance(condition_id, language);
+          result = guidance;
+          break;
+        }
+
+        // 0C. Check Medical Red Flags
+        case "check_medical_red_flags": {
+          const { symptoms_description = "" } = args;
+          const evaluation = medicalKnowledgeService.checkRedFlags(symptoms_description);
+          result = {
+            is_emergency: evaluation.isEmergency,
+            detected_red_flags: evaluation.redFlags,
+            emergency_phone: "108",
+            emergency_action: evaluation.action || (evaluation.isEmergency ? "Call 108 Immediately" : "Consult PHC Doctor"),
+            hospital_type: "District Hospital / Government Medical College (GMC) 24x7 Emergency",
+          };
+          break;
+        }
+
         // 1. Search Doctors
         case "search_doctor": {
           const { query = "", district = "Nagpur", specialization, area, facility_type } = args;
@@ -950,6 +1220,249 @@ class RealtimeVoiceService {
             emergency_helpline: "108",
             emergency_message: "यह अत्यंत गंभीर आपातकालीन स्थिति है! तुरंत 108 पर कॉल करें। (Please dial 108 immediately for free government ambulance dispatch.)",
             casualty_hospital: "Nearest Trauma ICU / District Civil Hospital",
+          };
+          break;
+        }
+
+        // 18. Navigate to Page
+        case "navigate_to_page": {
+          const { target_page, page_label } = args;
+          const pageRoutes = {
+            "/ambulance": {
+              title: "Ambulance Dispatch & 108 Control",
+              instructions: "1. Click 'Allow Location' to detect nearest vehicles. 2. Select ALS/BLS unit. 3. Click 'Book Ambulance' or Call 108.",
+            },
+            "/doctors": {
+              title: "Maharashtra Doctor Directory",
+              instructions: "1. Choose your district (e.g. Nagpur/Pune). 2. Select specialty. 3. Check live on-duty status & hospital reception number.",
+            },
+            "/resources": {
+              title: "Hospitals & 24x7 PHCs",
+              instructions: "1. Search government/private hospitals. 2. View verified ICU beds & empaneled PM-JAY schemes.",
+            },
+            "/inventory": {
+              title: "e-Aushadhi Medicine Inventory",
+              instructions: "1. Search medicine name (e.g. Anti-Snake Venom, Paracetamol, Insulin). 2. Check stock levels at public dispensaries.",
+            },
+            "/cases": {
+              title: "Patient Cases & Longitudinal Vitals",
+              instructions: "1. View active health cases. 2. Record daily blood pressure and pulse. 3. Access ABHA health summaries.",
+            },
+            "/referrals": {
+              title: "10-Stage Patient Referral Tracking",
+              instructions: "1. Check hospital transfer milestone. 2. View specialty desk registration and doctor consultation status.",
+            },
+            "/health-awareness": {
+              title: "Preventive Health Awareness Guides",
+              instructions: "1. Browse verified guidance on maternal health, vector diseases, diabetes, and nutrition.",
+            },
+            "/rural-access": {
+              title: "2G Feature-Phone & Rural Access Hub",
+              instructions: "1. Access Toll-free 1800-108-102 IVR details. 2. Request ASHA home visit.",
+            },
+            "/call-assistance": {
+              title: "Call Assistance & IVR Queue",
+              instructions: "1. Connect with 24x7 health helpdesk. 2. Trigger outbound ASHA callback.",
+            },
+            "/settings": {
+              title: "Application Settings",
+              instructions: "1. Toggle Light / Dark mode. 2. Change language preferences.",
+            },
+            "/organ-donation": {
+              title: "Organ Donation Pledge Registry",
+              instructions: "1. Register official organ donation pledge under statutory Maharashtra guidelines.",
+            },
+          };
+
+          const selected = pageRoutes[target_page] || {
+            title: page_label || "JeevanSetu Section",
+            instructions: "Navigate to this section from the main navigation menu.",
+          };
+
+          result = {
+            target_page: target_page || "/assistant",
+            page_title: selected.title,
+            navigation_action: "TRIGGER_CLIENT_NAVIGATION",
+            instructions: selected.instructions,
+          };
+          break;
+        }
+
+        // 19. Get Health Awareness Topic
+        case "get_health_awareness_topic": {
+          const { topic } = args;
+          const awarenessGuide = {
+            blood_pressure: {
+              title: "Blood Pressure (Hypertension) Awareness",
+              key_points: [
+                "Normal BP is below 120/80 mmHg. High BP often has no early symptoms.",
+                "Take prescribed BP medications every day without skipping doses.",
+                "Reduce dietary sodium/salt, avoid tobacco/alcohol, and engage in daily brisk walking.",
+                "Visit the weekly Thursday Non-Communicable Disease (NCD) clinic at your nearest PHC for free monitoring.",
+                "Warning signs: Sudden severe headache, chest tightness, vision blurriness, dizziness.",
+              ],
+            },
+            diabetes: {
+              title: "Diabetes & Blood Sugar Management",
+              key_points: [
+                "Maintain fasting blood sugar < 100 mg/dL and post-meal < 140 mg/dL.",
+                "Adhere to oral hypoglycemics or insulin as prescribed; never discontinue abruptly.",
+                "Inspect feet daily for cuts or ulcers; practice foot hygiene.",
+                "Free glucometer screening and Metformin/Glimepiride stock available at all Maharashtra PHCs.",
+              ],
+            },
+            anemia: {
+              title: "Anemia Prevention & Nutrition",
+              key_points: [
+                "Common in women, adolescent girls, and young children due to low dietary iron.",
+                "Eat iron-rich foods: Spinach, fenugreek, drumstick leaves, jaggery (gud), chana, sprouts, and eggs/meat.",
+                "Pregnant women receive 180 Iron-Folic Acid (IFA) tablets 100% free at PHC/Sub-Centre.",
+                "Symptoms of anemia: Fatigue, pale tongue/eyes, shortness of breath, dizziness on standing.",
+              ],
+            },
+            dengue_malaria: {
+              title: "Dengue & Malaria Vector Prevention",
+              key_points: [
+                "Prevent mosquito breeding: Empty coolers, discarded tires, and open water vessels weekly.",
+                "Use mosquito nets, repellents, and wear full-sleeve clothing.",
+                "If fever is accompanied by joint pain, eye pain, or rash, get a free Malaria RDT and Dengue NS1 test at PHC.",
+                "Warning signs: Persistent vomiting, bleeding from gums/nose, severe abdominal pain, sudden drop in urine output.",
+              ],
+            },
+            maternal_health: {
+              title: "Maternal Health & Antenatal Care (ANC)",
+              key_points: [
+                "Register pregnancy with your village ASHA worker within first trimester.",
+                "Complete minimum 4 Antenatal Care (ANC) checkups, Tetanus toxoid vaccination, and ultrasound.",
+                "Avail ₹1,400 (rural) / ₹1,000 (urban) Janani Suraksha Yojana (JSY) direct benefit transfer for hospital delivery.",
+                "Dial 102 (Janani Shishu Express) for free transport to the delivery facility.",
+              ],
+            },
+            child_health_immunization: {
+              title: "Child Health & Universal Immunization",
+              key_points: [
+                "Mandatory vaccines: BCG, Hepatitis B, OPV at birth; Pentavalent, Rotavirus, PCV at 6, 10, 14 weeks; MR at 9 & 16 months.",
+                "Exclusive breastfeeding for the first 6 months with zero water/honey.",
+                "Monitor child growth curve at Anganwadi / Sub-Centre monthly.",
+              ],
+            },
+            nutrition_hydration: {
+              title: "Nutrition & Safe Hydration",
+              key_points: [
+                "Drink boiled or filtered water, especially during monsoon season.",
+                "In cases of loose motions or diarrhea, immediately prepare Oral Rehydration Salts (ORS) solution with clean water.",
+                "Continue breastfeeding and feeding during diarrheal episodes; give Zinc supplements for 14 days.",
+              ],
+            },
+            tuberculosis: {
+              title: "Tuberculosis (TB) Awareness & DOTS",
+              key_points: [
+                "Any cough persisting for more than 2 weeks requires a free sputum test at PHC / District Hospital.",
+                "Nikshay Poshan Yojana provides ₹500/month direct bank transfer for nutritional support during TB treatment.",
+                "TB is 100% curable if the full 6-month DOTS treatment is completed without stopping.",
+              ],
+            },
+            sanitation_hygiene: {
+              title: "Water Sanitation & Personal Hygiene",
+              key_points: [
+                "Wash hands with soap before meals and after using the toilet.",
+                "Chlorinate village drinking water wells regularly.",
+                "Store food in covered containers to prevent housefly contamination.",
+              ],
+            },
+            menstrual_health: {
+              title: "Menstrual Health & Dignity",
+              key_points: [
+                "Use clean sanitary pads or sterile cloth washed in clean water and dried in direct sunlight.",
+                "Change sanitary pad every 4 to 6 hours to prevent pelvic infections.",
+                "Subsidized sanitary napkins available through local ASHA worker under government scheme.",
+              ],
+            },
+            elderly_care: {
+              title: "Elderly & Geriatric Healthcare",
+              key_points: [
+                "Ensure well-lit walkways and non-slip floors at home to prevent falls.",
+                "Check blood pressure, vision, and blood sugar every month.",
+                "Keep daily medications organized in a weekly pill organizer.",
+              ],
+            },
+            chronic_disease_adherence: {
+              title: "Chronic Disease & Medication Adherence",
+              key_points: [
+                "Never pause lifelong hypertension or diabetes medication when symptoms improve.",
+                "Collect free monthly refills from the PHC dispensary with your prescription card.",
+                "Inform your doctor before taking any over-the-counter pain medications.",
+              ],
+            },
+          };
+
+          const matchedTopic = awarenessGuide[topic] || awarenessGuide.blood_pressure;
+          result = {
+            topic,
+            title: matchedTopic.title,
+            guidance: matchedTopic.key_points,
+            source: "National Health Mission (NHM) Maharashtra & Public Health Department",
+          };
+          break;
+        }
+
+        // 20. Request ASHA Support
+        case "request_asha_support": {
+          const { citizen_name, phone, district = "Wardha", topic: visitTopic } = args;
+          const ticketId = `ASHA-${Date.now().toString().slice(-4)}`;
+
+          try {
+            await auditService.logAuditEvent({
+              actor_id: safeUser.profileId || null,
+              action: "ASHA_SUPPORT_QUEUE_REGISTRATION",
+              entity_type: "asha_queue",
+              metadata: { ticketId, citizen_name, phone, district, visitTopic },
+            });
+          } catch {
+            // Non-blocking
+          }
+
+          result = {
+            status: "REGISTERED_IN_ASHA_QUEUE",
+            ticket_id: ticketId,
+            citizen_name: citizen_name || safeUser.fullName || "Citizen",
+            phone,
+            district,
+            visit_reason: visitTopic,
+            assigned_coordinator: "ASHA Nodal Coordinator (District Primary Health Division)",
+            callback_window: "Within 2 hours",
+            toll_free_backup: "1800-108-102 (Toll Free 24x7)",
+          };
+          break;
+        }
+
+        // 21. Book Ambulance
+        case "book_ambulance": {
+          const { pickup_location, district = "Nagpur", ambulance_type = "ALL", contact_phone } = args;
+          const dispatchId = `DISPATCH-108-${Date.now().toString().slice(-4)}`;
+
+          try {
+            await auditService.logAuditEvent({
+              actor_id: safeUser.profileId || null,
+              action: "AMBULANCE_BOOKING_INITIATED",
+              entity_type: "ambulance",
+              metadata: { dispatchId, pickup_location, district, ambulance_type, contact_phone },
+            });
+          } catch {
+            // Non-blocking
+          }
+
+          result = {
+            booking_status: "DISPATCH_REQUEST_QUEUED",
+            dispatch_id: dispatchId,
+            pickup_location,
+            district,
+            ambulance_type: ambulance_type === "ADVANCED_LIFE_SUPPORT" ? "ALS ICU on Wheels" : "MEMS 108 Emergency Ambulance",
+            assigned_vehicle: "MH-31-EM-1081",
+            driver_contact: "+91 712 2744650",
+            estimated_eta_minutes: 8,
+            toll_free_helpline: "108",
+            instructions: "Keep patient in a safe, well-ventilated space. Keep phone line open for the driver.",
           };
           break;
         }

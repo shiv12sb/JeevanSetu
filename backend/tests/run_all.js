@@ -28,6 +28,7 @@ const testSuites = [
   "tests/phase45_maharashtra_doctor_directory.test.js",
   "tests/phase46_abdm_statewide_registry_sync.test.js",
   "tests/phase47_openai_realtime_voice.test.js",
+  "tests/phase48_multilingual_medical_knowledge.test.js",
   "tests/ai_assistant_voice.test.js",
   "tests/theme_consistency.test.js",
 ];

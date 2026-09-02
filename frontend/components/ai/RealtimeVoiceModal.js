@@ -45,6 +45,11 @@ export function RealtimeVoiceModal({
   const [groundedCards, setGroundedCards] = useState([]);
   const transcriptEndRef = useRef(null);
 
+  const onSyncTranscriptRef = useRef(onSyncTranscript);
+  useEffect(() => {
+    onSyncTranscriptRef.current = onSyncTranscript;
+  }, [onSyncTranscript]);
+
   // Initialize or start Realtime Voice session when modal opens
   useEffect(() => {
     if (!isOpen) {
@@ -67,11 +72,17 @@ export function RealtimeVoiceModal({
       },
       onTranscript: ({ sender, text, textDelta, isFinal }) => {
         if (text) {
-          setTranscripts((prev) => {
-            const nextList = [...prev, { id: `t-${Date.now()}-${Math.random()}`, sender, text }];
-            if (onSyncTranscript) onSyncTranscript(nextList);
-            return nextList;
-          });
+          const newEntry = { id: `t-${Date.now()}-${Math.random()}`, sender, text };
+          setTranscripts((prev) => [...prev, newEntry]);
+
+          // Safely dispatch transcript sync in next event loop tick
+          if (typeof window !== "undefined") {
+            setTimeout(() => {
+              if (onSyncTranscriptRef.current) {
+                onSyncTranscriptRef.current([newEntry]);
+              }
+            }, 0);
+          }
         } else if (textDelta) {
           setTranscripts((prev) => {
             const last = prev[prev.length - 1];
@@ -94,25 +105,76 @@ export function RealtimeVoiceModal({
       },
       onToolCall: ({ name, args }) => {
         const toolLabels = {
-          search_doctor: "🔍 Searching Maharashtra Doctor Directory...",
-          get_doctor_details: "📋 Fetching Medical Council & Clinic Details...",
-          get_doctor_availability: "🟢 Verifying Live On-Duty Roster...",
-          search_hospital: "🏥 Searching Verified Hospitals...",
-          get_hospital_details: "🛏️ Checking Bed Capacity & Empaneled Schemes...",
-          get_hospital_contact: "📞 Retrieving Reception & Emergency Contacts...",
-          find_nearby_facilities: "📍 Locating Nearest 24x7 PHCs & Depots...",
-          find_nearby_ambulances: "🚑 Searching MEMS 108 Emergency Fleet...",
-          get_ambulance_status: "📡 Querying Live Telematics Status...",
-          get_ambulance_eta: "⏱️ Calculating Realtime Arrival ETA...",
-          contact_ambulance: "🚨 Connecting 108 Emergency Control Hub...",
-          get_referral_status: "📄 Fetching 10-Step Care Continuity Record...",
-          get_medicine_availability: "💊 Querying e-Aushadhi DVDMS Stock...",
-          get_patient_health_records: "🔒 Fetching Verified Health Summary...",
-          get_government_scheme_information: "🏛️ Retrieving PM-JAY & MJPJAY Guidelines...",
-          emergency_108: "⚠️ Activating Emergency 108 Triage...",
+          mr: {
+            search_doctor: "🔍 डॉक्टर डायरेक्टरी शोधत आहे...",
+            get_doctor_details: "📋 डॉक्टर नोंदणी व तपशील तपासत आहे...",
+            get_doctor_availability: "🟢 ऑन-ड्युटी रोस्टर तपासत आहे...",
+            search_hospital: "🏥 प्रमाणित शासकीय रुग्णालये शोधत आहे...",
+            get_hospital_details: "🛏️ खाटांची संख्या व योजना तपासत आहे...",
+            get_hospital_contact: "📞 रुग्णालय संपर्क क्रमांक शोधत आहे...",
+            find_nearby_facilities: "📍 जवळचे २४x७ प्राथमिक आरोग्य केंद्र शोधत आहे...",
+            find_nearby_ambulances: "🚑 १०८ रुग्णवाहिका शोधत आहे...",
+            get_ambulance_status: "📡 थेट जीपीएस स्थिती तपासत आहे...",
+            get_ambulance_eta: "⏱️ पोहोचण्याचा वेळ (ETA) मोजत आहे...",
+            contact_ambulance: "🚨 १०८ आपत्कालीन कक्षाशी संपर्क...",
+            get_referral_status: "📄 रेफरल ट्रॅकिंग तपासत आहे...",
+            get_medicine_availability: "💊 ई-औषधी साठा तपासत आहे...",
+            get_patient_health_records: "🔒 आरोग्य नोंदी तपासत आहे...",
+            get_government_scheme_information: "🏛️ महात्मा फुले / PM-JAY योजना माहिती...",
+            emergency_108: "⚠️ १०८ आपत्कालीन ट्राइएज सक्रिय...",
+            navigate_to_page: "🧭 जीवनसेतू पेजवर नेत आहे...",
+            get_health_awareness_topic: "📚 आरोग्य माहिती मार्गदर्शक...",
+            request_asha_support: "👩‍⚕️ आशा स्वयंसेविका भेट नोंदवत आहे...",
+            book_ambulance: "🚑 १०८ रुग्णवाहिका बुक करत आहे...",
+          },
+          hi: {
+            search_doctor: "🔍 डॉक्टर डायरेक्टरी खोजी जा रही है...",
+            get_doctor_details: "📋 डॉक्टर विवरण जांचे जा रहे हैं...",
+            get_doctor_availability: "🟢 ऑन-ड्यूटी रोस्टर देखा जा रहा है...",
+            search_hospital: "🏥 सत्यापित अस्पताल खोजे जा रहे हैं...",
+            get_hospital_details: "🛏️ बेड एवं योजना विवरण जांचे जा रहे हैं...",
+            get_hospital_contact: "📞 संपर्क नंबर प्राप्त किया जा रहा है...",
+            find_nearby_facilities: "📍 नजदीकी 24x7 स्वास्थ्य केंद्र खोजे जा रहे हैं...",
+            find_nearby_ambulances: "🚑 108 एम्बुलेंस खोजी जा रही है...",
+            get_ambulance_status: "📡 लाइव जीपीएस स्थिति जांची जा रही है...",
+            get_ambulance_eta: "⏱️ आगमन समय (ETA) निकाला जा रहा है...",
+            contact_ambulance: "🚨 108 नियंत्रण कक्ष से संपर्क...",
+            get_referral_status: "📄 रेफरल रिकॉर्ड देखा जा रहा है...",
+            get_medicine_availability: "💊 ई-औषधि स्टॉक जांचा जा रहा है...",
+            get_patient_health_records: "🔒 स्वास्थ्य रिकॉर्ड प्राप्त किए जा रहे हैं...",
+            get_government_scheme_information: "🏛️ आयुष्मान भारत / MJPJAY योजना...",
+            emergency_108: "⚠️ 108 आपातकालीन सेवा सक्रिय...",
+            navigate_to_page: "🧭 पेज पर जाया जा रहा है...",
+            get_health_awareness_topic: "📚 स्वास्थ्य जागरूकता गाइड...",
+            request_asha_support: "👩‍⚕️ आशा कार्यकर्ता विजिट दर्ज की जा रही है...",
+            book_ambulance: "🚑 108 एम्बुलेंस बुक की जा रही है...",
+          },
+          en: {
+            search_doctor: "🔍 Searching Doctor Directory...",
+            get_doctor_details: "📋 Fetching Medical Council Details...",
+            get_doctor_availability: "🟢 Verifying Live On-Duty Roster...",
+            search_hospital: "🏥 Searching Verified Hospitals...",
+            get_hospital_details: "🛏️ Checking Bed Capacity & Schemes...",
+            get_hospital_contact: "📞 Retrieving Hospital Contacts...",
+            find_nearby_facilities: "📍 Locating Nearest 24x7 PHCs...",
+            find_nearby_ambulances: "🚑 Searching 108 Ambulances...",
+            get_ambulance_status: "📡 Querying Live Telematics...",
+            get_ambulance_eta: "⏱️ Calculating Arrival ETA...",
+            contact_ambulance: "🚨 Connecting 108 Control Hub...",
+            get_referral_status: "📄 Fetching Referral Record...",
+            get_medicine_availability: "💊 Querying e-Aushadhi Stock...",
+            get_patient_health_records: "🔒 Fetching Health Summary...",
+            get_government_scheme_information: "🏛️ Retrieving Scheme Guidelines...",
+            emergency_108: "⚠️ Activating 108 Emergency...",
+            navigate_to_page: "🧭 Navigating Page...",
+            get_health_awareness_topic: "📚 Loading Health Guide...",
+            request_asha_support: "👩‍⚕️ Queueing ASHA Visit...",
+            book_ambulance: "🚑 Initiating 108 Booking...",
+          },
         };
 
-        setActiveTool(toolLabels[name] || `Executing ${name}...`);
+        const currentDict = toolLabels[language] || toolLabels.mr;
+        setActiveTool(currentDict[name] || `Checking ${name}...`);
         setTimeout(() => setActiveTool(null), 3000);
       },
       onEmergency: (alertData) => {
@@ -163,17 +225,38 @@ export function RealtimeVoiceModal({
     if (onClose) onClose();
   };
 
-  const stateBadges = {
-    IDLE: { label: "Idle", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
-    CONNECTING: { label: "Connecting...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
-    LISTENING: { label: "Listening (Speak Now)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
-    THINKING: { label: "Thinking & Grounding...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
-    SPEAKING: { label: "AI Speaking...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
-    ERROR: { label: "Connection Error", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
-    DISCONNECTED: { label: "Disconnected", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
+  const stateBadgesByLang = {
+    mr: {
+      IDLE: { label: "सज्ज", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
+      CONNECTING: { label: "जोडणी करत आहे...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
+      LISTENING: { label: "ऐकत आहे (आता बोला)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      THINKING: { label: "माहिती शोधत आहे...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
+      SPEAKING: { label: "असिस्टंट बोलत आहे...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      ERROR: { label: "जोडणी त्रुटी", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
+      DISCONNECTED: { label: "कॉल समाप्त", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
+    },
+    hi: {
+      IDLE: { label: "तैयार", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
+      CONNECTING: { label: "कनेक्ट हो रहा है...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
+      LISTENING: { label: "सुन रहा हूँ (बोलिए)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      THINKING: { label: "जानकारी खोजी जा रही है...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
+      SPEAKING: { label: "असिस्टेंट बोल रहा है...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      ERROR: { label: "कनेक्शन त्रुटि", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
+      DISCONNECTED: { label: "कॉल समाप्त", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
+    },
+    en: {
+      IDLE: { label: "Idle", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
+      CONNECTING: { label: "Connecting...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
+      LISTENING: { label: "Listening (Speak Now)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      THINKING: { label: "Thinking & Grounding...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
+      SPEAKING: { label: "AI Speaking...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      ERROR: { label: "Connection Error", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
+      DISCONNECTED: { label: "Disconnected", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
+    },
   };
 
-  const currentBadge = stateBadges[state] || stateBadges.IDLE;
+  const currentDict = stateBadgesByLang[language] || stateBadgesByLang.mr;
+  const currentBadge = currentDict[state] || currentDict.IDLE;
 
   return (
     <div

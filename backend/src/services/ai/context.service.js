@@ -5,6 +5,7 @@ const resourcesService = require("../resources.service");
 const medicineForecastService = require("../forecasting/medicineForecast.service");
 const earlyWarningService = require("../earlyWarning/earlyWarning.service");
 const referralFollowUpService = require("../referrals/referralFollowUp.service");
+const medicalKnowledgeService = require("./medicalKnowledge.service");
 
 /**
  * Redact sensitive PII and internal technical IDs from context before LLM injection
@@ -46,14 +47,54 @@ const minimizeContextData = (obj) => {
  * @param {string} query - User message query
  * @returns {Promise<{contextText: string, groundedCards: Array<Object>, sources: Array<string>}>}
  */
-const retrieveContextForUser = async (user, query = "") => {
+const retrieveContextForUser = async (user, query = "", language = "mr") => {
   const safeUser = user || { profileId: null, role: "patient" };
+  const lang = ["en", "hi", "mr"].includes(language) ? language : "mr";
   const q = query.toLowerCase();
   const contextSections = [];
   const groundedCards = [];
   const sources = [];
 
   try {
+    // 0. Verified Clinical Knowledge & Symptoms Retrieval (~530+ Curated Conditions)
+    const medSearch = medicalKnowledgeService.searchCondition(query, lang);
+    if (medSearch.match && medSearch.confidence >= 0.45) {
+      const cond = medSearch.match;
+      const guidance = medicalKnowledgeService.generateGuidance(cond.id, lang);
+      const isCancer = medicalKnowledgeService.isCancer(cond);
+
+      contextSections.push(`Verified Clinical Protocol Grounding:
+- Canonical Name: ${cond.canonical_name} (${cond.names[lang] || cond.names.marathi})
+- Category: ${cond.category}
+- Clinical Overview: ${cond.general_information.join(" ")}
+- Common Symptoms: ${cond.common_symptoms.join(", ")}
+- Safe Supportive Measures: ${cond.safe_supportive_care.length > 0 ? cond.safe_supportive_care.join("; ") : "None (clinical consultation required)"}
+- Things to Avoid: ${cond.things_to_avoid.join("; ")}
+- Red Flags (Warning Signs): ${cond.red_flags.join("; ")}
+- Urgency Level: ${cond.urgency}
+- Appropriate Specialty: ${cond.appropriate_specialty.join(", ")}
+- Recommended Facility: ${cond.facility_type.join(", ")}
+${isCancer ? "- CANCER SAFETY DIRECTIVE: Strictly forbid home cure claims. Recommend formal clinical biopsy/evaluation and MJPJAY cashless hospital coverage." : ""}`);
+
+      sources.push(...(cond.sources || ["Ministry of Health & Family Welfare (MoHFW) / ICMR Protocols"]));
+
+      groundedCards.push({
+        type: isCancer ? "cancer" : cond.urgency === "emergency" ? "emergency" : "condition",
+        title: cond.names[lang] || cond.canonical_name,
+        detail: `Category: ${cond.category.replace(/_/g, " ").toUpperCase()} • Recommended Specialty: ${cond.appropriate_specialty[0] || "General Physician"} • Facility: ${cond.facility_type[0] || "PHC"}`,
+        actionLabel: isCancer ? "View Cancer Care Center" : cond.urgency === "emergency" ? "Call 108 Immediately" : "View Clinical Guidance",
+      });
+    } else {
+      // Check if multiple symptoms were provided
+      const symMatches = medicalKnowledgeService.searchBySymptoms(query, lang);
+      if (symMatches.length > 0) {
+        contextSections.push(`Differential Symptom Considerations (Non-Diagnostic Evaluation Only):
+${symMatches.map((m) => `- Possible Consideration: ${m.condition.names[lang] || m.condition.canonical_name} (Matched Indicators: ${m.matchedSymptoms.join(", ")}, Specialty: ${m.condition.appropriate_specialty[0]})`).join("\n")}
+*Mandatory Rule: Present symptoms as considerations requiring clinical evaluation, never as definitive diagnoses.*`);
+        sources.push("National Health Portal (NHP) Clinical Symptoms Index");
+      }
+    }
+
     // 1. Patient / Case & Referral Follow-Up Milestone Context (Scoped to Authenticated User)
     if (q.includes("referral") || q.includes("follow up") || q.includes("follow-up") || q.includes("milestone") || q.includes("status") || q.includes("my case") || q.includes("appointment") || q.includes("stage") || q.includes("overdue") || q.includes("attention")) {
       if (safeUser.profileId && (safeUser.role === "patient" || safeUser.role === "doctor" || safeUser.role === "phc_staff" || safeUser.role === "hospital_staff" || safeUser.role === "district_admin")) {

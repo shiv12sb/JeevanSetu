@@ -92,11 +92,8 @@ export function FloatingAssistantButton() {
     textToSpeechService.stop();
     setSpeakingMsgId(null);
 
-    let detectedLang = language;
-    if (/[\u0900-\u097F]/.test(text)) {
-      detectedLang = /(आहे|नाही|झाले|औषध|रुग्ण|रुग्णालय|करावे|कुठे|कधी|सांगा)/.test(text) ? "mr" : "hi";
-      setLanguage(detectedLang);
-    }
+    // Strictly honor user's chosen language (Default: 'mr' Marathi)
+    const detectedLang = language && ["en", "hi", "mr"].includes(language) ? language : "mr";
 
     const userMsg = {
       id: `usr-${Date.now()}`,
@@ -121,12 +118,17 @@ export function FloatingAssistantButton() {
 
       const res = await aiApi.chat({
         message: text,
+        query: text,
         language: detectedLang,
         conversationHistory: turns,
       });
 
       const aiData = res?.data || res || {};
-      const answer = aiData.answer || "I have retrieved your verified healthcare information.";
+      const answer =
+        aiData.answer ||
+        aiData.response ||
+        aiData.message ||
+        (detectedLang === "mr" ? "माहिती उपलब्ध आहे. प्राथमिक आरोग्य केंद्राशी संपर्क साधा." : detectedLang === "hi" ? "जानकारी उपलब्ध है। प्राथमिक स्वास्थ्य केंद्र से संपर्क करें।" : "Healthcare guidance retrieved.");
 
       const botMsg = {
         id: `bot-${Date.now()}`,
@@ -161,7 +163,7 @@ export function FloatingAssistantButton() {
       }
     } catch (err) {
       console.warn("Floating AI network fallback engaged:", err.message);
-      const fallbackData = getClientAiFallbackResponse(text);
+      const fallbackData = getClientAiFallbackResponse(text, detectedLang);
       const fallbackAnswer = fallbackData.answer;
 
       const fallbackBotMsg = {

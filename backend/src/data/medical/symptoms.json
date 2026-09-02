@@ -1,0 +1,7122 @@
+{
+  "ताप (fever)": {
+    "symptom": "ताप (Fever)",
+    "conditions": [
+      "viral_fever"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अंगदुखी (body ache)": {
+    "symptom": "अंगदुखी (Body ache)",
+    "conditions": [
+      "viral_fever"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोकेदुखी (headache)": {
+    "symptom": "डोकेदुखी (Headache)",
+    "conditions": [
+      "viral_fever",
+      "malaria"
+    ],
+    "max_urgency": "self_care"
+  },
+  "थकवा (fatigue)": {
+    "symptom": "थकवा (Fatigue)",
+    "conditions": [
+      "viral_fever"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घसा खवखवणे (sore throat)": {
+    "symptom": "घसा खवखवणे (Sore throat)",
+    "conditions": [
+      "viral_fever",
+      "common_cold"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तीव्र ताप (high fever)": {
+    "symptom": "तीव्र ताप (High fever)",
+    "conditions": [
+      "dengue_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळ्यांच्या मागे तीव्र वेदना (retro-orbital pain)": {
+    "symptom": "डोळ्यांच्या मागे तीव्र वेदना (Retro-orbital pain)",
+    "conditions": [
+      "dengue_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाडे व सांधेदुखी (bone/joint pain)": {
+    "symptom": "हाडे व सांधेदुखी (Bone/joint pain)",
+    "conditions": [
+      "dengue_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंगावर बारीक पुरळ (skin rash)": {
+    "symptom": "अंगावर बारीक पुरळ (Skin rash)",
+    "conditions": [
+      "dengue_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मळमळ (nausea)": {
+    "symptom": "मळमळ (Nausea)",
+    "conditions": [
+      "dengue_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र थंडी वाजून ताप येणे (chills and rigors)": {
+    "symptom": "तीव्र थंडी वाजून ताप येणे (Chills and rigors)",
+    "conditions": [
+      "malaria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ताप उतरताना भरपूर घाम येणे (profuse sweating)": {
+    "symptom": "ताप उतरताना भरपूर घाम येणे (Profuse sweating)",
+    "conditions": [
+      "malaria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उलट्या किंवा मळमळ (vomiting)": {
+    "symptom": "उलट्या किंवा मळमळ (Vomiting)",
+    "conditions": [
+      "malaria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत पायऱ्यांप्रमाणे वाढणारा ताप (step-ladder fever)": {
+    "symptom": "सतत पायऱ्यांप्रमाणे वाढणारा ताप (Step-ladder fever)",
+    "conditions": [
+      "typhoid_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटदुखी (abdominal pain)": {
+    "symptom": "पोटदुखी (Abdominal pain)",
+    "conditions": [
+      "typhoid_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बद्धकोष्ठता किंवा जुलाब (constipation/diarrhea)": {
+    "symptom": "बद्धकोष्ठता किंवा जुलाब (Constipation/Diarrhea)",
+    "conditions": [
+      "typhoid_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "भूक मंदावणे (loss of appetite)": {
+    "symptom": "भूक मंदावणे (Loss of appetite)",
+    "conditions": [
+      "typhoid_fever"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अचानक तीव्र ताप (sudden high fever)": {
+    "symptom": "अचानक तीव्र ताप (Sudden high fever)",
+    "conditions": [
+      "chikungunya",
+      "influenza_flu"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र सांधेदुखी व सूज (severe joint pain and swelling)": {
+    "symptom": "तीव्र सांधेदुखी व सूज (Severe joint pain and swelling)",
+    "conditions": [
+      "chikungunya"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगावर लाल पुरळ (rash)": {
+    "symptom": "अंगावर लाल पुरळ (Rash)",
+    "conditions": [
+      "chikungunya"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "स्नायूदुखी (muscle pain)": {
+    "symptom": "स्नायूदुखी (Muscle pain)",
+    "conditions": [
+      "chikungunya"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "२ आठवड्यांपेक्षा जास्त काळ खोकला (cough > 2 weeks)": {
+    "symptom": "२ आठवड्यांपेक्षा जास्त काळ खोकला (Cough > 2 weeks)",
+    "conditions": [
+      "tuberculosis_pulmonary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "संध्याकाळी येणारा हलका ताप (evening rise of temperature)": {
+    "symptom": "संध्याकाळी येणारा हलका ताप (Evening rise of temperature)",
+    "conditions": [
+      "tuberculosis_pulmonary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्री घाम येणे (night sweats)": {
+    "symptom": "रात्री घाम येणे (Night sweats)",
+    "conditions": [
+      "tuberculosis_pulmonary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वजन कमी होणे (weight loss)": {
+    "symptom": "वजन कमी होणे (Weight loss)",
+    "conditions": [
+      "tuberculosis_pulmonary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थुंकीतून रक्त येणे (hemoptysis)": {
+    "symptom": "थुंकीतून रक्त येणे (Hemoptysis)",
+    "conditions": [
+      "tuberculosis_pulmonary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "नाक गळणे किंवा चोंदणे (runny/stuffy nose)": {
+    "symptom": "नाक गळणे किंवा चोंदणे (Runny/stuffy nose)",
+    "conditions": [
+      "common_cold"
+    ],
+    "max_urgency": "self_care"
+  },
+  "शिंका येणे (sneezing)": {
+    "symptom": "शिंका येणे (Sneezing)",
+    "conditions": [
+      "common_cold"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हलका ताप (mild fever)": {
+    "symptom": "हलका ताप (Mild fever)",
+    "conditions": [
+      "common_cold"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तीव्र अंगदुखी (severe myalgia)": {
+    "symptom": "तीव्र अंगदुखी (Severe myalgia)",
+    "conditions": [
+      "influenza_flu"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सुका खोकला (dry cough)": {
+    "symptom": "सुका खोकला (Dry cough)",
+    "conditions": [
+      "influenza_flu"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र थकवा (extreme exhaustion)": {
+    "symptom": "तीव्र थकवा (Extreme exhaustion)",
+    "conditions": [
+      "influenza_flu"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "खोकल्यासोबत पिवळा/हिरवा कफ (cough with phlegm)": {
+    "symptom": "खोकल्यासोबत पिवळा/हिरवा कफ (Cough with phlegm)",
+    "conditions": [
+      "pneumonia_community_acquired"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र ताप व थंडी (fever with chills)": {
+    "symptom": "तीव्र ताप व थंडी (Fever with chills)",
+    "conditions": [
+      "pneumonia_community_acquired"
+    ],
+    "max_urgency": "urgent"
+  },
+  "श्वास घेताना छातीत दुखणे (chest pain while breathing)": {
+    "symptom": "श्वास घेताना छातीत दुखणे (Chest pain while breathing)",
+    "conditions": [
+      "pneumonia_community_acquired"
+    ],
+    "max_urgency": "urgent"
+  },
+  "जलद श्वासोच्छ्वास (rapid breathing)": {
+    "symptom": "जलद श्वासोच्छ्वास (Rapid breathing)",
+    "conditions": [
+      "pneumonia_community_acquired"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवी करताना जळजळ किंवा वेदना (burning micturition)": {
+    "symptom": "लघवी करताना जळजळ किंवा वेदना (Burning micturition)",
+    "conditions": [
+      "urinary_tract_infection_uti"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार लघवीची भावना (frequent urination)": {
+    "symptom": "वारंवार लघवीची भावना (Frequent urination)",
+    "conditions": [
+      "urinary_tract_infection_uti"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लघवीचा रंग गढूळ असणे (cloudy urine)": {
+    "symptom": "लघवीचा रंग गढूळ असणे (Cloudy urine)",
+    "conditions": [
+      "urinary_tract_infection_uti"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटाच्या खालच्या भागात कळ (lower abdominal pain)": {
+    "symptom": "पोटाच्या खालच्या भागात कळ (Lower abdominal pain)",
+    "conditions": [
+      "urinary_tract_infection_uti"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटदुखी": {
+    "symptom": "पोटदुखी",
+    "conditions": [
+      "acute_gastroenteritis",
+      "roundworm_ascariasis",
+      "schistosomiasis_bilharzia"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उलटी": {
+    "symptom": "उलटी",
+    "conditions": [
+      "acute_gastroenteritis",
+      "gallstones_cholelithiasis",
+      "acute_angle_closure_glaucoma",
+      "acute_testicular_torsion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पाण्यासारखे जुलाब": {
+    "symptom": "पाण्यासारखे जुलाब",
+    "conditions": [
+      "acute_gastroenteritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ताप": {
+    "symptom": "ताप",
+    "conditions": [
+      "acute_gastroenteritis",
+      "acute_tonsillitis",
+      "acute_otitis_media",
+      "chickenpox_varicella",
+      "mumps_parotitis",
+      "covid19_infection",
+      "cellulitis_bacterial",
+      "carbuncle_deep_infection",
+      "perianal_abscess",
+      "diverticulitis_colon",
+      "pericarditis_acute",
+      "pelvic_inflammatory_disease_pid",
+      "acute_mastitis_breast_infection",
+      "hand_foot_mouth_disease",
+      "dental_abscess_facial_swelling",
+      "lymphoma_hodgkin_nonhodgkin",
+      "syphilis_infection",
+      "scarlet_fever_strep",
+      "parvovirus_fifth_disease",
+      "hanta_virus_pulmonary",
+      "listeria_monocytogenes",
+      "aspiration_pneumonia",
+      "hypersensitivity_pneumonitis",
+      "mastoiditis_ear_bone"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तांदळाच्या पाण्यासारखे जुलाब": {
+    "symptom": "तांदळाच्या पाण्यासारखे जुलाब",
+    "conditions": [
+      "cholera"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अतिशय तीव्र डिहायड्रेशन": {
+    "symptom": "अतिशय तीव्र डिहायड्रेशन",
+    "conditions": [
+      "cholera"
+    ],
+    "max_urgency": "emergency"
+  },
+  "स्नायूंमध्ये गोळे येणे": {
+    "symptom": "स्नायूंमध्ये गोळे येणे",
+    "conditions": [
+      "cholera"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तीव्र ताप": {
+    "symptom": "तीव्र ताप",
+    "conditions": [
+      "leptospirosis",
+      "measles_rubeola",
+      "acute_cholecystitis",
+      "acute_bacterial_meningitis",
+      "viral_encephalitis",
+      "japanese_encephalitis_je",
+      "scrub_typhus_mite",
+      "toxic_megacolon_colitis",
+      "acute_epididymo_orchitis",
+      "swine_flu_h1n1_severe"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोळे लाल होणे": {
+    "symptom": "डोळे लाल होणे",
+    "conditions": [
+      "leptospirosis",
+      "measles_rubeola",
+      "dry_eye_syndrome"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटऱ्यांमध्ये तीव्र वेदना": {
+    "symptom": "पोटऱ्यांमध्ये तीव्र वेदना",
+    "conditions": [
+      "leptospirosis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कावीळ": {
+    "symptom": "कावीळ",
+    "conditions": [
+      "leptospirosis",
+      "alcoholic_liver_disease",
+      "acute_cholangitis_charcot",
+      "autoimmune_hepatitis_liver"
+    ],
+    "max_urgency": "emergency"
+  },
+  "घसा तीव्र दुखणे": {
+    "symptom": "घसा तीव्र दुखणे",
+    "conditions": [
+      "acute_tonsillitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गिळताना त्रास": {
+    "symptom": "गिळताना त्रास",
+    "conditions": [
+      "acute_tonsillitis",
+      "epiglottic_cyst_throat"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेवर गाठी": {
+    "symptom": "मानेवर गाठी",
+    "conditions": [
+      "acute_tonsillitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "घसा खवखवणे": {
+    "symptom": "घसा खवखवणे",
+    "conditions": [
+      "acute_pharyngitis",
+      "swine_flu_h1n1_severe"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सुका खोकला": {
+    "symptom": "सुका खोकला",
+    "conditions": [
+      "acute_pharyngitis",
+      "interstitial_lung_disease",
+      "hypersensitivity_pneumonitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हलका ताप": {
+    "symptom": "हलका ताप",
+    "conditions": [
+      "acute_pharyngitis",
+      "rubella_german_measles",
+      "acute_appendicitis",
+      "acute_bronchitis",
+      "cytomegalovirus_cmv"
+    ],
+    "max_urgency": "emergency"
+  },
+  "कपाळावर व गालांवर जडपणा": {
+    "symptom": "कपाळावर व गालांवर जडपणा",
+    "conditions": [
+      "acute_sinusitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नाकातून घट्ट पिवळा स्त्राव": {
+    "symptom": "नाकातून घट्ट पिवळा स्त्राव",
+    "conditions": [
+      "acute_sinusitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोकेदुखी": {
+    "symptom": "डोकेदुखी",
+    "conditions": [
+      "acute_sinusitis",
+      "acute_angle_closure_glaucoma",
+      "scrub_typhus_mite",
+      "cervical_myofascial_pain"
+    ],
+    "max_urgency": "emergency"
+  },
+  "कानात तीव्र वेदना": {
+    "symptom": "कानात तीव्र वेदना",
+    "conditions": [
+      "acute_otitis_media"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कानातून पू वाहणे": {
+    "symptom": "कानातून पू वाहणे",
+    "conditions": [
+      "acute_otitis_media"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगावर पाण्यासारखे फोड": {
+    "symptom": "अंगावर पाण्यासारखे फोड",
+    "conditions": [
+      "chickenpox_varicella"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "खाज सुटणे": {
+    "symptom": "खाज सुटणे",
+    "conditions": [
+      "chickenpox_varicella"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगावर तांबूस पुरळ": {
+    "symptom": "अंगावर तांबूस पुरळ",
+    "conditions": [
+      "measles_rubeola"
+    ],
+    "max_urgency": "urgent"
+  },
+  "खोकला": {
+    "symptom": "खोकला",
+    "conditions": [
+      "measles_rubeola",
+      "covid19_infection",
+      "pleural_effusion",
+      "scrub_typhus_mite"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कानाखालील गालाला सूज": {
+    "symptom": "कानाखालील गालाला सूज",
+    "conditions": [
+      "mumps_parotitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तोंड उघडताना वेदना": {
+    "symptom": "तोंड उघडताना वेदना",
+    "conditions": [
+      "mumps_parotitis",
+      "pericoronitis_wisdom_tooth"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बारीक गुलाबी पुरळ": {
+    "symptom": "बारीक गुलाबी पुरळ",
+    "conditions": [
+      "rubella_german_measles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेच्या ग्रंथी सुजणे": {
+    "symptom": "मानेच्या ग्रंथी सुजणे",
+    "conditions": [
+      "rubella_german_measles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सलग खोकल्याची उबळ": {
+    "symptom": "सलग खोकल्याची उबळ",
+    "conditions": [
+      "pertussis_whooping_cough"
+    ],
+    "max_urgency": "urgent"
+  },
+  "श्वास घेताना विशिष्ट आवाज": {
+    "symptom": "श्वास घेताना विशिष्ट आवाज",
+    "conditions": [
+      "pertussis_whooping_cough"
+    ],
+    "max_urgency": "urgent"
+  },
+  "जबडा घट्ट मिटणे": {
+    "symptom": "जबडा घट्ट मिटणे",
+    "conditions": [
+      "tetanus"
+    ],
+    "max_urgency": "emergency"
+  },
+  "स्नायू आखडणे": {
+    "symptom": "स्नायू आखडणे",
+    "conditions": [
+      "tetanus"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पाठीला बाक येणे": {
+    "symptom": "पाठीला बाक येणे",
+    "conditions": [
+      "tetanus"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पाण्याची भीती (hydrophobia)": {
+    "symptom": "पाण्याची भीती (Hydrophobia)",
+    "conditions": [
+      "rabies"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लाळ गळणे": {
+    "symptom": "लाळ गळणे",
+    "conditions": [
+      "rabies",
+      "hand_foot_mouth_disease"
+    ],
+    "max_urgency": "emergency"
+  },
+  "आक्रमकता": {
+    "symptom": "आक्रमकता",
+    "conditions": [
+      "rabies"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेण्यास अडचण": {
+    "symptom": "श्वास घेण्यास अडचण",
+    "conditions": [
+      "covid19_infection",
+      "diphtheria_respiratory"
+    ],
+    "max_urgency": "emergency"
+  },
+  "वास व चव न लागणे": {
+    "symptom": "वास व चव न लागणे",
+    "conditions": [
+      "covid19_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्रीच्या वेळी तीव्र खाज": {
+    "symptom": "रात्रीच्या वेळी तीव्र खाज",
+    "conditions": [
+      "scabies_infestation"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बोटांच्या बेचक्यात बारीक फोड": {
+    "symptom": "बोटांच्या बेचक्यात बारीक फोड",
+    "conditions": [
+      "scabies_infestation"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वर्तुळाकार लाल चट्टे": {
+    "symptom": "वर्तुळाकार लाल चट्टे",
+    "conditions": [
+      "ringworm_tinea"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कडांना तीव्र खाज": {
+    "symptom": "कडांना तीव्र खाज",
+    "conditions": [
+      "ringworm_tinea"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जिभेवर पांढरे डाग": {
+    "symptom": "जिभेवर पांढरे डाग",
+    "conditions": [
+      "candida_oral_thrush"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तोंडात जळजळ": {
+    "symptom": "तोंडात जळजळ",
+    "conditions": [
+      "candida_oral_thrush"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौचातून शेम पडणे": {
+    "symptom": "शौचातून शेम पडणे",
+    "conditions": [
+      "amoebic_dysentery"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटात पीळ पडणे": {
+    "symptom": "पोटात पीळ पडणे",
+    "conditions": [
+      "amoebic_dysentery"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्ताचे जुलाब": {
+    "symptom": "रक्ताचे जुलाब",
+    "conditions": [
+      "amoebic_dysentery",
+      "mesenteric_ischemia_bowel",
+      "toxic_megacolon_colitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दुर्गंधीयुक्त जुलाब": {
+    "symptom": "दुर्गंधीयुक्त जुलाब",
+    "conditions": [
+      "giardiasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोट फुगणे": {
+    "symptom": "पोट फुगणे",
+    "conditions": [
+      "giardiasis",
+      "celiac_disease_gluten",
+      "kwashiorkor_protein_deficiency"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मळमळ": {
+    "symptom": "मळमळ",
+    "conditions": [
+      "giardiasis",
+      "peptic_ulcer_disease",
+      "acute_gastritis",
+      "dysmenorrhea_menstrual_pain",
+      "gastroparesis_diabetic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "एकाच बाजूला पट्ट्यासारखे वेदनादायी फोड": {
+    "symptom": "एकाच बाजूला पट्ट्यासारखे वेदनादायी फोड",
+    "conditions": [
+      "herpes_zoster_shingles"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र जळजळ": {
+    "symptom": "तीव्र जळजळ",
+    "conditions": [
+      "herpes_zoster_shingles",
+      "chemical_burn_eye_skin"
+    ],
+    "max_urgency": "emergency"
+  },
+  "त्वचा लाल, गरम व सुजणे": {
+    "symptom": "त्वचा लाल, गरम व सुजणे",
+    "conditions": [
+      "cellulitis_bacterial"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र वेदना": {
+    "symptom": "तीव्र वेदना",
+    "conditions": [
+      "cellulitis_bacterial",
+      "acute_mastitis_breast_infection",
+      "burn_second_degree_blister",
+      "foreign_body_in_ear",
+      "corneal_ulcer_keratitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मधमाश्यांच्या पोळ्यासारखे खपली असलेले फोड": {
+    "symptom": "मधमाश्यांच्या पोळ्यासारखे खपली असलेले फोड",
+    "conditions": [
+      "impetigo_contagiosa"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "केसांच्या मुळाशी बारीक पूयुक्त पुटकुळ्या": {
+    "symptom": "केसांच्या मुळाशी बारीक पूयुक्त पुटकुळ्या",
+    "conditions": [
+      "folliculitis_skin"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वेदना": {
+    "symptom": "वेदना",
+    "conditions": [
+      "folliculitis_skin",
+      "fistula_in_ano",
+      "inguinal_hernia",
+      "raynauds_phenomenon",
+      "phimosis_tight_foreskin"
+    ],
+    "max_urgency": "self_care"
+  },
+  "लाल, वेदनादायी गाठ, मध्यभागी पू": {
+    "symptom": "लाल, वेदनादायी गाठ, मध्यभागी पू",
+    "conditions": [
+      "furuncle_boil"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अनेक तोंडांचा मोठा पू भरलेला गळू": {
+    "symptom": "अनेक तोंडांचा मोठा पू भरलेला गळू",
+    "conditions": [
+      "carbuncle_deep_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र थकवा": {
+    "symptom": "तीव्र थकवा",
+    "conditions": [
+      "infectious_mononucleosis",
+      "epstein_barr_virus_ebv"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "घसा दुखणे": {
+    "symptom": "घसा दुखणे",
+    "conditions": [
+      "infectious_mononucleosis",
+      "epstein_barr_virus_ebv"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेवरील गाठी": {
+    "symptom": "मानेवरील गाठी",
+    "conditions": [
+      "infectious_mononucleosis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटात सतत जळजळ": {
+    "symptom": "पोटात सतत जळजळ",
+    "conditions": [
+      "h_pylori_gastric_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उपाशीपोटी वेदना": {
+    "symptom": "उपाशीपोटी वेदना",
+    "conditions": [
+      "h_pylori_gastric_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "त्वचेखाली सर्पाकार रेषेत खाज व लालसरपणा": {
+    "symptom": "त्वचेखाली सर्पाकार रेषेत खाज व लालसरपणा",
+    "conditions": [
+      "cutaneous_larva_migrans"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पायाला तीव्र सूज": {
+    "symptom": "पायाला तीव्र सूज",
+    "conditions": [
+      "filariasis_elephantiasis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "त्वचा जाड होणे": {
+    "symptom": "त्वचा जाड होणे",
+    "conditions": [
+      "filariasis_elephantiasis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार ताप": {
+    "symptom": "वारंवार ताप",
+    "conditions": [
+      "filariasis_elephantiasis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अशक्तपणा": {
+    "symptom": "अशक्तपणा",
+    "conditions": [
+      "hookworm_infestation",
+      "crohns_disease",
+      "infective_endocarditis",
+      "sickle_cell_anemia",
+      "kala_azar_visceral_leishmania"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रक्तक्षय": {
+    "symptom": "रक्तक्षय",
+    "conditions": [
+      "hookworm_infestation",
+      "gastric_polyps",
+      "chronic_kidney_disease_ckd"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटात अस्वस्थता": {
+    "symptom": "पोटात अस्वस्थता",
+    "conditions": [
+      "hookworm_infestation",
+      "tapeworm_taeniasis",
+      "non_ulcer_dyspepsia",
+      "gastric_polyps"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "भूक न लागणे": {
+    "symptom": "भूक न लागणे",
+    "conditions": [
+      "roundworm_ascariasis",
+      "alcoholic_liver_disease",
+      "ovarian_cancer_female"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वजन कमी होणे": {
+    "symptom": "वजन कमी होणे",
+    "conditions": [
+      "roundworm_ascariasis",
+      "crohns_disease",
+      "hyperemesis_gravidarum"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गुदद्वारी रात्री खाज सुटणे": {
+    "symptom": "गुदद्वारी रात्री खाज सुटणे",
+    "conditions": [
+      "pinworm_enterobiasis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अस्वस्थ झोप": {
+    "symptom": "अस्वस्थ झोप",
+    "conditions": [
+      "pinworm_enterobiasis",
+      "fibromyalgia_chronic_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "शौचात पांढरे तुकडे दिसणे": {
+    "symptom": "शौचात पांढरे तुकडे दिसणे",
+    "conditions": [
+      "tapeworm_taeniasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अतिशय जलद श्वास": {
+    "symptom": "अतिशय जलद श्वास",
+    "conditions": [
+      "sepsis_severe_systemic"
+    ],
+    "max_urgency": "emergency"
+  },
+  "थंडी वाजून तीव्र ताप": {
+    "symptom": "थंडी वाजून तीव्र ताप",
+    "conditions": [
+      "sepsis_severe_systemic",
+      "acute_pyelonephritis_kidney",
+      "acute_cholangitis_charcot"
+    ],
+    "max_urgency": "emergency"
+  },
+  "रक्तदाब अचानक कमी": {
+    "symptom": "रक्तदाब अचानक कमी",
+    "conditions": [
+      "sepsis_severe_systemic"
+    ],
+    "max_urgency": "emergency"
+  },
+  "गोंधळलेली अवस्था": {
+    "symptom": "गोंधळलेली अवस्था",
+    "conditions": [
+      "sepsis_severe_systemic",
+      "hypoglycemia_acute",
+      "hepatic_encephalopathy",
+      "cerebral_malaria_falciparum",
+      "hypercalcemia_high_calcium"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेताना घरघर आवाज (wheezing)": {
+    "symptom": "श्वास घेताना घरघर आवाज (Wheezing)",
+    "conditions": [
+      "bronchial_asthma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "धाप लागणे (shortness of breath)": {
+    "symptom": "धाप लागणे (Shortness of breath)",
+    "conditions": [
+      "bronchial_asthma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "छातीत आवळल्यासारखे वाटणे (chest tightness)": {
+    "symptom": "छातीत आवळल्यासारखे वाटणे (Chest tightness)",
+    "conditions": [
+      "bronchial_asthma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्रीचा खोकला (night cough)": {
+    "symptom": "रात्रीचा खोकला (Night cough)",
+    "conditions": [
+      "bronchial_asthma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी येणारा जुनाट कफयुक्त खोकला (chronic productive cough)": {
+    "symptom": "सकाळी येणारा जुनाट कफयुक्त खोकला (Chronic productive cough)",
+    "conditions": [
+      "copd_chronic_obstructive"
+    ],
+    "max_urgency": "urgent"
+  },
+  "किरकोळ श्रमानेही धाप लागणे (exertional breathlessness)": {
+    "symptom": "किरकोळ श्रमानेही धाप लागणे (Exertional breathlessness)",
+    "conditions": [
+      "copd_chronic_obstructive"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थकवा": {
+    "symptom": "थकवा",
+    "conditions": [
+      "copd_chronic_obstructive",
+      "congestive_heart_failure",
+      "sinus_bradycardia",
+      "primary_hypothyroidism",
+      "vitamin_b12_deficiency",
+      "fibromyalgia_chronic_pain",
+      "non_alcoholic_fatty_liver_nafld",
+      "cytomegalovirus_cmv",
+      "mitral_valve_prolapse",
+      "autoimmune_hepatitis_liver",
+      "primary_biliary_cholangitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी उठल्यावर सलग शिंका येणे (morning sneezing bursts)": {
+    "symptom": "सकाळी उठल्यावर सलग शिंका येणे (Morning sneezing bursts)",
+    "conditions": [
+      "allergic_rhinitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नाकातून पातळ पाणी वाहणे (clear rhinorrhea)": {
+    "symptom": "नाकातून पातळ पाणी वाहणे (Clear rhinorrhea)",
+    "conditions": [
+      "allergic_rhinitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळ्यांना व टाळूला खाज सुटणे (itchy eyes and palate)": {
+    "symptom": "डोळ्यांना व टाळूला खाज सुटणे (Itchy eyes and palate)",
+    "conditions": [
+      "allergic_rhinitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीत व घशात जळजळ (heartburn)": {
+    "symptom": "छातीत व घशात जळजळ (Heartburn)",
+    "conditions": [
+      "gerd_acid_reflux"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंडात आंबट किंवा कडू पाणी येणे (acid regurgitation)": {
+    "symptom": "तोंडात आंबट किंवा कडू पाणी येणे (Acid regurgitation)",
+    "conditions": [
+      "gerd_acid_reflux"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जेवणानंतर छातीत जडपणा": {
+    "symptom": "जेवणानंतर छातीत जडपणा",
+    "conditions": [
+      "gerd_acid_reflux"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पोटात जळजळ": {
+    "symptom": "पोटात जळजळ",
+    "conditions": [
+      "gerd_acid_reflux",
+      "acute_gastritis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उपाशीपोटी पोटाच्या वरच्या भागात जळजळ व तीव्र वेदना (epigastric burning pain)": {
+    "symptom": "उपाशीपोटी पोटाच्या वरच्या भागात जळजळ व तीव्र वेदना (Epigastric burning pain)",
+    "conditions": [
+      "peptic_ulcer_disease"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अन्नानंतर किंवा रात्री पोट दुखणे": {
+    "symptom": "अन्नानंतर किंवा रात्री पोट दुखणे",
+    "conditions": [
+      "peptic_ulcer_disease"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शौचाच्या वेळी गुदद्वारामधून ताजे लाल रक्त पडणे (painless rectal bleeding)": {
+    "symptom": "शौचाच्या वेळी गुदद्वारामधून ताजे लाल रक्त पडणे (Painless rectal bleeding)",
+    "conditions": [
+      "hemorrhoids_piles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुदद्वारात कोंब किंवा गाठ जाणवणे (prolapsing mass)": {
+    "symptom": "गुदद्वारात कोंब किंवा गाठ जाणवणे (Prolapsing mass)",
+    "conditions": [
+      "hemorrhoids_piles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुदद्वारात खाज व अस्वस्थता": {
+    "symptom": "गुदद्वारात खाज व अस्वस्थता",
+    "conditions": [
+      "hemorrhoids_piles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नाभीजवळ सुरू होऊन पोटाच्या उजव्या खालच्या भागात जाणारी तीव्र कळ (right lower quadrant pain)": {
+    "symptom": "नाभीजवळ सुरू होऊन पोटाच्या उजव्या खालच्या भागात जाणारी तीव्र कळ (Right lower quadrant pain)",
+    "conditions": [
+      "acute_appendicitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "उलट्या व मळमळ (nausea/vomiting)": {
+    "symptom": "उलट्या व मळमळ (Nausea/vomiting)",
+    "conditions": [
+      "acute_appendicitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "भूक पूर्णपणे मंदावणे": {
+    "symptom": "भूक पूर्णपणे मंदावणे",
+    "conditions": [
+      "acute_appendicitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "खोकल्यासोबत कफ": {
+    "symptom": "खोकल्यासोबत कफ",
+    "conditions": [
+      "acute_bronchitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "छातीत जडपणा": {
+    "symptom": "छातीत जडपणा",
+    "conditions": [
+      "acute_bronchitis",
+      "hyperlipidemia_high_cholesterol",
+      "chronic_cough_unexplained"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "३ महिने सलग कफयुक्त खोकला": {
+    "symptom": "३ महिने सलग कफयुक्त खोकला",
+    "conditions": [
+      "chronic_bronchitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "धाप": {
+    "symptom": "धाप",
+    "conditions": [
+      "chronic_bronchitis",
+      "aspiration_pneumonia",
+      "hypersensitivity_pneumonitis",
+      "atelectasis_lung_collapse",
+      "swine_flu_h1n1_severe"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेताना छातीत तीव्र टोचणे": {
+    "symptom": "श्वास घेताना छातीत तीव्र टोचणे",
+    "conditions": [
+      "pleural_effusion"
+    ],
+    "max_urgency": "urgent"
+  },
+  "धाप लागणे": {
+    "symptom": "धाप लागणे",
+    "conditions": [
+      "pleural_effusion",
+      "acute_kidney_injury_aki"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक एका बाजूला तीव्र छातीत दुखणे": {
+    "symptom": "अचानक एका बाजूला तीव्र छातीत दुखणे",
+    "conditions": [
+      "pneumothorax_spontaneous"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तीव्र धाप": {
+    "symptom": "तीव्र धाप",
+    "conditions": [
+      "pneumothorax_spontaneous"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक तीव्र धाप": {
+    "symptom": "अचानक तीव्र धाप",
+    "conditions": [
+      "pulmonary_embolism"
+    ],
+    "max_urgency": "emergency"
+  },
+  "छातीत असह्य वेदना": {
+    "symptom": "छातीत असह्य वेदना",
+    "conditions": [
+      "pulmonary_embolism"
+    ],
+    "max_urgency": "emergency"
+  },
+  "थुंकीत रक्त": {
+    "symptom": "थुंकीत रक्त",
+    "conditions": [
+      "pulmonary_embolism"
+    ],
+    "max_urgency": "emergency"
+  },
+  "मोठ्याने घोरणे": {
+    "symptom": "मोठ्याने घोरणे",
+    "conditions": [
+      "sleep_apnea_obstructive"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दिवसा अतिझोप": {
+    "symptom": "दिवसा अतिझोप",
+    "conditions": [
+      "sleep_apnea_obstructive"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी डोकेदुखी": {
+    "symptom": "सकाळी डोकेदुखी",
+    "conditions": [
+      "sleep_apnea_obstructive"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दीर्घकाळ धाप लागणे": {
+    "symptom": "दीर्घकाळ धाप लागणे",
+    "conditions": [
+      "interstitial_lung_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नखे गोल होणे": {
+    "symptom": "नखे गोल होणे",
+    "conditions": [
+      "interstitial_lung_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मोठ्या प्रमाणावर दुर्गंधीयुक्त कफ": {
+    "symptom": "मोठ्या प्रमाणावर दुर्गंधीयुक्त कफ",
+    "conditions": [
+      "bronchiectasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार संसर्ग": {
+    "symptom": "वारंवार संसर्ग",
+    "conditions": [
+      "bronchiectasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "आवाज पूर्णपणे बसणे किंवा कर्कश होणे": {
+    "symptom": "आवाज पूर्णपणे बसणे किंवा कर्कश होणे",
+    "conditions": [
+      "laryngitis_acute"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घशात कोरडेपणा": {
+    "symptom": "घशात कोरडेपणा",
+    "conditions": [
+      "laryngitis_acute"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कुत्र्यासारखा भुंकणारा खोकला": {
+    "symptom": "कुत्र्यासारखा भुंकणारा खोकला",
+    "conditions": [
+      "croup_pediatric_stridor"
+    ],
+    "max_urgency": "urgent"
+  },
+  "श्वास घेताना घरघर आवाज": {
+    "symptom": "श्वास घेताना घरघर आवाज",
+    "conditions": [
+      "croup_pediatric_stridor"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हळूहळू वाढणारी धाप": {
+    "symptom": "हळूहळू वाढणारी धाप",
+    "conditions": [
+      "occupational_pneumoconiosis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जुनाट खोकला": {
+    "symptom": "जुनाट खोकला",
+    "conditions": [
+      "occupational_pneumoconiosis",
+      "silicosis_occupational"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात-पाय सुन्न पडणे": {
+    "symptom": "हात-पाय सुन्न पडणे",
+    "conditions": [
+      "hyperventilation_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "भोवळ येणे": {
+    "symptom": "भोवळ येणे",
+    "conditions": [
+      "hyperventilation_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीत धडधड": {
+    "symptom": "छातीत धडधड",
+    "conditions": [
+      "hyperventilation_syndrome",
+      "hyperthyroidism_graves"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उलट्या": {
+    "symptom": "उलट्या",
+    "conditions": [
+      "acute_gastritis",
+      "acute_cholecystitis",
+      "acute_pancreatitis",
+      "intestinal_obstruction",
+      "strangulated_hernia",
+      "benign_paroxysmal_vertigo_bppv",
+      "acute_bacterial_meningitis",
+      "vertigo_labyrinthitis",
+      "acute_pyelonephritis_kidney",
+      "acute_kidney_injury_aki",
+      "severe_head_injury_trauma",
+      "listeria_monocytogenes",
+      "achalasia_cardia_esophagus",
+      "volvulus_sigmoid_cecal",
+      "subarachnoid_hemorrhage_sah",
+      "diabetic_ketoacidosis_dka",
+      "methanol_poisoning_illicit_liquor"
+    ],
+    "max_urgency": "emergency"
+  },
+  "वारंवार अपचन": {
+    "symptom": "वारंवार अपचन",
+    "conditions": [
+      "chronic_gastritis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोट जड होणे": {
+    "symptom": "पोट जड होणे",
+    "conditions": [
+      "chronic_gastritis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "भूक कमी": {
+    "symptom": "भूक कमी",
+    "conditions": [
+      "chronic_gastritis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटात मुरडा": {
+    "symptom": "पोटात मुरडा",
+    "conditions": [
+      "irritable_bowel_syndrome_ibs"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कधी जुलाब कधी बद्धकोष्ठता": {
+    "symptom": "कधी जुलाब कधी बद्धकोष्ठता",
+    "conditions": [
+      "irritable_bowel_syndrome_ibs"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गॅस": {
+    "symptom": "गॅस",
+    "conditions": [
+      "irritable_bowel_syndrome_ibs"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौचातून रक्त व शेम पडणे": {
+    "symptom": "शौचातून रक्त व शेम पडणे",
+    "conditions": [
+      "inflammatory_bowel_disease_uc"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार जुलाब": {
+    "symptom": "वारंवार जुलाब",
+    "conditions": [
+      "inflammatory_bowel_disease_uc"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वजन घट": {
+    "symptom": "वजन घट",
+    "conditions": [
+      "inflammatory_bowel_disease_uc",
+      "chronic_pancreatitis",
+      "lung_cancer_bronchogenic",
+      "colorectal_cancer_colon",
+      "pancreatic_cancer",
+      "gallbladder_cancer",
+      "chronic_myeloid_leukemia_cml"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र पोटदुखी": {
+    "symptom": "तीव्र पोटदुखी",
+    "conditions": [
+      "crohns_disease",
+      "dengue_hemorrhagic_fever"
+    ],
+    "max_urgency": "emergency"
+  },
+  "जुलाब": {
+    "symptom": "जुलाब",
+    "conditions": [
+      "crohns_disease",
+      "food_poisoning_staph",
+      "diverticulitis_colon",
+      "schistosomiasis_bilharzia"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शौचाच्या वेळी तीव्र काच लागल्यासारखी वेदना": {
+    "symptom": "शौचाच्या वेळी तीव्र काच लागल्यासारखी वेदना",
+    "conditions": [
+      "anal_fissure_acute"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "थेंब थेंब रक्त": {
+    "symptom": "थेंब थेंब रक्त",
+    "conditions": [
+      "anal_fissure_acute"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुदद्वाराजवळून पू किंवा दुर्गंधीयुक्त पाणी वाहणे": {
+    "symptom": "गुदद्वाराजवळून पू किंवा दुर्गंधीयुक्त पाणी वाहणे",
+    "conditions": [
+      "fistula_in_ano"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुदद्वाराजवळ तीव्र वेदनादायी सूज": {
+    "symptom": "गुदद्वाराजवळ तीव्र वेदनादायी सूज",
+    "conditions": [
+      "perianal_abscess"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उजव्या बरगडीखाली अचानक तीव्र कळ": {
+    "symptom": "उजव्या बरगडीखाली अचानक तीव्र कळ",
+    "conditions": [
+      "gallstones_cholelithiasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "खांद्यापर्यंत वेदना": {
+    "symptom": "खांद्यापर्यंत वेदना",
+    "conditions": [
+      "gallstones_cholelithiasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उजव्या कुशीत असह्य वेदना": {
+    "symptom": "उजव्या कुशीत असह्य वेदना",
+    "conditions": [
+      "acute_cholecystitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटाच्या वरच्या भागात तीव्र वेदना जी पाठीकडे जाते": {
+    "symptom": "पोटाच्या वरच्या भागात तीव्र वेदना जी पाठीकडे जाते",
+    "conditions": [
+      "acute_pancreatitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "सतत पाठीकडे जाणारी पोटदुखी": {
+    "symptom": "सतत पाठीकडे जाणारी पोटदुखी",
+    "conditions": [
+      "chronic_pancreatitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चरबीयुक्त जुलाब": {
+    "symptom": "चरबीयुक्त जुलाब",
+    "conditions": [
+      "chronic_pancreatitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोट प्रचंड फुगणे": {
+    "symptom": "पोट प्रचंड फुगणे",
+    "conditions": [
+      "intestinal_obstruction",
+      "volvulus_sigmoid_cecal",
+      "toxic_megacolon_colitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शौच व गॅस पूर्ण बंद होणे": {
+    "symptom": "शौच व गॅस पूर्ण बंद होणे",
+    "conditions": [
+      "intestinal_obstruction"
+    ],
+    "max_urgency": "emergency"
+  },
+  "जांघेत उभे राहिल्यावर किंवा खोकल्यावर फुगणारी गाठ": {
+    "symptom": "जांघेत उभे राहिल्यावर किंवा खोकल्यावर फुगणारी गाठ",
+    "conditions": [
+      "inguinal_hernia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हर्नियाची गाठ आत न जाणे": {
+    "symptom": "हर्नियाची गाठ आत न जाणे",
+    "conditions": [
+      "strangulated_hernia"
+    ],
+    "max_urgency": "emergency"
+  },
+  "असह्य वेदना": {
+    "symptom": "असह्य वेदना",
+    "conditions": [
+      "strangulated_hernia",
+      "paraphimosis_strangulated_foreskin"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक तीव्र उलट्या": {
+    "symptom": "अचानक तीव्र उलट्या",
+    "conditions": [
+      "food_poisoning_staph"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटात तीव्र कळ": {
+    "symptom": "पोटात तीव्र कळ",
+    "conditions": [
+      "food_poisoning_staph"
+    ],
+    "max_urgency": "urgent"
+  },
+  "आठवड्यातून ३ पेक्षा कमी वेळा शौच": {
+    "symptom": "आठवड्यातून ३ पेक्षा कमी वेळा शौच",
+    "conditions": [
+      "chronic_constipation"
+    ],
+    "max_urgency": "self_care"
+  },
+  "खडे शौच": {
+    "symptom": "खडे शौच",
+    "conditions": [
+      "chronic_constipation"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जोर लावावा लागणे": {
+    "symptom": "जोर लावावा लागणे",
+    "conditions": [
+      "chronic_constipation",
+      "benign_prostatic_hyperplasia_bph"
+    ],
+    "max_urgency": "self_care"
+  },
+  "लवकर पोट भरणे": {
+    "symptom": "लवकर पोट भरणे",
+    "conditions": [
+      "non_ulcer_dyspepsia"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वारंवार ढेकर": {
+    "symptom": "वारंवार ढेकर",
+    "conditions": [
+      "non_ulcer_dyspepsia"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गव्हाचे पदार्थ खाल्ल्यावर जुलाब": {
+    "symptom": "गव्हाचे पदार्थ खाल्ल्यावर जुलाब",
+    "conditions": [
+      "celiac_disease_gluten"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वजन न वाढणे": {
+    "symptom": "वजन न वाढणे",
+    "conditions": [
+      "celiac_disease_gluten"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौचाच्या वेळी आतडे बाहेर येणे": {
+    "symptom": "शौचाच्या वेळी आतडे बाहेर येणे",
+    "conditions": [
+      "rectal_prolapse"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शेम पडणे": {
+    "symptom": "शेम पडणे",
+    "conditions": [
+      "rectal_prolapse"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटाच्या डाव्या बाजूला तीव्र कळ": {
+    "symptom": "पोटाच्या डाव्या बाजूला तीव्र कळ",
+    "conditions": [
+      "diverticulitis_colon"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शौचातून बारीक रक्तस्त्राव": {
+    "symptom": "शौचातून बारीक रक्तस्त्राव",
+    "conditions": [
+      "colonic_polyps"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौचाच्या सवयींमध्ये बदल": {
+    "symptom": "शौचाच्या सवयींमध्ये बदल",
+    "conditions": [
+      "colonic_polyps"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोक्याच्या मागील बाजूस जडपणा (occipital heaviness)": {
+    "symptom": "डोक्याच्या मागील बाजूस जडपणा (Occipital heaviness)",
+    "conditions": [
+      "essential_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "चक्कर येणे (dizziness)": {
+    "symptom": "चक्कर येणे (Dizziness)",
+    "conditions": [
+      "essential_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "छातीत धडधड (palpitations)": {
+    "symptom": "छातीत धडधड (Palpitations)",
+    "conditions": [
+      "essential_hypertension",
+      "generalized_anxiety_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अस्वस्थता (restlessness)": {
+    "symptom": "अस्वस्थता (Restlessness)",
+    "conditions": [
+      "essential_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "छातीच्या मध्यभागी तीव्र आवळल्यासारखा किंवा हत्ती बसल्यासारखा दाब (crushing retrosternal chest pain)": {
+    "symptom": "छातीच्या मध्यभागी तीव्र आवळल्यासारखा किंवा हत्ती बसल्यासारखा दाब (Crushing retrosternal chest pain)",
+    "conditions": [
+      "myocardial_infarction_heart_attack"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डाव्या हाताकडे, मानेकडे, जबड्याकडे किंवा पाठीकडे पसरणाऱ्या कळा (radiation to left arm/jaw)": {
+    "symptom": "डाव्या हाताकडे, मानेकडे, जबड्याकडे किंवा पाठीकडे पसरणाऱ्या कळा (Radiation to left arm/jaw)",
+    "conditions": [
+      "myocardial_infarction_heart_attack"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक प्रचंड थंड घाम येणे (profuse cold sweating)": {
+    "symptom": "अचानक प्रचंड थंड घाम येणे (Profuse cold sweating)",
+    "conditions": [
+      "myocardial_infarction_heart_attack"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेण्यास अडचण व भोवळ (breathlessness and dizziness)": {
+    "symptom": "श्वास घेण्यास अडचण व भोवळ (Breathlessness and dizziness)",
+    "conditions": [
+      "myocardial_infarction_heart_attack"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोक्याच्या एका बाजूला ठसठसणारी तीव्र वेदना (unilateral throbbing pain)": {
+    "symptom": "डोक्याच्या एका बाजूला ठसठसणारी तीव्र वेदना (Unilateral throbbing pain)",
+    "conditions": [
+      "migraine_headache"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "प्रकाश व आवाजाचा त्रास (photophobia and phonophobia)": {
+    "symptom": "प्रकाश व आवाजाचा त्रास (Photophobia and phonophobia)",
+    "conditions": [
+      "migraine_headache"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उलटी किंवा मळमळ (nausea/vomiting)": {
+    "symptom": "उलटी किंवा मळमळ (Nausea/vomiting)",
+    "conditions": [
+      "migraine_headache"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोळ्यांसमोर चमकणारे ठिपके (visual aura)": {
+    "symptom": "डोळ्यांसमोर चमकणारे ठिपके (Visual aura)",
+    "conditions": [
+      "migraine_headache"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "चेहऱ्याची एक बाजू वाकडी होणे (facial drooping - f)": {
+    "symptom": "चेहऱ्याची एक बाजू वाकडी होणे (Facial drooping - F)",
+    "conditions": [
+      "acute_ischemic_stroke"
+    ],
+    "max_urgency": "emergency"
+  },
+  "एका हातामध्ये किंवा पायात अचानक ताकद जाणे (arm weakness - a)": {
+    "symptom": "एका हातामध्ये किंवा पायात अचानक ताकद जाणे (Arm weakness - A)",
+    "conditions": [
+      "acute_ischemic_stroke"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बोलताना अडखळणे किंवा स्पष्ट न बोलता येणे (slurred speech - s)": {
+    "symptom": "बोलताना अडखळणे किंवा स्पष्ट न बोलता येणे (Slurred speech - S)",
+    "conditions": [
+      "acute_ischemic_stroke"
+    ],
+    "max_urgency": "emergency"
+  },
+  "वेळ अत्यंत महत्त्वाची (time to call 108 - t - fast नियम)": {
+    "symptom": "वेळ अत्यंत महत्त्वाची (Time to call 108 - T - FAST नियम)",
+    "conditions": [
+      "acute_ischemic_stroke"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्रमानंतर छातीत जडपणा": {
+    "symptom": "श्रमानंतर छातीत जडपणा",
+    "conditions": [
+      "angina_pectoris_stable"
+    ],
+    "max_urgency": "urgent"
+  },
+  "विश्रांतीनंतर बरे वाटणे": {
+    "symptom": "विश्रांतीनंतर बरे वाटणे",
+    "conditions": [
+      "angina_pectoris_stable"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पायांवर सूज": {
+    "symptom": "पायांवर सूज",
+    "conditions": [
+      "congestive_heart_failure",
+      "severe_acute_malnutrition_sam",
+      "liver_cirrhosis_portal_htn",
+      "kwashiorkor_protein_deficiency",
+      "nephrotic_syndrome_proteinuria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "झोपल्यावर श्वास गुदमरणे": {
+    "symptom": "झोपल्यावर श्वास गुदमरणे",
+    "conditions": [
+      "congestive_heart_failure"
+    ],
+    "max_urgency": "urgent"
+  },
+  "छातीत अनियमित धडधड": {
+    "symptom": "छातीत अनियमित धडधड",
+    "conditions": [
+      "atrial_fibrillation"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चक्कर": {
+    "symptom": "चक्कर",
+    "conditions": [
+      "atrial_fibrillation",
+      "hypoglycemia_acute",
+      "supraventricular_tachycardia_svt",
+      "ectopic_pregnancy_tubal"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दम लागणे": {
+    "symptom": "दम लागणे",
+    "conditions": [
+      "atrial_fibrillation"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उभे राहिल्यावर डोळ्यांसमोर अंधारी": {
+    "symptom": "उभे राहिल्यावर डोळ्यांसमोर अंधारी",
+    "conditions": [
+      "postural_hypotension"
+    ],
+    "max_urgency": "self_care"
+  },
+  "भोवळ": {
+    "symptom": "भोवळ",
+    "conditions": [
+      "postural_hypotension",
+      "carbon_monoxide_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "एकाच पायाच्या पोटरीला सूज": {
+    "symptom": "एकाच पायाच्या पोटरीला सूज",
+    "conditions": [
+      "deep_vein_thrombosis_dvt"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र लालसरपणा व वेदना": {
+    "symptom": "तीव्र लालसरपणा व वेदना",
+    "conditions": [
+      "deep_vein_thrombosis_dvt"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पायांवर जांभळ्या फुगलेल्या शिरा": {
+    "symptom": "पायांवर जांभळ्या फुगलेल्या शिरा",
+    "conditions": [
+      "varicose_veins_legs"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पायात जडपणा व दुखणे": {
+    "symptom": "पायात जडपणा व दुखणे",
+    "conditions": [
+      "varicose_veins_legs"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लहानपणी सांधेदुखीनंतर धाप लागणे": {
+    "symptom": "लहानपणी सांधेदुखीनंतर धाप लागणे",
+    "conditions": [
+      "rheumatic_heart_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हृदयात घरघर": {
+    "symptom": "हृदयात घरघर",
+    "conditions": [
+      "rheumatic_heart_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत ताप": {
+    "symptom": "सतत ताप",
+    "conditions": [
+      "infective_endocarditis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "नखांखाली काळे डाग": {
+    "symptom": "नखांखाली काळे डाग",
+    "conditions": [
+      "infective_endocarditis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पुढे झुकल्यावर बरे वाटणारे छातीत दुखणे": {
+    "symptom": "पुढे झुकल्यावर बरे वाटणारे छातीत दुखणे",
+    "conditions": [
+      "pericarditis_acute"
+    ],
+    "max_urgency": "urgent"
+  },
+  "व्यायामादरम्यान भोवळ": {
+    "symptom": "व्यायामादरम्यान भोवळ",
+    "conditions": [
+      "hypertrophic_cardiomyopathy"
+    ],
+    "max_urgency": "urgent"
+  },
+  "छातीत दुखणे": {
+    "symptom": "छातीत दुखणे",
+    "conditions": [
+      "hypertrophic_cardiomyopathy",
+      "lung_cancer_bronchogenic",
+      "atelectasis_lung_collapse",
+      "aortic_stenosis_heart_valve"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चालताना पोटऱ्यांमध्ये असह्य गोळा येणे": {
+    "symptom": "चालताना पोटऱ्यांमध्ये असह्य गोळा येणे",
+    "conditions": [
+      "peripheral_artery_disease_pad"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "विश्रांतीने आराम": {
+    "symptom": "विश्रांतीने आराम",
+    "conditions": [
+      "peripheral_artery_disease_pad"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "छातीत सतत १०० पेक्षा जास्त ठोके": {
+    "symptom": "छातीत सतत १०० पेक्षा जास्त ठोके",
+    "conditions": [
+      "sinus_tachycardia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "घाबरल्यासारखे वाटणे": {
+    "symptom": "घाबरल्यासारखे वाटणे",
+    "conditions": [
+      "sinus_tachycardia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ठोके ५० पेक्षा कमी": {
+    "symptom": "ठोके ५० पेक्षा कमी",
+    "conditions": [
+      "sinus_bradycardia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत चक्कर येणे": {
+    "symptom": "सतत चक्कर येणे",
+    "conditions": [
+      "sinus_bradycardia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोक्याभोवती पट्टा आवळल्यासारखी मंद वेदना": {
+    "symptom": "डोक्याभोवती पट्टा आवळल्यासारखी मंद वेदना",
+    "conditions": [
+      "tension_type_headache"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मानेत ताण": {
+    "symptom": "मानेत ताण",
+    "conditions": [
+      "tension_type_headache"
+    ],
+    "max_urgency": "self_care"
+  },
+  "एका डोळ्यातून पाणी व लालसरपणा": {
+    "symptom": "एका डोळ्यातून पाणी व लालसरपणा",
+    "conditions": [
+      "cluster_headache"
+    ],
+    "max_urgency": "urgent"
+  },
+  "असह्य तीक्ष्ण वेदना": {
+    "symptom": "असह्य तीक्ष्ण वेदना",
+    "conditions": [
+      "cluster_headache"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मान हलवल्यावर खोली फिरल्यासारखे वाटणे": {
+    "symptom": "मान हलवल्यावर खोली फिरल्यासारखे वाटणे",
+    "conditions": [
+      "benign_paroxysmal_vertigo_bppv"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हात-पाय झटकणे": {
+    "symptom": "हात-पाय झटकणे",
+    "conditions": [
+      "general_epilepsy_seizure"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तोंडातून फेस येणे": {
+    "symptom": "तोंडातून फेस येणे",
+    "conditions": [
+      "general_epilepsy_seizure"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बेशुद्ध पडणे": {
+    "symptom": "बेशुद्ध पडणे",
+    "conditions": [
+      "general_epilepsy_seizure",
+      "severe_head_injury_trauma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तीव्र तापानंतर शरीराचे झटके": {
+    "symptom": "तीव्र तापानंतर शरीराचे झटके",
+    "conditions": [
+      "febrile_convulsion_child"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळे पांढरे होणे": {
+    "symptom": "डोळे पांढरे होणे",
+    "conditions": [
+      "febrile_convulsion_child"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मान पूर्ण आखडणे": {
+    "symptom": "मान पूर्ण आखडणे",
+    "conditions": [
+      "acute_bacterial_meningitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रकाशाचा त्रास": {
+    "symptom": "प्रकाशाचा त्रास",
+    "conditions": [
+      "acute_bacterial_meningitis",
+      "corneal_ulcer_keratitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बेशुद्धी किंवा भ्रम": {
+    "symptom": "बेशुद्धी किंवा भ्रम",
+    "conditions": [
+      "viral_encephalitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "झटके": {
+    "symptom": "झटके",
+    "conditions": [
+      "viral_encephalitis",
+      "brain_tumor_glioma",
+      "cerebral_malaria_falciparum",
+      "japanese_encephalitis_je",
+      "glioblastoma_multiforme_gbm"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हात थरथरणे": {
+    "symptom": "हात थरथरणे",
+    "conditions": [
+      "parkinsons_disease",
+      "hypoglycemia_acute",
+      "hyperthyroidism_graves",
+      "hepatic_encephalopathy"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चालताना तोल जाणे": {
+    "symptom": "चालताना तोल जाणे",
+    "conditions": [
+      "parkinsons_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शरीर ताठ होणे": {
+    "symptom": "शरीर ताठ होणे",
+    "conditions": [
+      "parkinsons_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नुकत्याच घडलेल्या गोष्टी विसरणे": {
+    "symptom": "नुकत्याच घडलेल्या गोष्टी विसरणे",
+    "conditions": [
+      "alzheimers_dementia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ओळखीच्या जागा न समजणे": {
+    "symptom": "ओळखीच्या जागा न समजणे",
+    "conditions": [
+      "alzheimers_dementia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "एका बाजूचा चेहरा अचानक वाकडा होणे": {
+    "symptom": "एका बाजूचा चेहरा अचानक वाकडा होणे",
+    "conditions": [
+      "bells_palsy_facial"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळा पूर्ण न मिटणे": {
+    "symptom": "डोळा पूर्ण न मिटणे",
+    "conditions": [
+      "bells_palsy_facial"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गालावर विजेचा झटका बसल्यासारखी अचानक असह्य वेदना": {
+    "symptom": "गालावर विजेचा झटका बसल्यासारखी अचानक असह्य वेदना",
+    "conditions": [
+      "trigeminal_neuralgia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पायांत मुंग्या येणे": {
+    "symptom": "पायांत मुंग्या येणे",
+    "conditions": [
+      "peripheral_neuropathy_diabetic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तळपायांची जळजळ": {
+    "symptom": "तळपायांची जळजळ",
+    "conditions": [
+      "peripheral_neuropathy_diabetic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सुन्नपणा": {
+    "symptom": "सुन्नपणा",
+    "conditions": [
+      "peripheral_neuropathy_diabetic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कमरेपासून पायाच्या मागून घोट्यापर्यंत जाणारी तीव्र कळ": {
+    "symptom": "कमरेपासून पायाच्या मागून घोट्यापर्यंत जाणारी तीव्र कळ",
+    "conditions": [
+      "sciatica_nerve_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेतून हातात मुंग्या व अशक्तपणा": {
+    "symptom": "मानेतून हातात मुंग्या व अशक्तपणा",
+    "conditions": [
+      "cervical_radiculopathy"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगठा व बोटांत रात्री मुंग्या व बधीरपणा": {
+    "symptom": "अंगठा व बोटांत रात्री मुंग्या व बधीरपणा",
+    "conditions": [
+      "carpal_tunnel_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "काही मिनिटांसाठी हात किंवा बोलणे जाणे व पुन्हा बरे वाटणे": {
+    "symptom": "काही मिनिटांसाठी हात किंवा बोलणे जाणे व पुन्हा बरे वाटणे",
+    "conditions": [
+      "transient_ischemic_attack_tia"
+    ],
+    "max_urgency": "emergency"
+  },
+  "झोपताना पाय हलवण्याची तीव्र इच्छा": {
+    "symptom": "झोपताना पाय हलवण्याची तीव्र इच्छा",
+    "conditions": [
+      "restless_leg_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वारंवार तहान लागणे (polydipsia)": {
+    "symptom": "वारंवार तहान लागणे (Polydipsia)",
+    "conditions": [
+      "type_2_diabetes_mellitus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार लघवीला जावे लागणे (polyuria)": {
+    "symptom": "वारंवार लघवीला जावे लागणे (Polyuria)",
+    "conditions": [
+      "type_2_diabetes_mellitus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत भूक लागणे (polyphagia)": {
+    "symptom": "सतत भूक लागणे (Polyphagia)",
+    "conditions": [
+      "type_2_diabetes_mellitus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "न भरून येणाऱ्या जखमा (delayed wound healing)": {
+    "symptom": "न भरून येणाऱ्या जखमा (Delayed wound healing)",
+    "conditions": [
+      "type_2_diabetes_mellitus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात-पायांना मुंग्या येणे व अंधुक दृष्टी (tingling and blurred vision)": {
+    "symptom": "हात-पायांना मुंग्या येणे व अंधुक दृष्टी (Tingling and blurred vision)",
+    "conditions": [
+      "type_2_diabetes_mellitus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत थकवा व प्रचंड अशक्तपणा (extreme fatigue)": {
+    "symptom": "सतत थकवा व प्रचंड अशक्तपणा (Extreme fatigue)",
+    "conditions": [
+      "iron_deficiency_anemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "त्वचा, नखे व डोळ्यांच्या पापण्या फिकट दिसणे (pallor)": {
+    "symptom": "त्वचा, नखे व डोळ्यांच्या पापण्या फिकट दिसणे (Pallor)",
+    "conditions": [
+      "iron_deficiency_anemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "किरकोळ श्रमानेही धाप लागणे व चक्कर येणे (breathlessness and dizziness)": {
+    "symptom": "किरकोळ श्रमानेही धाप लागणे व चक्कर येणे (Breathlessness and dizziness)",
+    "conditions": [
+      "iron_deficiency_anemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात-पाय थंड पडणे": {
+    "symptom": "हात-पाय थंड पडणे",
+    "conditions": [
+      "iron_deficiency_anemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अनियमित किंवा उशिरा येणारी मासिक पाळी (irregular/delayed menses)": {
+    "symptom": "अनियमित किंवा उशिरा येणारी मासिक पाळी (Irregular/delayed menses)",
+    "conditions": [
+      "pcos_polycystic_ovary"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वजन अचानक वाढणे (weight gain)": {
+    "symptom": "वजन अचानक वाढणे (Weight gain)",
+    "conditions": [
+      "pcos_polycystic_ovary"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "चेहऱ्यावर पिंपल्स व नको असलेले केस येणे (hirsutism and acne)": {
+    "symptom": "चेहऱ्यावर पिंपल्स व नको असलेले केस येणे (Hirsutism and acne)",
+    "conditions": [
+      "pcos_polycystic_ovary"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "केस गळणे (hair thinning)": {
+    "symptom": "केस गळणे (Hair thinning)",
+    "conditions": [
+      "pcos_polycystic_ovary"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गरोदरपणात २० आठवड्यांनंतर बीपी १४०/९० पेक्षा जास्त होणे": {
+    "symptom": "गरोदरपणात २० आठवड्यांनंतर बीपी १४०/९० पेक्षा जास्त होणे",
+    "conditions": [
+      "preeclampsia_maternal_hypertension"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चेहऱ्यावर, हातांवर व पायांवर अचानक तीव्र सूज येणे (sudden severe edema)": {
+    "symptom": "चेहऱ्यावर, हातांवर व पायांवर अचानक तीव्र सूज येणे (Sudden severe edema)",
+    "conditions": [
+      "preeclampsia_maternal_hypertension"
+    ],
+    "max_urgency": "emergency"
+  },
+  "सतत तीव्र डोकेदुखी (persistent severe headache)": {
+    "symptom": "सतत तीव्र डोकेदुखी (Persistent severe headache)",
+    "conditions": [
+      "preeclampsia_maternal_hypertension"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोळ्यांसमोर अंधारी किंवा चमकणारे ठिपके दिसणे (visual disturbances)": {
+    "symptom": "डोळ्यांसमोर अंधारी किंवा चमकणारे ठिपके दिसणे (Visual disturbances)",
+    "conditions": [
+      "preeclampsia_maternal_hypertension"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लहान वयात जास्त तहान व भूक": {
+    "symptom": "लहान वयात जास्त तहान व भूक",
+    "conditions": [
+      "type_1_diabetes_mellitus"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वजन अचानक घटणे": {
+    "symptom": "वजन अचानक घटणे",
+    "conditions": [
+      "type_1_diabetes_mellitus"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार लघवी": {
+    "symptom": "वारंवार लघवी",
+    "conditions": [
+      "type_1_diabetes_mellitus",
+      "uterine_fibroids_leiomyoma",
+      "hypercalcemia_high_calcium",
+      "bladder_cancer_urothelial"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थंड घाम सुटणे": {
+    "symptom": "थंड घाम सुटणे",
+    "conditions": [
+      "hypoglycemia_acute"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक वजन वाढणे": {
+    "symptom": "अचानक वजन वाढणे",
+    "conditions": [
+      "primary_hypothyroidism"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "थंडी सहन न होणे": {
+    "symptom": "थंडी सहन न होणे",
+    "conditions": [
+      "primary_hypothyroidism"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "केस गळणे": {
+    "symptom": "केस गळणे",
+    "conditions": [
+      "primary_hypothyroidism"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बद्धकोष्ठता": {
+    "symptom": "बद्धकोष्ठता",
+    "conditions": [
+      "primary_hypothyroidism",
+      "hypercalcemia_high_calcium"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वजन वेगाने कमी होणे": {
+    "symptom": "वजन वेगाने कमी होणे",
+    "conditions": [
+      "hyperthyroidism_graves"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उष्णता सहन न होणे": {
+    "symptom": "उष्णता सहन न होणे",
+    "conditions": [
+      "hyperthyroidism_graves"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गळ्याच्या पुढील भागात मोठी गाठ / सूज": {
+    "symptom": "गळ्याच्या पुढील भागात मोठी गाठ / सूज",
+    "conditions": [
+      "goiter_iodine_deficiency"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गिळताना अडचण": {
+    "symptom": "गिळताना अडचण",
+    "conditions": [
+      "goiter_iodine_deficiency"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हाडांमध्ये मंद वेदना": {
+    "symptom": "हाडांमध्ये मंद वेदना",
+    "conditions": [
+      "vitamin_d_deficiency"
+    ],
+    "max_urgency": "self_care"
+  },
+  "स्नायूंचा अशक्तपणा": {
+    "symptom": "स्नायूंचा अशक्तपणा",
+    "conditions": [
+      "vitamin_d_deficiency"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वारंवार आजारी पडणे": {
+    "symptom": "वारंवार आजारी पडणे",
+    "conditions": [
+      "vitamin_d_deficiency"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हात-पायांना सुया टोचल्यासारख्या मुंग्या": {
+    "symptom": "हात-पायांना सुया टोचल्यासारख्या मुंग्या",
+    "conditions": [
+      "vitamin_b12_deficiency"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जीभ लाल व गुळगुळीत होणे": {
+    "symptom": "जीभ लाल व गुळगुळीत होणे",
+    "conditions": [
+      "vitamin_b12_deficiency"
+    ],
+    "max_urgency": "self_care"
+  },
+  "लक्षणे नसतात, रक्त तपासणीत आढळते": {
+    "symptom": "लक्षणे नसतात, रक्त तपासणीत आढळते",
+    "conditions": [
+      "hyperlipidemia_high_cholesterol"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पायाच्या अंगठ्यात अचानक असह्य वेदना व लाल सूज": {
+    "symptom": "पायाच्या अंगठ्यात अचानक असह्य वेदना व लाल सूज",
+    "conditions": [
+      "gouty_arthritis_hyperuricemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रात्री जास्त त्रास": {
+    "symptom": "रात्री जास्त त्रास",
+    "conditions": [
+      "gouty_arthritis_hyperuricemia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "किरकोळ पडण्यानेही हाड मोडणे": {
+    "symptom": "किरकोळ पडण्यानेही हाड मोडणे",
+    "conditions": [
+      "osteoporosis_bone_loss"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उंची कमी होणे": {
+    "symptom": "उंची कमी होणे",
+    "conditions": [
+      "osteoporosis_bone_loss"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाठीला बाक": {
+    "symptom": "पाठीला बाक",
+    "conditions": [
+      "osteoporosis_bone_loss"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जन्मानंतर काही महिन्यांत तीव्र फिकटपणा": {
+    "symptom": "जन्मानंतर काही महिन्यांत तीव्र फिकटपणा",
+    "conditions": [
+      "thalassemia_major"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार रक्त भरण्याची गरज": {
+    "symptom": "वारंवार रक्त भरण्याची गरज",
+    "conditions": [
+      "thalassemia_major"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाडे व सांध्यांमध्ये अचानक तीव्र कळा (crisis)": {
+    "symptom": "हाडे व सांध्यांमध्ये अचानक तीव्र कळा (Crisis)",
+    "conditions": [
+      "sickle_cell_anemia"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार कावीळ": {
+    "symptom": "वारंवार कावीळ",
+    "conditions": [
+      "sickle_cell_anemia"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटाचा घेर वाढणे": {
+    "symptom": "पोटाचा घेर वाढणे",
+    "conditions": [
+      "obesity_metabolic_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "किरकोळ श्रमाने धाप लागणे": {
+    "symptom": "किरकोळ श्रमाने धाप लागणे",
+    "conditions": [
+      "obesity_metabolic_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उच्च बीपी व शुगर": {
+    "symptom": "उच्च बीपी व शुगर",
+    "conditions": [
+      "obesity_metabolic_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाळीच्या पहिल्या २ दिवसांत ओटीपोटात तीव्र कळ": {
+    "symptom": "पाळीच्या पहिल्या २ दिवसांत ओटीपोटात तीव्र कळ",
+    "conditions": [
+      "dysmenorrhea_menstrual_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कंबरदुखी": {
+    "symptom": "कंबरदुखी",
+    "conditions": [
+      "dysmenorrhea_menstrual_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सलग ७ दिवसांपेक्षा जास्त रक्तस्त्राव": {
+    "symptom": "सलग ७ दिवसांपेक्षा जास्त रक्तस्त्राव",
+    "conditions": [
+      "menorrhagia_heavy_periods"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रक्ताच्या मोठ्या गुठळ्या पडणे": {
+    "symptom": "रक्ताच्या मोठ्या गुठळ्या पडणे",
+    "conditions": [
+      "menorrhagia_heavy_periods"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पांढरा/राखाडी स्त्राव": {
+    "symptom": "पांढरा/राखाडी स्त्राव",
+    "conditions": [
+      "bacterial_vaginosis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "माशासारखा दुर्गंध": {
+    "symptom": "माशासारखा दुर्गंध",
+    "conditions": [
+      "bacterial_vaginosis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हलकी खाज": {
+    "symptom": "हलकी खाज",
+    "conditions": [
+      "bacterial_vaginosis",
+      "impacted_ear_wax",
+      "pityriasis_versicolor_fungus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दह्यासारखा घट्ट पांढरा स्त्राव": {
+    "symptom": "दह्यासारखा घट्ट पांढरा स्त्राव",
+    "conditions": [
+      "vaginal_candidiasis_yeast"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र खाज व जळजळ": {
+    "symptom": "तीव्र खाज व जळजळ",
+    "conditions": [
+      "vaginal_candidiasis_yeast"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ओटीपोटात सतत दुखणे": {
+    "symptom": "ओटीपोटात सतत दुखणे",
+    "conditions": [
+      "pelvic_inflammatory_disease_pid"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दुर्गंधीयुक्त स्त्राव": {
+    "symptom": "दुर्गंधीयुक्त स्त्राव",
+    "conditions": [
+      "pelvic_inflammatory_disease_pid"
+    ],
+    "max_urgency": "urgent"
+  },
+  "संबंधाच्या वेळी वेदना": {
+    "symptom": "संबंधाच्या वेळी वेदना",
+    "conditions": [
+      "pelvic_inflammatory_disease_pid"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाळीच्या वेळी असह्य वेदना": {
+    "symptom": "पाळीच्या वेळी असह्य वेदना",
+    "conditions": [
+      "endometriosis_pelvic_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वंध्यत्व": {
+    "symptom": "वंध्यत्व",
+    "conditions": [
+      "endometriosis_pelvic_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौचाच्या वेळी वेदना": {
+    "symptom": "शौचाच्या वेळी वेदना",
+    "conditions": [
+      "endometriosis_pelvic_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाळीत अतिरक्तस्त्राव": {
+    "symptom": "पाळीत अतिरक्तस्त्राव",
+    "conditions": [
+      "uterine_fibroids_leiomyoma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ओटीपोटात जडपणा व फुगवटा": {
+    "symptom": "ओटीपोटात जडपणा व फुगवटा",
+    "conditions": [
+      "uterine_fibroids_leiomyoma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बाळंतपणानंतर प्रचंड प्रमाणात रक्त वाहणे": {
+    "symptom": "बाळंतपणानंतर प्रचंड प्रमाणात रक्त वाहणे",
+    "conditions": [
+      "postpartum_hemorrhage_pph"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चक्कर येऊन पडणे": {
+    "symptom": "चक्कर येऊन पडणे",
+    "conditions": [
+      "postpartum_hemorrhage_pph"
+    ],
+    "max_urgency": "emergency"
+  },
+  "स्तनाचा एक भाग लाल व गरम होणे": {
+    "symptom": "स्तनाचा एक भाग लाल व गरम होणे",
+    "conditions": [
+      "acute_mastitis_breast_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दूध पिताना त्रास": {
+    "symptom": "दूध पिताना त्रास",
+    "conditions": [
+      "acute_mastitis_breast_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "काहीही खाल्ले तरी न पचणे": {
+    "symptom": "काहीही खाल्ले तरी न पचणे",
+    "conditions": [
+      "hyperemesis_gravidarum"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र डिहायड्रेशन": {
+    "symptom": "तीव्र डिहायड्रेशन",
+    "conditions": [
+      "hyperemesis_gravidarum"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत रडू येणे": {
+    "symptom": "सतत रडू येणे",
+    "conditions": [
+      "postpartum_depression"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बाळाची काळजी घेण्यात अनास्था": {
+    "symptom": "बाळाची काळजी घेण्यात अनास्था",
+    "conditions": [
+      "postpartum_depression"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र अपराधीपणा": {
+    "symptom": "तीव्र अपराधीपणा",
+    "conditions": [
+      "postpartum_depression"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अचानक अंगात उष्णतेची लाट येणे (hot flashes)": {
+    "symptom": "अचानक अंगात उष्णतेची लाट येणे (Hot flashes)",
+    "conditions": [
+      "menopause_vasomotor_symptoms"
+    ],
+    "max_urgency": "self_care"
+  },
+  "रात्री घाम": {
+    "symptom": "रात्री घाम",
+    "conditions": [
+      "menopause_vasomotor_symptoms",
+      "lymphoma_hodgkin_nonhodgkin",
+      "brucellosis_undulant_fever",
+      "chronic_myeloid_leukemia_cml"
+    ],
+    "max_urgency": "self_care"
+  },
+  "स्वभावात चिडचिड": {
+    "symptom": "स्वभावात चिडचिड",
+    "conditions": [
+      "menopause_vasomotor_symptoms"
+    ],
+    "max_urgency": "self_care"
+  },
+  "बाळाचे डोळे व त्वचा जन्मानंतर पिवळी दिसणे": {
+    "symptom": "बाळाचे डोळे व त्वचा जन्मानंतर पिवळी दिसणे",
+    "conditions": [
+      "neonatal_hyperbilirubinemia_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दूध कमी पिणे": {
+    "symptom": "दूध कमी पिणे",
+    "conditions": [
+      "neonatal_hyperbilirubinemia_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बाळाचे संध्याकाळी सलग २-३ तास पाय पोटाशी धरून रडणे": {
+    "symptom": "बाळाचे संध्याकाळी सलग २-३ तास पाय पोटाशी धरून रडणे",
+    "conditions": [
+      "infantile_colic"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पोट टम्म असणे": {
+    "symptom": "पोट टम्म असणे",
+    "conditions": [
+      "infantile_colic"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंडाच्या आत, तळहात व तळपायांवर लाल फोड": {
+    "symptom": "तोंडाच्या आत, तळहात व तळपायांवर लाल फोड",
+    "conditions": [
+      "hand_foot_mouth_disease"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाण्यासारखे शौच": {
+    "symptom": "पाण्यासारखे शौच",
+    "conditions": [
+      "pediatric_acute_diarrhea"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळे खोल जाणे": {
+    "symptom": "डोळे खोल जाणे",
+    "conditions": [
+      "pediatric_acute_diarrhea"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवीचे प्रमाण कमी": {
+    "symptom": "लघवीचे प्रमाण कमी",
+    "conditions": [
+      "pediatric_acute_diarrhea",
+      "chronic_kidney_disease_ckd"
+    ],
+    "max_urgency": "urgent"
+  },
+  "टाळू खोल जाणे": {
+    "symptom": "टाळू खोल जाणे",
+    "conditions": [
+      "pediatric_acute_diarrhea"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लाळ जास्त गळणे": {
+    "symptom": "लाळ जास्त गळणे",
+    "conditions": [
+      "teething_symptoms_infant"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हिरड्या खाजवणे": {
+    "symptom": "हिरड्या खाजवणे",
+    "conditions": [
+      "teething_symptoms_infant"
+    ],
+    "max_urgency": "self_care"
+  },
+  "किरकिर करणे": {
+    "symptom": "किरकिर करणे",
+    "conditions": [
+      "teething_symptoms_infant"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डायपरच्या भागात लालसर पुरळ व जळजळ": {
+    "symptom": "डायपरच्या भागात लालसर पुरळ व जळजळ",
+    "conditions": [
+      "diaper_dermatitis_rash"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पायांची हाडे वाकडी होणे (bow legs)": {
+    "symptom": "पायांची हाडे वाकडी होणे (Bow legs)",
+    "conditions": [
+      "pediatric_rickets_vitamin_d"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मनगटे जाड होणे": {
+    "symptom": "मनगटे जाड होणे",
+    "conditions": [
+      "pediatric_rickets_vitamin_d"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "चालण्यास उशीर": {
+    "symptom": "चालण्यास उशीर",
+    "conditions": [
+      "pediatric_rickets_vitamin_d"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शरीराचे हाडकुळे होणे": {
+    "symptom": "शरीराचे हाडकुळे होणे",
+    "conditions": [
+      "severe_acute_malnutrition_sam"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दंड घेर ११.५ सेमी पेक्षा कमी": {
+    "symptom": "दंड घेर ११.५ सेमी पेक्षा कमी",
+    "conditions": [
+      "severe_acute_malnutrition_sam"
+    ],
+    "max_urgency": "urgent"
+  },
+  "५ वर्षांनंतरही झोपेत नकळत लघवी होणे": {
+    "symptom": "५ वर्षांनंतरही झोपेत नकळत लघवी होणे",
+    "conditions": [
+      "nocturnal_enuresis_bedwetting"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गालांवर व कोपरांच्या बेचक्यात कोरडे, लाल व खाजणारे चट्टे": {
+    "symptom": "गालांवर व कोपरांच्या बेचक्यात कोरडे, लाल व खाजणारे चट्टे",
+    "conditions": [
+      "pediatric_atopic_eczema"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चेहऱ्यावर लाल, वेदनादायी पुटकुळ्या व पूयुक्त फोड (pustules and papules)": {
+    "symptom": "चेहऱ्यावर लाल, वेदनादायी पुटकुळ्या व पूयुक्त फोड (Pustules and papules)",
+    "conditions": [
+      "acne_vulgaris"
+    ],
+    "max_urgency": "self_care"
+  },
+  "काळी व पांढरी टोके (blackheads and whiteheads)": {
+    "symptom": "काळी व पांढरी टोके (Blackheads and whiteheads)",
+    "conditions": [
+      "acne_vulgaris"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चालताना किंवा जिने चढताना गुडघ्यात तीव्र वेदना (knee pain on exertion)": {
+    "symptom": "चालताना किंवा जिने चढताना गुडघ्यात तीव्र वेदना (Knee pain on exertion)",
+    "conditions": [
+      "osteoarthritis_knee"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुडघ्यातून कटकट आवाज येणे (crepitus)": {
+    "symptom": "गुडघ्यातून कटकट आवाज येणे (Crepitus)",
+    "conditions": [
+      "osteoarthritis_knee"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी उठल्यावर सांधे आखडणे (morning stiffness < 30 mins)": {
+    "symptom": "सकाळी उठल्यावर सांधे आखडणे (Morning stiffness < 30 mins)",
+    "conditions": [
+      "osteoarthritis_knee"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुडघ्यावर सूज": {
+    "symptom": "गुडघ्यावर सूज",
+    "conditions": [
+      "osteoarthritis_knee"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोळा लाल किंवा गुलाबी होणे (red/pink eye)": {
+    "symptom": "डोळा लाल किंवा गुलाबी होणे (Red/pink eye)",
+    "conditions": [
+      "bacterial_conjunctivitis_eye"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सकाळी उठल्यावर पापण्या चिकटणे (sticky eye with discharge)": {
+    "symptom": "सकाळी उठल्यावर पापण्या चिकटणे (Sticky eye with discharge)",
+    "conditions": [
+      "bacterial_conjunctivitis_eye"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळ्यात खडा टोचल्यासारखे वाटणे (gritty sensation)": {
+    "symptom": "डोळ्यात खडा टोचल्यासारखे वाटणे (Gritty sensation)",
+    "conditions": [
+      "bacterial_conjunctivitis_eye"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळ्यातून पाणी व खाज": {
+    "symptom": "डोळ्यातून पाणी व खाज",
+    "conditions": [
+      "bacterial_conjunctivitis_eye"
+    ],
+    "max_urgency": "self_care"
+  },
+  "त्वचा अतिशय कोरडी होणे": {
+    "symptom": "त्वचा अतिशय कोरडी होणे",
+    "conditions": [
+      "atopic_dermatitis_eczema"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तीव्र खाज": {
+    "symptom": "तीव्र खाज",
+    "conditions": [
+      "atopic_dermatitis_eczema",
+      "bullous_pemphigoid_elderly"
+    ],
+    "max_urgency": "self_care"
+  },
+  "लाल चट्टे": {
+    "symptom": "लाल चट्टे",
+    "conditions": [
+      "atopic_dermatitis_eczema"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चांदीसारख्या पांढऱ्या खपल्या असलेले लाल चट्टे": {
+    "symptom": "चांदीसारख्या पांढऱ्या खपल्या असलेले लाल चट्टे",
+    "conditions": [
+      "psoriasis_vulgaris"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "टाळूवर व कोपरावर खाज": {
+    "symptom": "टाळूवर व कोपरावर खाज",
+    "conditions": [
+      "psoriasis_vulgaris"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगावर अचानक लाल गांधी उठणे": {
+    "symptom": "अंगावर अचानक लाल गांधी उठणे",
+    "conditions": [
+      "urticaria_hives_allergy"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र खाज व आग": {
+    "symptom": "तीव्र खाज व आग",
+    "conditions": [
+      "urticaria_hives_allergy"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जांघेत वर्तुळाकार लाल खाजणारे चट्टे": {
+    "symptom": "जांघेत वर्तुळाकार लाल खाजणारे चट्टे",
+    "conditions": [
+      "tinea_cruris_jock_itch"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जळजळ": {
+    "symptom": "जळजळ",
+    "conditions": [
+      "tinea_cruris_jock_itch",
+      "burn_first_degree_minor"
+    ],
+    "max_urgency": "self_care"
+  },
+  "बोटांच्या बेचक्यात त्वचा पांढरी पडून सोलवटणे": {
+    "symptom": "बोटांच्या बेचक्यात त्वचा पांढरी पडून सोलवटणे",
+    "conditions": [
+      "tinea_pedis_athletes_foot"
+    ],
+    "max_urgency": "self_care"
+  },
+  "खाज": {
+    "symptom": "खाज",
+    "conditions": [
+      "tinea_pedis_athletes_foot",
+      "seborrheic_dermatitis_dandruff",
+      "genital_warts_hpv",
+      "swimmers_ear_otitis_externa"
+    ],
+    "max_urgency": "self_care"
+  },
+  "त्वचेवर दूध पांढरे डाग": {
+    "symptom": "त्वचेवर दूध पांढरे डाग",
+    "conditions": [
+      "vitiligo_leukoderma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वेदना किंवा खाज नसणे": {
+    "symptom": "वेदना किंवा खाज नसणे",
+    "conditions": [
+      "vitiligo_leukoderma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गालांवर व नाकावर तपकिरी-काळे डाग": {
+    "symptom": "गालांवर व नाकावर तपकिरी-काळे डाग",
+    "conditions": [
+      "melasma_chloasma"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोक्यावरील केसांचे नाण्यासारखे गोल चट्टे उडणे": {
+    "symptom": "डोक्यावरील केसांचे नाण्यासारखे गोल चट्टे उडणे",
+    "conditions": [
+      "alopecia_areata_hair_loss"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "टाळूवर पिवळसर तेलकट खपल्या": {
+    "symptom": "टाळूवर पिवळसर तेलकट खपल्या",
+    "conditions": [
+      "seborrheic_dermatitis_dandruff"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उन्हाळ्यात अंगावर बारीक लाल पुरळ": {
+    "symptom": "उन्हाळ्यात अंगावर बारीक लाल पुरळ",
+    "conditions": [
+      "prickly_heat_miliaria"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सुया टोचल्यासारखी खाज": {
+    "symptom": "सुया टोचल्यासारखी खाज",
+    "conditions": [
+      "prickly_heat_miliaria"
+    ],
+    "max_urgency": "self_care"
+  },
+  "त्वचा लाल होणे": {
+    "symptom": "त्वचा लाल होणे",
+    "conditions": [
+      "burn_first_degree_minor"
+    ],
+    "max_urgency": "self_care"
+  },
+  "फोड न येणे": {
+    "symptom": "फोड न येणे",
+    "conditions": [
+      "burn_first_degree_minor"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाण्याचे मोठे फोड": {
+    "symptom": "पाण्याचे मोठे फोड",
+    "conditions": [
+      "burn_second_degree_blister"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चावलेल्या जागी लाल सूज": {
+    "symptom": "चावलेल्या जागी लाल सूज",
+    "conditions": [
+      "insect_bite_sting"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तीव्र टोचल्यासारखी वेदना": {
+    "symptom": "तीव्र टोचल्यासारखी वेदना",
+    "conditions": [
+      "insect_bite_sting"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाठीच्या खालच्या भागात सतत दुखणे": {
+    "symptom": "पाठीच्या खालच्या भागात सतत दुखणे",
+    "conditions": [
+      "lumbar_spondylosis_backpain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वाकताना त्रास": {
+    "symptom": "वाकताना त्रास",
+    "conditions": [
+      "lumbar_spondylosis_backpain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मानेत जडपणा व वेदना": {
+    "symptom": "मानेत जडपणा व वेदना",
+    "conditions": [
+      "cervical_spondylosis_neck"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हातामध्ये मुंग्या येणे": {
+    "symptom": "हातामध्ये मुंग्या येणे",
+    "conditions": [
+      "cervical_spondylosis_neck"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कमरेतून पायात विजेसारखी तीव्र कळ": {
+    "symptom": "कमरेतून पायात विजेसारखी तीव्र कळ",
+    "conditions": [
+      "herniated_disc_slipped_disc"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाय सुन्न पडणे": {
+    "symptom": "पाय सुन्न पडणे",
+    "conditions": [
+      "herniated_disc_slipped_disc"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हात वर किंवा मागे करताना तीव्र वेदना": {
+    "symptom": "हात वर किंवा मागे करताना तीव्र वेदना",
+    "conditions": [
+      "frozen_shoulder_capsulitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "खांद्याची हालचाल मंदावणे": {
+    "symptom": "खांद्याची हालचाल मंदावणे",
+    "conditions": [
+      "frozen_shoulder_capsulitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात उंचावताना खांद्यात कळा": {
+    "symptom": "हात उंचावताना खांद्यात कळा",
+    "conditions": [
+      "rotator_cuff_tendinitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी पहिले पाऊल टाकताना टाचेत तीव्र टोचणे": {
+    "symptom": "सकाळी पहिले पाऊल टाकताना टाचेत तीव्र टोचणे",
+    "conditions": [
+      "plantar_fasciitis_heel_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घोट्याला अचानक सूज": {
+    "symptom": "घोट्याला अचानक सूज",
+    "conditions": [
+      "ankle_sprain_ligament"
+    ],
+    "max_urgency": "self_care"
+  },
+  "काळे-निळे डाग": {
+    "symptom": "काळे-निळे डाग",
+    "conditions": [
+      "ankle_sprain_ligament"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चालताना वेदना": {
+    "symptom": "चालताना वेदना",
+    "conditions": [
+      "ankle_sprain_ligament"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तीव्र असह्य वेदना": {
+    "symptom": "तीव्र असह्य वेदना",
+    "conditions": [
+      "closed_bone_fracture"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हाड वाकडे दिसणे": {
+    "symptom": "हाड वाकडे दिसणे",
+    "conditions": [
+      "closed_bone_fracture"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हालचाल न होणे": {
+    "symptom": "हालचाल न होणे",
+    "conditions": [
+      "closed_bone_fracture"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शरीरावर विविध ठिकाणी तीव्र वेदना बिंदू": {
+    "symptom": "शरीरावर विविध ठिकाणी तीव्र वेदना बिंदू",
+    "conditions": [
+      "fibromyalgia_chronic_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी हाता-पायांच्या लहान सांध्यांना सूज व ताठरता (> १ तास)": {
+    "symptom": "सकाळी हाता-पायांच्या लहान सांध्यांना सूज व ताठरता (> १ तास)",
+    "conditions": [
+      "rheumatoid_arthritis_autoimmune"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी पाठीचा कणा प्रचंड ताठ होणे": {
+    "symptom": "सकाळी पाठीचा कणा प्रचंड ताठ होणे",
+    "conditions": [
+      "ankylosing_spondylitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हालचालीने आराम": {
+    "symptom": "हालचालीने आराम",
+    "conditions": [
+      "ankylosing_spondylitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंगठा व पहिल्या ३ बोटांत रात्री मुंग्या": {
+    "symptom": "अंगठा व पहिल्या ३ बोटांत रात्री मुंग्या",
+    "conditions": [
+      "carpal_tunnel_syndrome_wrist"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वस्तू उचलताना कोपराच्या बाहेरील बाजूस कळ": {
+    "symptom": "वस्तू उचलताना कोपराच्या बाहेरील बाजूस कळ",
+    "conditions": [
+      "tennis_elbow_epicondylitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हळूहळू दृष्टी अंधुक होणे": {
+    "symptom": "हळूहळू दृष्टी अंधुक होणे",
+    "conditions": [
+      "senile_cataract_eye"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दिव्याभोवती वलय दिसणे": {
+    "symptom": "दिव्याभोवती वलय दिसणे",
+    "conditions": [
+      "senile_cataract_eye"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रंग फिकट दिसणे": {
+    "symptom": "रंग फिकट दिसणे",
+    "conditions": [
+      "senile_cataract_eye"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोळ्यात अचानक असह्य वेदना": {
+    "symptom": "डोळ्यात अचानक असह्य वेदना",
+    "conditions": [
+      "acute_angle_closure_glaucoma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दृष्टी अचानक कमी": {
+    "symptom": "दृष्टी अचानक कमी",
+    "conditions": [
+      "acute_angle_closure_glaucoma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोळ्यात जळजळ": {
+    "symptom": "डोळ्यात जळजळ",
+    "conditions": [
+      "dry_eye_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "स्क्रीन पाहताना थकवा": {
+    "symptom": "स्क्रीन पाहताना थकवा",
+    "conditions": [
+      "dry_eye_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पापणीच्या कडेला लाल, वेदनादायी दाणा": {
+    "symptom": "पापणीच्या कडेला लाल, वेदनादायी दाणा",
+    "conditions": [
+      "stye_hordeolum_eyelid"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पापणीच्या आत हळूहळू वाढणारी वेदनारहित गाठ": {
+    "symptom": "पापणीच्या आत हळूहळू वाढणारी वेदनारहित गाठ",
+    "conditions": [
+      "chalazion_eyelid_cyst"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नाकातून अचानक रक्त वाहणे": {
+    "symptom": "नाकातून अचानक रक्त वाहणे",
+    "conditions": [
+      "epistaxis_nosebleed"
+    ],
+    "max_urgency": "urgent"
+  },
+  "एका बाजूचे नाक सतत चोंदणे": {
+    "symptom": "एका बाजूचे नाक सतत चोंदणे",
+    "conditions": [
+      "deviated_nasal_septum_dns"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "घोरणे": {
+    "symptom": "घोरणे",
+    "conditions": [
+      "deviated_nasal_septum_dns",
+      "nasal_polyps_chronic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कानात सतत घरघर किंवा गुणगुण आवाज": {
+    "symptom": "कानात सतत घरघर किंवा गुणगुण आवाज",
+    "conditions": [
+      "tinnitus_ringing_ears"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कानात जडपणा": {
+    "symptom": "कानात जडपणा",
+    "conditions": [
+      "impacted_ear_wax",
+      "cerumen_impaction_wax"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कमी ऐकू येणे": {
+    "symptom": "कमी ऐकू येणे",
+    "conditions": [
+      "impacted_ear_wax",
+      "eustachian_tube_dysfunction",
+      "cerumen_impaction_wax"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कानात हालचाल जाणवणे": {
+    "symptom": "कानात हालचाल जाणवणे",
+    "conditions": [
+      "foreign_body_in_ear"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळा उघडता न येणे": {
+    "symptom": "डोळा उघडता न येणे",
+    "conditions": [
+      "foreign_body_in_eye"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत पाणी येणे": {
+    "symptom": "सतत पाणी येणे",
+    "conditions": [
+      "foreign_body_in_eye"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र टोचणे": {
+    "symptom": "तीव्र टोचणे",
+    "conditions": [
+      "foreign_body_in_eye"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र भोवळ": {
+    "symptom": "तीव्र भोवळ",
+    "conditions": [
+      "vertigo_labyrinthitis",
+      "menieres_disease_ear"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ऐकू कमी येणे": {
+    "symptom": "ऐकू कमी येणे",
+    "conditions": [
+      "vertigo_labyrinthitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "विनाकारण सतत अस्वस्थ वाटणे व काळजी वाटणे (excessive persistent worry)": {
+    "symptom": "विनाकारण सतत अस्वस्थ वाटणे व काळजी वाटणे (Excessive persistent worry)",
+    "conditions": [
+      "generalized_anxiety_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात-पाय थरथरणे किंवा घाम सुटणे": {
+    "symptom": "हात-पाय थरथरणे किंवा घाम सुटणे",
+    "conditions": [
+      "generalized_anxiety_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "झोप न लागणे": {
+    "symptom": "झोप न लागणे",
+    "conditions": [
+      "generalized_anxiety_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "स्वतःचे जीवन संपवण्याचे किंवा टोकाचे पाऊल उचलण्याचे तीव्र विचार": {
+    "symptom": "स्वतःचे जीवन संपवण्याचे किंवा टोकाचे पाऊल उचलण्याचे तीव्र विचार",
+    "conditions": [
+      "suicidal_crisis_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रचंड निराशा व एकटेपणा": {
+    "symptom": "प्रचंड निराशा व एकटेपणा",
+    "conditions": [
+      "suicidal_crisis_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "गोड, थंड किंवा गरम खाल्ल्यावर दातात तीव्र कळ (sensitivity to hot/cold)": {
+    "symptom": "गोड, थंड किंवा गरम खाल्ल्यावर दातात तीव्र कळ (Sensitivity to hot/cold)",
+    "conditions": [
+      "dental_caries_pulpitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रात्री झोपताना दाढेत ठसठसणारी वेदना (throbbing toothache)": {
+    "symptom": "रात्री झोपताना दाढेत ठसठसणारी वेदना (Throbbing toothache)",
+    "conditions": [
+      "dental_caries_pulpitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दातामध्ये काळा खड्डा दिसणे": {
+    "symptom": "दातामध्ये काळा खड्डा दिसणे",
+    "conditions": [
+      "dental_caries_pulpitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाठीच्या एका बाजूला कुशीत अचानक सुरू होऊन जांघेकडे जाणारी तीव्र असह्य कळ (flank to groin radiating pain)": {
+    "symptom": "पाठीच्या एका बाजूला कुशीत अचानक सुरू होऊन जांघेकडे जाणारी तीव्र असह्य कळ (Flank to groin radiating pain)",
+    "conditions": [
+      "nephrolithiasis_kidney_stones"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवीतून लालसर रक्त येणे (hematuria)": {
+    "symptom": "लघवीतून लालसर रक्त येणे (Hematuria)",
+    "conditions": [
+      "nephrolithiasis_kidney_stones"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवी करताना तीव्र जळजळ": {
+    "symptom": "लघवी करताना तीव्र जळजळ",
+    "conditions": [
+      "nephrolithiasis_kidney_stones",
+      "gonorrhea_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उलट्या व मळमळ": {
+    "symptom": "उलट्या व मळमळ",
+    "conditions": [
+      "nephrolithiasis_kidney_stones"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळे व त्वचा पिवळी दिसणे (yellow sclera and skin)": {
+    "symptom": "डोळे व त्वचा पिवळी दिसणे (Yellow sclera and skin)",
+    "conditions": [
+      "acute_viral_hepatitis_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गडद पिवळ्या रंगाची लघवी (dark urine)": {
+    "symptom": "गडद पिवळ्या रंगाची लघवी (Dark urine)",
+    "conditions": [
+      "acute_viral_hepatitis_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "भूक पूर्णपणे मंदावणे (loss of appetite)": {
+    "symptom": "भूक पूर्णपणे मंदावणे (Loss of appetite)",
+    "conditions": [
+      "acute_viral_hepatitis_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अतिशय अशक्तपणा व मळमळ": {
+    "symptom": "अतिशय अशक्तपणा व मळमळ",
+    "conditions": [
+      "acute_viral_hepatitis_jaundice"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अचानक छातीत धडधड": {
+    "symptom": "अचानक छातीत धडधड",
+    "conditions": [
+      "panic_disorder_acute"
+    ],
+    "max_urgency": "urgent"
+  },
+  "श्वास रोखल्यासारखे वाटणे": {
+    "symptom": "श्वास रोखल्यासारखे वाटणे",
+    "conditions": [
+      "panic_disorder_acute"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मृत्यूची भीती": {
+    "symptom": "मृत्यूची भीती",
+    "conditions": [
+      "panic_disorder_acute"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कोणत्याही गोष्टीत रस न वाटणे": {
+    "symptom": "कोणत्याही गोष्टीत रस न वाटणे",
+    "conditions": [
+      "major_depressive_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत उदासी": {
+    "symptom": "सतत उदासी",
+    "conditions": [
+      "major_depressive_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "झोप व भूक नसणे": {
+    "symptom": "झोप व भूक नसणे",
+    "conditions": [
+      "major_depressive_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "रात्री झोप न लागणे": {
+    "symptom": "रात्री झोप न लागणे",
+    "conditions": [
+      "chronic_insomnia_sleep"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सकाळी थकवा": {
+    "symptom": "सकाळी थकवा",
+    "conditions": [
+      "chronic_insomnia_sleep"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चिडचिड": {
+    "symptom": "चिडचिड",
+    "conditions": [
+      "chronic_insomnia_sleep"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जुनाट अपघाताची भीती वारंवार आठवणे": {
+    "symptom": "जुनाट अपघाताची भीती वारंवार आठवणे",
+    "conditions": [
+      "post_traumatic_stress_ptsd"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "धडधड": {
+    "symptom": "धडधड",
+    "conditions": [
+      "post_traumatic_stress_ptsd"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कधी अतिउत्साह तर कधी तीव्र नैराश्य": {
+    "symptom": "कधी अतिउत्साह तर कधी तीव्र नैराश्य",
+    "conditions": [
+      "bipolar_mood_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार हात धुणे": {
+    "symptom": "वारंवार हात धुणे",
+    "conditions": [
+      "obsessive_compulsive_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार कुलूप तपासणे": {
+    "symptom": "वारंवार कुलूप तपासणे",
+    "conditions": [
+      "obsessive_compulsive_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ब्रश करताना हिरड्यांतून रक्त": {
+    "symptom": "ब्रश करताना हिरड्यांतून रक्त",
+    "conditions": [
+      "gingivitis_gum_inflammation"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हिरड्या लाल होणे": {
+    "symptom": "हिरड्या लाल होणे",
+    "conditions": [
+      "gingivitis_gum_inflammation"
+    ],
+    "max_urgency": "self_care"
+  },
+  "दातांमधून पू येणे": {
+    "symptom": "दातांमधून पू येणे",
+    "conditions": [
+      "periodontitis_pyorrhea"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तोंडातून दुर्गंध": {
+    "symptom": "तोंडातून दुर्गंध",
+    "conditions": [
+      "periodontitis_pyorrhea"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दात हलणे": {
+    "symptom": "दात हलणे",
+    "conditions": [
+      "periodontitis_pyorrhea"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गालाच्या आत पांढरे वेदनादायी फोड": {
+    "symptom": "गालाच्या आत पांढरे वेदनादायी फोड",
+    "conditions": [
+      "aphthous_ulcer_mouth"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तिखट खाताना आग": {
+    "symptom": "तिखट खाताना आग",
+    "conditions": [
+      "aphthous_ulcer_mouth"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गुटखा खाल्ल्यामुळे तोंड पूर्ण न उघडणे": {
+    "symptom": "गुटखा खाल्ल्यामुळे तोंड पूर्ण न उघडणे",
+    "conditions": [
+      "oral_submucous_fibrosis_osf"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तिखट सहन न होणे": {
+    "symptom": "तिखट सहन न होणे",
+    "conditions": [
+      "oral_submucous_fibrosis_osf"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गालावर किंवा जिभेवर पांढरा जाड थर": {
+    "symptom": "गालावर किंवा जिभेवर पांढरा जाड थर",
+    "conditions": [
+      "leukoplakia_oral_patch"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गालाला मोठी सूज": {
+    "symptom": "गालाला मोठी सूज",
+    "conditions": [
+      "dental_abscess_facial_swelling"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र ठसठस": {
+    "symptom": "तीव्र ठसठस",
+    "conditions": [
+      "dental_abscess_facial_swelling"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाठीत कुशीत तीव्र वेदना": {
+    "symptom": "पाठीत कुशीत तीव्र वेदना",
+    "conditions": [
+      "acute_pyelonephritis_kidney"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्री वारंवार लघवी": {
+    "symptom": "रात्री वारंवार लघवी",
+    "conditions": [
+      "benign_prostatic_hyperplasia_bph"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लघवीची धार बारीक होणे": {
+    "symptom": "लघवीची धार बारीक होणे",
+    "conditions": [
+      "benign_prostatic_hyperplasia_bph"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पायांवर व चेहऱ्यावर सूज": {
+    "symptom": "पायांवर व चेहऱ्यावर सूज",
+    "conditions": [
+      "chronic_kidney_disease_ckd"
+    ],
+    "max_urgency": "urgent"
+  },
+  "खोकताना किंवा शिंकताना नकळत लघवी गळणे": {
+    "symptom": "खोकताना किंवा शिंकताना नकळत लघवी गळणे",
+    "conditions": [
+      "urinary_incontinence_elderly"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वेदनेशिवाय लघवी लाल होणे": {
+    "symptom": "वेदनेशिवाय लघवी लाल होणे",
+    "conditions": [
+      "painless_gross_hematuria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवी पूर्णपणे बंद होणे": {
+    "symptom": "लघवी पूर्णपणे बंद होणे",
+    "conditions": [
+      "acute_kidney_injury_aki"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पोटाच्या उजव्या वरच्या भागात जडपणा": {
+    "symptom": "पोटाच्या उजव्या वरच्या भागात जडपणा",
+    "conditions": [
+      "non_alcoholic_fatty_liver_nafld"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वजन कमी": {
+    "symptom": "वजन कमी",
+    "conditions": [
+      "alcoholic_liver_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटात पाणी भरणे (जलोदर)": {
+    "symptom": "पोटात पाणी भरणे (जलोदर)",
+    "conditions": [
+      "liver_cirrhosis_portal_htn"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्ताची उलटी": {
+    "symptom": "रक्ताची उलटी",
+    "conditions": [
+      "liver_cirrhosis_portal_htn",
+      "stomach_gastric_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बेशुद्धी": {
+    "symptom": "बेशुद्धी",
+    "conditions": [
+      "hepatic_encephalopathy",
+      "heat_stroke_hyperthermia",
+      "japanese_encephalitis_je",
+      "diabetic_ketoacidosis_dka",
+      "hyperosmolar_hyperglycemic_state",
+      "opioid_overdose_emergency",
+      "carbon_monoxide_poisoning",
+      "methanol_poisoning_illicit_liquor"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दीर्घकाळ थकवा": {
+    "symptom": "दीर्घकाळ थकवा",
+    "conditions": [
+      "hepatitis_b_chronic"
+    ],
+    "max_urgency": "urgent"
+  },
+  "यकृताला सूज": {
+    "symptom": "यकृताला सूज",
+    "conditions": [
+      "hepatitis_b_chronic"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्त तपासणीत आढळणारा विषाणू संसर्ग": {
+    "symptom": "रक्त तपासणीत आढळणारा विषाणू संसर्ग",
+    "conditions": [
+      "hepatitis_c_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "स्तनात किंवा काखेत वेदनारहित कडक गाठ जाणवणे (painless hard breast or axillary lump)": {
+    "symptom": "स्तनात किंवा काखेत वेदनारहित कडक गाठ जाणवणे (Painless hard breast or axillary lump)",
+    "conditions": [
+      "breast_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "स्तनाच्या त्वचेमध्ये खड्डा किंवा संत्र्याच्या सालीसारखा बदल (dimpling / peau d'orange)": {
+    "symptom": "स्तनाच्या त्वचेमध्ये खड्डा किंवा संत्र्याच्या सालीसारखा बदल (Dimpling / peau d'orange)",
+    "conditions": [
+      "breast_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "स्तनाग्रातून (nipple) रक्त किंवा स्त्राव येणे (bloody nipple discharge)": {
+    "symptom": "स्तनाग्रातून (Nipple) रक्त किंवा स्त्राव येणे (Bloody nipple discharge)",
+    "conditions": [
+      "breast_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "स्तनाग्र आत ओढले जाणे (nipple retraction)": {
+    "symptom": "स्तनाग्र आत ओढले जाणे (Nipple retraction)",
+    "conditions": [
+      "breast_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तोंडात किंवा जिभेवर ३ आठवड्यांपेक्षा जास्त काळ न भरणारा व्रण / अल्सर (non-healing oral ulcer > 3 weeks)": {
+    "symptom": "तोंडात किंवा जिभेवर ३ आठवड्यांपेक्षा जास्त काळ न भरणारा व्रण / अल्सर (Non-healing oral ulcer > 3 weeks)",
+    "conditions": [
+      "oral_cavity_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गालाच्या आत पांढरा किंवा लाल जाड थर (leukoplakia/erythroplakia)": {
+    "symptom": "गालाच्या आत पांढरा किंवा लाल जाड थर (Leukoplakia/Erythroplakia)",
+    "conditions": [
+      "oral_cavity_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तोंड उघडण्यास अडचण (reduced mouth opening)": {
+    "symptom": "तोंड उघडण्यास अडचण (Reduced mouth opening)",
+    "conditions": [
+      "oral_cavity_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गिळताना वेदना किंवा मानेमध्ये गाठ": {
+    "symptom": "गिळताना वेदना किंवा मानेमध्ये गाठ",
+    "conditions": [
+      "oral_cavity_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "संबंधानंतर किंवा पाळीच्या मध्ये अनपेक्षित रक्तस्त्राव (post-coital bleeding)": {
+    "symptom": "संबंधानंतर किंवा पाळीच्या मध्ये अनपेक्षित रक्तस्त्राव (Post-coital bleeding)",
+    "conditions": [
+      "cervical_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दुर्गंधीयुक्त पांढरा/पाणचट स्त्राव (foul-smelling vaginal discharge)": {
+    "symptom": "दुर्गंधीयुक्त पांढरा/पाणचट स्त्राव (Foul-smelling vaginal discharge)",
+    "conditions": [
+      "cervical_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रजोनिवृत्तीनंतर (menopause नंतर) रक्तस्त्राव": {
+    "symptom": "रजोनिवृत्तीनंतर (Menopause नंतर) रक्तस्त्राव",
+    "conditions": [
+      "cervical_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ओटीपोटात व कमरेत सतत वेदना": {
+    "symptom": "ओटीपोटात व कमरेत सतत वेदना",
+    "conditions": [
+      "cervical_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चावलेल्या जागी २ दात उमटणे व तीव्र वेदना (fang marks)": {
+    "symptom": "चावलेल्या जागी २ दात उमटणे व तीव्र वेदना (Fang marks)",
+    "conditions": [
+      "snakebite_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चावलेल्या भागावर वेगाने वाढणारी सूज व काळे पडणे (local swelling and necrosis)": {
+    "symptom": "चावलेल्या भागावर वेगाने वाढणारी सूज व काळे पडणे (Local swelling and necrosis)",
+    "conditions": [
+      "snakebite_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पापण्या जड पडणे व डोळे उघडता न येणे (ptosis - neurotoxic)": {
+    "symptom": "पापण्या जड पडणे व डोळे उघडता न येणे (Ptosis - Neurotoxic)",
+    "conditions": [
+      "snakebite_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तोंडावाटे लाळ गळणे व श्वास घेण्यास त्रास": {
+    "symptom": "तोंडावाटे लाळ गळणे व श्वास घेण्यास त्रास",
+    "conditions": [
+      "snakebite_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हिरड्यांमधून किंवा जखमेतून रक्त न थांबणे (hemotoxic)": {
+    "symptom": "हिरड्यांमधून किंवा जखमेतून रक्त न थांबणे (Hemotoxic)",
+    "conditions": [
+      "snakebite_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तोंडावाटे भरपूर लाळ व फेस येणे (excessive salivation)": {
+    "symptom": "तोंडावाटे भरपूर लाळ व फेस येणे (Excessive salivation)",
+    "conditions": [
+      "organophosphate_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोळ्यांच्या बाहुल्या अत्यंत बारीक होणे (pinpoint pupils)": {
+    "symptom": "डोळ्यांच्या बाहुल्या अत्यंत बारीक होणे (Pinpoint pupils)",
+    "conditions": [
+      "organophosphate_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "उलट्या, जुलाब व पोटात तीव्र गोळा येणे": {
+    "symptom": "उलट्या, जुलाब व पोटात तीव्र गोळा येणे",
+    "conditions": [
+      "organophosphate_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेताना घरघर व छातीत कफ भरणे": {
+    "symptom": "श्वास घेताना घरघर व छातीत कफ भरणे",
+    "conditions": [
+      "organophosphate_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बेशुद्ध पडणे व झटके": {
+    "symptom": "बेशुद्ध पडणे व झटके",
+    "conditions": [
+      "organophosphate_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "रक्ताची थुंकी": {
+    "symptom": "रक्ताची थुंकी",
+    "conditions": [
+      "lung_cancer_bronchogenic"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत खोकला": {
+    "symptom": "सतत खोकला",
+    "conditions": [
+      "lung_cancer_bronchogenic"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शौचातून काळे किंवा लाल रक्त": {
+    "symptom": "शौचातून काळे किंवा लाल रक्त",
+    "conditions": [
+      "colorectal_cancer_colon"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शौचाच्या सवयींत बदल": {
+    "symptom": "शौचाच्या सवयींत बदल",
+    "conditions": [
+      "colorectal_cancer_colon"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अन्न गिळताना तीव्र त्रास": {
+    "symptom": "अन्न गिळताना तीव्र त्रास",
+    "conditions": [
+      "esophageal_cancer_foodpipe"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अन्न अडकणे": {
+    "symptom": "अन्न अडकणे",
+    "conditions": [
+      "esophageal_cancer_foodpipe"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वजन वेगाने कमी": {
+    "symptom": "वजन वेगाने कमी",
+    "conditions": [
+      "esophageal_cancer_foodpipe"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटात सतत जडपणा": {
+    "symptom": "पोटात सतत जडपणा",
+    "conditions": [
+      "stomach_gastric_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थोडे खाल्ल्यावर पोट भरणे": {
+    "symptom": "थोडे खाल्ल्यावर पोट भरणे",
+    "conditions": [
+      "stomach_gastric_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवी अडखळणे": {
+    "symptom": "लघवी अडखळणे",
+    "conditions": [
+      "prostate_cancer_elderly"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवीतून रक्त": {
+    "symptom": "लघवीतून रक्त",
+    "conditions": [
+      "prostate_cancer_elderly",
+      "schistosomiasis_bilharzia",
+      "renal_cell_carcinoma_kidney"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाडांमध्ये तीव्र वेदना": {
+    "symptom": "हाडांमध्ये तीव्र वेदना",
+    "conditions": [
+      "prostate_cancer_elderly"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोट सतत फुगणे": {
+    "symptom": "पोट सतत फुगणे",
+    "conditions": [
+      "ovarian_cancer_female"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ओटीपोटात जडपणा": {
+    "symptom": "ओटीपोटात जडपणा",
+    "conditions": [
+      "ovarian_cancer_female",
+      "endometrial_uterine_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वारंवार तीव्र ताप": {
+    "symptom": "वारंवार तीव्र ताप",
+    "conditions": [
+      "acute_leukemia_blood_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंगावर काळे-निळे डाग": {
+    "symptom": "अंगावर काळे-निळे डाग",
+    "conditions": [
+      "acute_leukemia_blood_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्तस्त्राव": {
+    "symptom": "रक्तस्त्राव",
+    "conditions": [
+      "acute_leukemia_blood_cancer",
+      "ectopic_pregnancy_tubal"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अतिशय फिकटपणा": {
+    "symptom": "अतिशय फिकटपणा",
+    "conditions": [
+      "acute_leukemia_blood_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मानेवर, काखेत किंवा जांघेत न दुखणाऱ्या गाठी": {
+    "symptom": "मानेवर, काखेत किंवा जांघेत न दुखणाऱ्या गाठी",
+    "conditions": [
+      "lymphoma_hodgkin_nonhodgkin"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाडांमध्ये सतत वेदना": {
+    "symptom": "हाडांमध्ये सतत वेदना",
+    "conditions": [
+      "multiple_myeloma_bone_marrow"
+    ],
+    "max_urgency": "urgent"
+  },
+  "किरकोळ कारणाने हाड मोडणे": {
+    "symptom": "किरकोळ कारणाने हाड मोडणे",
+    "conditions": [
+      "multiple_myeloma_bone_marrow"
+    ],
+    "max_urgency": "urgent"
+  },
+  "किडनीचा त्रास": {
+    "symptom": "किडनीचा त्रास",
+    "conditions": [
+      "multiple_myeloma_bone_marrow"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाठीकडे जाणारी तीव्र पोटदुखी": {
+    "symptom": "पाठीकडे जाणारी तीव्र पोटदुखी",
+    "conditions": [
+      "pancreatic_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "विनाकारण अचानक कावीळ": {
+    "symptom": "विनाकारण अचानक कावीळ",
+    "conditions": [
+      "pancreatic_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटाच्या उजव्या बाजूला कडक गाठ": {
+    "symptom": "पोटाच्या उजव्या बाजूला कडक गाठ",
+    "conditions": [
+      "liver_cancer_hepatocellular"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र कावीळ": {
+    "symptom": "तीव्र कावीळ",
+    "conditions": [
+      "liver_cancer_hepatocellular",
+      "cholangiocarcinoma_bile_duct"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटात पाणी भरणे": {
+    "symptom": "पोटात पाणी भरणे",
+    "conditions": [
+      "liver_cancer_hepatocellular"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गळ्याच्या पुढील भागात वेगाने वाढणारी कडक गाठ": {
+    "symptom": "गळ्याच्या पुढील भागात वेगाने वाढणारी कडक गाठ",
+    "conditions": [
+      "thyroid_cancer_papillary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "आवाज घोगरा होणे": {
+    "symptom": "आवाज घोगरा होणे",
+    "conditions": [
+      "thyroid_cancer_papillary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी उठल्यावर तीव्र डोकेदुखी व उलटी": {
+    "symptom": "सकाळी उठल्यावर तीव्र डोकेदुखी व उलटी",
+    "conditions": [
+      "brain_tumor_glioma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शरीराची एक बाजू लुळी पडणे": {
+    "symptom": "शरीराची एक बाजू लुळी पडणे",
+    "conditions": [
+      "brain_tumor_glioma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "आवाज ३ आठवड्यांपेक्षा जास्त काळ बसणे": {
+    "symptom": "आवाज ३ आठवड्यांपेक्षा जास्त काळ बसणे",
+    "conditions": [
+      "laryngeal_cancer_vocal"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गिळताना वेदना": {
+    "symptom": "गिळताना वेदना",
+    "conditions": [
+      "laryngeal_cancer_vocal"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाडावर वेगाने वाढणारी वेदनादायी सूज": {
+    "symptom": "हाडावर वेगाने वाढणारी वेदनादायी सूज",
+    "conditions": [
+      "osteosarcoma_bone_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्री तीव्र वेदना": {
+    "symptom": "रात्री तीव्र वेदना",
+    "conditions": [
+      "osteosarcoma_bone_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ओठ, जीभ व घसा सुजणे": {
+    "symptom": "ओठ, जीभ व घसा सुजणे",
+    "conditions": [
+      "severe_anaphylaxis_allergy"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास पूर्णपणे रोखणे": {
+    "symptom": "श्वास पूर्णपणे रोखणे",
+    "conditions": [
+      "severe_anaphylaxis_allergy"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बीपी अचानक खाली जाणे": {
+    "symptom": "बीपी अचानक खाली जाणे",
+    "conditions": [
+      "severe_anaphylaxis_allergy"
+    ],
+    "max_urgency": "emergency"
+  },
+  "५ मिनिटांपेक्षा जास्त वेळ सलग झटके येणे": {
+    "symptom": "५ मिनिटांपेक्षा जास्त वेळ सलग झटके येणे",
+    "conditions": [
+      "status_epilepticus_prolonged"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शुद्धीवर न येणे": {
+    "symptom": "शुद्धीवर न येणे",
+    "conditions": [
+      "status_epilepticus_prolonged"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोक्यातून किंवा कानातून रक्त येणे": {
+    "symptom": "डोक्यातून किंवा कानातून रक्त येणे",
+    "conditions": [
+      "severe_head_injury_trauma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अनेक हाडे मोडणे": {
+    "symptom": "अनेक हाडे मोडणे",
+    "conditions": [
+      "polytrauma_road_accident"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रचंड रक्तस्त्राव": {
+    "symptom": "प्रचंड रक्तस्त्राव",
+    "conditions": [
+      "polytrauma_road_accident"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शॉक": {
+    "symptom": "शॉक",
+    "conditions": [
+      "polytrauma_road_accident",
+      "toxic_megacolon_colitis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शरीराचे तापमान १०४°f पेक्षा जास्त": {
+    "symptom": "शरीराचे तापमान १०४°F पेक्षा जास्त",
+    "conditions": [
+      "heat_stroke_hyperthermia"
+    ],
+    "max_urgency": "emergency"
+  },
+  "घाम येणे पूर्ण बंद होणे": {
+    "symptom": "घाम येणे पूर्ण बंद होणे",
+    "conditions": [
+      "heat_stroke_hyperthermia"
+    ],
+    "max_urgency": "emergency"
+  },
+  "सलग खोकणे अशक्य": {
+    "symptom": "सलग खोकणे अशक्य",
+    "conditions": [
+      "foreign_body_airway_choking"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बोलता न येणे": {
+    "symptom": "बोलता न येणे",
+    "conditions": [
+      "foreign_body_airway_choking"
+    ],
+    "max_urgency": "emergency"
+  },
+  "ओठ निळे पडणे": {
+    "symptom": "ओठ निळे पडणे",
+    "conditions": [
+      "foreign_body_airway_choking"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पिचकारीसारखे लाल रक्त उडणे": {
+    "symptom": "पिचकारीसारखे लाल रक्त उडणे",
+    "conditions": [
+      "severe_arterial_bleeding"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दाबूनही रक्त न थांबणे": {
+    "symptom": "दाबूनही रक्त न थांबणे",
+    "conditions": [
+      "severe_arterial_bleeding"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बीपी अत्यंत कमी": {
+    "symptom": "बीपी अत्यंत कमी",
+    "conditions": [
+      "hypovolemic_shock_blood_loss"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हात-पाय बर्फासारखे थंड": {
+    "symptom": "हात-पाय बर्फासारखे थंड",
+    "conditions": [
+      "hypovolemic_shock_blood_loss"
+    ],
+    "max_urgency": "emergency"
+  },
+  "नाडी न लागणे": {
+    "symptom": "नाडी न लागणे",
+    "conditions": [
+      "hypovolemic_shock_blood_loss",
+      "ventricular_tachycardia_vt",
+      "crush_injury_compartment_syndrome"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चावलेल्या जागी असह्य वेदना": {
+    "symptom": "चावलेल्या जागी असह्य वेदना",
+    "conditions": [
+      "scorpion_sting_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रचंड घाम सुटणे": {
+    "symptom": "प्रचंड घाम सुटणे",
+    "conditions": [
+      "scorpion_sting_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "रक्तदाब वाढणे": {
+    "symptom": "रक्तदाब वाढणे",
+    "conditions": [
+      "scorpion_sting_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "फुफ्फुसात पाणी": {
+    "symptom": "फुफ्फुसात पाणी",
+    "conditions": [
+      "scorpion_sting_envenomation"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास बंद असणे": {
+    "symptom": "श्वास बंद असणे",
+    "conditions": [
+      "drowning_submersion_injury"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तोंडातून फेस": {
+    "symptom": "तोंडातून फेस",
+    "conditions": [
+      "drowning_submersion_injury"
+    ],
+    "max_urgency": "emergency"
+  },
+  "नाडी मंद": {
+    "symptom": "नाडी मंद",
+    "conditions": [
+      "drowning_submersion_injury"
+    ],
+    "max_urgency": "emergency"
+  },
+  "गुप्तांगावर न दुखणारे व्रण": {
+    "symptom": "गुप्तांगावर न दुखणारे व्रण",
+    "conditions": [
+      "syphilis_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंगावर पुरळ": {
+    "symptom": "अंगावर पुरळ",
+    "conditions": [
+      "syphilis_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पूयुक्त स्त्राव": {
+    "symptom": "पूयुक्त स्त्राव",
+    "conditions": [
+      "gonorrhea_infection"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पांढरा स्त्राव": {
+    "symptom": "पांढरा स्त्राव",
+    "conditions": [
+      "chlamydia_trachomatis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ओटीपोटात वेदना": {
+    "symptom": "ओटीपोटात वेदना",
+    "conditions": [
+      "chlamydia_trachomatis",
+      "postpartum_puerperal_sepsis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लघवीला त्रास": {
+    "symptom": "लघवीला त्रास",
+    "conditions": [
+      "chlamydia_trachomatis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुप्तांगावर लहान गाठी किंवा चामखीळ": {
+    "symptom": "गुप्तांगावर लहान गाठी किंवा चामखीळ",
+    "conditions": [
+      "genital_warts_hpv"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हिरवट-पिवळा फेसयुक्त स्त्राव": {
+    "symptom": "हिरवट-पिवळा फेसयुक्त स्त्राव",
+    "conditions": [
+      "trichomoniasis_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र खाज व दुर्गंध": {
+    "symptom": "तीव्र खाज व दुर्गंध",
+    "conditions": [
+      "trichomoniasis_infection"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हिरड्यांतून रक्त": {
+    "symptom": "हिरड्यांतून रक्त",
+    "conditions": [
+      "dengue_hemorrhagic_fever"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक बीपी कोसळणे": {
+    "symptom": "अचानक बीपी कोसळणे",
+    "conditions": [
+      "dengue_hemorrhagic_fever"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तीव्र तापानंतर बेशुद्धी": {
+    "symptom": "तीव्र तापानंतर बेशुद्धी",
+    "conditions": [
+      "cerebral_malaria_falciparum"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दीर्घकाळ ताप": {
+    "symptom": "दीर्घकाळ ताप",
+    "conditions": [
+      "kala_azar_visceral_leishmania"
+    ],
+    "max_urgency": "urgent"
+  },
+  "यकृत व प्लीहा वाढणे": {
+    "symptom": "यकृत व प्लीहा वाढणे",
+    "conditions": [
+      "kala_azar_visceral_leishmania"
+    ],
+    "max_urgency": "urgent"
+  },
+  "त्वचा काळी पडणे": {
+    "symptom": "त्वचा काळी पडणे",
+    "conditions": [
+      "kala_azar_visceral_leishmania",
+      "addisons_disease_adrenal_failure"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मान आखडणे": {
+    "symptom": "मान आखडणे",
+    "conditions": [
+      "japanese_encephalitis_je",
+      "listeria_monocytogenes",
+      "subarachnoid_hemorrhage_sah"
+    ],
+    "max_urgency": "emergency"
+  },
+  "काळे चट्टे (eschar)": {
+    "symptom": "काळे चट्टे (Eschar)",
+    "conditions": [
+      "scrub_typhus_mite"
+    ],
+    "max_urgency": "urgent"
+  },
+  "घशात जाड राखाडी पडदा": {
+    "symptom": "घशात जाड राखाडी पडदा",
+    "conditions": [
+      "diphtheria_respiratory"
+    ],
+    "max_urgency": "emergency"
+  },
+  "मानेला सूज": {
+    "symptom": "मानेला सूज",
+    "conditions": [
+      "diphtheria_respiratory"
+    ],
+    "max_urgency": "emergency"
+  },
+  "स्ट्रॉबेरीसारखी लाल जीभ": {
+    "symptom": "स्ट्रॉबेरीसारखी लाल जीभ",
+    "conditions": [
+      "scarlet_fever_strep"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सँडपेपरसारखे लाल पुरळ": {
+    "symptom": "सँडपेपरसारखे लाल पुरळ",
+    "conditions": [
+      "scarlet_fever_strep"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "घशात सूज": {
+    "symptom": "घशात सूज",
+    "conditions": [
+      "cytomegalovirus_cmv"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेतील गाठी": {
+    "symptom": "मानेतील गाठी",
+    "conditions": [
+      "epstein_barr_virus_ebv",
+      "toxoplasmosis_parasitic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार येणारा ताप": {
+    "symptom": "वारंवार येणारा ताप",
+    "conditions": [
+      "brucellosis_undulant_fever"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सांधेदुखी": {
+    "symptom": "सांधेदुखी",
+    "conditions": [
+      "brucellosis_undulant_fever",
+      "autoimmune_hepatitis_liver"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "स्नायूदुखी": {
+    "symptom": "स्नायूदुखी",
+    "conditions": [
+      "toxoplasmosis_parasitic",
+      "hanta_virus_pulmonary"
+    ],
+    "max_urgency": "emergency"
+  },
+  "गरोदरपणात धोका": {
+    "symptom": "गरोदरपणात धोका",
+    "conditions": [
+      "toxoplasmosis_parasitic"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गालांवर चपराक मारल्यासारखे लाल चट्टे": {
+    "symptom": "गालांवर चपराक मारल्यासारखे लाल चट्टे",
+    "conditions": [
+      "parvovirus_fifth_disease"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अचानक धाप": {
+    "symptom": "अचानक धाप",
+    "conditions": [
+      "hanta_virus_pulmonary"
+    ],
+    "max_urgency": "emergency"
+  },
+  "छातीवर व पाठीवर हलके किंवा गडद चट्टे": {
+    "symptom": "छातीवर व पाठीवर हलके किंवा गडद चट्टे",
+    "conditions": [
+      "pityriasis_versicolor_fungus"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नखाच्या बाजूला लाल, गरम व पूयुक्त सूज": {
+    "symptom": "नखाच्या बाजूला लाल, गरम व पूयुक्त सूज",
+    "conditions": [
+      "paronychia_nail_infection"
+    ],
+    "max_urgency": "self_care"
+  },
+  "ठसठस": {
+    "symptom": "ठसठस",
+    "conditions": [
+      "paronychia_nail_infection"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नखे पिवळी, जाड व ठिसूळ होणे": {
+    "symptom": "नखे पिवळी, जाड व ठिसूळ होणे",
+    "conditions": [
+      "onychomycosis_fungal_nail"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मध्यभागी खड्डा असलेले मोत्यासारखे लहान दाणे": {
+    "symptom": "मध्यभागी खड्डा असलेले मोत्यासारखे लहान दाणे",
+    "conditions": [
+      "molluscum_contagiosum_skin"
+    ],
+    "max_urgency": "self_care"
+  },
+  "जखमेच्या जागी जाड, कडक व वाढणारी लाल गाठ": {
+    "symptom": "जखमेच्या जागी जाड, कडक व वाढणारी लाल गाठ",
+    "conditions": [
+      "keloid_hypertrophic_scar"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तळपायावर कडक वेदनादायी गाठ": {
+    "symptom": "तळपायावर कडक वेदनादायी गाठ",
+    "conditions": [
+      "corns_and_calluses_feet"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चालताना टोचणे": {
+    "symptom": "चालताना टोचणे",
+    "conditions": [
+      "corns_and_calluses_feet"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नाक व गालांवर सतत लालसरपणा": {
+    "symptom": "नाक व गालांवर सतत लालसरपणा",
+    "conditions": [
+      "rosacea_facial_erythema"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बारीक रक्तवाहिन्या दिसणे": {
+    "symptom": "बारीक रक्तवाहिन्या दिसणे",
+    "conditions": [
+      "rosacea_facial_erythema"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मनगटावर व पायांवर जांभळट सपाट चट्टे": {
+    "symptom": "मनगटावर व पायांवर जांभळट सपाट चट्टे",
+    "conditions": [
+      "lichen_planus_skin_oral"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तोंडात पांढरी जाळी": {
+    "symptom": "तोंडात पांढरी जाळी",
+    "conditions": [
+      "lichen_planus_skin_oral"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "काखेत किंवा जांघेत वारंवार फुटणाऱ्या वेदनादायी गाठी": {
+    "symptom": "काखेत किंवा जांघेत वारंवार फुटणाऱ्या वेदनादायी गाठी",
+    "conditions": [
+      "hidradenitis_suppurativa"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "त्वचेवर व तोंडात फुटणारे मोठे पाण्यासारखे फोड": {
+    "symptom": "त्वचेवर व तोंडात फुटणारे मोठे पाण्यासारखे फोड",
+    "conditions": [
+      "pemphigus_vulgaris_blisters"
+    ],
+    "max_urgency": "urgent"
+  },
+  "जखमा": {
+    "symptom": "जखमा",
+    "conditions": [
+      "pemphigus_vulgaris_blisters"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कडक फोड": {
+    "symptom": "कडक फोड",
+    "conditions": [
+      "bullous_pemphigoid_elderly"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बंदुकीच्या लक्ष्यासारखे (target) गोल लाल चट्टे": {
+    "symptom": "बंदुकीच्या लक्ष्यासारखे (Target) गोल लाल चट्टे",
+    "conditions": [
+      "erythema_multiforme"
+    ],
+    "max_urgency": "urgent"
+  },
+  "औषधानंतर संपूर्ण अंगावर फोड": {
+    "symptom": "औषधानंतर संपूर्ण अंगावर फोड",
+    "conditions": [
+      "stevens_johnson_syndrome_sjs"
+    ],
+    "max_urgency": "emergency"
+  },
+  "ओठ व डोळे जळणे": {
+    "symptom": "ओठ व डोळे जळणे",
+    "conditions": [
+      "stevens_johnson_syndrome_sjs"
+    ],
+    "max_urgency": "emergency"
+  },
+  "त्वचा सोलवटणे": {
+    "symptom": "त्वचा सोलवटणे",
+    "conditions": [
+      "stevens_johnson_syndrome_sjs",
+      "kwashiorkor_protein_deficiency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दंडावर व मांड्यांवर खडबडीत पुटकुळ्या": {
+    "symptom": "दंडावर व मांड्यांवर खडबडीत पुटकुळ्या",
+    "conditions": [
+      "keratosis_pilaris_strawberry"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घोट्याजवळ त्वचा तपकिरी होणे": {
+    "symptom": "घोट्याजवळ त्वचा तपकिरी होणे",
+    "conditions": [
+      "stasis_dermatitis_leg_ulcer"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "न भरणारी जखम": {
+    "symptom": "न भरणारी जखम",
+    "conditions": [
+      "stasis_dermatitis_leg_ulcer"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अन्न किंवा उलट्या श्वासनलिकेत जाऊन खोकला": {
+    "symptom": "अन्न किंवा उलट्या श्वासनलिकेत जाऊन खोकला",
+    "conditions": [
+      "aspiration_pneumonia"
+    ],
+    "max_urgency": "emergency"
+  },
+  "कमी ऑक्सिजन": {
+    "symptom": "कमी ऑक्सिजन",
+    "conditions": [
+      "atelectasis_lung_collapse"
+    ],
+    "max_urgency": "urgent"
+  },
+  "खाणीत काम केल्यामुळे वाढणारी धाप": {
+    "symptom": "खाणीत काम केल्यामुळे वाढणारी धाप",
+    "conditions": [
+      "silicosis_occupational"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पत्र्यांच्या कारखान्यातील कामगारांना धाप": {
+    "symptom": "पत्र्यांच्या कारखान्यातील कामगारांना धाप",
+    "conditions": [
+      "asbestosis_lung_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "छातीत आवळणे": {
+    "symptom": "छातीत आवळणे",
+    "conditions": [
+      "asbestosis_lung_disease"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शिक्षकांमध्ये किंवा गायकांमध्ये सतत आवाज घोगरा असणे": {
+    "symptom": "शिक्षकांमध्ये किंवा गायकांमध्ये सतत आवाज घोगरा असणे",
+    "conditions": [
+      "vocal_cord_nodules_polyps"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लाळ गिळता न येणे": {
+    "symptom": "लाळ गिळता न येणे",
+    "conditions": [
+      "acute_epiglottitis_airway"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पुढे झुकून श्वास घेणे": {
+    "symptom": "पुढे झुकून श्वास घेणे",
+    "conditions": [
+      "acute_epiglottitis_airway"
+    ],
+    "max_urgency": "emergency"
+  },
+  "घरघर": {
+    "symptom": "घरघर",
+    "conditions": [
+      "acute_epiglottitis_airway"
+    ],
+    "max_urgency": "emergency"
+  },
+  "कान ओढल्यावर तीव्र वेदना": {
+    "symptom": "कान ओढल्यावर तीव्र वेदना",
+    "conditions": [
+      "swimmers_ear_otitis_externa"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कानातून स्त्राव": {
+    "symptom": "कानातून स्त्राव",
+    "conditions": [
+      "swimmers_ear_otitis_externa"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कानाच्या मागे लाल, गरम सूज": {
+    "symptom": "कानाच्या मागे लाल, गरम सूज",
+    "conditions": [
+      "mastoiditis_ear_bone"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीव्र कानदुखी": {
+    "symptom": "तीव्र कानदुखी",
+    "conditions": [
+      "mastoiditis_ear_bone"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कानात दडे बसणे": {
+    "symptom": "कानात दडे बसणे",
+    "conditions": [
+      "eustachian_tube_dysfunction"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चटकन आवाज येणे": {
+    "symptom": "चटकन आवाज येणे",
+    "conditions": [
+      "eustachian_tube_dysfunction"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कानातून सतत दुर्गंधीयुक्त पू येणे": {
+    "symptom": "कानातून सतत दुर्गंधीयुक्त पू येणे",
+    "conditions": [
+      "cholesteatoma_chronic_ear"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ऐकू न येणे": {
+    "symptom": "ऐकू न येणे",
+    "conditions": [
+      "cholesteatoma_chronic_ear"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कानात शिट्टीचा आवाज": {
+    "symptom": "कानात शिट्टीचा आवाज",
+    "conditions": [
+      "menieres_disease_ear"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ऐकू कमी होणे": {
+    "symptom": "ऐकू कमी होणे",
+    "conditions": [
+      "menieres_disease_ear"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "एक बाजूचा घसा प्रचंड दुखणे": {
+    "symptom": "एक बाजूचा घसा प्रचंड दुखणे",
+    "conditions": [
+      "peritonsillar_abscess_quinsy"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तोंड न उघडता येणे": {
+    "symptom": "तोंड न उघडता येणे",
+    "conditions": [
+      "peritonsillar_abscess_quinsy"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गरम बटाट्यासारखा आवाज": {
+    "symptom": "गरम बटाट्यासारखा आवाज",
+    "conditions": [
+      "peritonsillar_abscess_quinsy"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बाहुलीवर पांढरा ठिपका": {
+    "symptom": "बाहुलीवर पांढरा ठिपका",
+    "conditions": [
+      "corneal_ulcer_keratitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळा लाल": {
+    "symptom": "डोळा लाल",
+    "conditions": [
+      "acute_anterior_uveitis_iritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बाहुलीजवळ वेदना": {
+    "symptom": "बाहुलीजवळ वेदना",
+    "conditions": [
+      "acute_anterior_uveitis_iritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दृष्टी धूसर": {
+    "symptom": "दृष्टी धूसर",
+    "conditions": [
+      "acute_anterior_uveitis_iritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळ्यासमोर विजेसारखे चमकणे (flashes)": {
+    "symptom": "डोळ्यासमोर विजेसारखे चमकणे (Flashes)",
+    "conditions": [
+      "retinal_detachment_eye"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पडदा पडल्यासारखा अंधार": {
+    "symptom": "पडदा पडल्यासारखा अंधार",
+    "conditions": [
+      "retinal_detachment_eye"
+    ],
+    "max_urgency": "emergency"
+  },
+  "मध्यभागातील वस्तू वाकड्या-तिकड्या दिसणे": {
+    "symptom": "मध्यभागातील वस्तू वाकड्या-तिकड्या दिसणे",
+    "conditions": [
+      "age_related_macular_degeneration"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वाचता न येणे": {
+    "symptom": "वाचता न येणे",
+    "conditions": [
+      "age_related_macular_degeneration"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दोन्ही डोळे एका दिशेने न फिरणे": {
+    "symptom": "दोन्ही डोळे एका दिशेने न फिरणे",
+    "conditions": [
+      "strabismus_squint_eye"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दुहेरी दिसणे": {
+    "symptom": "दुहेरी दिसणे",
+    "conditions": [
+      "strabismus_squint_eye"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोळ्याच्या कोपऱ्यातून बाहुलीकडे मांसल पापुद्रा वाढणे": {
+    "symptom": "डोळ्याच्या कोपऱ्यातून बाहुलीकडे मांसल पापुद्रा वाढणे",
+    "conditions": [
+      "pterygium_surfers_eye"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घन व पातळ अन्न दोन्ही गिळताना अडकणे": {
+    "symptom": "घन व पातळ अन्न दोन्ही गिळताना अडकणे",
+    "conditions": [
+      "achalasia_cardia_esophagus"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तीव्र उलट्यांनंतर लाल रक्ताची उलटी": {
+    "symptom": "तीव्र उलट्यांनंतर लाल रक्ताची उलटी",
+    "conditions": [
+      "mallory_weiss_tear"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थोडे खाल्ल्यावरही पोट खूप वेळ जड राहणे": {
+    "symptom": "थोडे खाल्ल्यावरही पोट खूप वेळ जड राहणे",
+    "conditions": [
+      "gastroparesis_diabetic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "तपासणीत काही न दिसणारी असह्य तीव्र पोटदुखी": {
+    "symptom": "तपासणीत काही न दिसणारी असह्य तीव्र पोटदुखी",
+    "conditions": [
+      "mesenteric_ischemia_bowel"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शौच व गॅस पूर्ण बंद": {
+    "symptom": "शौच व गॅस पूर्ण बंद",
+    "conditions": [
+      "volvulus_sigmoid_cecal"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लहान मुलांमध्ये लाल जेलीसारखे शौच (red currant jelly)": {
+    "symptom": "लहान मुलांमध्ये लाल जेलीसारखे शौच (Red currant jelly)",
+    "conditions": [
+      "intussusception_bowel"
+    ],
+    "max_urgency": "emergency"
+  },
+  "रडण्याची उबळ": {
+    "symptom": "रडण्याची उबळ",
+    "conditions": [
+      "intussusception_bowel"
+    ],
+    "max_urgency": "emergency"
+  },
+  "उजव्या कुशीत तेलकट जेवणानंतर असह्य कळ": {
+    "symptom": "उजव्या कुशीत तेलकट जेवणानंतर असह्य कळ",
+    "conditions": [
+      "biliary_colic_spasm"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उजव्या कुशीत वेदना": {
+    "symptom": "उजव्या कुशीत वेदना",
+    "conditions": [
+      "acute_cholangitis_charcot"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चालताना धाप": {
+    "symptom": "चालताना धाप",
+    "conditions": [
+      "aortic_stenosis_heart_valve"
+    ],
+    "max_urgency": "urgent"
+  },
+  "व्यायामादरम्यान चक्कर येऊन पडणे": {
+    "symptom": "व्यायामादरम्यान चक्कर येऊन पडणे",
+    "conditions": [
+      "aortic_stenosis_heart_valve"
+    ],
+    "max_urgency": "urgent"
+  },
+  "छातीत अधूनमधून धडधड": {
+    "symptom": "छातीत अधूनमधून धडधड",
+    "conditions": [
+      "mitral_valve_prolapse"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीत टोचणे": {
+    "symptom": "छातीत टोचणे",
+    "conditions": [
+      "mitral_valve_prolapse"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीतून पाठीकडे जाणारी असह्य फाटल्यासारखी वेदना": {
+    "symptom": "छातीतून पाठीकडे जाणारी असह्य फाटल्यासारखी वेदना",
+    "conditions": [
+      "aortic_dissection_tear"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बीपीमध्ये तफावत": {
+    "symptom": "बीपीमध्ये तफावत",
+    "conditions": [
+      "aortic_dissection_tear"
+    ],
+    "max_urgency": "emergency"
+  },
+  "छातीत किंवा पाठीत खोलवर दुखणे": {
+    "symptom": "छातीत किंवा पाठीत खोलवर दुखणे",
+    "conditions": [
+      "thoracic_aortic_aneurysm"
+    ],
+    "max_urgency": "urgent"
+  },
+  "आवाज बसणे": {
+    "symptom": "आवाज बसणे",
+    "conditions": [
+      "thoracic_aortic_aneurysm"
+    ],
+    "max_urgency": "urgent"
+  },
+  "नाभीजवळ हृदयासारखे ठोके जाणवणारी गाठ": {
+    "symptom": "नाभीजवळ हृदयासारखे ठोके जाणवणारी गाठ",
+    "conditions": [
+      "abdominal_aortic_aneurysm_aaa"
+    ],
+    "max_urgency": "emergency"
+  },
+  "कमरदुखी": {
+    "symptom": "कमरदुखी",
+    "conditions": [
+      "abdominal_aortic_aneurysm_aaa"
+    ],
+    "max_urgency": "emergency"
+  },
+  "थंडीत बोटे पांढरी, नंतर निळी व शेवटी लाल होणे": {
+    "symptom": "थंडीत बोटे पांढरी, नंतर निळी व शेवटी लाल होणे",
+    "conditions": [
+      "raynauds_phenomenon"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पायाच्या बोटांना असह्य वेदना": {
+    "symptom": "पायाच्या बोटांना असह्य वेदना",
+    "conditions": [
+      "buergers_disease_thromboangiitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "बोटे काळी पडून गळणे (गँगरीन)": {
+    "symptom": "बोटे काळी पडून गळणे (गँगरीन)",
+    "conditions": [
+      "buergers_disease_thromboangiitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळ्यांसमोर अंधारी येऊन तात्पुरते पडणे": {
+    "symptom": "डोळ्यांसमोर अंधारी येऊन तात्पुरते पडणे",
+    "conditions": [
+      "vasovagal_syncope_fainting"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पुन्हा लगेच शुद्धी": {
+    "symptom": "पुन्हा लगेच शुद्धी",
+    "conditions": [
+      "vasovagal_syncope_fainting"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अचानक छातीत धडधड सुरू होणे व अचानक थांबणे": {
+    "symptom": "अचानक छातीत धडधड सुरू होणे व अचानक थांबणे",
+    "conditions": [
+      "supraventricular_tachycardia_svt"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अचानक चक्कर येऊन पडणे": {
+    "symptom": "अचानक चक्कर येऊन पडणे",
+    "conditions": [
+      "ventricular_tachycardia_vt"
+    ],
+    "max_urgency": "emergency"
+  },
+  "छातीत तीव्र अस्वस्थता": {
+    "symptom": "छातीत तीव्र अस्वस्थता",
+    "conditions": [
+      "ventricular_tachycardia_vt"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हृदयाचे ठोके अतिशय मंद होणे": {
+    "symptom": "हृदयाचे ठोके अतिशय मंद होणे",
+    "conditions": [
+      "complete_heart_block_third_degree"
+    ],
+    "max_urgency": "emergency"
+  },
+  "वारंवार भोवळ येणे व बेशुद्धी": {
+    "symptom": "वारंवार भोवळ येणे व बेशुद्धी",
+    "conditions": [
+      "complete_heart_block_third_degree"
+    ],
+    "max_urgency": "emergency"
+  },
+  "आयुष्यातील सर्वात तीव्र डोकेदुखी (विजेचा कडकडाट)": {
+    "symptom": "आयुष्यातील सर्वात तीव्र डोकेदुखी (विजेचा कडकडाट)",
+    "conditions": [
+      "subarachnoid_hemorrhage_sah"
+    ],
+    "max_urgency": "emergency"
+  },
+  "काही आठवड्यांपूर्वी मार लागल्यानंतर हळूहळू चाल मंदावणे": {
+    "symptom": "काही आठवड्यांपूर्वी मार लागल्यानंतर हळूहळू चाल मंदावणे",
+    "conditions": [
+      "chronic_subdural_hematoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "विस्मरण": {
+    "symptom": "विस्मरण",
+    "conditions": [
+      "chronic_subdural_hematoma",
+      "normal_pressure_hydrocephalus_nph"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पायांपासून सुरू होऊन हातांकडे व छातीकडे जाणारा अशक्तपणा": {
+    "symptom": "पायांपासून सुरू होऊन हातांकडे व छातीकडे जाणारा अशक्तपणा",
+    "conditions": [
+      "guillain_barre_syndrome_gbs"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दिवसाच्या शेवटी पापण्या जड पडणे": {
+    "symptom": "दिवसाच्या शेवटी पापण्या जड पडणे",
+    "conditions": [
+      "myasthenia_gravis_muscle_weakness"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गिळताना व बोलताना त्रास": {
+    "symptom": "गिळताना व बोलताना त्रास",
+    "conditions": [
+      "myasthenia_gravis_muscle_weakness"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हात-पायांचे स्नायू बारीक होणे": {
+    "symptom": "हात-पायांचे स्नायू बारीक होणे",
+    "conditions": [
+      "amyotrophic_lateral_sclerosis_als"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "स्नायूंमध्ये थरथर": {
+    "symptom": "स्नायूंमध्ये थरथर",
+    "conditions": [
+      "amyotrophic_lateral_sclerosis_als"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गिळण्यास त्रास": {
+    "symptom": "गिळण्यास त्रास",
+    "conditions": [
+      "amyotrophic_lateral_sclerosis_als"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "चहाचा कप उचलताना किंवा लिहिताना हात थरथरणे": {
+    "symptom": "चहाचा कप उचलताना किंवा लिहिताना हात थरथरणे",
+    "conditions": [
+      "essential_tremor_hands"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चालताना पाय जमिनीला चिकटल्यासारखे वाटणे": {
+    "symptom": "चालताना पाय जमिनीला चिकटल्यासारखे वाटणे",
+    "conditions": [
+      "normal_pressure_hydrocephalus_nph"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लघवीवर ताबा नसणे": {
+    "symptom": "लघवीवर ताबा नसणे",
+    "conditions": [
+      "normal_pressure_hydrocephalus_nph"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जांघ व शौचाची जागा सुन्न होणे (saddle anesthesia)": {
+    "symptom": "जांघ व शौचाची जागा सुन्न होणे (Saddle anesthesia)",
+    "conditions": [
+      "cauda_equina_syndrome_spine"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लघवी-शौच बंद": {
+    "symptom": "लघवी-शौच बंद",
+    "conditions": [
+      "cauda_equina_syndrome_spine"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लठ्ठ महिलांमध्ये सतत डोकेदुखी": {
+    "symptom": "लठ्ठ महिलांमध्ये सतत डोकेदुखी",
+    "conditions": [
+      "idiopathic_intracranial_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दृष्टी धूसर होणे": {
+    "symptom": "दृष्टी धूसर होणे",
+    "conditions": [
+      "idiopathic_intracranial_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कानात शिट्टी": {
+    "symptom": "कानात शिट्टी",
+    "conditions": [
+      "idiopathic_intracranial_hypertension"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "फळांसारखा श्वासाला गोड वास": {
+    "symptom": "फळांसारखा श्वासाला गोड वास",
+    "conditions": [
+      "diabetic_ketoacidosis_dka"
+    ],
+    "max_urgency": "emergency"
+  },
+  "जलद खोल श्वास": {
+    "symptom": "जलद खोल श्वास",
+    "conditions": [
+      "diabetic_ketoacidosis_dka"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रचंड डिहायड्रेशन": {
+    "symptom": "प्रचंड डिहायड्रेशन",
+    "conditions": [
+      "hyperosmolar_hyperglycemic_state"
+    ],
+    "max_urgency": "emergency"
+  },
+  "साखर अतिशय जास्त": {
+    "symptom": "साखर अतिशय जास्त",
+    "conditions": [
+      "hyperosmolar_hyperglycemic_state"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चंद्रासारखा गोल चेहरा (moon face)": {
+    "symptom": "चंद्रासारखा गोल चेहरा (Moon face)",
+    "conditions": [
+      "cushings_syndrome_hypercortisol"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेच्या मागे चरबीचा गोळा": {
+    "symptom": "मानेच्या मागे चरबीचा गोळा",
+    "conditions": [
+      "cushings_syndrome_hypercortisol"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जांभळे चट्टे": {
+    "symptom": "जांभळे चट्टे",
+    "conditions": [
+      "cushings_syndrome_hypercortisol"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अतिशय अशक्तपणा": {
+    "symptom": "अतिशय अशक्तपणा",
+    "conditions": [
+      "addisons_disease_adrenal_failure"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लो बीपी": {
+    "symptom": "लो बीपी",
+    "conditions": [
+      "addisons_disease_adrenal_failure"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मिठाची तीव्र इच्छा": {
+    "symptom": "मिठाची तीव्र इच्छा",
+    "conditions": [
+      "addisons_disease_adrenal_failure"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हात, पाय, जबडा व जीभ असामान्य मोठी होणे": {
+    "symptom": "हात, पाय, जबडा व जीभ असामान्य मोठी होणे",
+    "conditions": [
+      "acromegaly_growth_hormone"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बूट व अंगठी घट्ट होणे": {
+    "symptom": "बूट व अंगठी घट्ट होणे",
+    "conditions": [
+      "acromegaly_growth_hormone"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हाडे दुखणे": {
+    "symptom": "हाडे दुखणे",
+    "conditions": [
+      "hypercalcemia_high_calcium"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाताची बोटे वाकडी होणे (carpopedal spasm)": {
+    "symptom": "हाताची बोटे वाकडी होणे (Carpopedal spasm)",
+    "conditions": [
+      "hypocalcemia_tetany_spasm"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ओठांभोवती मुंग्या": {
+    "symptom": "ओठांभोवती मुंग्या",
+    "conditions": [
+      "hypocalcemia_tetany_spasm"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तळपायाला न दुखणारी खोल जखम": {
+    "symptom": "तळपायाला न दुखणारी खोल जखम",
+    "conditions": [
+      "diabetic_foot_ulcer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पू किंवा दुर्गंध": {
+    "symptom": "पू किंवा दुर्गंध",
+    "conditions": [
+      "diabetic_foot_ulcer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाळी चुकल्यानंतर पोटाच्या एका बाजूला असह्य कळ": {
+    "symptom": "पाळी चुकल्यानंतर पोटाच्या एका बाजूला असह्य कळ",
+    "conditions": [
+      "ectopic_pregnancy_tubal"
+    ],
+    "max_urgency": "emergency"
+  },
+  "गरोदरपणाच्या पहिल्या ३ महिन्यांत हलका रक्तस्त्राव व ओटीपोटात मंद कळ": {
+    "symptom": "गरोदरपणाच्या पहिल्या ३ महिन्यांत हलका रक्तस्त्राव व ओटीपोटात मंद कळ",
+    "conditions": [
+      "threatened_miscarriage_abortion"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गरोदरपणाच्या शेवटच्या महिन्यांत वेदनेशिवाय अचानक लाल रक्तस्त्राव": {
+    "symptom": "गरोदरपणाच्या शेवटच्या महिन्यांत वेदनेशिवाय अचानक लाल रक्तस्त्राव",
+    "conditions": [
+      "placenta_previa_bleeding"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पोटात सतत असह्य कडकपणा व तीव्र वेदना": {
+    "symptom": "पोटात सतत असह्य कडकपणा व तीव्र वेदना",
+    "conditions": [
+      "abruptio_placentae_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "काळे रक्त": {
+    "symptom": "काळे रक्त",
+    "conditions": [
+      "abruptio_placentae_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बाळंतपणानंतर तीव्र ताप": {
+    "symptom": "बाळंतपणानंतर तीव्र ताप",
+    "conditions": [
+      "postpartum_puerperal_sepsis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दुर्गंधीयुक्त रक्तस्त्राव (lochia)": {
+    "symptom": "दुर्गंधीयुक्त रक्तस्त्राव (Lochia)",
+    "conditions": [
+      "postpartum_puerperal_sepsis"
+    ],
+    "max_urgency": "emergency"
+  },
+  "योनिमुखाच्या एका बाजूला मोठी अत्यंत वेदनादायी गाठ": {
+    "symptom": "योनिमुखाच्या एका बाजूला मोठी अत्यंत वेदनादायी गाठ",
+    "conditions": [
+      "bartholins_abscess_vulva"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चालताना व बसताना त्रास": {
+    "symptom": "चालताना व बसताना त्रास",
+    "conditions": [
+      "bartholins_abscess_vulva"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाळीपूर्वी १ आठवडा तीव्र नैराश्य, चिडचिड व राग": {
+    "symptom": "पाळीपूर्वी १ आठवडा तीव्र नैराश्य, चिडचिड व राग",
+    "conditions": [
+      "premenstrual_dysphoric_pmdd"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाळी सुरू झाल्यावर आराम": {
+    "symptom": "पाळी सुरू झाल्यावर आराम",
+    "conditions": [
+      "premenstrual_dysphoric_pmdd"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाळीत तीव्र पोटदुखी": {
+    "symptom": "पाळीत तीव्र पोटदुखी",
+    "conditions": [
+      "adenomyosis_uterine_enlargement"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मोठ्या प्रमाणावर रक्तस्त्राव": {
+    "symptom": "मोठ्या प्रमाणावर रक्तस्त्राव",
+    "conditions": [
+      "adenomyosis_uterine_enlargement"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गर्भाशय मोठे होणे": {
+    "symptom": "गर्भाशय मोठे होणे",
+    "conditions": [
+      "adenomyosis_uterine_enlargement"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दूध पिणे बंद करणे": {
+    "symptom": "दूध पिणे बंद करणे",
+    "conditions": [
+      "neonatal_sepsis_infection"
+    ],
+    "max_urgency": "emergency"
+  },
+  "शरीर थंड पडणे किंवा ताप": {
+    "symptom": "शरीर थंड पडणे किंवा ताप",
+    "conditions": [
+      "neonatal_sepsis_infection"
+    ],
+    "max_urgency": "emergency"
+  },
+  "सुस्त पडून राहणे": {
+    "symptom": "सुस्त पडून राहणे",
+    "conditions": [
+      "neonatal_sepsis_infection"
+    ],
+    "max_urgency": "emergency"
+  },
+  "दूध पिल्यावर २-३ फुटांवर उडणारी तीव्र उलटी (projectile)": {
+    "symptom": "दूध पिल्यावर २-३ फुटांवर उडणारी तीव्र उलटी (Projectile)",
+    "conditions": [
+      "infantile_hypertrophic_pyloric_stenosis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत भूक": {
+    "symptom": "सतत भूक",
+    "conditions": [
+      "infantile_hypertrophic_pyloric_stenosis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पाठीवर झोपल्यावर श्वास घेताना कर्कश आवाज": {
+    "symptom": "पाठीवर झोपल्यावर श्वास घेताना कर्कश आवाज",
+    "conditions": [
+      "laryngomalacia_infant_stridor"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटात पालथे झोपवल्यावर आराम": {
+    "symptom": "पोटात पालथे झोपवल्यावर आराम",
+    "conditions": [
+      "laryngomalacia_infant_stridor"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "संध्याकाळी कमी दिसणे": {
+    "symptom": "संध्याकाळी कमी दिसणे",
+    "conditions": [
+      "vitamin_a_deficiency_bitot"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळ्यावर पांढरा त्रिकोणी डाग (bitot's spots)": {
+    "symptom": "डोळ्यावर पांढरा त्रिकोणी डाग (Bitot's spots)",
+    "conditions": [
+      "vitamin_a_deficiency_bitot"
+    ],
+    "max_urgency": "self_care"
+  },
+  "केस तांबूस व पातळ होणे": {
+    "symptom": "केस तांबूस व पातळ होणे",
+    "conditions": [
+      "kwashiorkor_protein_deficiency"
+    ],
+    "max_urgency": "urgent"
+  },
+  "वृद्धासारखा सुरकुतलेला चेहरा": {
+    "symptom": "वृद्धासारखा सुरकुतलेला चेहरा",
+    "conditions": [
+      "marasmus_calorie_wasting"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शरीरावर फक्त कातडी व हाडे उरणे": {
+    "symptom": "शरीरावर फक्त कातडी व हाडे उरणे",
+    "conditions": [
+      "marasmus_calorie_wasting"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी उठल्यावर डोळ्यांभोवती मोठी सूज": {
+    "symptom": "सकाळी उठल्यावर डोळ्यांभोवती मोठी सूज",
+    "conditions": [
+      "nephrotic_syndrome_proteinuria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "फेसाळ लघवी": {
+    "symptom": "फेसाळ लघवी",
+    "conditions": [
+      "nephrotic_syndrome_proteinuria"
+    ],
+    "max_urgency": "urgent"
+  },
+  "घसा दुखल्यानंतर २ आठवड्यांनी चहाच्या रंगाची लघवी": {
+    "symptom": "घसा दुखल्यानंतर २ आठवड्यांनी चहाच्या रंगाची लघवी",
+    "conditions": [
+      "acute_post_strep_glomerulonephritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चेहऱ्यावर सूज": {
+    "symptom": "चेहऱ्यावर सूज",
+    "conditions": [
+      "acute_post_strep_glomerulonephritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हाय बीपी": {
+    "symptom": "हाय बीपी",
+    "conditions": [
+      "acute_post_strep_glomerulonephritis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दोन्ही कुशीत दुखणे": {
+    "symptom": "दोन्ही कुशीत दुखणे",
+    "conditions": [
+      "autosomal_dominant_polycystic_kidney"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वारंवार लघवीतून रक्त": {
+    "symptom": "वारंवार लघवीतून रक्त",
+    "conditions": [
+      "autosomal_dominant_polycystic_kidney"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कमी वयात हाय बीपी": {
+    "symptom": "कमी वयात हाय बीपी",
+    "conditions": [
+      "autosomal_dominant_polycystic_kidney"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "एका बाजूच्या अंडकोषात अचानक असह्य कळ": {
+    "symptom": "एका बाजूच्या अंडकोषात अचानक असह्य कळ",
+    "conditions": [
+      "acute_testicular_torsion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अंडकोष वर खेचला जाणे": {
+    "symptom": "अंडकोष वर खेचला जाणे",
+    "conditions": [
+      "acute_testicular_torsion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अंडकोष लाल व प्रचंड सुजणे": {
+    "symptom": "अंडकोष लाल व प्रचंड सुजणे",
+    "conditions": [
+      "acute_epididymo_orchitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवीत जळजळ": {
+    "symptom": "लघवीत जळजळ",
+    "conditions": [
+      "acute_epididymo_orchitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंडकोषाची वेदनारहित मोठी वाढ": {
+    "symptom": "अंडकोषाची वेदनारहित मोठी वाढ",
+    "conditions": [
+      "hydrocele_testicular_swelling"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जडपणा": {
+    "symptom": "जडपणा",
+    "conditions": [
+      "hydrocele_testicular_swelling"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अंडकोषात गांडुळांच्या पिशवीसारखा गुंता जाणवणे": {
+    "symptom": "अंडकोषात गांडुळांच्या पिशवीसारखा गुंता जाणवणे",
+    "conditions": [
+      "varicocele_scrotal_veins"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मंद दुखणे": {
+    "symptom": "मंद दुखणे",
+    "conditions": [
+      "varicocele_scrotal_veins"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लघवी करताना शिश्नाची त्वचा फुग्यासारखी फुगणे": {
+    "symptom": "लघवी करताना शिश्नाची त्वचा फुग्यासारखी फुगणे",
+    "conditions": [
+      "phimosis_tight_foreskin"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शिश्नाचे टोक प्रचंड सुजणे व निळे पडणे": {
+    "symptom": "शिश्नाचे टोक प्रचंड सुजणे व निळे पडणे",
+    "conditions": [
+      "paraphimosis_strangulated_foreskin"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लोकांसमोर बोलताना प्रचंड भीती व घाम सुटणे": {
+    "symptom": "लोकांसमोर बोलताना प्रचंड भीती व घाम सुटणे",
+    "conditions": [
+      "social_anxiety_disorder"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गर्दी टाळणे": {
+    "symptom": "गर्दी टाळणे",
+    "conditions": [
+      "social_anxiety_disorder"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घराबाहेर एकटे पडण्याची तीव्र भीती": {
+    "symptom": "घराबाहेर एकटे पडण्याची तीव्र भीती",
+    "conditions": [
+      "agoraphobia_open_spaces"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पॅनिक अटॅक": {
+    "symptom": "पॅनिक अटॅक",
+    "conditions": [
+      "agoraphobia_open_spaces"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मोठ्या दुर्घटनेनंतर स्तब्ध होणे": {
+    "symptom": "मोठ्या दुर्घटनेनंतर स्तब्ध होणे",
+    "conditions": [
+      "acute_stress_reaction"
+    ],
+    "max_urgency": "self_care"
+  },
+  "काही न सुचणे": {
+    "symptom": "काही न सुचणे",
+    "conditions": [
+      "acute_stress_reaction"
+    ],
+    "max_urgency": "self_care"
+  },
+  "थरकाप": {
+    "symptom": "थरकाप",
+    "conditions": [
+      "acute_stress_reaction"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तपासण्या सामान्य असूनही सतत आजाराची भीती वाटणे": {
+    "symptom": "तपासण्या सामान्य असूनही सतत आजाराची भीती वाटणे",
+    "conditions": [
+      "somatic_symptom_disorder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दारू बंद केल्यावर हात प्रचंड थरथरणे": {
+    "symptom": "दारू बंद केल्यावर हात प्रचंड थरथरणे",
+    "conditions": [
+      "alcohol_withdrawal_delirium"
+    ],
+    "max_urgency": "emergency"
+  },
+  "नसलेले प्राणी दिसणे": {
+    "symptom": "नसलेले प्राणी दिसणे",
+    "conditions": [
+      "alcohol_withdrawal_delirium"
+    ],
+    "max_urgency": "emergency"
+  },
+  "ताप व घाम": {
+    "symptom": "ताप व घाम",
+    "conditions": [
+      "alcohol_withdrawal_delirium"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास अतिशय मंद होणे": {
+    "symptom": "श्वास अतिशय मंद होणे",
+    "conditions": [
+      "opioid_overdose_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बाहुल्या अतिशय बारीक": {
+    "symptom": "बाहुल्या अतिशय बारीक",
+    "conditions": [
+      "opioid_overdose_emergency"
+    ],
+    "max_urgency": "emergency"
+  },
+  "जिभेवर ठिकठिकाणी बदलणारे लाल गुळगुळीत चट्टे": {
+    "symptom": "जिभेवर ठिकठिकाणी बदलणारे लाल गुळगुळीत चट्टे",
+    "conditions": [
+      "geographic_tongue_benign"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तिखट खाताना जळजळ": {
+    "symptom": "तिखट खाताना जळजळ",
+    "conditions": [
+      "geographic_tongue_benign"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंडात काही नसतानाही सतत तिखट खाल्ल्यासारखी जळजळ": {
+    "symptom": "तोंडात काही नसतानाही सतत तिखट खाल्ल्यासारखी जळजळ",
+    "conditions": [
+      "burning_mouth_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "ओठांच्या दोन्ही कोपऱ्यात लाल चिरा पडणे": {
+    "symptom": "ओठांच्या दोन्ही कोपऱ्यात लाल चिरा पडणे",
+    "conditions": [
+      "angular_cheilitis_mouth_corners"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंड उघडताना आग": {
+    "symptom": "तोंड उघडताना आग",
+    "conditions": [
+      "angular_cheilitis_mouth_corners"
+    ],
+    "max_urgency": "self_care"
+  },
+  "दाढ काढल्याच्या ३ दिवसांनी अचानक असह्य ठसठस": {
+    "symptom": "दाढ काढल्याच्या ३ दिवसांनी अचानक असह्य ठसठस",
+    "conditions": [
+      "dry_socket_alveolar_osteitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दुर्गंध": {
+    "symptom": "दुर्गंध",
+    "conditions": [
+      "dry_socket_alveolar_osteitis"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अक्कलदाढ येताना हिरडी सुजणे": {
+    "symptom": "अक्कलदाढ येताना हिरडी सुजणे",
+    "conditions": [
+      "pericoronitis_wisdom_tooth"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शरीराला तीव्र खाज": {
+    "symptom": "शरीराला तीव्र खाज",
+    "conditions": [
+      "primary_biliary_cholangitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "डोळ्यांभोवती पिवळ्या गाठी": {
+    "symptom": "डोळ्यांभोवती पिवळ्या गाठी",
+    "conditions": [
+      "primary_biliary_cholangitis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "उजव्या कुशीत तीव्र वेदना": {
+    "symptom": "उजव्या कुशीत तीव्र वेदना",
+    "conditions": [
+      "amoebic_liver_abscess"
+    ],
+    "max_urgency": "urgent"
+  },
+  "थंडी वाजून ताप": {
+    "symptom": "थंडी वाजून ताप",
+    "conditions": [
+      "amoebic_liver_abscess"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उजव्या खांद्यात कळ": {
+    "symptom": "उजव्या खांद्यात कळ",
+    "conditions": [
+      "amoebic_liver_abscess"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उजव्या पोटात वेदनारहित मोठी गाठ": {
+    "symptom": "उजव्या पोटात वेदनारहित मोठी गाठ",
+    "conditions": [
+      "hydatid_cyst_of_liver"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "अस्वस्थता": {
+    "symptom": "अस्वस्थता",
+    "conditions": [
+      "hydatid_cyst_of_liver"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "लघवीतून वेदनारहित लाल रक्त पडणे (painless hematuria)": {
+    "symptom": "लघवीतून वेदनारहित लाल रक्त पडणे (Painless hematuria)",
+    "conditions": [
+      "bladder_cancer_urothelial"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कुशीत मोठी गाठ": {
+    "symptom": "कुशीत मोठी गाठ",
+    "conditions": [
+      "renal_cell_carcinoma_kidney"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कुशीत वेदना": {
+    "symptom": "कुशीत वेदना",
+    "conditions": [
+      "renal_cell_carcinoma_kidney"
+    ],
+    "max_urgency": "urgent"
+  },
+  "मेनोपॉजनंतर पुन्हा रक्तस्त्राव": {
+    "symptom": "मेनोपॉजनंतर पुन्हा रक्तस्त्राव",
+    "conditions": [
+      "endometrial_uterine_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंडकोषात न दुखणारी कडक वेगाने वाढणारी गाठ": {
+    "symptom": "अंडकोषात न दुखणारी कडक वेगाने वाढणारी गाठ",
+    "conditions": [
+      "testicular_cancer_seminoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "शिश्नाच्या टोकावर न भरणारा व्रण किंवा गाठ": {
+    "symptom": "शिश्नाच्या टोकावर न भरणारा व्रण किंवा गाठ",
+    "conditions": [
+      "penile_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "दुर्गंधी": {
+    "symptom": "दुर्गंधी",
+    "conditions": [
+      "penile_cancer_carcinoma"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उजव्या कुशीत गाठ": {
+    "symptom": "उजव्या कुशीत गाठ",
+    "conditions": [
+      "gallbladder_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सतत वाढणारी कावीळ": {
+    "symptom": "सतत वाढणारी कावीळ",
+    "conditions": [
+      "gallbladder_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अंगाला प्रचंड खाज": {
+    "symptom": "अंगाला प्रचंड खाज",
+    "conditions": [
+      "cholangiocarcinoma_bile_duct"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पांढऱ्या रंगाचे शौच": {
+    "symptom": "पांढऱ्या रंगाचे शौच",
+    "conditions": [
+      "cholangiocarcinoma_bile_duct"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तीळ अचानक वेगाने वाढणे": {
+    "symptom": "तीळ अचानक वेगाने वाढणे",
+    "conditions": [
+      "melanoma_skin_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तिळाचा रंग व कडा बदलणे (abcde नियम)": {
+    "symptom": "तिळाचा रंग व कडा बदलणे (ABCDE नियम)",
+    "conditions": [
+      "melanoma_skin_cancer"
+    ],
+    "max_urgency": "urgent"
+  },
+  "चेहऱ्यावर न भरणारा चकचकीत मोतीसारखा फोड": {
+    "symptom": "चेहऱ्यावर न भरणारा चकचकीत मोतीसारखा फोड",
+    "conditions": [
+      "basal_cell_carcinoma_skin"
+    ],
+    "max_urgency": "urgent"
+  },
+  "त्वचेवर खपली असलेला कडक लाल व्रण": {
+    "symptom": "त्वचेवर खपली असलेला कडक लाल व्रण",
+    "conditions": [
+      "squamous_cell_carcinoma_skin"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी तीव्र उलट्या व डोकेदुखी": {
+    "symptom": "सकाळी तीव्र उलट्या व डोकेदुखी",
+    "conditions": [
+      "glioblastoma_multiforme_gbm"
+    ],
+    "max_urgency": "emergency"
+  },
+  "स्वभावात बदल": {
+    "symptom": "स्वभावात बदल",
+    "conditions": [
+      "glioblastoma_multiforme_gbm"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अचानक तीव्र ताप": {
+    "symptom": "अचानक तीव्र ताप",
+    "conditions": [
+      "acute_myeloid_leukemia_aml"
+    ],
+    "max_urgency": "urgent"
+  },
+  "हिरड्यांतून रक्तस्त्राव": {
+    "symptom": "हिरड्यांतून रक्तस्त्राव",
+    "conditions": [
+      "acute_myeloid_leukemia_aml"
+    ],
+    "max_urgency": "urgent"
+  },
+  "अतिशय पांढरे पडणे": {
+    "symptom": "अतिशय पांढरे पडणे",
+    "conditions": [
+      "acute_myeloid_leukemia_aml"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटाच्या डाव्या बाजूला मोठी प्लीहा (spleen)": {
+    "symptom": "पोटाच्या डाव्या बाजूला मोठी प्लीहा (Spleen)",
+    "conditions": [
+      "chronic_myeloid_leukemia_cml"
+    ],
+    "max_urgency": "urgent"
+  },
+  "त्वचा किंवा डोळा पांढरा/काळा पडणे": {
+    "symptom": "त्वचा किंवा डोळा पांढरा/काळा पडणे",
+    "conditions": [
+      "chemical_burn_eye_skin"
+    ],
+    "max_urgency": "emergency"
+  },
+  "प्रवेश व बाहेर पडण्याच्या जागी जळणे": {
+    "symptom": "प्रवेश व बाहेर पडण्याच्या जागी जळणे",
+    "conditions": [
+      "electrical_burn_shock"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हृदयाचे ठोके अनियमित": {
+    "symptom": "हृदयाचे ठोके अनियमित",
+    "conditions": [
+      "electrical_burn_shock"
+    ],
+    "max_urgency": "emergency"
+  },
+  "बीपी कोसळणे": {
+    "symptom": "बीपी कोसळणे",
+    "conditions": [
+      "cardiac_tamponade_shock"
+    ],
+    "max_urgency": "emergency"
+  },
+  "मानेच्या शिरा फुगणे": {
+    "symptom": "मानेच्या शिरा फुगणे",
+    "conditions": [
+      "cardiac_tamponade_shock"
+    ],
+    "max_urgency": "emergency"
+  },
+  "हृदयाचे ठोके मंद": {
+    "symptom": "हृदयाचे ठोके मंद",
+    "conditions": [
+      "cardiac_tamponade_shock"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेताना छाती उलट दिशेने हलणे (paradoxical breathing)": {
+    "symptom": "श्वास घेताना छाती उलट दिशेने हलणे (Paradoxical breathing)",
+    "conditions": [
+      "flail_chest_rib_fracture"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अवयवात असह्य ताणलेली वेदना": {
+    "symptom": "अवयवात असह्य ताणलेली वेदना",
+    "conditions": [
+      "crush_injury_compartment_syndrome"
+    ],
+    "max_urgency": "emergency"
+  },
+  "पाय लाकडासारखा ताठ": {
+    "symptom": "पाय लाकडासारखा ताठ",
+    "conditions": [
+      "crush_injury_compartment_syndrome"
+    ],
+    "max_urgency": "emergency"
+  },
+  "अपघातानंतर हात-पाय पूर्णपणे हलवता न येणे": {
+    "symptom": "अपघातानंतर हात-पाय पूर्णपणे हलवता न येणे",
+    "conditions": [
+      "spinal_cord_injury_trauma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "संवेदना जाणे": {
+    "symptom": "संवेदना जाणे",
+    "conditions": [
+      "spinal_cord_injury_trauma"
+    ],
+    "max_urgency": "emergency"
+  },
+  "चेरी-लाल ओठ": {
+    "symptom": "चेरी-लाल ओठ",
+    "conditions": [
+      "carbon_monoxide_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तीव्र डोकेदुखी": {
+    "symptom": "तीव्र डोकेदुखी",
+    "conditions": [
+      "carbon_monoxide_poisoning"
+    ],
+    "max_urgency": "emergency"
+  },
+  "डोळ्यांसमोर बर्फाचे वादळ दिसणे / अंधत्व": {
+    "symptom": "डोळ्यांसमोर बर्फाचे वादळ दिसणे / अंधत्व",
+    "conditions": [
+      "methanol_poisoning_illicit_liquor"
+    ],
+    "max_urgency": "emergency"
+  },
+  "उलटी करू देऊ नका! खोकला": {
+    "symptom": "उलटी करू देऊ नका! खोकला",
+    "conditions": [
+      "kerosene_hydrocarbon_ingestion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "श्वास घेण्यास धाप": {
+    "symptom": "श्वास घेण्यास धाप",
+    "conditions": [
+      "kerosene_hydrocarbon_ingestion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "तोंडाची व अन्ननलिकेची तीव्र जळजळ": {
+    "symptom": " तोंडाची व अन्ननलिकेची तीव्र जळजळ",
+    "conditions": [
+      "corrosive_acid_alkali_ingestion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "लाळ न गिळता येणे": {
+    "symptom": "लाळ न गिळता येणे",
+    "conditions": [
+      "corrosive_acid_alkali_ingestion"
+    ],
+    "max_urgency": "emergency"
+  },
+  "८ आठवड्यांपेक्षा जास्त खोकला": {
+    "symptom": "८ आठवड्यांपेक्षा जास्त खोकला",
+    "conditions": [
+      "chronic_cough_unexplained"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कामावर गेल्यावर धाप व खोकला": {
+    "symptom": "कामावर गेल्यावर धाप व खोकला",
+    "conditions": [
+      "occupational_asthma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सुट्टीत बरे वाटणे": {
+    "symptom": "सुट्टीत बरे वाटणे",
+    "conditions": [
+      "occupational_asthma"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "धावल्यानंतर छातीत घरघर व खोकला": {
+    "symptom": "धावल्यानंतर छातीत घरघर व खोकला",
+    "conditions": [
+      "bronchospasm_exercise_induced"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नाक सतत चोंदणे": {
+    "symptom": "नाक सतत चोंदणे",
+    "conditions": [
+      "nasal_polyps_chronic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "वास न येणे": {
+    "symptom": "वास न येणे",
+    "conditions": [
+      "nasal_polyps_chronic"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दोन्ही डोळ्यांत तीव्र खाज": {
+    "symptom": "दोन्ही डोळ्यांत तीव्र खाज",
+    "conditions": [
+      "allergic_conjunctivitis_seasonal"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाणी येणे": {
+    "symptom": "पाणी येणे",
+    "conditions": [
+      "allergic_conjunctivitis_seasonal"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पापण्या सुजणे": {
+    "symptom": "पापण्या सुजणे",
+    "conditions": [
+      "allergic_conjunctivitis_seasonal"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पापण्यांवर कोंड्यासारख्या खपल्या": {
+    "symptom": "पापण्यांवर कोंड्यासारख्या खपल्या",
+    "conditions": [
+      "blepharitis_eyelid_crusts"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळे चुरचुरणे": {
+    "symptom": "डोळे चुरचुरणे",
+    "conditions": [
+      "blepharitis_eyelid_crusts"
+    ],
+    "max_urgency": "self_care"
+  },
+  "डोळ्यात वेदनेशिवाय अचानक लाल रक्ताचा डाग": {
+    "symptom": "डोळ्यात वेदनेशिवाय अचानक लाल रक्ताचा डाग",
+    "conditions": [
+      "subconjunctival_hemorrhage_red_spot"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घशात काही अडकल्यासारखे वाटणे": {
+    "symptom": "घशात काही अडकल्यासारखे वाटणे",
+    "conditions": [
+      "epiglottic_cyst_throat"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जीभ लाल, गुळगुळीत व दुखणे": {
+    "symptom": "जीभ लाल, गुळगुळीत व दुखणे",
+    "conditions": [
+      "glossitis_swollen_tongue"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अन्न खाताना आग": {
+    "symptom": "अन्न खाताना आग",
+    "conditions": [
+      "glossitis_swollen_tongue"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंड उघडताना जबड्यातून आवाज": {
+    "symptom": "तोंड उघडताना जबड्यातून आवाज",
+    "conditions": [
+      "temporomandibular_joint_tmj"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गालात वेदना": {
+    "symptom": "गालात वेदना",
+    "conditions": [
+      "temporomandibular_joint_tmj"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तोंडातून सतत दुर्गंध येणे": {
+    "symptom": "तोंडातून सतत दुर्गंध येणे",
+    "conditions": [
+      "halitosis_bad_breath"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हिरड्यांचा त्रास": {
+    "symptom": "हिरड्यांचा त्रास",
+    "conditions": [
+      "halitosis_bad_breath"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गालाच्या आत पांढरे दहीसारखे थर": {
+    "symptom": "गालाच्या आत पांढरे दहीसारखे थर",
+    "conditions": [
+      "oral_thrush_candidiasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जिभेवर पांढरा कडक थर": {
+    "symptom": "जिभेवर पांढरा कडक थर",
+    "conditions": [
+      "leukoplakia_tongue"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तंबाखू इतिहास": {
+    "symptom": "तंबाखू इतिहास",
+    "conditions": [
+      "leukoplakia_tongue"
+    ],
+    "max_urgency": "urgent"
+  },
+  "जेवताना जबड्याखाली वेदना व सूज": {
+    "symptom": "जेवताना जबड्याखाली वेदना व सूज",
+    "conditions": [
+      "salivary_gland_stone_sialolithiasis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मानेत व खांद्यात कडक गाठी (trigger points)": {
+    "symptom": "मानेत व खांद्यात कडक गाठी (Trigger points)",
+    "conditions": [
+      "cervical_myofascial_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गुडघ्याच्या वाटीखाली पायऱ्या उतरताना वेदना": {
+    "symptom": "गुडघ्याच्या वाटीखाली पायऱ्या उतरताना वेदना",
+    "conditions": [
+      "patellofemoral_pain_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "टाचेच्या वर मागच्या बाजूला चालताना वेदना": {
+    "symptom": "टाचेच्या वर मागच्या बाजूला चालताना वेदना",
+    "conditions": [
+      "achilles_tendonitis_heel"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नडगीच्या हाडावर चालताना किंवा पळताना ठसठस": {
+    "symptom": "नडगीच्या हाडावर चालताना किंवा पळताना ठसठस",
+    "conditions": [
+      "shin_splints_leg_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मनगटावर हालचालीसोबत दिसणारी बिनदुखी गाठ": {
+    "symptom": "मनगटावर हालचालीसोबत दिसणारी बिनदुखी गाठ",
+    "conditions": [
+      "ganglion_cyst_wrist"
+    ],
+    "max_urgency": "self_care"
+  },
+  "बोट सरळ करताना चटकन अडकून उघडणे": {
+    "symptom": "बोट सरळ करताना चटकन अडकून उघडणे",
+    "conditions": [
+      "trigger_finger_stenosing"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "मोबाईल टाईप करताना किंवा वस्तू पकडताना अंगठा दुखणे": {
+    "symptom": "मोबाईल टाईप करताना किंवा वस्तू पकडताना अंगठा दुखणे",
+    "conditions": [
+      "de_quervains_tenosynovitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अंगठ्याच्या सांध्यावर लाल हाडाची वाढ": {
+    "symptom": "अंगठ्याच्या सांध्यावर लाल हाडाची वाढ",
+    "conditions": [
+      "bunion_hallux_valgus"
+    ],
+    "max_urgency": "self_care"
+  },
+  "बूट लागणे": {
+    "symptom": "बूट लागणे",
+    "conditions": [
+      "bunion_hallux_valgus"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाठीचा कणा पुढे झुकणे": {
+    "symptom": "पाठीचा कणा पुढे झुकणे",
+    "conditions": [
+      "kyphosis_hunchback"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाठदुखी": {
+    "symptom": "पाठदुखी",
+    "conditions": [
+      "kyphosis_hunchback"
+    ],
+    "max_urgency": "self_care"
+  },
+  "एका खांद्याची उंची दुसऱ्यापेक्षा जास्त दिसणे": {
+    "symptom": "एका खांद्याची उंची दुसऱ्यापेक्षा जास्त दिसणे",
+    "conditions": [
+      "scoliosis_spinal_curvature"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "कोपरावर अंड्यासारखी मऊ सूज": {
+    "symptom": "कोपरावर अंड्यासारखी मऊ सूज",
+    "conditions": [
+      "bursitis_olecranon_elbow"
+    ],
+    "max_urgency": "self_care"
+  },
+  "अचानक खांद्यात असह्य वेदना": {
+    "symptom": "अचानक खांद्यात असह्य वेदना",
+    "conditions": [
+      "calcific_tendinitis_shoulder"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "श्वास घेताना ठोके वाढणे व सोडताना मंदावणे": {
+    "symptom": "श्वास घेताना ठोके वाढणे व सोडताना मंदावणे",
+    "conditions": [
+      "sinus_arrhythmia_respiratory"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीत अचानक एक ठोका सुटल्याची जाणीव": {
+    "symptom": "छातीत अचानक एक ठोका सुटल्याची जाणीव",
+    "conditions": [
+      "premature_ventricular_contractions_pvc"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हात वर केल्यावर हात सुन्न पडणे व मुंग्या": {
+    "symptom": "हात वर केल्यावर हात सुन्न पडणे व मुंग्या",
+    "conditions": [
+      "thoracic_outlet_syndrome"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "झोपताना पाय हलवण्याची अनावर ओढ": {
+    "symptom": "झोपताना पाय हलवण्याची अनावर ओढ",
+    "conditions": [
+      "restless_legs_syndrome_rls"
+    ],
+    "max_urgency": "self_care"
+  },
+  "महिनाभरात १५ पेक्षा जास्त दिवस डोक्यात मंद दाब": {
+    "symptom": "महिनाभरात १५ पेक्षा जास्त दिवस डोक्यात मंद दाब",
+    "conditions": [
+      "tension_headache_chronic"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मानेच्या खालून डोक्याच्या शेंड्यापर्यंत शॉक लागल्यासारखी वेदना": {
+    "symptom": "मानेच्या खालून डोक्याच्या शेंड्यापर्यंत शॉक लागल्यासारखी वेदना",
+    "conditions": [
+      "occipital_neuralgia"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "नागिणीचे फोड बरे झाल्यावरही महिने न थांबणारी जळजळ": {
+    "symptom": "नागिणीचे फोड बरे झाल्यावरही महिने न थांबणारी जळजळ",
+    "conditions": [
+      "post_herpetic_neuralgia_shingles"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात किंवा पायाला हलका स्पर्शही सहन न होणे": {
+    "symptom": "हात किंवा पायाला हलका स्पर्शही सहन न होणे",
+    "conditions": [
+      "complex_regional_pain_syndrome"
+    ],
+    "max_urgency": "urgent"
+  },
+  "उपाशीपोटी साखर १००-१२५ दरम्यान असणे": {
+    "symptom": "उपाशीपोटी साखर १००-१२५ दरम्यान असणे",
+    "conditions": [
+      "impaired_fasting_glucose_prediabetes"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गरोदरपणात रक्तातील साखर वाढणे": {
+    "symptom": "गरोदरपणात रक्तातील साखर वाढणे",
+    "conditions": [
+      "gestational_diabetes_mellitus"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्तातील चरबी वाढणे, स्वादुपिंडावर ताण": {
+    "symptom": "रक्तातील चरबी वाढणे, स्वादुपिंडावर ताण",
+    "conditions": [
+      "hypertriglyceridemia_fats"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पोटाचा मोठा घेर, उच्च बीपी, हाय ट्रायग्लिसराइड्स": {
+    "symptom": "पोटाचा मोठा घेर, उच्च बीपी, हाय ट्रायग्लिसराइड्स",
+    "conditions": [
+      "metabolic_syndrome_x"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मधुमेहाच्या रुग्णांमध्ये हळूहळू दृष्टी कमी होणे": {
+    "symptom": "मधुमेहाच्या रुग्णांमध्ये हळूहळू दृष्टी कमी होणे",
+    "conditions": [
+      "diabetic_retinopathy_early"
+    ],
+    "max_urgency": "urgent"
+  },
+  "लघवीत मायक्रोअल्ब्युमिन प्रथिने आढळणे": {
+    "symptom": "लघवीत मायक्रोअल्ब्युमिन प्रथिने आढळणे",
+    "conditions": [
+      "diabetic_nephropathy_microalbumin"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रक्त तपासणीत युरिक ॲसिड ७ पेक्षा जास्त": {
+    "symptom": "रक्त तपासणीत युरिक ॲसिड ७ पेक्षा जास्त",
+    "conditions": [
+      "hyperuricemia_asymptomatic"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हाडांची घनता किंचित कमी असणे": {
+    "symptom": "हाडांची घनता किंचित कमी असणे",
+    "conditions": [
+      "osteopenia_low_bone_density"
+    ],
+    "max_urgency": "self_care"
+  },
+  "किंचित थकवा, वजन थोडे वाढणे": {
+    "symptom": "किंचित थकवा, वजन थोडे वाढणे",
+    "conditions": [
+      "hypothyroidism_subclinical"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गळ्यातील ग्रंथी हळूहळू सुजणे व काम कमी करणे": {
+    "symptom": "गळ्यातील ग्रंथी हळूहळू सुजणे व काम कमी करणे",
+    "conditions": [
+      "hashimotos_thyroiditis_autoimmune"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जेवणानंतर लगेच पोट दुखणे": {
+    "symptom": "जेवणानंतर लगेच पोट दुखणे",
+    "conditions": [
+      "functional_dyspepsia_epigastric"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सतत रिकाम्या मोठ्या ढेकरा येणे": {
+    "symptom": "सतत रिकाम्या मोठ्या ढेकरा येणे",
+    "conditions": [
+      "aerophagia_excessive_burping"
+    ],
+    "max_urgency": "self_care"
+  },
+  "रात्री झोपेत गुदद्वारात काही मिनिटांची तीक्ष्ण कळ": {
+    "symptom": "रात्री झोपेत गुदद्वारात काही मिनिटांची तीक्ष्ण कळ",
+    "conditions": [
+      "proctalgia_fugax_rectal_cramp"
+    ],
+    "max_urgency": "self_care"
+  },
+  "कठीण पृष्ठभागावर बसल्यावर माकडहाडात तीव्र वेदना": {
+    "symptom": "कठीण पृष्ठभागावर बसल्यावर माकडहाडात तीव्र वेदना",
+    "conditions": [
+      "coccydynia_tailbone_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सोनोग्राफीमध्ये यकृतावर सौम्य चरबी आढळणे": {
+    "symptom": "सोनोग्राफीमध्ये यकृतावर सौम्य चरबी आढळणे",
+    "conditions": [
+      "fatty_liver_grade_1"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चरबीयुक्त जेवणानंतर हलकी पोटदुखी": {
+    "symptom": "चरबीयुक्त जेवणानंतर हलकी पोटदुखी",
+    "conditions": [
+      "biliary_sludge_microlithiasis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उपाशी राहिल्यावर किंवा आजारी पडल्यावर डोळे किंचित पिवळे होणे": {
+    "symptom": "उपाशी राहिल्यावर किंवा आजारी पडल्यावर डोळे किंचित पिवळे होणे",
+    "conditions": [
+      "gilberts_syndrome_mild_jaundice"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पाळीच्या ५ दिवस आधी दोन्ही स्तनात जडपणा व दुखणे": {
+    "symptom": "पाळीच्या ५ दिवस आधी दोन्ही स्तनात जडपणा व दुखणे",
+    "conditions": [
+      "mastodynia_cyclical_breast_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "स्तनात इकडून तिकडे सरकणारी मऊ रबरी गाठ (breast mouse)": {
+    "symptom": "स्तनात इकडून तिकडे सरकणारी मऊ रबरी गाठ (Breast mouse)",
+    "conditions": [
+      "fibroadenoma_benign_breast_lump"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पाळीच्या १४ व्या दिवशी पोटाच्या एका बाजूला हलकी कळ": {
+    "symptom": "पाळीच्या १४ व्या दिवशी पोटाच्या एका बाजूला हलकी कळ",
+    "conditions": [
+      "mittelschmerz_ovulation_pain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पांढरा स्त्राव, संबंधानंतर हलका डाग": {
+    "symptom": "पांढरा स्त्राव, संबंधानंतर हलका डाग",
+    "conditions": [
+      "cervical_erosion_ectropion"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "जन्मानंतर २-३ दिवसांत अंगावर लाल डाग, बाळ खेळते असते": {
+    "symptom": "जन्मानंतर २-३ दिवसांत अंगावर लाल डाग, बाळ खेळते असते",
+    "conditions": [
+      "neonatal_erythema_toxic_rash"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नाकावर व गालांवर बारीक मोत्यासारखे दाणे (आपोआप जातात)": {
+    "symptom": "नाकावर व गालांवर बारीक मोत्यासारखे दाणे (आपोआप जातात)",
+    "conditions": [
+      "milia_neonatal_white_bumps"
+    ],
+    "max_urgency": "self_care"
+  },
+  "बाळाच्या डोक्यावर तेलकट जाड पिवळी खपली": {
+    "symptom": "बाळाच्या डोक्यावर तेलकट जाड पिवळी खपली",
+    "conditions": [
+      "cradle_cap_infant_seborrhea"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पावसाच्या पाण्याशी संपर्कानंतर ताप": {
+    "symptom": "पावसाच्या पाण्याशी संपर्कानंतर ताप",
+    "conditions": [
+      "leptospirosis_mild"
+    ],
+    "max_urgency": "urgent"
+  },
+  "डोळे लाल": {
+    "symptom": "डोळे लाल",
+    "conditions": [
+      "leptospirosis_mild"
+    ],
+    "max_urgency": "urgent"
+  },
+  "पोटऱ्या दुखणे": {
+    "symptom": "पोटऱ्या दुखणे",
+    "conditions": [
+      "leptospirosis_mild"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कफयुक्त खोकला": {
+    "symptom": "कफयुक्त खोकला",
+    "conditions": [
+      "swine_flu_h1n1_severe"
+    ],
+    "max_urgency": "urgent"
+  },
+  "ताप गेल्यानंतर महिनाभर बोटांच्या व पायांच्या सांध्यांत कळा": {
+    "symptom": "ताप गेल्यानंतर महिनाभर बोटांच्या व पायांच्या सांध्यांत कळा",
+    "conditions": [
+      "chikungunya_chronic_arthritis"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "काळे खपली असलेले न दुखणारे व्रण (malignant pustule)": {
+    "symptom": "काळे खपली असलेले न दुखणारे व्रण (Malignant pustule)",
+    "conditions": [
+      "cutaneous_anthrax_pustule"
+    ],
+    "max_urgency": "urgent"
+  },
+  "न भरणारा चेहऱ्यावरील खपलीचा व्रण": {
+    "symptom": "न भरणारा चेहऱ्यावरील खपलीचा व्रण",
+    "conditions": [
+      "cutaneous_leishmaniasis_oriental"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "दाढीत लाल पुरळ, खाज व केस गळणे": {
+    "symptom": "दाढीत लाल पुरळ, खाज व केस गळणे",
+    "conditions": [
+      "tinea_barbae_bearded_ringworm"
+    ],
+    "max_urgency": "self_care"
+  },
+  "नख काळे-पिवळे व जाड होणे": {
+    "symptom": "नख काळे-पिवळे व जाड होणे",
+    "conditions": [
+      "tinea_unguium_toenail"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीवर मोठा मातृ चट्टा (herald patch), पाठीवर ख्रिसमस ट्रीसारखे डाग": {
+    "symptom": "छातीवर मोठा मातृ चट्टा (Herald patch), पाठीवर ख्रिसमस ट्रीसारखे डाग",
+    "conditions": [
+      "pityriasis_rosea_herald_patch"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हातावर किंवा पायावर वेदनारहित लहान दाण्यांचे वर्तुळ": {
+    "symptom": "हातावर किंवा पायावर वेदनारहित लहान दाण्यांचे वर्तुळ",
+    "conditions": [
+      "granuloma_annulare_skin"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीवर व पोटावर लहान लाल रक्तबिंदूसारखे डाग (निरुपद्रवी)": {
+    "symptom": "छातीवर व पोटावर लहान लाल रक्तबिंदूसारखे डाग (निरुपद्रवी)",
+    "conditions": [
+      "cherry_angioma_red_moles"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मेणासारखे चिकटवलेले दिसणारे काळे-तपकिरी डाग": {
+    "symptom": "मेणासारखे चिकटवलेले दिसणारे काळे-तपकिरी डाग",
+    "conditions": [
+      "seborrheic_keratosis_barnacles"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उन्हात उघड्या राहणाऱ्या भागावर खसखशीत डाग": {
+    "symptom": "उन्हात उघड्या राहणाऱ्या भागावर खसखशीत डाग",
+    "conditions": [
+      "actinic_keratosis_sun_spots"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "हात-पायांवर नाण्यासारखे गोल खाजणारे लाल खवले": {
+    "symptom": "हात-पायांवर नाण्यासारखे गोल खाजणारे लाल खवले",
+    "conditions": [
+      "nummular_eczema_coin_shaped"
+    ],
+    "max_urgency": "self_care"
+  },
+  "तळहातावर तीव्र खाज सुटून बारीक खोल पाण्याचे फोड": {
+    "symptom": "तळहातावर तीव्र खाज सुटून बारीक खोल पाण्याचे फोड",
+    "conditions": [
+      "pompholyx_dyshidrotic_eczema"
+    ],
+    "max_urgency": "self_care"
+  },
+  "घड्याळ, टिकली, सिमेंट किंवा बांगडीच्या जागी लाल पुरळ व खाज": {
+    "symptom": "घड्याळ, टिकली, सिमेंट किंवा बांगडीच्या जागी लाल पुरळ व खाज",
+    "conditions": [
+      "contact_dermatitis_nickel_cement"
+    ],
+    "max_urgency": "self_care"
+  },
+  "पायांची त्वचा पांढरी पडून माशाच्या खवल्यासारखी दिसणे": {
+    "symptom": "पायांची त्वचा पांढरी पडून माशाच्या खवल्यासारखी दिसणे",
+    "conditions": [
+      "xerosis_cutis_winter_dry_skin"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उन्हात फिरल्याने हात व गळ्यावर लाल खाजणारे दाणे": {
+    "symptom": "उन्हात फिरल्याने हात व गळ्यावर लाल खाजणारे दाणे",
+    "conditions": [
+      "photodermatitis_sun_allergy"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मानेच्या मागे, काखेत त्वचा काळी, जाड व मखमली होणे": {
+    "symptom": "मानेच्या मागे, काखेत त्वचा काळी, जाड व मखमली होणे",
+    "conditions": [
+      "acanthosis_nigricans_neck"
+    ],
+    "max_urgency": "self_care"
+  },
+  "मानेवर व काखेत लहान मऊ लोंबणाऱ्या गाठी": {
+    "symptom": "मानेवर व काखेत लहान मऊ लोंबणाऱ्या गाठी",
+    "conditions": [
+      "skin_tags_acrochordons"
+    ],
+    "max_urgency": "self_care"
+  },
+  "लिहिताना वही ओली होणे, सतत तळहात घामाने ओले": {
+    "symptom": "लिहिताना वही ओली होणे, सतत तळहात घामाने ओले",
+    "conditions": [
+      "hyperhidrosis_sweaty_palms"
+    ],
+    "max_urgency": "self_care"
+  },
+  "४० वयानंतर मोबाईल किंवा वृत्तपत्र वाचताना लांब धरावे लागणे": {
+    "symptom": "४० वयानंतर मोबाईल किंवा वृत्तपत्र वाचताना लांब धरावे लागणे",
+    "conditions": [
+      "presbyopia_aging_reading_vision"
+    ],
+    "max_urgency": "self_care"
+  },
+  "फळ्यावरील किंवा टीव्हीवरील लांबचे अक्षर अस्पष्ट दिसणे": {
+    "symptom": "फळ्यावरील किंवा टीव्हीवरील लांबचे अक्षर अस्पष्ट दिसणे",
+    "conditions": [
+      "myopia_nearsightedness"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वाचताना डोके दुखणे व डोळ्यांवर ताण": {
+    "symptom": "वाचताना डोके दुखणे व डोळ्यांवर ताण",
+    "conditions": [
+      "hypermetropia_farsightedness"
+    ],
+    "max_urgency": "self_care"
+  },
+  "रात्री गाडी चालवताना दिव्यांचे लांब प्रकाशकिरण दिसणे": {
+    "symptom": "रात्री गाडी चालवताना दिव्यांचे लांब प्रकाशकिरण दिसणे",
+    "conditions": [
+      "astigmatism_cylindrical_power"
+    ],
+    "max_urgency": "self_care"
+  },
+  "गिळताना गळ्यात पुढील बाजूस तीव्र वेदना व ताप": {
+    "symptom": "गिळताना गळ्यात पुढील बाजूस तीव्र वेदना व ताप",
+    "conditions": [
+      "subacute_thyroiditis_neck_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गरम किंवा तिखट खाताना अचानक नाकातून पाणी वाहणे": {
+    "symptom": "गरम किंवा तिखट खाताना अचानक नाकातून पाणी वाहणे",
+    "conditions": [
+      "non_allergic_vasomotor_rhinitis"
+    ],
+    "max_urgency": "self_care"
+  },
+  "झोपेत घोरणे, तोंड उघडे ठेवून श्वास घेणे, वारंवार सर्दी": {
+    "symptom": "झोपेत घोरणे, तोंड उघडे ठेवून श्वास घेणे, वारंवार सर्दी",
+    "conditions": [
+      "adenoid_hypertrophy_child"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "आवाज अतिशय हलका, हवेसारखा (breathy) व गिळताना ठसका": {
+    "symptom": "आवाज अतिशय हलका, हवेसारखा (Breathy) व गिळताना ठसका",
+    "conditions": [
+      "vocal_cord_paralysis_unilateral"
+    ],
+    "max_urgency": "urgent"
+  },
+  "सकाळी उठल्यावर एका कानाने अचानक पूर्णपणे ऐकू न येणे": {
+    "symptom": "सकाळी उठल्यावर एका कानाने अचानक पूर्णपणे ऐकू न येणे",
+    "conditions": [
+      "sensory_neural_hearing_loss"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गर्दीत किंवा टीव्हीचा आवाज स्पष्ट न समजणे": {
+    "symptom": "गर्दीत किंवा टीव्हीचा आवाज स्पष्ट न समजणे",
+    "conditions": [
+      "presbycusis_elderly_hearing_loss"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सकाळी पाठीचा कणा प्रचंड ताठ असणे, हालचालीने मोकळा होणे": {
+    "symptom": "सकाळी पाठीचा कणा प्रचंड ताठ असणे, हालचालीने मोकळा होणे",
+    "conditions": [
+      "ankylosing_spondylitis_hla_b27"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गुडघ्याच्या आतील बाजूला २ इंच खाली पायऱ्या चढताना कळ": {
+    "symptom": "गुडघ्याच्या आतील बाजूला २ इंच खाली पायऱ्या चढताना कळ",
+    "conditions": [
+      "pes_anserine_bursitis_knee"
+    ],
+    "max_urgency": "self_care"
+  },
+  "धावताना गुडघ्याच्या बाहेरील बाजूला टोचल्यासारखी कळ": {
+    "symptom": "धावताना गुडघ्याच्या बाहेरील बाजूला टोचल्यासारखी कळ",
+    "conditions": [
+      "iliotibial_band_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वेगाने धावताना अचानक मांडीच्या मागे तीक्ष्ण कळ": {
+    "symptom": "वेगाने धावताना अचानक मांडीच्या मागे तीक्ष्ण कळ",
+    "conditions": [
+      "hamstring_muscle_strain"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उड्या मारताना गुडघ्याच्या वरच्या कडेला वेदना": {
+    "symptom": "उड्या मारताना गुडघ्याच्या वरच्या कडेला वेदना",
+    "conditions": [
+      "quadriceps_tendonitis_knee"
+    ],
+    "max_urgency": "self_care"
+  },
+  "टाचेखाली किंवा चोथ्याखाली दगड असल्यासारखे दुखणे": {
+    "symptom": "टाचेखाली किंवा चोथ्याखाली दगड असल्यासारखे दुखणे",
+    "conditions": [
+      "plantar_corn_mechanical_callus"
+    ],
+    "max_urgency": "self_care"
+  },
+  "हात उंचावल्यावर हातात मुंग्या व नाडी मंदावणे": {
+    "symptom": "हात उंचावल्यावर हातात मुंग्या व नाडी मंदावणे",
+    "conditions": [
+      "cervical_rib_syndrome"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सकाळी उठल्यावर मान अजिबात सरळ न करता येणे": {
+    "symptom": "सकाळी उठल्यावर मान अजिबात सरळ न करता येणे",
+    "conditions": [
+      "torticollis_wry_neck"
+    ],
+    "max_urgency": "self_care"
+  },
+  "छातीवर बोटाने दाबल्यावर नेमकी तिथेच तीव्र कळ": {
+    "symptom": "छातीवर बोटाने दाबल्यावर नेमकी तिथेच तीव्र कळ",
+    "conditions": [
+      "costochondritis_tietze_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "चालताना कमरेच्या हाडातून चटकन आवाज येणे": {
+    "symptom": "चालताना कमरेच्या हाडातून चटकन आवाज येणे",
+    "conditions": [
+      "snapping_hip_syndrome"
+    ],
+    "max_urgency": "self_care"
+  },
+  "शौचाची सारखी घाई (tenesmus), शेम व रक्त": {
+    "symptom": "शौचाची सारखी घाई (Tenesmus), शेम व रक्त",
+    "conditions": [
+      "proctitis_radiation_infectious"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "पित्ताशय काढल्यानंतरही उजव्या कुशीत तीच वेदना": {
+    "symptom": "पित्ताशय काढल्यानंतरही उजव्या कुशीत तीच वेदना",
+    "conditions": [
+      "sphincter_of_oddi_dysfunction"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "गोड किंवा जास्त जेवणानंतर १५ मिनिटांत थरकाप व जुलाब": {
+    "symptom": "गोड किंवा जास्त जेवणानंतर १५ मिनिटांत थरकाप व जुलाब",
+    "conditions": [
+      "dumping_syndrome_post_gastric"
+    ],
+    "max_urgency": "self_care"
+  },
+  "वारंवार पाण्यासारखे जुलाब, वजन न वाढणे": {
+    "symptom": "वारंवार पाण्यासारखे जुलाब, वजन न वाढणे",
+    "conditions": [
+      "short_bowel_syndrome_malabsorption"
+    ],
+    "max_urgency": "urgent"
+  },
+  "रात्रीही झोपेतून उठावे लागणारे जुलाब": {
+    "symptom": "रात्रीही झोपेतून उठावे लागणारे जुलाब",
+    "conditions": [
+      "microscopic_colitis_watery"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सर्दी-खोकल्यानंतर अचानक पोटात उजव्या बाजूला कळ": {
+    "symptom": "सर्दी-खोकल्यानंतर अचानक पोटात उजव्या बाजूला कळ",
+    "conditions": [
+      "mesenteric_adenitis_child_pain"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शौच बाहेर ढकलण्यासाठी अडचण": {
+    "symptom": "शौच बाहेर ढकलण्यासाठी अडचण",
+    "conditions": [
+      "rectocele_pelvic_support_defect"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "योनिमुखाजवळ चेंडूसारखा गोळा जाणवणे, लघवी अडखळणे": {
+    "symptom": "योनिमुखाजवळ चेंडूसारखा गोळा जाणवणे, लघवी अडखळणे",
+    "conditions": [
+      "cystocele_bladder_prolapse"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "ओटीपोटात जडपणा, खाली काहीतरी सरकल्याची भावना": {
+    "symptom": "ओटीपोटात जडपणा, खाली काहीतरी सरकल्याची भावना",
+    "conditions": [
+      "uterine_prolapse_grade_1_2"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "बाळंतपणानंतर दूध न येणे, पाळी कायमची बंद होणे, थकवा": {
+    "symptom": "बाळंतपणानंतर दूध न येणे, पाळी कायमची बंद होणे, थकवा",
+    "conditions": [
+      "sheehans_syndrome_pituitary"
+    ],
+    "max_urgency": "urgent"
+  },
+  "कामाचा प्रचंड कंटाळा, मानसिक शून्यत्व, थकवा": {
+    "symptom": "कामाचा प्रचंड कंटाळा, मानसिक शून्यत्व, थकवा",
+    "conditions": [
+      "burnout_occupational_exhaustion"
+    ],
+    "max_urgency": "self_care"
+  },
+  "२ वर्षांपेक्षा जास्त काळ मनात सतत उदास वाटणे": {
+    "symptom": "२ वर्षांपेक्षा जास्त काळ मनात सतत उदास वाटणे",
+    "conditions": [
+      "dysthymia_persistent_mild_depression"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "काही दिवस अतिआनंद तर काही दिवस विनाकारण उदास": {
+    "symptom": "काही दिवस अतिआनंद तर काही दिवस विनाकारण उदास",
+    "conditions": [
+      "cyclothymic_mood_swings"
+    ],
+    "max_urgency": "self_care"
+  },
+  "उंचीवर किंवा इंजेक्शन पाहिल्यावर थरकाप व भोवळ": {
+    "symptom": "उंचीवर किंवा इंजेक्शन पाहिल्यावर थरकाप व भोवळ",
+    "conditions": [
+      "specific_phobia_heights_blood"
+    ],
+    "max_urgency": "self_care"
+  },
+  "किरकोळ दुखण्यालाही कॅन्सर किंवा हार्ट अटॅक समजणे": {
+    "symptom": "किरकोळ दुखण्यालाही कॅन्सर किंवा हार्ट अटॅक समजणे",
+    "conditions": [
+      "illness_anxiety_hypochondria"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "शरीर हाडकुळे असूनही स्वतःला जाड समजणे": {
+    "symptom": "शरीर हाडकुळे असूनही स्वतःला जाड समजणे",
+    "conditions": [
+      "anorexia_nervosa_eating"
+    ],
+    "max_urgency": "urgent"
+  },
+  "गुपचूप भरपूर खाणे व नंतर उलटी काढणे": {
+    "symptom": "गुपचूप भरपूर खाणे व नंतर उलटी काढणे",
+    "conditions": [
+      "bulimia_nervosa_binge_purge"
+    ],
+    "max_urgency": "urgent"
+  },
+  "तंबाखू सोडल्यावर हात थरथरणे, चिडचिड, अस्वस्थता": {
+    "symptom": "तंबाखू सोडल्यावर हात थरथरणे, चिडचिड, अस्वस्थता",
+    "conditions": [
+      "nicotine_dependence_tobacco_cessation"
+    ],
+    "max_urgency": "self_care"
+  },
+  "सकाळी उठल्यावर हात थरथरणे व दारूची गरज": {
+    "symptom": "सकाळी उठल्यावर हात थरथरणे व दारूची गरज",
+    "conditions": [
+      "alcohol_dependence_syndrome"
+    ],
+    "max_urgency": "doctor_soon"
+  },
+  "सतत स्क्रीन पाहिल्याने डोळे चुरचुरणे, डोकेदुखी, झोप न लागणे": {
+    "symptom": "सतत स्क्रीन पाहिल्याने डोळे चुरचुरणे, डोकेदुखी, झोप न लागणे",
+    "conditions": [
+      "mobile_screen_addiction_digital_strain"
+    ],
+    "max_urgency": "self_care"
+  }
+}

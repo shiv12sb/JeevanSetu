@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
@@ -138,12 +138,19 @@ export function AssistantPage() {
     const text = textToSend?.trim();
     if (!text) return;
 
-    // Detect language or fallback
-    let detectedLang = language;
-    const isMarathi = /[\u0900-\u097F]/.test(text) && (text.includes("आहे") || text.includes("करा") || text.includes("नाही") || text.includes("काय"));
-    const isHindi = /[\u0900-\u097F]/.test(text) && (text.includes("है") || text.includes("करें") || text.includes("नहीं") || text.includes("क्या"));
-    if (isMarathi) detectedLang = "mr";
-    else if (isHindi) detectedLang = "hi";
+    // Strictly honor user's chosen language (Default: 'mr' Marathi)
+    const detectedLang = language && ["en", "hi", "mr"].includes(language) ? language : "mr";
+
+    const getLocalizedDisclaimer = (safetyLvl, langCode) => {
+      if (safetyLvl === "emergency") {
+        if (langCode === "mr") return "तातडीची सूचना: वैद्यकीय आणीबाणी! कृपया त्वरित १०८ वर कॉल करा.";
+        if (langCode === "hi") return "आपातकालीन सूचना: तुरंत 108 पर कॉल करें या नजदीकी अस्पताल जाएं।";
+        return "CRITICAL: Immediate medical emergency detected. Please dial 108 immediately.";
+      }
+      if (langCode === "mr") return "जीवनसेतू AI केवळ माहिती व मार्गदर्शन प्रदान करतो, हा डॉक्टरांच्या तपासणीचा पर्याय नाही. गंभीर आपत्कालीन स्थितीत त्वरित १०८ डायल करा.";
+      if (langCode === "hi") return "जीवनसेतु AI केवल सूचना एवं मार्गदर्शन प्रदान करता है, यह डॉक्टर के परामर्श का विकल्प नहीं है। आपातकाल में तुरंत 108 डायल करें।";
+      return "JeevanSetu AI provides verified healthcare navigation only. It is not a substitute for clinical diagnosis. In emergencies, dial 108 immediately.";
+    };
 
     const userMessage = {
       id: `usr-${Date.now()}`,
@@ -162,17 +169,23 @@ export function AssistantPage() {
 
     try {
       const response = await aiApi.chat({
+        message: text,
         query: text,
         language: detectedLang,
         district: user?.district || "Maharashtra",
         user_role: user?.role || "patient",
+        conversationHistory: messages.slice(-4).map((m) => ({
+          role: m.sender === "user" ? "user" : "assistant",
+          content: m.text,
+        })),
       });
 
       const responseData = response?.data || response;
       const answerText =
-        responseData?.response ||
         responseData?.answer ||
-        "माहिती उपलब्ध आहे. प्राथमिक आरोग्य केंद्राशी संपर्क साधा.";
+        responseData?.response ||
+        responseData?.message ||
+        (detectedLang === "mr" ? "माहिती उपलब्ध आहे. प्राथमिक आरोग्य केंद्राशी संपर्क साधा." : detectedLang === "hi" ? "जानकारी उपलब्ध है। प्राथमिक स्वास्थ्य केंद्र से संपर्क करें।" : "Information retrieved. Please consult your local health centre.");
 
       const botResponse = {
         id: `bot-${Date.now()}`,
@@ -180,11 +193,8 @@ export function AssistantPage() {
         text: answerText,
         groundedCards: responseData?.grounded_cards || responseData?.groundedCards || null,
         safetyLevel: responseData?.safety_level || "safe",
-        sources: responseData?.sources || ["JeevanSetu Verified Maharashtra Health Directory"],
-        disclaimer:
-          responseData?.safety_level === "emergency"
-            ? "CRITICAL: Immediate medical emergency detected. Please dial 108 immediately."
-            : "जीवनसेतू AI केवळ माहिती व मार्गदर्शन प्रदान करतो, हा डॉक्टरांच्या तपासणीचा पर्याय नाही. गंभीर आपत्कालीन स्थितीत त्वरित १०८ डायल करा.",
+        sources: responseData?.sources || [detectedLang === "mr" ? "जीवनसेतू महाराष्ट्र आरोग्य डिरेक्टरी" : detectedLang === "hi" ? "जीवनसेतु स्वास्थ्य डायरेक्टरी" : "JeevanSetu Verified Directory"],
+        disclaimer: getLocalizedDisclaimer(responseData?.safety_level, detectedLang),
       };
 
       setMessages((prev) => [...prev, botResponse]);
@@ -216,7 +226,7 @@ export function AssistantPage() {
     } catch (err) {
       console.warn("AI Chat network fallback engaged:", err.message);
 
-      // Generate instant grounded healthcare guidance without showing failure
+      // Generate instant grounded healthcare guidance in exact chosen language
       const fallbackData = getClientAiFallbackResponse(text, detectedLang);
       const fallbackAnswer = fallbackData.answer;
 
@@ -226,11 +236,8 @@ export function AssistantPage() {
         text: fallbackAnswer,
         groundedCards: fallbackData.groundedCards || [],
         safetyLevel: fallbackData.safetyLevel || "safe",
-        sources: fallbackData.sources || ["JeevanSetu Verified Healthcare Protocols"],
-        disclaimer:
-          fallbackData.safetyLevel === "emergency"
-            ? "CRITICAL: Immediate medical emergency detected. Please dial 108 immediately."
-            : "जीवनसेतू AI केवळ माहिती व मार्गदर्शन प्रदान करतो, हा डॉक्टरांच्या तपासणीचा पर्याय नाही. गंभीर आपत्कालीन स्थितीत त्वरित १०८ डायल करा.",
+        sources: fallbackData.sources || [detectedLang === "mr" ? "जीवनसेतू आरोग्य नियमावली" : detectedLang === "hi" ? "जीवनसेतु स्वास्थ्य नियमावली" : "JeevanSetu Verified Protocols"],
+        disclaimer: getLocalizedDisclaimer(fallbackData.safetyLevel, detectedLang),
       };
 
       setMessages((prev) => [...prev, fallbackBotResponse]);
@@ -684,6 +691,7 @@ export function AssistantPage() {
                     text: t.text,
                     groundedCards: null,
                   }));
+                if (newFormatted.length === 0) return prev;
                 return [...prev, ...newFormatted];
               });
             }

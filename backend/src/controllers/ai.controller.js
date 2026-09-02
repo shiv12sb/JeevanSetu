@@ -7,20 +7,27 @@ const { sendSuccess, sendError } = require("../utils/response");
  */
 const handleChat = async (req, res, next) => {
   try {
-    const { message, language = "mr", conversationHistory = [] } = req.body;
+    const { message, query, language = "mr", conversationHistory = [] } = req.body || {};
+    const userQuery = message || query || "";
     const ipAddress = req.ip || req.headers["x-forwarded-for"] || null;
 
     const response = await aiService.processChat({
       user: req.user,
-      message,
+      message: userQuery,
       language,
       conversationHistory,
       ipAddress,
     });
 
+    const responsePayload = {
+      ...response,
+      message: response.answer || response.message || "",
+      response: response.answer || response.response || "",
+    };
+
     return sendSuccess(res, {
       statusCode: 200,
-      data: response,
+      data: responsePayload,
     });
   } catch (err) {
     next(err);

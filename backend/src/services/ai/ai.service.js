@@ -39,19 +39,8 @@ class AIService {
     const startTime = Date.now();
     const safeUser = user || { profileId: null, role: "patient", fullName: "Healthcare Citizen" };
 
-    // 1. Language Auto-Detection if not explicitly set or if message is in vernacular
-    let lang = ["en", "hi", "mr"].includes(language) ? language : "mr";
-    if (typeof message === "string") {
-      if (/(आहे|नाही|झाले|औषध|रुग्ण|रुग्णालय|करावे|कुठे|कधी|सांगा|मला|माहिती|दवाखाना|तपासणी|डॉक्टर|उपचार|योजना)/.test(message)) {
-        lang = "mr";
-      } else if (/(है|हूँ|हो|कृपया|कहाँ|चाहिए|कीजिए|नमस्ते|मुझे|अस्पताल)/.test(message)) {
-        lang = "hi";
-      } else if (/(kya karu|kaise|kaunsa|kidhar|chahiye|bukhar|dawa)/i.test(message)) {
-        lang = "hi";
-      } else if (/(kay karu|kasa|kuthe|hava|tap|aushadh|mala)/i.test(message)) {
-        lang = "mr";
-      }
-    }
+    // 1. Strictly honor the user's selected language ('mr' is default)
+    let lang = language && ["en", "hi", "mr"].includes(language) ? language : "mr";
 
     // 2. Pre-Execution Medical Safety & Emergency Check
     const safetyCheck = safetyService.evaluateSafety(message, lang);
@@ -135,7 +124,7 @@ class AIService {
     }
 
     // 3. Permissioned Context Retrieval (Role-Scoped & Minimized)
-    const { contextText, groundedCards, sources } = await contextService.retrieveContextForUser(safeUser, message);
+    const { contextText, groundedCards, sources } = await contextService.retrieveContextForUser(safeUser, message, lang);
 
     // 4. Build Prompt Layers with Grounding & Safety Rules
     const systemPrompt = buildSystemPrompt({

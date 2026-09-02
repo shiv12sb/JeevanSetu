@@ -432,7 +432,15 @@ MANDATORY SPOKEN LANGUAGE RULE:
    */
   startLocalSimulationMode() {
     this.isListeningActive = true;
-    const welcomeText = "नमस्कार! मी आपला जीवनसेतू रिअल-टाइम व्हॉईस सहाय्यक आहे. मी आपल्याला महाराष्ट्रातील डॉक्टर, १०८ रुग्णवाहिका, शासकीय योजना आणि औषध साठ्याविषयी अचूक माहिती देऊ शकतो. सांगा, मी आपली काय मदत करू?";
+    this.conversationHistory = this.conversationHistory || [];
+
+    const welcomeGreetings = {
+      mr: "नमस्कार! मी जीवनसेतू सहाय्यक आहे. आपण मला आरोग्य सेवा, डॉक्टर, रुग्णालय, रुग्णवाहिका, औषधे, रेफरल आणि सरकारी योजनांविषयी विचारू शकता.",
+      hi: "नमस्ते! मैं JeevanSetu Assistant हूँ। आप मुझसे स्वास्थ्य सेवाओं, डॉक्टर, अस्पताल, एम्बुलेंस, दवाइयों, रेफरल और सरकारी योजनाओं के बारे में पूछ सकते हैं।",
+      en: "Hello! I am JeevanSetu Assistant. You can ask me about healthcare facilities, doctors, hospitals, ambulances, medicines, referrals, and government schemes.",
+    };
+
+    const welcomeText = welcomeGreetings[this.language] || welcomeGreetings.mr;
 
     if (this.onTranscript) {
       this.onTranscript({
@@ -450,7 +458,7 @@ MANDATORY SPOKEN LANGUAGE RULE:
   }
 
   /**
-   * Listen to user speech in Marathi via browser SpeechRecognition during local simulation
+   * Listen to user speech via browser SpeechRecognition during local simulation
    */
   startLocalListening() {
     if (!this.isListeningActive || this.isMuted) return;
@@ -493,24 +501,92 @@ MANDATORY SPOKEN LANGUAGE RULE:
   }
 
   /**
-   * Process query in local simulation and respond in Marathi
+   * Process query in local simulation with dynamic language switching, tool grounding & multi-turn memory
    */
   async processLocalUserQuery(userQuery) {
+    // Prevent acoustic echo where microphone transcribes the assistant's own greeting or recent voice
+    if (
+      userQuery.includes("मी जीवनसेतू सहाय्यक आहे") ||
+      userQuery.includes("मी आपला जीवनसेतू") ||
+      userQuery.includes("मैं JeevanSetu Assistant हूँ") ||
+      userQuery.includes("I am JeevanSetu Assistant") ||
+      (this.lastSpokenText && (userQuery.includes(this.lastSpokenText.slice(0, 25)) || this.lastSpokenText.includes(userQuery)))
+    ) {
+      console.log("Ignored acoustic echo from speaker:", userQuery);
+      if (this.isListeningActive && !this.isMuted) {
+        setTimeout(() => {
+          if (this.state === "LISTENING" || this.state === "IDLE") {
+            this.startLocalListening();
+          }
+        }, 600);
+      }
+      return;
+    }
+
     this.setState("THINKING");
 
-    // Emergency Preemption Check
-    if (/(हार्ट अटॅक|साप चावला|सर्पदंश|छातीत कळा|रक्तस्त्राव|बेशुद्ध|heart attack|chest pain|snake bite)/i.test(userQuery)) {
+    // Strictly honor user's chosen session language (Default: 'mr' Marathi)
+    const detectedLang = this.language && ["en", "hi", "mr"].includes(this.language) ? this.language : "mr";
+    this.language = detectedLang;
+
+    // Track multi-turn conversation
+    this.conversationHistory = this.conversationHistory || [];
+    this.conversationHistory.push({ role: "user", content: userQuery });
+
+    // 1. Emergency Preemption Check
+    if (/(हार्ट अटॅक|साप चावला|सर्पदंश|छातीत कळा|रक्तस्त्राव|बेशुद्ध|heart attack|chest pain|snake bite|unconscious|heavy bleeding|छाती में तेज दर्द|सांस फूल)/i.test(userQuery)) {
       if (this.onEmergency) {
         this.onEmergency({ text: userQuery, helpline: "108" });
       }
-      const emergencyAnswer = "ही तातडीची आपत्कालीन स्थिती असू शकते! रुग्णाला अजिबात हलवू नका आणि त्वरित १०८ या मोफत शासकीय रुग्णवाहिकेला कॉल करा. जीवनसेतुने अतिदक्षता कक्ष सतर्क केला आहे.";
+      if (this.onToolCall) {
+        this.onToolCall({ name: "emergency_108", args: { emergency_type: userQuery } });
+      }
+
+      const emergencyMessages = {
+        mr: "ही तातडीची आपत्कालीन स्थिती असू शकते! रुग्णाला अजिबात हलवू नका आणि त्वरित १०८ या मोफत शासकीय रुग्णवाहिकेला कॉल करा. जीवनसेतुने अतिदक्षता कक्ष सतर्क केला आहे.",
+        hi: "यह आपातकालीन स्थिति हो सकती है! कृपया तुरंत 108 पर कॉल करें या नजदीकी अस्पताल के कैजुअल्टी विभाग में जाएं। मरीज को अकेला न छोड़ें।",
+        en: "This may be a medical emergency! Please dial 108 immediately or proceed to the nearest hospital casualty department.",
+      };
+
+      const emergencyAnswer = emergencyMessages[detectedLang] || emergencyMessages.mr;
       if (this.onTranscript) {
         this.onTranscript({ sender: "assistant", text: emergencyAnswer, isFinal: true });
       }
+      this.conversationHistory.push({ role: "assistant", content: emergencyAnswer });
+
       this.speakLocalText(emergencyAnswer, () => {
-        this.startLocalListening();
+        if (this.isListeningActive && !this.isMuted) {
+          this.startLocalListening();
+        }
       });
       return;
+    }
+
+    // 2. Navigation / Tool Detection
+    if (/(ambulance kaise|book ambulance|रुग्णवाहिका कशी बुक|ambulance page)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "navigate_to_page", args: { target_page: "/ambulance", page_label: "Ambulance Dispatch" } });
+      }
+    } else if (/(doctor search|cardiologist|doctor kaise|डॉक्टर शोधा)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "search_doctor", args: { query: userQuery } });
+      }
+    } else if (/(hospital|रुग्णालय|दवाखाना|gmc|mayo)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "search_hospital", args: { query: userQuery } });
+      }
+    } else if (/(medicine|inventory|dawa|औषध|asv|paracetamol)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "get_medicine_availability", args: { medicine_name: userQuery } });
+      }
+    } else if (/(scheme|yojana|pmjay|mjpjay|योजना)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "get_government_scheme_information", args: { scheme_name: userQuery } });
+      }
+    } else if (/(anemia|dengue|blood pressure|bp|diabetes|malaria)/i.test(userQuery)) {
+      if (this.onToolCall) {
+        this.onToolCall({ name: "get_health_awareness_topic", args: { topic: userQuery } });
+      }
     }
 
     let responseText = "";
@@ -518,24 +594,28 @@ MANDATORY SPOKEN LANGUAGE RULE:
     try {
       const chatRes = await aiApi.chat({
         message: userQuery,
-        language: "mr",
-        conversationHistory: [],
+        query: userQuery,
+        language: detectedLang,
+        conversationHistory: this.conversationHistory.slice(-6),
       });
-      if (chatRes?.data?.message) {
-        responseText = chatRes.data.message;
+      const resData = chatRes?.data || chatRes;
+      const extracted = resData?.answer || resData?.response || resData?.message;
+      if (extracted && typeof extracted === "string" && extracted.trim()) {
+        responseText = extracted.trim();
       }
     } catch (e) {
-      console.warn("Backend chat failed in voice simulation, using resilient Marathi engine:", e);
+      console.warn("Backend chat failed in voice simulation, using resilient fallback engine:", e);
     }
 
     if (!responseText) {
-      const fb = getClientAiFallbackResponse(userQuery, "mr");
+      const fb = getClientAiFallbackResponse(userQuery, detectedLang);
       responseText = fb?.answer || fb?.message || "मी जीवनसेतू आरोग्य सहाय्यक आहे. अधिक माहितीसाठी सांगा, मी ऐकत आहे.";
     }
 
     if (this.onTranscript) {
       this.onTranscript({ sender: "assistant", text: responseText, isFinal: true });
     }
+    this.conversationHistory.push({ role: "assistant", content: responseText });
 
     this.speakLocalText(responseText, () => {
       if (this.isListeningActive && !this.isMuted) {
@@ -548,6 +628,13 @@ MANDATORY SPOKEN LANGUAGE RULE:
    * Speak response via robust browser SpeechSynthesis for local simulation in Marathi
    */
   speakLocalText(text, onComplete) {
+    this.lastSpokenText = text;
+
+    // Immediately stop speech recognition so speaker output is never fed back
+    try {
+      speechRecognitionService.stop();
+    } catch (e) {}
+
     textToSpeechService.speak(text, {
       language: this.language || "mr",
       rate: 0.95,
@@ -557,12 +644,16 @@ MANDATORY SPOKEN LANGUAGE RULE:
       },
       onEnd: () => {
         this.setState("LISTENING");
-        if (onComplete) onComplete();
+        setTimeout(() => {
+          if (onComplete) onComplete();
+        }, 500);
       },
       onError: (err) => {
         console.warn("TTS notice:", err);
         this.setState("LISTENING");
-        if (onComplete) onComplete();
+        setTimeout(() => {
+          if (onComplete) onComplete();
+        }, 500);
       },
     });
   }
