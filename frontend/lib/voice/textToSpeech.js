@@ -144,18 +144,13 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
       utterance.rate = rate || 0.90;
       utterance.pitch = pitch || 1.0;
 
-      // Set language locale explicitly
-      if (language === "mr") {
-        utterance.lang = "mr-IN";
-      } else if (language === "hi") {
-        utterance.lang = "hi-IN";
-      } else {
-        utterance.lang = "en-IN";
-      }
-
       const voice = this.getBestVoice(language);
       if (voice) {
         utterance.voice = voice;
+        utterance.lang = voice.lang || (language === "mr" ? "hi-IN" : "en-IN");
+      } else {
+        // If no explicit voice object is bound, default Marathi to hi-IN locale which SAPI/Chromium natively supports for Devanagari text
+        utterance.lang = language === "mr" ? "hi-IN" : language === "hi" ? "hi-IN" : "en-IN";
       }
 
       utterance.onstart = () => {
@@ -177,7 +172,13 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
         if (onError) onError(`Speech synthesis error: ${event.error}`);
       };
 
+      if (synth.paused) {
+        synth.resume();
+      }
       synth.speak(utterance);
+      if (synth.paused) {
+        synth.resume();
+      }
     } catch (err) {
       this._speaking = false;
       if (onError) onError(`Speech synthesis failed: ${err.message}`);

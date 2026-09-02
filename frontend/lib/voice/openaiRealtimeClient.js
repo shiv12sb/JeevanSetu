@@ -1,6 +1,7 @@
 import { aiApi } from "../api";
 import { getClientAiFallbackResponse } from "../services/clientAiFallback";
 import speechRecognitionService from "./speechRecognition";
+import textToSpeechService from "./textToSpeech";
 
 export class OpenAIRealtimeVoiceClient {
   constructor() {
@@ -357,9 +358,7 @@ MANDATORY SPOKEN LANGUAGE RULE:
       });
     }
 
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
+    textToSpeechService.stop();
   }
 
   /**
@@ -546,34 +545,26 @@ MANDATORY SPOKEN LANGUAGE RULE:
   }
 
   /**
-   * Speak response via browser SpeechSynthesis for local simulation in Marathi
+   * Speak response via robust browser SpeechSynthesis for local simulation in Marathi
    */
   speakLocalText(text, onComplete) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      if (onComplete) onComplete();
-      return;
-    }
-
-    window.speechSynthesis.cancel();
-    // Clean markdown asterisks and hash symbols from spoken text
-    const cleanSpokenText = text.replace(/[*#_`]/g, "").trim();
-
-    const utterance = new SpeechSynthesisUtterance(cleanSpokenText);
-    const langMap = { mr: "mr-IN", hi: "hi-IN", en: "en-IN" };
-    utterance.lang = langMap[this.language] || "mr-IN";
-    utterance.rate = 1.0;
-
-    utterance.onstart = () => this.setState("SPEAKING");
-    utterance.onend = () => {
-      this.setState("LISTENING");
-      if (onComplete) onComplete();
-    };
-    utterance.onerror = () => {
-      this.setState("LISTENING");
-      if (onComplete) onComplete();
-    };
-
-    window.speechSynthesis.speak(utterance);
+    textToSpeechService.speak(text, {
+      language: this.language || "mr",
+      rate: 0.95,
+      pitch: 1.0,
+      onStart: () => {
+        this.setState("SPEAKING");
+      },
+      onEnd: () => {
+        this.setState("LISTENING");
+        if (onComplete) onComplete();
+      },
+      onError: (err) => {
+        console.warn("TTS notice:", err);
+        this.setState("LISTENING");
+        if (onComplete) onComplete();
+      },
+    });
   }
 
   /**
@@ -581,6 +572,7 @@ MANDATORY SPOKEN LANGUAGE RULE:
    */
   stop() {
     this.isListeningActive = false;
+    textToSpeechService.stop();
 
     if (this.animFrameId) {
       cancelAnimationFrame(this.animFrameId);
