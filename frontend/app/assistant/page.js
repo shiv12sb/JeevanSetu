@@ -630,22 +630,14 @@ export function AssistantPage() {
               }}
               className="p-3 sm:p-4 bg-white dark:bg-slate-950/90 backdrop-blur-2xl border-t border-slate-200 dark:border-white/10 flex items-center gap-2.5"
             >
-              {/* Prominent Voice Microphone Button */}
+              {/* Prominent Voice Microphone Button — Launches OpenAI Realtime Voice AI */}
               <button
                 type="button"
-                onClick={voiceState === "LISTENING" ? handleStopListening : handleStartListening}
-                className={`p-3 rounded-2xl flex items-center justify-center transition-all duration-200 shrink-0 min-h-[44px] min-w-[44px] cursor-pointer shadow-md ${
-                  voiceState === "LISTENING"
-                    ? "bg-rose-600 text-white animate-pulse shadow-rose-500/40"
-                    : "bg-teal-500/10 hover:bg-teal-500/20 text-teal-700 dark:text-teal-300 border border-teal-500/30"
-                }`}
-                title="Tap to speak in Marathi, Hindi or English"
+                onClick={() => setIsLiveVoiceOpen(true)}
+                className="p-3 rounded-2xl flex items-center justify-center transition-all duration-200 shrink-0 min-h-[44px] min-w-[44px] cursor-pointer shadow-md bg-gradient-to-r from-teal-500/15 to-emerald-500/15 hover:from-teal-500/25 hover:to-emerald-500/25 text-teal-700 dark:text-teal-300 border border-teal-500/40 hover:scale-105 active:scale-95"
+                title="Open Real-Time Voice AI (मराठी/हिन्दी/English)"
               >
-                {voiceState === "LISTENING" ? (
-                  <MicOff className="w-5 h-5" />
-                ) : (
-                  <Mic className="w-5 h-5 text-teal-600 dark:text-teal-400" />
-                )}
+                <Mic className="w-5 h-5 text-teal-600 dark:text-teal-400" />
               </button>
 
               <input

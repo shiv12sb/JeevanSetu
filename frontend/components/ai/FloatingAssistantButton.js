@@ -418,20 +418,14 @@ export function FloatingAssistantButton() {
 
           {/* Input Bar */}
           <div className="p-2.5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-1.5">
-            {speechRecognitionService.isSupported() && (
-              <button
-                type="button"
-                onClick={voiceState === "LISTENING" ? handleStopListening : handleStartListening}
-                className={`p-2 rounded-xl border transition-colors cursor-pointer shrink-0 ${
-                  voiceState === "LISTENING"
-                    ? "bg-rose-600 text-white border-rose-700 animate-pulse"
-                    : "bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800 hover:bg-teal-100"
-                }`}
-                title="Speak question"
-              >
-                <Mic className="w-4 h-4" />
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => setIsLiveVoiceOpen(true)}
+              className="p-2 rounded-xl border bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900 transition-colors cursor-pointer shrink-0 shadow-xs"
+              title="Open Real-Time Voice AI (मराठी/हिन्दी/English)"
+            >
+              <Mic className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+            </button>
 
             <input
               type="text"
@@ -439,7 +433,7 @@ export function FloatingAssistantButton() {
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-              disabled={isTyping || voiceState === "LISTENING"}
+              disabled={isTyping}
               className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-teal-500 text-slate-900 dark:text-white"
             />
 
@@ -455,8 +449,8 @@ export function FloatingAssistantButton() {
         </div>
       )}
 
-      {/* Real-time Gemini Voice Conversation Modal */}
-      <GeminiLiveVoiceModal
+      {/* Real-time OpenAI GPT-Realtime Voice Conversation Modal */}
+      <RealtimeVoiceModal
         isOpen={isLiveVoiceOpen}
         onClose={() => setIsLiveVoiceOpen(false)}
         initialLanguage={language || "mr"}

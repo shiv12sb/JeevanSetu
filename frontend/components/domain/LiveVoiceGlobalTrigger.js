@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import { OneOnOneVoiceCallScreen } from "@/components/domain/OneOnOneVoiceCallScreen";
+import { RealtimeVoiceModal } from "@/components/ai/RealtimeVoiceModal";
 import { PhoneCall } from "lucide-react";
 
 export function LiveVoiceGlobalTrigger() {
@@ -29,7 +29,7 @@ export function LiveVoiceGlobalTrigger() {
         <button
           type="button"
           onClick={() => setIsCallOpen(true)}
-          className="flex items-center gap-2.5 px-5 py-3.5 bg-linear-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm rounded-full shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all border-2 border-white/30 cursor-pointer"
+          className="flex items-center gap-2.5 px-5 py-3.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm rounded-full shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all border-2 border-white/30 cursor-pointer"
           title="Direct 1-on-1 Marathi Voice Call (वाचता येत नसलेल्यांसाठी)"
         >
           <span className="relative flex h-3 w-3">
@@ -44,11 +44,11 @@ export function LiveVoiceGlobalTrigger() {
         </button>
       </div>
 
-      {/* 1-on-1 Real-time Marathi Voice Call Screen */}
-      <OneOnOneVoiceCallScreen
+      {/* 1-on-1 Real-time OpenAI GPT-Realtime Voice Call Modal */}
+      <RealtimeVoiceModal
         isOpen={isCallOpen}
         onClose={() => setIsCallOpen(false)}
-        defaultLanguage="mr"
+        initialLanguage="mr"
       />
     </>
   );
