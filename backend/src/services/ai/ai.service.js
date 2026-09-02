@@ -42,11 +42,13 @@ class AIService {
     // 1. Language Auto-Detection if not explicitly set or if message is in vernacular
     let lang = ["en", "hi", "mr"].includes(language) ? language : "mr";
     if (typeof message === "string") {
-      if (/[\u0900-\u097F]/.test(message)) {
-        lang = /(आहे|नाही|झाले|औषध|रुग्ण|रुग्णालय|करावे|कुठे|कधी|सांगा)/.test(message) ? "mr" : "hi";
+      if (/(आहे|नाही|झाले|औषध|रुग्ण|रुग्णालय|करावे|कुठे|कधी|सांगा|मला|माहिती|दवाखाना|तपासणी|डॉक्टर|उपचार|योजना)/.test(message)) {
+        lang = "mr";
+      } else if (/(है|हूँ|हो|कृपया|कहाँ|चाहिए|कीजिए|नमस्ते|मुझे|अस्पताल)/.test(message)) {
+        lang = "hi";
       } else if (/(kya karu|kaise|kaunsa|kidhar|chahiye|bukhar|dawa)/i.test(message)) {
         lang = "hi";
-      } else if (/(kay karu|kasa|kuthe|hava|tap|aushadh)/i.test(message)) {
+      } else if (/(kay karu|kasa|kuthe|hava|tap|aushadh|mala)/i.test(message)) {
         lang = "mr";
       }
     }

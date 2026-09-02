@@ -1,13 +1,6 @@
-/**
- * ==============================================================================
- * JEEVANSETU OPENAI REALTIME WEBRTC VOICE CLIENT
- * ==============================================================================
- * Production WebRTC audio streaming manager with ephemeral session tokens,
- * automatic tool calling, real-time waveform analysis, and seamless barge-in interruption.
- */
-
 import { aiApi } from "../api";
 import { getClientAiFallbackResponse } from "../services/clientAiFallback";
+import speechRecognitionService from "./speechRecognition";
 
 export class OpenAIRealtimeVoiceClient {
   constructor() {
@@ -21,8 +14,10 @@ export class OpenAIRealtimeVoiceClient {
 
     this.state = "IDLE"; // 'IDLE' | 'CONNECTING' | 'LISTENING' | 'THINKING' | 'SPEAKING' | 'ERROR' | 'DISCONNECTED'
     this.language = "mr";
+    this.voice = "alloy";
     this.isMuted = false;
     this.isDevSimulation = false;
+    this.isListeningActive = false;
 
     // Callbacks
     this.onStateChange = null;
@@ -55,7 +50,8 @@ export class OpenAIRealtimeVoiceClient {
     onToolCall,
     onEmergency,
   } = {}) {
-    this.language = language;
+    this.language = language || "mr";
+    this.voice = voice || "alloy";
     this.onStateChange = onStateChange;
     this.onTranscript = onTranscript;
     this.onAudioLevel = onAudioLevel;
@@ -69,7 +65,7 @@ export class OpenAIRealtimeVoiceClient {
       // 1. Obtain ephemeral session token from backend (Server-Side OpenAI Key)
       const sessionResponse = await aiApi.createRealtimeSession({
         language: this.language,
-        voice,
+        voice: this.voice,
       });
 
       const sessionData = sessionResponse?.data || {};
@@ -94,7 +90,6 @@ export class OpenAIRealtimeVoiceClient {
       if (!ephemeralKey || sessionData.is_dev_simulation) {
         // Run in verified local simulation mode
         this.isDevSimulation = true;
-        this.setState("LISTENING");
         this.startLocalSimulationMode();
         return;
       }
@@ -103,9 +98,9 @@ export class OpenAIRealtimeVoiceClient {
       await this.initiateWebRTCConnection(ephemeralKey, sessionData.model || "gpt-4o-realtime-preview");
     } catch (err) {
       console.warn("Realtime WebRTC voice startup error, attempting graceful fallback:", err);
-      if (this.onError) this.onError(err.message || "Failed to start voice session");
-      this.setState("ERROR");
-      this.stop();
+      // Fallback to local simulation mode if WebRTC negotiation fails
+      this.isDevSimulation = true;
+      this.startLocalSimulationMode();
     }
   }
 
@@ -138,6 +133,33 @@ export class OpenAIRealtimeVoiceClient {
 
     dc.onopen = () => {
       this.setState("LISTENING");
+
+      // Configure OpenAI Realtime session with strict Marathi default
+      this.sendDataChannelEvent({
+        type: "session.update",
+        session: {
+          modalities: ["audio", "text"],
+          instructions: `You are JeevanSetu Healthcare AI Voice Assistant for Maharashtra.
+MANDATORY SPOKEN LANGUAGE RULE:
+1. You MUST ALWAYS speak in authentic, natural MARATHI (मराठी) by default.
+2. Speak in standard, polite Devanagari Marathi with clear pronunciation.
+3. When greeting, explaining doctor schedules, hospital beds, medicines, 108 emergency, or PM-JAY schemes, ALWAYS speak in Marathi.
+4. Only switch to Hindi or English if the user explicitly addresses you in Hindi or English.`,
+          voice: this.voice || "alloy",
+          input_audio_transcription: {
+            model: "whisper-1",
+            language: "mr",
+          },
+        },
+      });
+
+      // Trigger Marathi opening response
+      this.sendDataChannelEvent({
+        type: "response.create",
+        response: {
+          instructions: "Greet the user warmly in spoken Marathi: 'नमस्कार! मी जीवनसेतू आरोग्य सहाय्यक आहे. मी आपल्याला महाराष्ट्रातील डॉक्टर, १०८ रुग्णवाहिका, शासकीय योजना आणि औषध साठ्याविषयी माहिती देऊ शकतो. सांगा, मी आपली काय मदत करू?'",
+        },
+      });
     };
 
     dc.onmessage = (event) => {
@@ -277,6 +299,9 @@ export class OpenAIRealtimeVoiceClient {
           // Trigger assistant spoken response grounded in tool output
           this.sendDataChannelEvent({
             type: "response.create",
+            response: {
+              instructions: "Speak the response in authentic Marathi (मराठी) grounded in the tool output.",
+            },
           });
         } catch (toolErr) {
           console.warn(`Error executing tool ${name}:`, toolErr);
@@ -290,6 +315,9 @@ export class OpenAIRealtimeVoiceClient {
           });
           this.sendDataChannelEvent({
             type: "response.create",
+            response: {
+              instructions: "Speak in authentic Marathi (मराठी) informing the user about the error clearly.",
+            },
           });
         }
         break;
@@ -344,6 +372,13 @@ export class OpenAIRealtimeVoiceClient {
         t.enabled = !muted;
       });
     }
+    if (this.isDevSimulation) {
+      if (muted) {
+        speechRecognitionService.stop();
+      } else {
+        this.startLocalListening();
+      }
+    }
   }
 
   /**
@@ -397,39 +432,146 @@ export class OpenAIRealtimeVoiceClient {
    * Local Simulation Fallback (when offline or running without live OpenAI credentials)
    */
   startLocalSimulationMode() {
-    if (this.onTranscript) {
-      const welcomeMap = {
-        mr: "नमस्कार! मी आपला जीवनसेतू रिअल-टाइम व्हॉईस सहाय्यक आहे. मी आपल्याला महाराष्ट्रातील डॉक्टर, १०८ रुग्णवाहिका, शासकीय योजना आणि औषध साठ्याविषयी अचूक माहिती देऊ शकतो. विचारा.",
-        hi: "नमस्ते! मैं आपका जीवनसेतु रियल-टाइम वॉइस असिस्टेंट हूँ। मैं आपको महाराष्ट्र के डॉक्टरों, 108 एम्बुलेंस और सरकारी योजनाओं की सटीक जानकारी दे सकता हूँ। पूछिए।",
-        en: "Hello! I am your JeevanSetu Realtime Voice Assistant. I can help you find verified doctors, 108 ambulances, and government schemes in Maharashtra. How can I help you today?",
-      };
+    this.isListeningActive = true;
+    const welcomeText = "नमस्कार! मी आपला जीवनसेतू रिअल-टाइम व्हॉईस सहाय्यक आहे. मी आपल्याला महाराष्ट्रातील डॉक्टर, १०८ रुग्णवाहिका, शासकीय योजना आणि औषध साठ्याविषयी अचूक माहिती देऊ शकतो. सांगा, मी आपली काय मदत करू?";
 
-      const welcomeText = welcomeMap[this.language] || welcomeMap.mr;
+    if (this.onTranscript) {
       this.onTranscript({
         sender: "assistant",
         text: welcomeText,
         isFinal: true,
       });
-
-      this.speakLocalText(welcomeText);
     }
+
+    this.speakLocalText(welcomeText, () => {
+      if (this.isListeningActive && !this.isMuted) {
+        this.startLocalListening();
+      }
+    });
   }
 
   /**
-   * Speak response via browser SpeechSynthesis for local simulation
+   * Listen to user speech in Marathi via browser SpeechRecognition during local simulation
    */
-  speakLocalText(text) {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  startLocalListening() {
+    if (!this.isListeningActive || this.isMuted) return;
+
+    this.setState("LISTENING");
+
+    speechRecognitionService.start({
+      language: this.language || "mr",
+      onStart: () => {
+        this.setState("LISTENING");
+      },
+      onResult: ({ transcript, isFinal }) => {
+        if (transcript && this.onTranscript) {
+          this.onTranscript({ sender: "user", text: transcript });
+        }
+
+        if (isFinal && transcript.trim()) {
+          speechRecognitionService.stop();
+          this.processLocalUserQuery(transcript.trim());
+        }
+      },
+      onError: (err) => {
+        console.warn("Simulation voice recognition warning:", err);
+        if (this.isListeningActive && !this.isMuted) {
+          setTimeout(() => {
+            if (this.state === "LISTENING") {
+              this.startLocalListening();
+            }
+          }, 800);
+        }
+      },
+      onEnd: () => {
+        if (this.state === "LISTENING" && this.isListeningActive && !this.isMuted) {
+          setTimeout(() => {
+            this.startLocalListening();
+          }, 400);
+        }
+      },
+    });
+  }
+
+  /**
+   * Process query in local simulation and respond in Marathi
+   */
+  async processLocalUserQuery(userQuery) {
+    this.setState("THINKING");
+
+    // Emergency Preemption Check
+    if (/(हार्ट अटॅक|साप चावला|सर्पदंश|छातीत कळा|रक्तस्त्राव|बेशुद्ध|heart attack|chest pain|snake bite)/i.test(userQuery)) {
+      if (this.onEmergency) {
+        this.onEmergency({ text: userQuery, helpline: "108" });
+      }
+      const emergencyAnswer = "ही तातडीची आपत्कालीन स्थिती असू शकते! रुग्णाला अजिबात हलवू नका आणि त्वरित १०८ या मोफत शासकीय रुग्णवाहिकेला कॉल करा. जीवनसेतुने अतिदक्षता कक्ष सतर्क केला आहे.";
+      if (this.onTranscript) {
+        this.onTranscript({ sender: "assistant", text: emergencyAnswer, isFinal: true });
+      }
+      this.speakLocalText(emergencyAnswer, () => {
+        this.startLocalListening();
+      });
+      return;
+    }
+
+    let responseText = "";
+
+    try {
+      const chatRes = await aiApi.chat({
+        message: userQuery,
+        language: "mr",
+        conversationHistory: [],
+      });
+      if (chatRes?.data?.message) {
+        responseText = chatRes.data.message;
+      }
+    } catch (e) {
+      console.warn("Backend chat failed in voice simulation, using resilient Marathi engine:", e);
+    }
+
+    if (!responseText) {
+      const fb = getClientAiFallbackResponse(userQuery, "mr");
+      responseText = fb?.answer || fb?.message || "मी जीवनसेतू आरोग्य सहाय्यक आहे. अधिक माहितीसाठी सांगा, मी ऐकत आहे.";
+    }
+
+    if (this.onTranscript) {
+      this.onTranscript({ sender: "assistant", text: responseText, isFinal: true });
+    }
+
+    this.speakLocalText(responseText, () => {
+      if (this.isListeningActive && !this.isMuted) {
+        this.startLocalListening();
+      }
+    });
+  }
+
+  /**
+   * Speak response via browser SpeechSynthesis for local simulation in Marathi
+   */
+  speakLocalText(text, onComplete) {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      if (onComplete) onComplete();
+      return;
+    }
 
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Clean markdown asterisks and hash symbols from spoken text
+    const cleanSpokenText = text.replace(/[*#_`]/g, "").trim();
+
+    const utterance = new SpeechSynthesisUtterance(cleanSpokenText);
     const langMap = { mr: "mr-IN", hi: "hi-IN", en: "en-IN" };
     utterance.lang = langMap[this.language] || "mr-IN";
     utterance.rate = 1.0;
 
     utterance.onstart = () => this.setState("SPEAKING");
-    utterance.onend = () => this.setState("LISTENING");
-    utterance.onerror = () => this.setState("LISTENING");
+    utterance.onend = () => {
+      this.setState("LISTENING");
+      if (onComplete) onComplete();
+    };
+    utterance.onerror = () => {
+      this.setState("LISTENING");
+      if (onComplete) onComplete();
+    };
 
     window.speechSynthesis.speak(utterance);
   }
@@ -438,6 +580,8 @@ export class OpenAIRealtimeVoiceClient {
    * Stop and cleanup all resources
    */
   stop() {
+    this.isListeningActive = false;
+
     if (this.animFrameId) {
       cancelAnimationFrame(this.animFrameId);
       this.animFrameId = null;
@@ -472,6 +616,8 @@ export class OpenAIRealtimeVoiceClient {
       this.remoteAudioElement.srcObject = null;
       this.remoteAudioElement = null;
     }
+
+    speechRecognitionService.stop();
 
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
