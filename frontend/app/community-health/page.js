@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
@@ -19,6 +20,7 @@ import {
   Plus, 
   Printer, 
   ChevronRight, 
+  ArrowRight,
   X,
   Volume2
 } from "lucide-react";
@@ -62,43 +64,153 @@ export function CommunityHealthPage() {
       }
     } catch (err) {
       console.warn("Campaigns API failed, falling back to mock campaigns:", err);
-      // Fallback mocks
+      // Fallback mocks backed by authentic local high-definition working pictures
       const mockList = [
         {
           id: "camp-1",
-          title: "Monsoon Disease Prevention Advisory",
-          message: "Protect your family from Dengue, Malaria, and Waterborne infections. Keep water storage containers tightly covered, use mosquito nets, discard stagnant water around your premises, and drink boiled water. Seek immediate care at the nearest PHC if fever develops.",
-          image_url: "https://images.unsplash.com/photo-1584036561566-baf241883c4e?w=800&auto=format&fit=crop",
-          language: "en",
-          publish_date: new Date(Date.now() - 432000000).toISOString(),
-          valid_until: new Date(Date.now() + 2592000000).toISOString(),
-          official_source: "Directorate of Health Services, Government of Maharashtra",
-          emergency_contact: "104 (Health Helpline) / 108 (Ambulance)",
-          targets: [{ state: "Maharashtra", district: "Nagpur" }]
-        },
-        {
-          id: "camp-2",
-          title: "पावसाळी आजार प्रतिबंधक मार्गदर्शक सूचना",
-          message: "डेंग्यू, हिवताप आणि गॅस्ट्रोपासून स्वतःचे संरक्षण करा. पाणी साठवलेली भांडी झाकून ठेवा, साचलेले पाणी रिकामे करा, डास प्रतिबंधक जाळ्यांचा वापर करा. ताप आल्यास तात्काळ जवळच्या प्राथमिक आरोग्य केंद्राशी (PHC) संपर्क साधा.",
-          image_url: "https://images.unsplash.com/photo-1584036561566-baf241883c4e?w=800&auto=format&fit=crop",
+          title: "पावसाळी आजार व डेंग्यू-हिवताप प्रतिबंधक मोहीम",
+          message: "डेंग्यू, हिवताप (मलेरिया) आणि गॅस्ट्रोपासून कुटुंबाचे रक्षण करा. पाण्याची भांडी झाकून ठेवा, साचलेले पाणी त्वरित रिकामे करा, मच्छरदाणीचा वापर करा आणि पिण्याचे पाणी किमान १० मिनिटे खळखळून उकळूनच प्या. ताप किंवा थंडी वाजल्यास तात्काळ जवळच्या प्राथमिक आरोग्य केंद्राशी (PHC) संपर्क साधा.",
+          image_url: "/images/awareness/monsoon_dengue.jpg",
           language: "mr",
-          publish_date: new Date(Date.now() - 432000000).toISOString(),
+          publish_date: new Date(Date.now() - 172800000).toISOString(),
           valid_until: new Date(Date.now() + 2592000000).toISOString(),
           official_source: "सार्वजनिक आरोग्य विभाग, महाराष्ट्र शासन",
           emergency_contact: "१०४ (आरोग्य सल्ला) / १०८ (रुग्णवाहिका)",
           targets: [{ state: "Maharashtra", district: "Nagpur" }]
         },
         {
+          id: "camp-2",
+          title: "सर्पदंश प्रथमोपचार व मोफत अँटी-स्नेक व्हेनम (ASV)",
+          message: "साप चावल्यास घाबरू नका! दंशाच्या जागेवर काप मारू नका, रक्त चोखू नका किंवा घट्ट दोरी बांधू नका. बाधित अवयव हालचाल न करता लाकडी पट्टीने स्थिर बांधा आणि तात्काळ १०८ रुग्णवाहिकेला कॉल करा. सर्व प्राथमिक आरोग्य केंद्र (PHC), ग्रामीण रुग्णालय व GMC मध्ये अँटी-स्नेक व्हेनम (ASV) मोफत उपलब्ध आहे.",
+          image_url: "/images/awareness/snakebite_firstaid.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 259200000).toISOString(),
+          valid_until: new Date(Date.now() + 5184000000).toISOString(),
+          official_source: "राष्ट्रीय आरोग्य अभियान (NHM), महाराष्ट्र",
+          emergency_contact: "१०८ (मोफत आपत्कालीन रुग्णवाहिका)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
           id: "camp-3",
-          title: "Mission Indradhanush: Child Immunization",
-          message: "Ensure full vaccination protection for all infants under 2 years and pregnant women. Vaccines against Polio, Measles, Rubella, and Tetanus are provided 100% free at all sub-centres and PHCs. Contact your village ASHA worker for details.",
-          image_url: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=800&auto=format&fit=crop",
-          language: "en",
+          title: "मिशन इंद्रधनुष: बालकांचे संपूर्ण व वेळेवर मोफत लसीकरण",
+          message: "पोलिओ, गोवर, रुबेला, धनुर्वात आणि न्यूमोनिया यांसारख्या गंभीर आजारांपासून आपल्या बाळाचे रक्षण करण्यासाठी अंगणवाडी व प्राथमिक आरोग्य केंद्रात (PHC) मोफत लस टोचून घ्या. जन्मानंतर २४ तासांच्या आत बीसीजी व पोलिओचा डोस अवश्य द्या.",
+          image_url: "/images/awareness/childhood_immunization.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 432000000).toISOString(),
+          valid_until: new Date(Date.now() + 3456000000).toISOString(),
+          official_source: "कुटुंब कल्याण संचालनालय, महाराष्ट्र",
+          emergency_contact: "१०४ / आशा सेविका",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-4",
+          title: "गर्भावस्थेतील पोषण, नियमित तपासणी व जननी सुरक्षा (JSSK)",
+          message: "गरोदरपणात किमान ४ प्रसवपूर्व तपासण्या (ANC) शासकीय केंद्रात करून घ्या. ॲनिमिया टाळण्यासाठी आयर्न व फॉलिक ॲसिडच्या गोळ्या नियमित घ्या. JSSK अंतर्गत १००% मोफत सुरक्षित प्रसूती व मोफत १०२ रुग्णवाहिका प्रवास उपलब्ध आहे.",
+          image_url: "/images/awareness/maternal_child_care.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 518400000).toISOString(),
+          valid_until: new Date(Date.now() + 2592000000).toISOString(),
+          official_source: "मातृ व बाल आरोग्य कक्ष, महाराष्ट्र शासन",
+          emergency_contact: "१०२ (JSSK) / १०८ (आपत्कालीन)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-5",
+          title: "कर्करोग पूर्वतपासणी व महात्मा फुले जन आरोग्य योजना (MJPJAY)",
+          message: "तोंडातील न भरणारे व्रण, स्तनातील गाठ किंवा अचानक वजन कमी होणे या लक्षणांकडे दुर्लक्ष करू नका. शासकीय वैद्यकीय महाविद्यालय (GMC नागपूर) व RST कॅन्सर हॉस्पिटलमध्ये MJPJAY अंतर्गत ₹५ लाख रुपयांपर्यंत मोफत कॅशलेस उपचार उपलब्ध आहेत.",
+          image_url: "/images/awareness/cancer_screening.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 604800000).toISOString(),
+          valid_until: new Date(Date.now() + 7776000000).toISOString(),
+          official_source: "राज्य आरोग्य हमी सोसायटी, महाराष्ट्र",
+          emergency_contact: "१०४ (MJPJAY माहिती कक्ष)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-6",
+          title: "उच्च रक्तदाब व मधुमेह नियंत्रण: मासिक मोफत NCD तपासणी",
+          message: "रक्तदाब आणि साखर विकार सुरुवातीला कोणतीही लक्षणे दाखवत नाहीत. हृदयविकार व पक्षाघात टाळण्यासाठी दरमहा जवळच्या प्राथमिक आरोग्य केंद्रातील (PHC) NCD क्लिनिकमध्ये मोफत तपासणी करा आणि मिठाचे प्रमाण कमी ठेवा.",
+          image_url: "/images/awareness/hypertension_diabetes.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 691200000).toISOString(),
+          valid_until: new Date(Date.now() + 5184000000).toISOString(),
+          official_source: "राष्ट्रीय असंसर्गजन्य रोग नियंत्रण कार्यक्रम",
+          emergency_contact: "१०८ (हृदयविकार आपत्कालीन)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-7",
+          title: "१०८ मोफत आपत्कालीन रुग्णवाहिका: २४x७ जीवनरक्षक सेवा",
+          message: "कोणत्याही गंभीर अपघातात, हृदयविकारात किंवा प्रसूतीच्या वेळी तात्काळ १०८ डायल करा. ऑक्सिजन, व्हेंटिलेटर आणि प्रशिक्षित डॉक्टरसह सुसज्ज रुग्णवाहिका थेट आपल्या गावात पोहोचते. हा कॉल व सेवा १००% मोफत आहे.",
+          image_url: "/images/awareness/emergency_108.jpg",
+          language: "mr",
+          publish_date: new Date(Date.now() - 777600000).toISOString(),
+          valid_until: new Date(Date.now() + 8640000000).toISOString(),
+          official_source: "महाराष्ट्र आपत्कालीन वैद्यकीय सेवा (MEMS 108)",
+          emergency_contact: "१०८ थेट डायल करा",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-8",
+          title: "टेलि-मानस (१४४१६): २४ तास मोफत व गोपनीय मानसिक समुपदेशन",
+          message: "ताणतणाव, नैराश्य किंवा कौटुंबिक चिंतेच्या वेळी एकटे राहू नका. टेलि-मानस टोल-फ्री क्रमांक १४४१६ वर आपल्या मातृभाषेत तज्ज्ञ मानसोपचारतज्ज्ञांशी मोकळेपणाने बोला. आपली ओळख पूर्णपणे गोपनीय ठेवली जाते.",
+          image_url: "/images/awareness/mental_health.jpg",
+          language: "mr",
           publish_date: new Date(Date.now() - 864000000).toISOString(),
-          valid_until: new Date(Date.now() + 1296000000).toISOString(),
+          valid_until: new Date(Date.now() + 8640000000).toISOString(),
+          official_source: "आरोग्य व कुटुंब कल्याण मंत्रालय (MoHFW) / NIMHANS",
+          emergency_contact: "१४४१६ (टोल-फ्री २४x७)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        // English Campaigns
+        {
+          id: "camp-9",
+          title: "Snakebite First Aid & Free Anti-Snake Venom (ASV) Protocol",
+          message: "Snakebite is a medical emergency! Never cut, suck, or tie tight tourniquets. Immobilize the bitten limb with a splint, keep patient calm, and call 108 immediately. Anti-Snake Venom (ASV) is freely stocked at all PHCs and District Hospitals.",
+          image_url: "/images/awareness/snakebite_firstaid.jpg",
+          language: "en",
+          publish_date: new Date(Date.now() - 172800000).toISOString(),
+          valid_until: new Date(Date.now() + 5184000000).toISOString(),
+          official_source: "Directorate of Health Services, Government of Maharashtra",
+          emergency_contact: "108 (Toll-Free Ambulance)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-10",
+          title: "Monsoon Precautions: Dengue, Malaria & Clean Drinking Water",
+          message: "Protect your household from mosquito breeding. Observe weekly dry days, cover water pots, sleep under bed nets, and always drink boiled water. Use ORS immediately at the onset of diarrheal symptoms.",
+          image_url: "/images/awareness/monsoon_dengue.jpg",
+          language: "en",
+          publish_date: new Date(Date.now() - 259200000).toISOString(),
+          valid_until: new Date(Date.now() + 2592000000).toISOString(),
           official_source: "National Health Mission, Maharashtra",
-          emergency_contact: "108 / 102 (JSSK Helpline)",
-          targets: []
+          emergency_contact: "104 (Health Helpline) / 108",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        // Hindi Campaigns
+        {
+          id: "camp-11",
+          title: "सर्पदंश प्राथमिक उपचार और सरकारी अस्पतालों में मुफ्त ASV",
+          message: "सांप काटने पर घबराएं नहीं। काटे गए अंग पर चीरा न लगाएं, न ही कसकर धागा बांधें। तुरंत अंग को लकड़ी की पट्टी से स्थिर रखें और 108 एम्बुलेंस से नजदीकी प्राथमिक स्वास्थ्य केंद्र (PHC) पहुंचे जहां एंटी-वेनम (ASV) मुफ्त मिलता है।",
+          image_url: "/images/awareness/snakebite_firstaid.jpg",
+          language: "hi",
+          publish_date: new Date(Date.now() - 172800000).toISOString(),
+          valid_until: new Date(Date.now() + 5184000000).toISOString(),
+          official_source: "राष्ट्रीय स्वास्थ्य मिशन, महाराष्ट्र",
+          emergency_contact: "108 (मुफ्त आपातकालीन एम्बुलेंस)",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
+        },
+        {
+          id: "camp-12",
+          title: "कैंसर की शुरुआती पहचान और MJPJAY के तहत ₹5 लाख मुफ्त इलाज",
+          message: "मुंह में न भरने वाले छाले, गांठ या तेजी से वजन घटने पर तुरंत डॉक्टर से जांच करवाएं। सरकारी मेडिकल कॉलेज (GMC नागपुर) में MJPJAY व आयुष्मान भारत के तहत बायोप्सी, कीमोथेरेपी और सर्जरी 100% मुफ्त है।",
+          image_url: "/images/awareness/cancer_screening.jpg",
+          language: "hi",
+          publish_date: new Date(Date.now() - 345600000).toISOString(),
+          valid_until: new Date(Date.now() + 7776000000).toISOString(),
+          official_source: "राज्य स्वास्थ्य सुरक्षा समिति, महाराष्ट्र",
+          emergency_contact: "104 / 108",
+          targets: [{ state: "Maharashtra", district: "Nagpur" }]
         }
       ];
       setCampaigns(mockList);
@@ -178,33 +290,57 @@ export function CommunityHealthPage() {
           </div>
 
           {/* Actual Poster Layout */}
-          <div className="border-8 border-teal-600 p-8 rounded-3xl flex-1 flex flex-col justify-between max-w-4xl mx-auto w-full bg-white text-slate-900 print:border-4 print:p-4">
-            <div className="text-center space-y-4">
+          <div className="border-8 border-teal-600 p-8 rounded-3xl flex-1 flex flex-col justify-between max-w-4xl mx-auto w-full bg-white text-slate-900 print:border-4 print:p-4 shadow-xl">
+            <div className="text-center space-y-3">
               <div className="flex items-center justify-center gap-2">
-                <div className="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-extrabold text-lg">J</div>
-                <h1 className="text-xl font-bold tracking-tight">JeevanSetu Public Health Advisory</h1>
+                <div className="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white font-extrabold text-lg shadow-sm">J</div>
+                <h1 className="text-xl font-black tracking-tight text-teal-950">JeevanSetu Public Health Advisory • जीवनसेतू</h1>
               </div>
+              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">
+                सार्वजनिक आरोग्य व कुटुंब कल्याण विभाग • Government of Maharashtra
+              </p>
               <hr className="border-teal-600/30" />
             </div>
 
-            <div className="my-8 text-center space-y-6">
-              <h2 className="text-3xl font-extrabold tracking-tight text-teal-800 uppercase md:text-4xl">{activePosterCampaign.title}</h2>
-              <p className="text-lg leading-relaxed text-slate-700 font-medium px-4 md:px-12 whitespace-pre-line">{activePosterCampaign.message}</p>
+            {/* High-Resolution Campaign Picture */}
+            {activePosterCampaign.image_url && (
+              <div className="w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-md my-4 border-2 border-teal-100 bg-slate-950">
+                <img 
+                  src={activePosterCampaign.image_url} 
+                  alt={activePosterCampaign.title}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            )}
+
+            <div className="my-4 text-center space-y-4">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-teal-900 uppercase">
+                {activePosterCampaign.title}
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-slate-700 font-medium px-2 md:px-8 whitespace-pre-line">
+                {activePosterCampaign.message}
+              </p>
             </div>
 
-            <div className="bg-teal-50 border-2 border-teal-200 rounded-2xl p-6 text-center space-y-3">
-              <p className="text-xs font-bold text-teal-800 uppercase tracking-wider">🚨 Dynamic Emergency Contacts</p>
-              <p className="text-2xl font-black text-rose-600 tracking-wide">{activePosterCampaign.emergency_contact || "104 (Health Help) / 108 (Ambulance)"}</p>
-              <p className="text-[10px] text-slate-500 font-semibold">Immediate routing provided without cellular smartphone. Dial from any keypad device.</p>
+            <div className="bg-teal-50 border-2 border-teal-200 rounded-2xl p-5 text-center space-y-2">
+              <p className="text-xs font-bold text-teal-800 uppercase tracking-wider">🚨 आपत्कालीन व वैद्यकीय मदत / Emergency Helplines</p>
+              <p className="text-2xl sm:text-3xl font-black text-rose-600 tracking-wide">
+                {activePosterCampaign.emergency_contact || "104 (Health Help) / 108 (Ambulance)"}
+              </p>
+              <p className="text-[11px] text-slate-600 font-semibold">
+                मोफत २४x७ शासकीय सेवा. कोणत्याही साध्या फोनवरून अथवा मोबाईलवरून थेट डायल करा.
+              </p>
             </div>
 
-            <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-[11px] text-slate-500 font-bold">
+            <div className="pt-4 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left text-[11px] text-slate-500 font-bold">
               <div>
                 <p>SOURCE: {activePosterCampaign.official_source}</p>
                 <p className="text-slate-400 mt-0.5">Published: {new Date(activePosterCampaign.publish_date).toLocaleDateString()}</p>
               </div>
               <div className="text-right">
-                <p className="bg-slate-100 px-3 py-1 rounded-full text-slate-600 text-[10px]">VERIFIED ADVISORY</p>
+                <p className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+                  VERIFIED ADVISORY • १००% अधिकृत
+                </p>
               </div>
             </div>
           </div>
@@ -227,15 +363,24 @@ export function CommunityHealthPage() {
               </p>
             </div>
 
-            {isDistrictAdmin && (
-              <Button
-                onClick={() => setIsCreateModalOpen(true)}
-                className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold py-2 px-4 rounded-xl flex items-center gap-1 shrink-0"
-              >
-                <Plus className="w-4 h-4" />
-                Publish Campaign
-              </Button>
-            )}
+            <div className="flex items-center gap-2">
+              <Link href="/health-awareness">
+                <Button variant="outline" className="text-xs font-bold border-teal-500/40 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/60 py-2 px-4 rounded-xl flex items-center gap-1.5">
+                  <span>🖼️ सचित्र आरोग्य मार्गदर्शिका (Hub)</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
+
+              {isDistrictAdmin && (
+                <Button
+                  onClick={() => setIsCreateModalOpen(true)}
+                  className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold py-2 px-4 rounded-xl flex items-center gap-1 shrink-0"
+                >
+                  <Plus className="w-4 h-4" />
+                  Publish Campaign
+                </Button>
+              )}
+            </div>
           </div>
 
           {apiSuccess && (
@@ -295,16 +440,23 @@ export function CommunityHealthPage() {
               {campaigns.map((camp) => (
                 <div 
                   key={camp.id}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     {camp.image_url && (
-                      <div className="h-44 w-full relative bg-slate-100 overflow-hidden">
+                      <div 
+                        className="h-48 w-full relative bg-slate-950 overflow-hidden cursor-pointer border-b border-slate-100 dark:border-slate-800"
+                        onClick={() => setActivePosterCampaign(camp)}
+                      >
                         <img 
                           src={camp.image_url} 
                           alt={camp.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-black/10 pointer-events-none" />
+                        <div className="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md flex items-center gap-1">
+                          <span>🔍 पोस्टर पहा / Print</span>
+                        </div>
                       </div>
                     )}
 
