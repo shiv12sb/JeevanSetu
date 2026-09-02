@@ -99,17 +99,17 @@ export function StatusTimeline({
                   className={cn(
                     "text-xs font-semibold",
                     step.isCurrent
-                      ? "text-sky-900 dark:text-sky-300 font-bold"
+                      ? "text-sky-950 dark:text-sky-300 font-bold"
                       : step.isCompleted
-                      ? "text-slate-800 dark:text-slate-200"
-                      : "text-slate-400 dark:text-slate-500"
+                      ? "text-slate-900 dark:text-slate-100 font-bold"
+                      : "text-slate-600 dark:text-slate-400 font-medium"
                   )}
                 >
                   {step.label}
                 </h5>
-                <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">{step.date}</span>
+                <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">{step.date}</span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 leading-tight">
                 {step.notes}
               </p>
             </div>
@@ -123,7 +123,7 @@ export function StatusTimeline({
     <div className={cn("w-full py-4", className)}>
       <div className="flex items-center justify-between relative">
         {/* Background track line */}
-        <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-0.5 bg-slate-200 dark:bg-slate-700 z-0" />
+        <div className="absolute top-1/2 left-4 right-4 -translate-y-1/2 h-0.5 bg-slate-300 dark:bg-slate-700 z-0" />
 
         {timelineSteps.map((step, idx) => (
           <div
@@ -135,10 +135,10 @@ export function StatusTimeline({
               className={cn(
                 "w-7 h-7 rounded-full flex items-center justify-center ring-4 ring-white dark:ring-slate-900 transition-all text-xs font-bold shadow-xs",
                 step.isCompleted
-                  ? "bg-emerald-500 text-white"
+                  ? "bg-emerald-600 text-white"
                   : step.isCurrent
                   ? "bg-sky-600 text-white ring-sky-100 dark:ring-sky-950"
-                  : "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
+                  : "bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
               )}
             >
               {step.isCompleted ? (
@@ -152,15 +152,15 @@ export function StatusTimeline({
                 className={cn(
                   "text-[11px] font-semibold leading-tight line-clamp-1",
                   step.isCurrent
-                    ? "text-sky-700 dark:text-sky-300 font-bold"
+                    ? "text-sky-800 dark:text-sky-300 font-bold"
                     : step.isCompleted
-                    ? "text-slate-800 dark:text-slate-200"
-                    : "text-slate-400 dark:text-slate-500"
+                    ? "text-slate-900 dark:text-slate-100 font-bold"
+                    : "text-slate-600 dark:text-slate-400 font-medium"
                 )}
               >
                 {step.label}
               </p>
-              <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 hidden sm:block">
+              <p className="text-[10px] text-slate-600 dark:text-slate-400 mt-0.5 font-medium hidden sm:block">
                 {step.date !== stateTxt.pending ? step.date : ""}
               </p>
             </div>

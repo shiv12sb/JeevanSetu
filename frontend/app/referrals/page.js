@@ -346,25 +346,25 @@ export function ReferralsPage() {
 
         {/* Closed Loop Analytics KPIs */}
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
-          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
-            <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Tracked</div>
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xs space-y-1">
+            <div className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">Total Tracked</div>
             <div className="text-2xl font-black text-slate-900 dark:text-white mt-1 font-mono">{referrals.length} Referrals</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">Across district health network</div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Across district health network</div>
           </div>
-          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xs space-y-1">
             <div className="text-xs font-bold text-teal-700 dark:text-teal-400 uppercase tracking-wider">Hospital Arrival Rate</div>
             <div className="text-2xl font-black text-teal-700 dark:text-teal-300 mt-1 font-mono">{analytics?.hospital_arrival_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">Avg. transit: {analytics?.average_transit_to_hospital_hours || 3.5}h</div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Avg. transit: {analytics?.average_transit_to_hospital_hours || 3.5}h</div>
           </div>
-          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 shadow-xs space-y-1">
             <div className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider">Treatment Start Rate</div>
             <div className="text-2xl font-black text-indigo-700 dark:text-indigo-300 mt-1 font-mono">{analytics?.treatment_initiation_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">Triage to care: {analytics?.average_arrival_to_treatment_hours || 1.2}h</div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Triage to care: {analytics?.average_arrival_to_treatment_hours || 1.2}h</div>
           </div>
-          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-1">
+          <div className="p-5 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-1">
             <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Closed-Loop Completion</div>
             <div className="text-2xl font-black text-emerald-700 dark:text-emerald-300 mt-1 font-mono">{analytics?.completion_rate_percentage || 100}%</div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">Follow-up verified & closed</div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Follow-up verified & closed</div>
           </div>
         </div>
 

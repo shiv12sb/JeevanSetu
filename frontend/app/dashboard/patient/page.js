@@ -122,34 +122,36 @@ export function PatientDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="p-6 sm:p-7 bg-gradient-to-r from-teal-950/90 via-slate-900/90 to-indigo-950/90 backdrop-blur-2xl rounded-3xl text-white shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-500/30 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
+      <div className="p-6 sm:p-7 bg-gradient-to-r from-teal-700 via-teal-800 to-indigo-900 dark:from-slate-950 dark:via-teal-950/90 dark:to-slate-900 backdrop-blur-2xl rounded-3xl text-white shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-600/30 dark:border-teal-500/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/15 dark:bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
         <div className="space-y-1.5 text-left relative z-10">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3 py-1 rounded-full font-mono border border-teal-500/30 shadow-xs shadow-teal-500/20">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-100 dark:text-teal-300 bg-teal-900/90 dark:bg-teal-950/80 px-3 py-1 rounded-full font-mono border border-teal-400/30 dark:border-teal-500/30 shadow-xs">
               JeevanSetu Case ID: {activeCase.id}
             </span>
-            <Badge variant="teal" size="sm" className="font-bold">{t("activeCare", "Active Care")}</Badge>
+            <Badge variant="teal" size="sm" className="font-bold bg-teal-100 text-teal-900 dark:bg-teal-950/80 dark:text-teal-300 border-teal-300 dark:border-teal-700">
+              {t("activeCare", "Active Care")}
+            </Badge>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
             {language === "mr" ? "नमस्कार, " : language === "hi" ? "नमस्ते, " : "Namaste, "}
             {userName}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 font-medium">
+          <p className="text-xs sm:text-sm text-teal-50 dark:text-slate-300 font-medium">
             {userLocation}
           </p>
         </div>
 
         <div className="flex items-center gap-2.5 flex-wrap relative z-10">
           <Link href="/navigate">
-            <Button size="sm" className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-black gap-1.5 shadow-lg shadow-teal-500/20 text-xs rounded-2xl min-h-[42px] px-4">
-              <Compass className="w-4 h-4" />
+            <Button size="sm" className="bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 hover:to-teal-200 text-slate-950 font-black gap-1.5 shadow-lg shadow-teal-900/30 text-xs rounded-2xl min-h-[42px] px-4">
+              <Compass className="w-4 h-4 text-slate-950" />
               <span>{t("whatShouldIDo", "What Should I Do Now?")}</span>
             </Button>
           </Link>
           <Link href="/cases">
-            <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10 bg-slate-900/60 backdrop-blur-md text-xs rounded-2xl min-h-[42px] px-4 font-bold">
-              <Plus className="w-4 h-4 mr-1 text-teal-400" />
+            <Button variant="outline" size="sm" className="text-white border-white/30 hover:bg-white/15 bg-white/10 backdrop-blur-md text-xs rounded-2xl min-h-[42px] px-4 font-bold">
+              <Plus className="w-4 h-4 mr-1 text-teal-200" />
               <span>{t("newCaseBtn", "New Health Concern")}</span>
             </Button>
           </Link>
@@ -160,53 +162,53 @@ export function PatientDashboardPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Link
           href="/doctors"
-          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+          className="p-4 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-indigo-500/50 hover:shadow-md hover:shadow-indigo-500/10 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-xs"
         >
-          <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Stethoscope className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">Find Doctor</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">MMC Verified</p>
+            <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">MMC Verified</p>
           </div>
         </Link>
 
         <Link
           href="/ambulance"
-          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-rose-500/40 hover:shadow-xl hover:shadow-rose-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+          className="p-4 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-rose-500/50 hover:shadow-md hover:shadow-rose-500/10 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-xs"
         >
-          <div className="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-2xl bg-rose-50 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400 border border-rose-200 dark:border-rose-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Truck className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-300 transition-colors">108 Ambulance</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Live GPS Fleet</p>
+            <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Live GPS Fleet</p>
           </div>
         </Link>
 
         <Link
           href="/assistant"
-          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+          className="p-4 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-teal-500/50 hover:shadow-md hover:shadow-teal-500/10 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-xs"
         >
-          <div className="w-10 h-10 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-2xl bg-teal-50 dark:bg-teal-500/10 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Bot className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition-colors">AI Health Help</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Voice in Marathi</p>
+            <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Voice in Marathi</p>
           </div>
         </Link>
 
         <Link
           href="/resources"
-          className="p-4 rounded-3xl bg-white/85 dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 hover:border-sky-500/40 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-lg shadow-slate-200/40 dark:shadow-none"
+          className="p-4 rounded-3xl bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-sky-500/50 hover:shadow-md hover:shadow-sky-500/10 transition-all duration-300 flex items-center gap-3.5 text-left group shadow-xs"
         >
-          <div className="w-10 h-10 rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Building2 className="w-5 h-5" />
           </div>
           <div>
             <p className="text-xs font-black text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors">PHCs & Hospitals</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Travel Status</p>
+            <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Travel Status</p>
           </div>
         </Link>
       </div>

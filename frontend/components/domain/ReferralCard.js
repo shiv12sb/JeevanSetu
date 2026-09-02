@@ -59,18 +59,18 @@ export function ReferralCard({ referral, onViewDetail, className = "" }) {
   if (!referral) return null;
 
   return (
-    <Card className={`hover:border-slate-300 dark:hover:border-slate-700 transition-all ${className}`}>
+    <Card className={`bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-400 dark:hover:border-teal-600 transition-all shadow-xs ${className}`}>
       <CardContent className="p-5 space-y-4">
         {/* Referral Header */}
         <div className="flex items-start justify-between gap-2">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+              <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700">
                 {referral.id}
               </span>
               <StatusBadge status={referral.currentStage} />
               {referral.priority === "urgent" && (
-                <span className="text-[11px] bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 font-semibold px-2 py-0.5 rounded border border-rose-200 dark:border-rose-800">
+                <span className="text-[11px] bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 font-bold px-2 py-0.5 rounded-md border border-rose-200 dark:border-rose-800">
                   {txt.urgentPriority}
                 </span>
               )}
@@ -86,34 +86,34 @@ export function ReferralCard({ referral, onViewDetail, className = "" }) {
                       : "teal"
                   }
                   size="sm"
-                  className="text-[10px] uppercase font-mono"
+                  className="text-[10px] uppercase font-mono font-bold"
                 >
                   {referral.followUpStatus.replace(/_/g, " ")}
                 </Badge>
               )}
             </div>
-            <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1 flex items-center gap-2">
+            <h4 className="text-base font-bold text-slate-900 dark:text-white mt-1.5 flex items-center gap-2">
               <span>{referral.patientName}</span>
-              <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
                 ({referral.patientAge} {txt.years}, {referral.patientGender})
               </span>
             </h4>
           </div>
 
-          <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">
+          <span className="text-xs text-slate-600 dark:text-slate-400 font-medium bg-slate-50 dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700">
             {txt.initiated} {formatDate(referral.createdAt)}
           </span>
         </div>
 
         {/* Next Expected Milestone Info */}
         {referral.nextMilestone && (
-          <div className="p-2.5 bg-sky-50/70 dark:bg-sky-950/40 border border-sky-100 dark:border-sky-800 rounded-lg flex items-center justify-between text-xs">
-            <div className="flex items-center gap-1.5 text-sky-900 dark:text-sky-200 font-medium">
-              <Clock className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
-              <span>{txt.nextMilestone} <strong>{referral.nextMilestone}</strong></span>
+          <div className="p-2.5 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800 rounded-xl flex items-center justify-between text-xs">
+            <div className="flex items-center gap-1.5 text-sky-950 dark:text-sky-200 font-medium">
+              <Clock className="w-3.5 h-3.5 text-sky-700 dark:text-sky-400" />
+              <span>{txt.nextMilestone} <strong className="font-bold">{referral.nextMilestone}</strong></span>
             </div>
             {referral.dueAt && (
-              <span className="text-[11px] text-sky-700 dark:text-sky-300 font-semibold">
+              <span className="text-[11px] text-sky-800 dark:text-sky-300 font-bold">
                 {txt.due} {formatDate(referral.dueAt)}
               </span>
             )}
@@ -121,26 +121,26 @@ export function ReferralCard({ referral, onViewDetail, className = "" }) {
         )}
 
         {/* Transfer Facilities Node */}
-        <div className="p-3.5 bg-slate-50/90 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div className="space-y-0.5">
-            <span className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
               {txt.fromFacility}
             </span>
-            <p className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+            <p className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
               <Building2 className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" />
               {referral.fromFacility}
             </p>
           </div>
 
           <div className="hidden sm:flex items-center justify-center text-slate-400 dark:text-slate-500">
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-teal-600 dark:text-teal-400" />
           </div>
 
           <div className="space-y-0.5">
-            <span className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
               {txt.toFacility}
             </span>
-            <p className="font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+            <p className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
               <Building2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
               {referral.toFacility}
             </p>
@@ -149,7 +149,7 @@ export function ReferralCard({ referral, onViewDetail, className = "" }) {
 
         {/* 6-Stage Timeline Tracker */}
         <div className="pt-2">
-          <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
+          <p className="text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">
             {txt.referralProgress}
           </p>
           <StatusTimeline
@@ -160,9 +160,9 @@ export function ReferralCard({ referral, onViewDetail, className = "" }) {
 
         {/* Bottom Bar with Scheme details and Action */}
         <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
             <Shield className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-            <span>{txt.scheme} <strong className="text-slate-800 dark:text-slate-200">{referral.schemeAssistanceApplied || txt.notApplied}</strong></span>
+            <span>{txt.scheme} <strong className="text-slate-950 dark:text-slate-100 font-bold">{referral.schemeAssistanceApplied || txt.notApplied}</strong></span>
           </div>
 
           {onViewDetail && (

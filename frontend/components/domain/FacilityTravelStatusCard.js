@@ -111,21 +111,21 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
   };
 
   return (
-    <Card className="border-teal-200 dark:border-teal-800 shadow-xs hover:shadow-sm transition-all overflow-hidden">
+    <Card className="border-teal-200 dark:border-teal-800 shadow-xs hover:shadow-sm transition-all overflow-hidden bg-white dark:bg-slate-900">
       {/* Header */}
-      <CardHeader className="bg-linear-to-r from-teal-900 to-slate-900 text-white p-4">
+      <CardHeader className="bg-gradient-to-r from-teal-700 via-teal-800 to-indigo-900 dark:from-teal-950 dark:via-slate-900 dark:to-slate-950 text-white p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-teal-400" />
+              <ShieldCheck className="w-4 h-4 text-teal-300" />
               <CardTitle className="text-sm font-bold text-white">
                 {txt.heading}
               </CardTitle>
             </div>
-            <p className="text-xs text-teal-200 mt-0.5 font-medium">{facility.name}</p>
+            <p className="text-xs text-teal-100 dark:text-teal-200 mt-0.5 font-medium">{facility.name}</p>
           </div>
-          <div className="flex items-center gap-1.5 text-[10px] text-teal-300 bg-teal-800/60 px-2.5 py-1 rounded-full border border-teal-700 w-fit">
-            <Clock className="w-3 h-3" />
+          <div className="flex items-center gap-1.5 text-[11px] text-teal-100 dark:text-teal-300 bg-teal-900/80 dark:bg-teal-950/80 px-3 py-1 rounded-full border border-teal-400/30 dark:border-teal-700 w-fit font-medium">
+            <Clock className="w-3.5 h-3.5 text-teal-300" />
             <span>{lastVerified}</span>
           </div>
         </div>
@@ -135,67 +135,67 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
       <CardContent className="p-4 sm:p-5 space-y-4 text-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* 1. Doctor Availability */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
+          <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <span className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                 <Stethoscope className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                 {txt.doctorOnDuty}
               </span>
               {getStatusBadge(doctorStatus)}
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{doctorStatusText}</p>
+            <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">{doctorStatusText}</p>
           </div>
 
           {/* 2. Essential Medicines */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
+          <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <span className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                 <Pill className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                 {txt.emergencyMeds}
               </span>
               {getStatusBadge(medicineStockStatus)}
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{medicineStatusText}</p>
+            <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">{medicineStatusText}</p>
           </div>
 
           {/* 3. Diagnostic Services */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
+          <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <span className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                 {txt.diagnosticsLab}
               </span>
               {getStatusBadge(diagnosticStatus)}
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{diagnosticStatusText}</p>
+            <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">{diagnosticStatusText}</p>
             <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
-              <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+              <span className="bg-white dark:bg-slate-900 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded-md border border-teal-200 dark:border-teal-800 font-semibold">
                 {txt.testRdt}
               </span>
-              <span className="bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-300 px-1.5 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+              <span className="bg-white dark:bg-slate-900 text-teal-800 dark:text-teal-300 px-2 py-0.5 rounded-md border border-teal-200 dark:border-teal-800 font-semibold">
                 {txt.testEcg}
               </span>
-              <span className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">
+              <span className="bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700 font-medium">
                 {txt.labTiming}
               </span>
             </div>
           </div>
 
           {/* 4. Referral Intake */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
+          <div className="p-3.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+              <span className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                 <GitPullRequest className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 {txt.referralDesk}
               </span>
               {getStatusBadge(referralAcceptanceStatus)}
             </div>
-            <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug">{referralAcceptanceText}</p>
+            <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-snug">{referralAcceptanceText}</p>
             <div className="pt-1 flex flex-wrap gap-1 text-[10px]">
-              <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+              <span className="bg-white dark:bg-slate-900 text-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800 font-semibold">
                 {txt.mitraDesk}
               </span>
-              <span className="bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+              <span className="bg-white dark:bg-slate-900 text-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800 font-semibold">
                 {txt.mjpjayDesk}
               </span>
             </div>
@@ -204,7 +204,7 @@ export function FacilityTravelStatusCard({ facility, onOpenChecklist }) {
 
         {/* Action Buttons */}
         <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
-          <span className="text-[10px] text-slate-400 dark:text-slate-500 italic">
+          <span className="text-[10px] text-slate-500 dark:text-slate-400 italic">
             {txt.disclaimer}
           </span>
           <div className="flex items-center gap-2">

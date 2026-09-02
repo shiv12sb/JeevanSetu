@@ -228,21 +228,21 @@ export function TravelReadinessChecklist({
   return (
     <Card className="border-teal-200 dark:border-teal-800 shadow-xs overflow-hidden bg-white dark:bg-slate-900">
       {/* Header */}
-      <CardHeader className="bg-linear-to-r from-teal-900 to-slate-900 text-white p-5">
+      <CardHeader className="bg-gradient-to-r from-teal-700 via-teal-800 to-indigo-900 dark:from-teal-950 dark:via-slate-900 dark:to-slate-950 text-white p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <Luggage className="w-5 h-5 text-teal-400" />
+              <Luggage className="w-5 h-5 text-teal-300" />
               <CardTitle className="text-base font-bold text-white">
                 {txt.heading}
               </CardTitle>
             </div>
-            <p className="text-xs text-teal-200">
-              {txt.targetFacility} <strong className="text-white">{facilityName}</strong> • {txt.caseRef} <span className="font-mono">{caseId}</span>
+            <p className="text-xs text-teal-100 dark:text-teal-200 font-medium">
+              {txt.targetFacility} <strong className="text-white">{facilityName}</strong> • {txt.caseRef} <span className="font-mono text-teal-100">{caseId}</span>
             </p>
           </div>
           <div className="text-right">
-            <span className="text-xs font-semibold text-teal-200 block">{txt.readinessProgress}</span>
+            <span className="text-xs font-semibold text-teal-100 block">{txt.readinessProgress}</span>
             <span className="text-lg font-black text-white">{checkedCount} / {totalCount} {txt.ready} ({progressPercent}%)</span>
           </div>
         </div>
@@ -251,23 +251,23 @@ export function TravelReadinessChecklist({
       <CardContent className="p-5 sm:p-6 space-y-6">
         {/* Pathway sequence overview */}
         <div className="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
-          <span className="font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider text-[11px] block">
+          <span className="font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider text-[11px] block">
             {txt.journeyConfirmation}
           </span>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <div className="p-2 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-semibold flex items-center gap-1.5">
+            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-bold flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>{txt.step1}</span>
             </div>
-            <div className="p-2 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-semibold flex items-center gap-1.5">
+            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-bold flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>{txt.step2}</span>
             </div>
-            <div className="p-2 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-semibold flex items-center gap-1.5">
+            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 font-bold flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>{txt.step3}</span>
             </div>
-            <div className={`p-2 rounded-lg border font-semibold flex items-center gap-1.5 ${progressPercent === 100 ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200" : "bg-amber-50 dark:bg-amber-950/60 border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200"}`}>
+            <div className={`p-2.5 rounded-lg border font-bold flex items-center gap-1.5 ${progressPercent === 100 ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200" : "bg-amber-50 dark:bg-amber-950/60 border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200"}`}>
               {progressPercent === 100 ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" /> : <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />}
               <span>{progressPercent === 100 ? txt.step4Ready : txt.step4Pending}</span>
             </div>
@@ -281,7 +281,7 @@ export function TravelReadinessChecklist({
               <FileText className="w-4 h-4 text-teal-600 dark:text-teal-400" />
               <span>{txt.whatToCarry}</span>
             </h4>
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">{txt.tapToMark}</span>
+            <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400">{txt.tapToMark}</span>
           </div>
 
           <div className="space-y-2.5">
@@ -293,8 +293,8 @@ export function TravelReadinessChecklist({
                   onClick={() => toggleItem(item.id)}
                   className={`p-3.5 rounded-xl border flex items-start gap-3.5 cursor-pointer transition-all ${
                     isChecked
-                      ? "bg-teal-50/40 dark:bg-teal-950/30 border-teal-300 dark:border-teal-700 shadow-2xs"
-                      : "bg-slate-50/60 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
+                      ? "bg-teal-50/70 dark:bg-teal-950/40 border-teal-300 dark:border-teal-700 shadow-2xs"
+                      : "bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
                   }`}
                 >
                   <input
@@ -305,18 +305,18 @@ export function TravelReadinessChecklist({
                   />
                   <div className="flex-1 text-xs">
                     <div className="flex items-center justify-between gap-2">
-                      <span className={`font-semibold ${isChecked ? "text-teal-950 dark:text-teal-200 line-through opacity-80" : "text-slate-900 dark:text-white"}`}>
+                      <span className={`font-bold ${isChecked ? "text-teal-950 dark:text-teal-200 line-through opacity-90" : "text-slate-900 dark:text-white"}`}>
                         {item.name}
                       </span>
                       <Badge
                         variant={item.category === "required" ? "danger" : "default"}
                         size="sm"
-                        className="text-[10px] shrink-0"
+                        className="text-[10px] shrink-0 font-bold"
                       >
                         {item.category === "required" ? txt.requiredBadge : txt.recommendedBadge}
                       </Badge>
                     </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium mt-1">
                       {item.note}
                     </p>
                   </div>

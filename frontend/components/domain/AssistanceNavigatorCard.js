@@ -35,27 +35,27 @@ export function AssistanceNavigatorCard({
 }) {
   return (
     <Card className="border-teal-200 dark:border-teal-800 shadow-xs overflow-hidden bg-white dark:bg-slate-900">
-      <CardHeader className="bg-linear-to-r from-teal-900 to-slate-900 text-white p-4 sm:p-5">
+      <CardHeader className="bg-gradient-to-r from-teal-700 via-teal-800 to-indigo-900 dark:from-teal-950 dark:via-slate-900 dark:to-slate-950 text-white p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
-              <HeartHandshake className="w-5 h-5 text-teal-400" />
+              <HeartHandshake className="w-5 h-5 text-teal-300" />
               <CardTitle className="text-base font-bold text-white">
                 Treatment Financial Assistance Navigator
               </CardTitle>
             </div>
-            <p className="text-xs text-teal-200">
-              Case Ref: <span className="font-mono text-white">{caseId}</span> • Potential Support Pathways
+            <p className="text-xs text-teal-100 dark:text-teal-200">
+              Case Ref: <span className="font-mono text-white font-bold">{caseId}</span> • Potential Support Pathways
             </p>
           </div>
-          <Badge variant="teal" size="sm" className="w-fit bg-teal-800 text-teal-100 border-teal-700">
+          <Badge variant="teal" size="sm" className="w-fit bg-teal-900/90 text-teal-100 border-teal-400/40 dark:bg-teal-800 dark:text-teal-100 font-bold">
             Verified Support
           </Badge>
         </div>
       </CardHeader>
 
       <CardContent className="p-5 sm:p-6 space-y-5">
-        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
           JeevanSetu matches verified government assurance schemes and accredited non-profit aid to prevent out-of-pocket medical distress for rural families.
         </p>
 
