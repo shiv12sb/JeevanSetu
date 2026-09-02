@@ -4,6 +4,8 @@
  * and graceful fallback when unsupported.
  */
 
+import textToSpeechService from "./textToSpeech";
+
 export class SpeechRecognitionProvider {
   constructor(name = "BaseSTTProvider") {
     this.name = name;
@@ -65,8 +67,8 @@ export class BrowserSpeechRecognitionProvider extends SpeechRecognitionProvider 
       return;
     }
 
-    // Stop existing instance if running
-    this.stop();
+    // Abort existing instance cleanly if running (drop pending audio buffer)
+    this.abort();
 
     try {
       this.recognition = new SpeechConstructor();
@@ -81,6 +83,12 @@ export class BrowserSpeechRecognitionProvider extends SpeechRecognitionProvider 
       };
 
       this.recognition.onresult = (event) => {
+        // Acoustic feedback guard: Discard recognition if audio synthesis is currently playing or in room cooldown
+        if (textToSpeechService.isEchoQuarantine(1200)) {
+          console.log("[STT Guard] Suppressed microphone audio during assistant playback / acoustic cooldown");
+          return;
+        }
+
         let interimTranscript = "";
         let finalTranscript = "";
 
@@ -93,9 +101,17 @@ export class BrowserSpeechRecognitionProvider extends SpeechRecognitionProvider 
           }
         }
 
+        const candidateText = (finalTranscript || interimTranscript).trim();
+
+        // Assistant phrase echo guard: Discard if transcript is an echo of recently spoken text
+        if (textToSpeechService.isEchoOfSpokenText(candidateText)) {
+          console.log("[STT Guard] Suppressed acoustic echo matching assistant spoken phrase:", candidateText);
+          return;
+        }
+
         if (onResult) {
           onResult({
-            transcript: finalTranscript || interimTranscript,
+            transcript: candidateText,
             isFinal: Boolean(finalTranscript),
           });
         }

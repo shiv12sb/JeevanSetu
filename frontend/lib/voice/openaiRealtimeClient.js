@@ -344,12 +344,14 @@ MANDATORY SPOKEN LANGUAGE RULE:
   }
 
   /**
-   * Interrupt Assistant Speech (Barge-in)
+   * Interrupt Assistant Speech (Barge-in / User Tap)
    */
   interrupt() {
     if (this.remoteAudioElement) {
-      this.remoteAudioElement.pause();
-      this.remoteAudioElement.currentTime = 0;
+      try {
+        this.remoteAudioElement.pause();
+        this.remoteAudioElement.currentTime = 0;
+      } catch (e) {}
     }
 
     if (this.dataChannel && this.dataChannel.readyState === "open") {
@@ -359,13 +361,31 @@ MANDATORY SPOKEN LANGUAGE RULE:
     }
 
     textToSpeechService.stop();
+    speechRecognitionService.abort();
+
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      try {
+        window.speechSynthesis.cancel();
+      } catch (e) {}
+    }
+
+    if (this.isListeningActive && !this.isMuted) {
+      this.setState("LISTENING");
+      if (this.isDevSimulation) {
+        setTimeout(() => {
+          this.startLocalListening();
+        }, 400);
+      }
+    } else {
+      this.setState("IDLE");
+    }
   }
 
   /**
    * Mute / Unmute Microphone
    */
   setMuted(muted) {
-    this.isMuted = muted;
+    this.isMuted = Boolean(muted);
     if (this.localStream) {
       this.localStream.getAudioTracks().forEach((t) => {
         t.enabled = !muted;
@@ -373,9 +393,12 @@ MANDATORY SPOKEN LANGUAGE RULE:
     }
     if (this.isDevSimulation) {
       if (muted) {
-        speechRecognitionService.stop();
+        speechRecognitionService.abort();
+        this.setState("IDLE");
       } else {
-        this.startLocalListening();
+        if (this.isListeningActive && this.state !== "SPEAKING") {
+          this.startLocalListening();
+        }
       }
     }
   }
@@ -463,6 +486,17 @@ MANDATORY SPOKEN LANGUAGE RULE:
   startLocalListening() {
     if (!this.isListeningActive || this.isMuted) return;
 
+    // Echo prevention: Do not open microphone if speech synthesis is playing or in cooldown
+    if (textToSpeechService.isEchoQuarantine(1200) || this.state === "SPEAKING") {
+      console.log("[Simulation Voice] Microphone listening deferred: Assistant still speaking or in acoustic cooldown");
+      setTimeout(() => {
+        if (this.isListeningActive && !this.isMuted && this.state !== "SPEAKING") {
+          this.startLocalListening();
+        }
+      }, 600);
+      return;
+    }
+
     this.setState("LISTENING");
 
     speechRecognitionService.start({
@@ -471,30 +505,45 @@ MANDATORY SPOKEN LANGUAGE RULE:
         this.setState("LISTENING");
       },
       onResult: ({ transcript, isFinal }) => {
+        // Discard any sound picked up while audio is active or in room reverberation cooldown
+        if (textToSpeechService.isEchoQuarantine(1200) || this.state === "SPEAKING") {
+          console.log("[Simulation Voice] Suppressed transcript during active playback/cooldown:", transcript);
+          return;
+        }
+
+        // Discard if recognized text echoes what assistant recently said
+        if (textToSpeechService.isEchoOfSpokenText(transcript)) {
+          console.log("[Simulation Voice] Suppressed self-echo transcript:", transcript);
+          return;
+        }
+
         if (transcript && this.onTranscript) {
           this.onTranscript({ sender: "user", text: transcript });
         }
 
-        if (isFinal && transcript.trim()) {
-          speechRecognitionService.stop();
+        // Only trigger query if transcript has meaningful length and is marked final
+        if (isFinal && transcript.trim() && transcript.trim().length >= 2) {
+          speechRecognitionService.abort(); // Purge pending audio buffer
           this.processLocalUserQuery(transcript.trim());
         }
       },
       onError: (err) => {
         console.warn("Simulation voice recognition warning:", err);
-        if (this.isListeningActive && !this.isMuted) {
+        if (this.isListeningActive && !this.isMuted && this.state === "LISTENING") {
           setTimeout(() => {
-            if (this.state === "LISTENING") {
+            if (this.state === "LISTENING" && !textToSpeechService.isEchoQuarantine(1200)) {
               this.startLocalListening();
             }
-          }, 800);
+          }, 1000);
         }
       },
       onEnd: () => {
-        if (this.state === "LISTENING" && this.isListeningActive && !this.isMuted) {
+        if (this.state === "LISTENING" && this.isListeningActive && !this.isMuted && !textToSpeechService.isEchoQuarantine(1200)) {
           setTimeout(() => {
-            this.startLocalListening();
-          }, 400);
+            if (this.state === "LISTENING" && !textToSpeechService.isEchoQuarantine(1200)) {
+              this.startLocalListening();
+            }
+          }, 600);
         }
       },
     });
@@ -504,21 +553,37 @@ MANDATORY SPOKEN LANGUAGE RULE:
    * Process query in local simulation with dynamic language switching, tool grounding & multi-turn memory
    */
   async processLocalUserQuery(userQuery) {
-    // Prevent acoustic echo where microphone transcribes the assistant's own greeting or recent voice
+    if (!userQuery || typeof userQuery !== "string" || userQuery.trim().length < 2) {
+      if (this.isListeningActive && !this.isMuted) {
+        this.startLocalListening();
+      }
+      return;
+    }
+
+    const cleanQuery = userQuery.trim();
+
+    // Guard 1: Discard if query was delivered while assistant was speaking
+    if (textToSpeechService.isEchoQuarantine(1200) || this.state === "SPEAKING") {
+      console.log("[Simulation Voice] Ignored query received during speaking/quarantine:", cleanQuery);
+      return;
+    }
+
+    // Guard 2: Prevent acoustic echo where microphone transcribes the assistant's own voice
     if (
-      userQuery.includes("मी जीवनसेतू सहाय्यक आहे") ||
-      userQuery.includes("मी आपला जीवनसेतू") ||
-      userQuery.includes("मैं JeevanSetu Assistant हूँ") ||
-      userQuery.includes("I am JeevanSetu Assistant") ||
-      (this.lastSpokenText && (userQuery.includes(this.lastSpokenText.slice(0, 25)) || this.lastSpokenText.includes(userQuery)))
+      cleanQuery.includes("मी जीवनसेतू सहाय्यक आहे") ||
+      cleanQuery.includes("मी आपला जीवनसेतू") ||
+      cleanQuery.includes("मैं JeevanSetu Assistant हूँ") ||
+      cleanQuery.includes("I am JeevanSetu Assistant") ||
+      textToSpeechService.isEchoOfSpokenText(cleanQuery) ||
+      (this.lastSpokenText && (cleanQuery.includes(this.lastSpokenText.slice(0, 25)) || this.lastSpokenText.includes(cleanQuery)))
     ) {
-      console.log("Ignored acoustic echo from speaker:", userQuery);
+      console.log("[Simulation Voice] Ignored acoustic echo from speaker:", cleanQuery);
       if (this.isListeningActive && !this.isMuted) {
         setTimeout(() => {
           if (this.state === "LISTENING" || this.state === "IDLE") {
             this.startLocalListening();
           }
-        }, 600);
+        }, 800);
       }
       return;
     }
@@ -629,11 +694,14 @@ MANDATORY SPOKEN LANGUAGE RULE:
    */
   speakLocalText(text, onComplete) {
     this.lastSpokenText = text;
+    textToSpeechService.trackSpokenText(text);
 
-    // Immediately stop speech recognition so speaker output is never fed back
+    // Immediately abort speech recognition so speaker audio is NEVER buffered
     try {
-      speechRecognitionService.stop();
+      speechRecognitionService.abort();
     } catch (e) {}
+
+    this.setState("SPEAKING");
 
     textToSpeechService.speak(text, {
       language: this.language || "mr",
@@ -641,19 +709,31 @@ MANDATORY SPOKEN LANGUAGE RULE:
       pitch: 1.0,
       onStart: () => {
         this.setState("SPEAKING");
+        try {
+          speechRecognitionService.abort();
+        } catch (e) {}
       },
       onEnd: () => {
-        this.setState("LISTENING");
+        // Physical Acoustic Decay Window: Wait 1200ms on mobile speakers before listening
         setTimeout(() => {
-          if (onComplete) onComplete();
-        }, 500);
+          if (this.isListeningActive && !this.isMuted) {
+            this.setState("LISTENING");
+            if (onComplete) onComplete();
+          } else {
+            this.setState("IDLE");
+          }
+        }, 1200);
       },
       onError: (err) => {
         console.warn("TTS notice:", err);
-        this.setState("LISTENING");
         setTimeout(() => {
-          if (onComplete) onComplete();
-        }, 500);
+          if (this.isListeningActive && !this.isMuted) {
+            this.setState("LISTENING");
+            if (onComplete) onComplete();
+          } else {
+            this.setState("IDLE");
+          }
+        }, 800);
       },
     });
   }
@@ -700,7 +780,8 @@ MANDATORY SPOKEN LANGUAGE RULE:
       this.remoteAudioElement = null;
     }
 
-    speechRecognitionService.stop();
+    // Abort recognition immediately to drop lingering buffers
+    speechRecognitionService.abort();
 
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();

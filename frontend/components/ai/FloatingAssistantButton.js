@@ -216,6 +216,7 @@ export function FloatingAssistantButton() {
       onResult: ({ transcript, isFinal }) => {
         setVoiceTranscript(transcript);
         if (isFinal && transcript.trim()) {
+          speechRecognitionService.abort();
           handleSendMessage(transcript, true);
         }
       },
@@ -225,7 +226,7 @@ export function FloatingAssistantButton() {
   };
 
   const handleStopListening = () => {
-    speechRecognitionService.stop();
+    speechRecognitionService.abort();
     setVoiceState("IDLE");
   };
 

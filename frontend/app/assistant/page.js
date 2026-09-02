@@ -293,6 +293,7 @@ export function AssistantPage() {
         setVoiceState(isFinal ? "TRANSCRIBING" : "LISTENING");
 
         if (isFinal && transcript.trim()) {
+          speechRecognitionService.abort();
           handleSendMessage(transcript, true);
         }
       },
@@ -307,7 +308,7 @@ export function AssistantPage() {
   };
 
   const handleStopListening = () => {
-    speechRecognitionService.stop();
+    speechRecognitionService.abort();
     setVoiceState("IDLE");
   };
 

@@ -30,6 +30,8 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
   constructor() {
     super("BrowserSpeechSynthesis");
     this._speaking = false;
+    this.lastSpeechEndTime = 0;
+    this.recentSpokenPhrases = [];
     this.cachedVoices = [];
 
     if (typeof window !== "undefined" && window.speechSynthesis) {
@@ -54,6 +56,76 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
   isSpeaking() {
     const synth = this.getSynthesis();
     return synth ? synth.speaking || this._speaking : false;
+  }
+
+  /**
+   * Determine if the microphone should be quarantined from listening
+   * due to active playback or physical acoustic room reverberation.
+   * @param {number} bufferMs - Cooldown duration in ms after speech playback ends
+   */
+  isEchoQuarantine(bufferMs = 1200) {
+    if (this.isSpeaking()) return true;
+    const elapsedSinceEnd = Date.now() - (this.lastSpeechEndTime || 0);
+    return elapsedSinceEnd < bufferMs;
+  }
+
+  /**
+   * Record a recently spoken assistant response so speech recognition can
+   * filter out any acoustic feedback picked up by the phone's microphone.
+   */
+  trackSpokenText(text) {
+    if (!text || typeof text !== "string") return;
+    const clean = text.toLowerCase().replace(/[*_#`~[\]()]/g, "").trim();
+    if (!clean) return;
+
+    this.recentSpokenPhrases = this.recentSpokenPhrases || [];
+    this.recentSpokenPhrases.push({ text: clean, timestamp: Date.now() });
+
+    // Prune entries older than 25 seconds
+    const now = Date.now();
+    this.recentSpokenPhrases = this.recentSpokenPhrases.filter(p => now - p.timestamp < 25000);
+  }
+
+  /**
+   * Check if an incoming user transcript is actually an acoustic reflection
+   * of words recently uttered by the assistant through the device speaker.
+   */
+  isEchoOfSpokenText(transcript) {
+    if (!transcript || typeof transcript !== "string") return false;
+    const candidate = transcript.toLowerCase().trim();
+    if (!candidate || candidate.length < 2) return false;
+
+    // Common system greeting fragments that loop in feedback
+    const knownSystemSnippets = [
+      "मी जीवनसेतू", "जीवनसेतू सहाय्यक", "मी आपला जीवनसेतू", "आरोग्य सहाय्यक",
+      "आरोग्य सेवा", "विचारू शकता", "काय मदत करू", "उपलब्ध आहेत", "नमस्ते",
+      "मैं jeevansetu", "jeevansetu assistant", "hello i am jeevansetu"
+    ];
+
+    for (const snippet of knownSystemSnippets) {
+      if (candidate.includes(snippet) || snippet.includes(candidate)) {
+        return true;
+      }
+    }
+
+    const phrases = this.recentSpokenPhrases || [];
+    for (const p of phrases) {
+      // Direct substring match
+      if (p.text.includes(candidate) || candidate.includes(p.text)) {
+        return true;
+      }
+
+      // Word-level overlap match (50% or more overlap with spoken words)
+      const candWords = candidate.split(/\s+/).filter(w => w.length > 2);
+      if (candWords.length >= 2) {
+        const matches = candWords.filter(w => p.text.includes(w));
+        if (matches.length / candWords.length >= 0.5) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   /**
@@ -160,11 +232,13 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
 
       utterance.onend = () => {
         this._speaking = false;
+        this.lastSpeechEndTime = Date.now();
         if (onEnd) onEnd();
       };
 
       utterance.onerror = (event) => {
         this._speaking = false;
+        this.lastSpeechEndTime = Date.now();
         if (event.error === "canceled" || event.error === "interrupted") {
           if (onEnd) onEnd();
           return;
@@ -181,6 +255,7 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
       }
     } catch (err) {
       this._speaking = false;
+      this.lastSpeechEndTime = Date.now();
       if (onError) onError(`Speech synthesis failed: ${err.message}`);
     }
   }
@@ -193,6 +268,7 @@ export class BrowserTTSProvider extends TextToSpeechProvider {
       } catch (e) {}
     }
     this._speaking = false;
+    this.lastSpeechEndTime = Date.now();
   }
 }
 

@@ -227,29 +227,29 @@ export function RealtimeVoiceModal({
 
   const stateBadgesByLang = {
     mr: {
-      IDLE: { label: "सज्ज", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
+      IDLE: { label: "सज्ज (Idle)", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
       CONNECTING: { label: "जोडणी करत आहे...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
-      LISTENING: { label: "ऐकत आहे (आता बोला)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      LISTENING: { label: "🟢 ऐकत आहे (आता बोला)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300" },
       THINKING: { label: "माहिती शोधत आहे...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
-      SPEAKING: { label: "असिस्टंट बोलत आहे...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      SPEAKING: { label: "🔊 असिस्टंट बोलत आहे...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-300" },
       ERROR: { label: "जोडणी त्रुटी", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
       DISCONNECTED: { label: "कॉल समाप्त", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
     },
     hi: {
-      IDLE: { label: "तैयार", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
+      IDLE: { label: "तैयार (Idle)", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
       CONNECTING: { label: "कनेक्ट हो रहा है...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
-      LISTENING: { label: "सुन रहा हूँ (बोलिए)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      LISTENING: { label: "🟢 सुन रहा हूँ (बोलिए)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300" },
       THINKING: { label: "जानकारी खोजी जा रही है...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
-      SPEAKING: { label: "असिस्टेंट बोल रहा है...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      SPEAKING: { label: "🔊 असिस्टेंट बोल रहा है...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-300" },
       ERROR: { label: "कनेक्शन त्रुटि", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
       DISCONNECTED: { label: "कॉल समाप्त", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
     },
     en: {
       IDLE: { label: "Idle", bg: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" },
       CONNECTING: { label: "Connecting...", bg: "bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse" },
-      LISTENING: { label: "Listening (Speak Now)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300" },
+      LISTENING: { label: "🟢 Listening (Speak Now)", bg: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300" },
       THINKING: { label: "Thinking & Grounding...", bg: "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 animate-pulse" },
-      SPEAKING: { label: "AI Speaking...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300" },
+      SPEAKING: { label: "🔊 AI Speaking...", bg: "bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-300" },
       ERROR: { label: "Connection Error", bg: "bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300" },
       DISCONNECTED: { label: "Disconnected", bg: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400" },
     },
@@ -337,9 +337,16 @@ export function RealtimeVoiceModal({
             {state === "SPEAKING" && (
               <button
                 onClick={handleInterrupt}
-                className="absolute bottom-1 left-1/2 -translate-x-1/2 px-3 py-1 bg-neutral-900/90 text-white dark:bg-white dark:text-neutral-900 rounded-full text-xs font-semibold shadow-lg hover:scale-105 transition-all flex items-center gap-1"
+                className="absolute bottom-1 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-full text-xs font-bold shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 animate-pulse cursor-pointer z-10"
               >
-                <Square className="w-3 h-3 fill-current" /> Tap to Interrupt
+                <Square className="w-3 h-3 fill-current" />
+                <span>
+                  {language === "mr"
+                    ? "थांबवा (Tap to Stop)"
+                    : language === "hi"
+                    ? "रोकें (Tap to Stop)"
+                    : "Tap to Stop"}
+                </span>
               </button>
             )}
           </div>
