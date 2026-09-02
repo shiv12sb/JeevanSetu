@@ -496,7 +496,7 @@ export function DoctorsPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 pb-24 md:pb-8 relative z-10">
         {/* Top Emergency Header */}
         <div className="mb-6 bg-rose-50 dark:bg-rose-500/10 backdrop-blur-md border border-rose-200 dark:border-rose-500/20 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
           <div className="flex items-center gap-3">

@@ -346,7 +346,7 @@ export function CommunityHealthPage() {
           </div>
         </div>
       ) : (
-        <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 pb-24 md:pb-8">
           {/* Page Header */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-8">
             <div className="flex flex-col gap-2">

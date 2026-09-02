@@ -67,7 +67,7 @@ export default function DashboardLayout({ children }) {
           currentRole={currentRole}
           onOpenMobileMenu={() => setMobileMenuOpen(true)}
         />
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 pb-24 md:pb-8 max-w-7xl w-full mx-auto space-y-6">
           <AuthGuard featureName="आरोग्य डॅशबोर्ड (Healthcare Dashboard)">
             {children}
           </AuthGuard>

@@ -12,6 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#070a13" },
+  ],
+};
+
 export const metadata = {
   title: "JeevanSetu | Rural Healthcare Access & Coordination Platform",
   description: "AI-powered rural healthcare access, assistance, referral coordination and PHC service-monitoring platform for underserved communities.",

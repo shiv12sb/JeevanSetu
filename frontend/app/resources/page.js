@@ -189,7 +189,7 @@ export function ResourcesDirectoryPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 space-y-6 relative z-10">
         {/* Header Title Banner */}
         <div className="bg-white dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-2xl space-y-2 text-left transition-colors">
           <div className="flex items-center gap-2 flex-wrap">

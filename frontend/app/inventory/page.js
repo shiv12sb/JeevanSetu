@@ -365,7 +365,7 @@ export function InventoryPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 md:pb-6 space-y-6 relative z-10">
         <AuthGuard featureName="औषध साठा व इन्व्हेंटरी (Medicine Inventory & Depletion Tracking)">
           {/* Header Title */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4 text-left">

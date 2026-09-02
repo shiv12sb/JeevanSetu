@@ -116,32 +116,34 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/30 dark:shadow-black/40 transition-colors">
       {/* Top Emergency, Theme & Language Bar */}
-      <div className="bg-slate-900/90 dark:bg-[#050811] text-teal-100 text-xs py-1.5 px-4 border-b border-white/5 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-left">
+      <div className="bg-slate-900/95 dark:bg-[#050811] text-teal-100 text-xs py-1 px-2.5 sm:px-4 border-b border-white/5 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-left min-w-0">
             <Link
               href="/ambulance"
               id="emergency-ambulance-trigger"
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 active:scale-95 transition-all text-white font-extrabold text-xs shadow-md shadow-rose-600/30 border border-rose-400/40 cursor-pointer shrink-0"
+              className="inline-flex items-center gap-1.5 px-2 sm:px-3 py-1 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 active:scale-95 transition-all text-white font-extrabold text-[11px] sm:text-xs shadow-md shadow-rose-600/30 border border-rose-400/40 cursor-pointer shrink-0"
               title="Click to Open Ambulance Near Me & Live Emergency Dispatch"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping shrink-0" />
-              <PhoneCall className="w-3.5 h-3.5 text-white animate-bounce shrink-0" />
-              <span className="uppercase tracking-wider font-black">{t("emergencyBadge", "Emergency 108:")}</span>
-              <span className="font-semibold text-xs underline decoration-dotted underline-offset-2">{t("ambulanceNearMeBtn", "Ambulance Near Me")}</span>
+              <PhoneCall className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white animate-bounce shrink-0" />
+              <span className="uppercase tracking-wider font-black">108</span>
+              <span className="font-semibold text-[11px] sm:text-xs underline decoration-dotted underline-offset-2 hidden xs:inline sm:inline">{t("ambulanceNearMeBtn", "Ambulance")}</span>
             </Link>
             <a
               href="tel:108"
               className="hidden md:inline-flex items-center gap-1 font-mono text-xs text-teal-200 hover:text-white underline decoration-dotted"
               title="Direct Telephone Call to National 108 Emergency Helpline"
             >
-              (Direct Call: 108 / 104)
+              (108 / 104)
             </a>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Live Location / District Switcher */}
-            <LocationSelector isDark />
+          <div className="flex items-center gap-1 sm:gap-2.5 shrink-0">
+            {/* Live Location / District Switcher: desktop only; mobile users select in drawer */}
+            <div className="hidden sm:block">
+              <LocationSelector isDark />
+            </div>
 
             {/* Theme Toggle in Header Bar */}
             <ThemeToggle isDarkVariant />
@@ -484,9 +486,9 @@ export function Navbar() {
           ========================================================================= */}
       <nav
         aria-label="Mobile Navigation Bar"
-        className="fixed bottom-0 left-0 right-0 z-50 bg-white/85 dark:bg-slate-950/85 backdrop-blur-2xl border-t border-slate-200/80 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/10 dark:shadow-black/80"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-2xl border-t border-slate-200/80 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/10 dark:shadow-black/80 pb-[max(0.25rem,env(safe-area-inset-bottom))]"
       >
-        <div className="grid grid-cols-5 h-16 max-w-lg mx-auto">
+        <div className="grid grid-cols-5 h-16 max-w-lg mx-auto items-center px-1">
           {/* 1. Home */}
           <Link
             href="/"

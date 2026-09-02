@@ -160,7 +160,7 @@ export function OrganDonationPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 space-y-10 relative z-10">
         
         {/* Hero Section */}
         <section className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-xl space-y-4 text-left">

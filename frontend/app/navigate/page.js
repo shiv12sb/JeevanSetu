@@ -17,7 +17,7 @@ export function NavigatePage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 space-y-8 relative z-10">
         <AuthGuard featureName="मार्गदर्शक (What Should I Do Now?)">
           {/* Banner */}
           <div className="bg-white/85 dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-xl space-y-2 text-left">

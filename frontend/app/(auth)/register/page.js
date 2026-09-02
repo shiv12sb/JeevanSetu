@@ -198,7 +198,7 @@ function RegisterForm() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-10 sm:px-6 lg:px-8 text-left transition-colors duration-300 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-8 sm:py-10 px-4 sm:px-6 lg:px-8 text-left transition-colors duration-300 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/3 w-[600px] h-[400px] bg-teal-500/10 dark:bg-teal-500/10 blur-[140px] rounded-full pointer-events-none -z-0" />
       <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[400px] bg-indigo-500/10 dark:bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none -z-0" />

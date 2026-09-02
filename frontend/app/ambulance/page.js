@@ -428,9 +428,11 @@ export default function AmbulancePage() {
       </div>
 
       <div className="flex-1 flex max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 gap-6 relative z-10">
-        <Sidebar />
+        <div className="hidden lg:flex flex-col shrink-0">
+          <Sidebar />
+        </div>
 
-        <main className="flex-1 min-w-0 flex flex-col space-y-6">
+        <main className="flex-1 min-w-0 flex flex-col space-y-6 pb-24 md:pb-8">
           {/* ========================================================================= */}
           {/* ACTIVE TRIP TRACKING SCREEN (SWIGGY/UBER STYLE REAL-TIME VIEW)            */}
           {/* ========================================================================= */}

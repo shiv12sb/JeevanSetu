@@ -121,28 +121,28 @@ export function Topbar({
   const alertCount = unreadCount;
 
   return (
-    <header className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 h-16 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 shadow-lg shadow-slate-200/30 dark:shadow-black/20 transition-colors">
+    <header className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 h-16 px-3 sm:px-6 flex items-center justify-between sticky top-0 z-30 shadow-lg shadow-slate-200/30 dark:shadow-black/20 transition-colors">
       {/* Left: Mobile menu toggle + Page Title */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         {onOpenMobileMenu && (
           <button
             type="button"
             onClick={onOpenMobileMenu}
-            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white md:hidden transition-colors"
+            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white md:hidden transition-colors shrink-0"
             aria-label="Open Sidebar Menu"
           >
             <Menu className="w-5 h-5" />
           </button>
         )}
-        <div>
-          <h2 className="text-base font-bold text-slate-900 dark:text-white leading-tight">
+        <div className="min-w-0">
+          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-tight truncate max-w-[130px] xs:max-w-[180px] sm:max-w-xs md:max-w-none">
             {title}
           </h2>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">
+            <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline truncate">
               {t("govtVerifiedStrip", "JeevanSetu Rural Public Health System")}
             </span>
-            <Badge variant="teal" size="sm" className="hidden sm:inline-flex font-bold">
+            <Badge variant="teal" size="sm" className="hidden sm:inline-flex font-bold shrink-0">
               {t(`role_${currentRole}`, ROLE_LABELS[currentRole] || "Verified User")}
             </Badge>
           </div>
@@ -150,9 +150,11 @@ export function Topbar({
       </div>
 
       {/* Right: Location, Language, Theme, Notification badge & Quick Status */}
-      <div className="flex items-center gap-2 sm:gap-2.5">
-        {/* Live Location / District Selector */}
-        <LocationSelector className="inline-flex" />
+      <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        {/* Live Location / District Selector (desktop only) */}
+        <div className="hidden sm:block">
+          <LocationSelector className="inline-flex" />
+        </div>
 
         {/* Language Selector */}
         <LanguageSelector className="inline-flex" />
@@ -168,7 +170,7 @@ export function Topbar({
               setIsOpen(!isOpen);
               if (!isOpen) fetchNotifications();
             }}
-            className="p-2.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all relative cursor-pointer"
+            className="p-2 sm:p-2.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all relative cursor-pointer"
             aria-label="Notifications"
             aria-expanded={isOpen}
           >
@@ -182,7 +184,7 @@ export function Topbar({
 
           {/* Notifications Popover Dropdown */}
           {isOpen && (
-            <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/10 dark:shadow-black/80 border border-slate-200/90 dark:border-white/15 py-3.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-left">
+            <div className="absolute right-0 mt-2 w-[calc(100vw-24px)] sm:w-96 max-w-sm bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-900/10 dark:shadow-black/80 border border-slate-200/90 dark:border-white/15 py-3.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150 text-left">
               <div className="px-4 pb-3 border-b border-slate-200/80 dark:border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-black text-slate-900 dark:text-white">Notifications</span>

@@ -75,6 +75,9 @@
 html {
   scroll-behavior: smooth;
   transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 html.dark,
@@ -92,6 +95,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -554,3 +560,48 @@ html.dark ::-webkit-scrollbar-thumb,
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   UNIVERSAL MOBILE RESPONSIVE GUARDS & OVERFLOW ELIMINATOR
+   ========================================================================= */
+
+/* Ensure media, canvases and SVGs never push containers beyond mobile screen width */
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth momentum scrolling on mobile for all scrollable panels */
+.overflow-x-auto,
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent fixed/absolute ambient background circles from pushing mobile viewport */
+[class*="blur-[140px]"],
+[class*="blur-[120px]"],
+[class*="blur-[130px]"],
+[class*="blur-3xl"] {
+  max-width: 100vw !important;
+  pointer-events: none !important;
+}
+
+/* Break long unbroken strings, hashes and URLs so they wrap cleanly on phones */
+p, span, h1, h2, h3, h4, h5, h6, a, li {
+  overflow-wrap: break-word;
+}
+
+/* Mobile input minimum font size: Prevents iOS Safari auto-zoom on field focus */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+

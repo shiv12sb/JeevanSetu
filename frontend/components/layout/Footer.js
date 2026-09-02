@@ -73,7 +73,7 @@ export function Footer() {
   const txt = FOOTER_CONTENT[language] || FOOTER_CONTENT.en;
 
   return (
-    <footer className="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 text-xs border-t border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <footer className="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 text-xs border-t border-slate-200 dark:border-white/10 transition-colors duration-300 pb-20 md:pb-0">
       {/* Safety Notice Strip */}
       <div className="bg-slate-200/70 dark:bg-[#050811] border-b border-slate-300/60 dark:border-white/5 py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">

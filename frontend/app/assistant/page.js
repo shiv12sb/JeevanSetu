@@ -349,7 +349,7 @@ export function AssistantPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5 flex flex-col relative z-10">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 md:pb-6 space-y-5 flex flex-col relative z-10">
         <AuthGuard featureName="आरोग्य सहाय्यक (AI & Voice Assistant)">
           {/* Header Banner */}
           <div className="bg-white dark:bg-slate-900/70 backdrop-blur-2xl p-5 sm:p-6 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors">

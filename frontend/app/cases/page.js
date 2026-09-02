@@ -170,7 +170,7 @@ export function CasesPage() {
 
       <Navbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 md:pb-8 space-y-6 relative z-10">
         <AuthGuard featureName="आरोग्य केसेस (Patient Health Cases & Records)">
           {/* Banner */}
         <div className="bg-white dark:bg-slate-900/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-lg shadow-slate-200/50 dark:shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors">
