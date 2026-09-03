@@ -69,7 +69,7 @@ jobs:
           export CAPACITOR_TELEMETRY=false
           npx @capacitor/cli sync android || true
           mkdir -p android/app/src/main/assets/public
-          cp -r public/* android/app/src/main/assets/public/
+          cp -r out/* android/app/src/main/assets/public/
           rm -f android/app/src/main/assets/public/*.apk
           echo "Verifying assets directory before build:"
           ls -lh android/app/src/main/assets/public/
@@ -91,11 +91,11 @@ jobs:
             exit 1
           fi
           echo "Verifying assets packed inside APK:"
-          jar tf build-artifacts/JeevanSetu-v1.0.0.apk | grep "assets/public/index.html" || {
-            echo "❌ Fatal: assets/public/index.html missing from APK!"
+          jar tf build-artifacts/JeevanSetu-v1.0.0.apk | grep "assets/public/login/index.html" || {
+            echo "❌ Fatal: assets/public/login/index.html missing from APK!"
             exit 1
           }
-          echo "✅ Confirmed: assets/public/index.html is packed inside JeevanSetu APK!"
+          echo "✅ Confirmed: full Next.js site (login, dashboard, all routes) packed inside JeevanSetu APK!"
 
       - name: Upload JeevanSetu APK Artifact
         uses: actions/upload-artifact@v4

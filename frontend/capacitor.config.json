@@ -1,7 +1,7 @@
 {
   "appId": "in.jeevansetu.app",
   "appName": "JeevanSetu",
-  "webDir": "public",
+  "webDir": "out",
   "bundledWebRuntime": false,
   "server": {
     "androidScheme": "https",
