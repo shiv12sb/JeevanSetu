@@ -96,10 +96,10 @@ jobs:
       - name: Publish APK to GitHub Release via GitHub CLI
         if: github.ref == 'refs/heads/main'
         run: |
-          gh release delete v1.0.0-apk --yes --repo shiv12sb/JeevanSetu || true
           gh release create v1.0.0-apk build-artifacts/JeevanSetu-v1.0.0.apk \
             --repo shiv12sb/JeevanSetu \
             --title "JeevanSetu Android APK v1.0.0" \
-            --notes "Official JeevanSetu Android Native Application (.apk) for Maharashtra rural healthcare."
+            --notes "Official JeevanSetu Android Native Application (.apk) for Maharashtra rural healthcare." \
+            --target main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
