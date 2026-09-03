@@ -93,45 +93,23 @@ jobs:
           path: build-artifacts/JeevanSetu-v1.0.0.apk
           retention-days: 30
 
-      - name: Generate Direct Public 1-Click APK Download Links
-        run: |
-          # 1. Upload to tmpfiles.org for direct phone download
-          RESP=$(curl -s -F "file=@build-artifacts/JeevanSetu-v1.0.0.apk" https://tmpfiles.org/api/v1/upload)
-          RAW_URL=$(echo $RESP | jq -r '.data.url // empty')
-          if [ -n "$RAW_URL" ]; then
-            DIRECT_URL=$(echo $RAW_URL | sed 's/tmpfiles.org\//tmpfiles.org\/dl\//')
-          else
-            DIRECT_URL="https://github.com/shiv12sb/JeevanSetu/actions"
-          fi
-          
-          # 2. Upload to file.io as secondary direct mirror
-          FILEIO_RESP=$(curl -s -F "file=@build-artifacts/JeevanSetu-v1.0.0.apk" https://file.io || true)
-          FILEIO_LINK=$(echo $FILEIO_RESP | jq -r '.link // empty')
-
-          echo "=========================================================="
-          echo "📱 DIRECT APK DOWNLOAD LINK (1-CLICK PHONE DOWNLOAD):"
-          echo "$DIRECT_URL"
-          echo "Secondary link: $FILEIO_LINK"
-          echo "=========================================================="
-
-          # Output to GitHub Action Step Summary (Renders clearly on GitHub Web UI)
-          echo "## 📱 JeevanSetu Android APK Direct Download" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 🚀 [👉 Click Here to Download JeevanSetu APK Directly]($DIRECT_URL)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Direct Download (1-Click, No Login Needed):** $DIRECT_URL" >> $GITHUB_STEP_SUMMARY
-          if [ -n "$FILEIO_LINK" ]; then
-            echo "- **Backup Direct Download:** $FILEIO_LINK" >> $GITHUB_STEP_SUMMARY
-          fi
-
-      - name: Publish APK to GitHub Release via GitHub CLI
+      - name: Publish APK to Dedicated Direct-Download Branch
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
         run: |
-          gh release create v1.0.0-apk build-artifacts/JeevanSetu-v1.0.0.apk \
-            --repo shiv12sb/JeevanSetu \
-            --title "JeevanSetu Android APK v1.0.0" \
-            --notes "Official JeevanSetu Android Native Application (.apk) for Maharashtra rural healthcare." \
-            --target main || echo "::warning::Release upload requires 'Read and write permissions' enabled in repo Settings > Actions > General > Workflow permissions."
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan apk-release
+          git rm -rf . || true
+          cp build-artifacts/JeevanSetu-v1.0.0.apk JeevanSetu.apk
+          git add JeevanSetu.apk
+          git commit -m "chore(release): publish latest JeevanSetu APK [skip ci]"
+          git push -f origin apk-release
+
+      - name: Output Direct Download URL to Step Summary
+        run: |
+          echo "## 📱 JeevanSetu Android APK Direct Download" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🚀 [👉 Click Here to Download JeevanSetu APK](https://github.com/shiv12sb/JeevanSetu/raw/apk-release/JeevanSetu.apk)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Direct Download Link: https://github.com/shiv12sb/JeevanSetu/raw/apk-release/JeevanSetu.apk" >> $GITHUB_STEP_SUMMARY
