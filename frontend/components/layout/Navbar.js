@@ -53,7 +53,6 @@ export function Navbar() {
 
   const primaryNavLinks = [
     { href: "/", label: t("home", "Home") },
-    { href: "/dashboard/patient", label: t("patientPortal", "Patient Portal"), isHighlighted: true },
     { href: "/doctors", label: t("findDoctor", "Find Doctor") },
     { href: "/ambulance", label: t("ambulance", "Ambulance") },
     { href: "/resources", label: t("verifiedDirectory", "Directory") },
@@ -163,8 +162,8 @@ export function Navbar() {
       )}
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="flex items-center justify-between h-16 gap-2 lg:gap-3 xl:gap-4 min-w-0">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <img
@@ -183,18 +182,16 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1.5">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 min-w-0">
             {primaryNavLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
+                  className={`px-2.5 xl:px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "text-teal-700 dark:text-teal-300 bg-teal-500/15 dark:bg-teal-500/20 border border-teal-500/30 dark:border-teal-500/40 shadow-xs"
-                      : link.isHighlighted
-                      ? "text-teal-900 dark:text-white bg-gradient-to-r from-teal-500/20 to-emerald-500/20 dark:from-teal-500/30 dark:to-emerald-500/30 border border-teal-400/50 shadow-xs hover:border-teal-500"
                       : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 border border-transparent"
                   }`}
                 >
@@ -208,7 +205,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setCommunityDropdownOpen(!communityDropdownOpen)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 whitespace-nowrap ${
+                className={`px-2.5 xl:px-3 py-1.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 whitespace-nowrap ${
                   isSecondaryActive
                     ? "text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 font-bold border border-teal-200 dark:border-teal-800"
                     : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
@@ -255,7 +252,7 @@ export function Navbar() {
           </nav>
 
           {/* User Profile Dropdown OR Sign In Buttons */}
-          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0">
             {isAuthenticated && user ? (
               <div className="relative" ref={userDropdownRef}>
                 <button
@@ -303,7 +300,7 @@ export function Navbar() {
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                       >
                         <LayoutDashboard className="w-4 h-4 text-sky-600 dark:text-sky-400" />
-                        <span>{t("healthcarePortal", "Healthcare Portal")}</span>
+                        <span>{t("healthcarePortal", "Patient Dashboard")}</span>
                       </Link>
 
                       <Link
@@ -331,16 +328,16 @@ export function Navbar() {
               </div>
             ) : (
               <>
-                <Link href="/login">
-                  <Button variant="ghost" size="sm" className="text-xs text-slate-700 dark:text-slate-300 gap-1.5 font-medium">
+                <Link href="/login" className="shrink-0">
+                  <Button variant="ghost" size="sm" className="text-xs text-slate-700 dark:text-slate-300 gap-1.5 font-medium px-2 xl:px-3 whitespace-nowrap">
                     <LogIn className="w-3.5 h-3.5" />
                     <span>{t("signIn", "Sign In")}</span>
                   </Button>
                 </Link>
-                <Link href="/dashboard/patient">
-                  <Button size="sm" className="text-xs bg-teal-600 hover:bg-teal-700 text-white gap-1.5 font-bold shadow-xs">
+                <Link href="/dashboard/patient" className="shrink-0">
+                  <Button size="sm" className="text-xs bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white gap-1.5 font-bold shadow-xs px-2.5 xl:px-3.5 whitespace-nowrap">
                     <LayoutDashboard className="w-3.5 h-3.5" />
-                    <span>{t("healthcarePortal", "Healthcare Portal")}</span>
+                    <span>{t("healthcarePortal", "Patient Dashboard")}</span>
                   </Button>
                 </Link>
               </>

@@ -25,6 +25,12 @@ export const viewport = {
 export const metadata = {
   title: "JeevanSetu | Rural Healthcare Access & Coordination Platform",
   description: "AI-powered rural healthcare access, assistance, referral coordination and PHC service-monitoring platform for underserved communities.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "JeevanSetu",
+  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
