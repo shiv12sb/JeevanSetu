@@ -113,6 +113,6 @@ jobs:
       - name: Upload APK Directly to Release via GitHub CLI
         if: github.ref == 'refs/heads/main'
         run: |
-          gh release upload v1.0.0-apk build-artifacts/JeevanSetu-v1.0.0.apk --clobber
+          gh release upload --repo shiv12sb/JeevanSetu v1.0.0-apk build-artifacts/JeevanSetu-v1.0.0.apk --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
