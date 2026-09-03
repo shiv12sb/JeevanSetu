@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JeevanSetu</string>
+    <string name="title_activity_main">JeevanSetu</string>
+    <string name="package_name">in.jeevansetu.app</string>
+    <string name="custom_url_scheme">in.jeevansetu.app</string>
+</resources>

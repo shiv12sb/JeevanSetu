@@ -9,6 +9,9 @@
     "test": "node -e \"console.log('✓ Frontend smoke test pass: Next.js configured successfully')\""
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.1",
+    "@capacitor/cli": "^8.5.1",
+    "@capacitor/core": "^8.5.1",
     "@supabase/supabase-js": "^2.112.3",
     "clsx": "^2.1.1",
     "lucide-react": "^1.33.0",
