@@ -1,0 +1,61 @@
+{
+  "name": "JeevanSetu | Rural Healthcare Bridge",
+  "short_name": "JeevanSetu",
+  "description": "AI-powered rural healthcare access, emergency 108 ambulance coordination, and multilingual telemedicine platform for Maharashtra.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#070a13",
+  "theme_color": "#0d9488",
+  "scope": "/",
+  "lang": "mr-IN",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "medical",
+    "health",
+    "government"
+  ],
+  "shortcuts": [
+    {
+      "name": "Patient Portal",
+      "short_name": "Portal",
+      "description": "Open your healthcare dashboard and medical records",
+      "url": "/dashboard/patient",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Emergency 108 Ambulance",
+      "short_name": "Ambulance",
+      "description": "Live 108 emergency ambulance dispatch",
+      "url": "/ambulance",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Find Doctors",
+      "short_name": "Doctors",
+      "description": "Search verified specialists in Nagpur & Maharashtra",
+      "url": "/doctors",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Healthcare Assistant",
+      "short_name": "Assistant",
+      "description": "1-on-1 multilingual Marathi/Hindi/English voice triage",
+      "url": "/assistant",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    }
+  ]
+}

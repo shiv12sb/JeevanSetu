@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeevanSetu | Rural Healthcare Access & Coordination Platform</title>
+  <meta name="description" content="AI-powered rural healthcare access, assistance, referral coordination and PHC service-monitoring platform for underserved communities.">
+  
+  <!-- Favicon & Icons -->
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="shortcut icon" href="logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            teal: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+              950: '#042f2e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col text-left transition-colors">
+
+  <!-- Top Emergency & Language Bar -->
+  <div class="bg-teal-950 text-teal-100 text-xs py-1.5 px-4 border-b border-teal-900">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 text-left">
+        <span class="bg-rose-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider shadow-xs shrink-0">Emergency</span>
+        <span class="hidden sm:inline font-medium text-teal-200" id="emergencyHelplineText">National Health & Ambulance Helpline:</span>
+        <strong class="text-white font-black shrink-0">📞 108 / 104</strong>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <span class="hidden md:inline text-teal-300 text-[11px] font-medium" id="govtVerifiedStrip">Government Verified Schemes & Public Health Platform</span>
+        
+        <!-- Theme Toggle -->
+        <button type="button" onclick="toggleTheme()" class="p-1 px-2 rounded-lg bg-teal-900 border border-teal-700 text-xs text-amber-300 hover:text-white" id="theme-btn">
+          🌙 Theme
+        </button>
+
+        <!-- Prominent Language Selector -->
+        <div class="inline-flex items-center bg-teal-900 border border-teal-700 rounded-lg p-0.5 text-xs font-bold">
+          <button type="button" onclick="setLang('en')" id="btn-en" class="px-2.5 py-0.5 rounded bg-teal-600 text-white font-bold transition-all">EN</button>
+          <button type="button" onclick="setLang('hi')" id="btn-hi" class="px-2.5 py-0.5 rounded text-teal-200 hover:text-white font-bold transition-all">हिंदी</button>
+          <button type="button" onclick="setLang('mr')" id="btn-mr" class="px-2.5 py-0.5 rounded text-teal-200 hover:text-white font-bold transition-all">मराठी</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-4">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group shrink-0 text-left">
+          <img src="logo.png" alt="JeevanSetu Logo" class="w-10 h-10 rounded-xl object-contain shadow-xs bg-white p-0.5 border border-slate-200 dark:border-slate-700 group-hover:scale-105 transition-transform">
+          <div class="flex flex-col text-left">
+            <span class="text-lg font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
+              Jeevan<span class="text-teal-600 dark:text-teal-400">Setu</span>
+            </span>
+            <span class="text-[10px] font-medium text-slate-500 dark:text-slate-400 leading-none">
+              Healthcare Bridge
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <a href="http://localhost:3000/navigate" class="px-3 py-1.5 rounded-lg text-teal-900 dark:text-teal-200 bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 font-bold hover:bg-teal-100 transition-colors whitespace-nowrap" id="nav-navigate">Guide</a>
+          <a href="http://localhost:3000/resources" class="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap" id="nav-resources">Directory</a>
+          <a href="http://localhost:3000/referrals" class="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap" id="nav-referrals">Referrals</a>
+          <a href="http://localhost:3000/inventory" class="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap" id="nav-inventory">Inventory</a>
+          <a href="http://localhost:3000/organ-donation" class="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap" id="nav-organ">Organ Donation</a>
+          <a href="http://localhost:3000/settings" class="px-3 py-1.5 rounded-lg hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap">Settings</a>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <a href="http://localhost:3000/login" class="text-xs font-semibold px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="btn-login">
+            Sign In
+          </a>
+          <a href="http://localhost:3000/profile" class="text-xs font-bold px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-xs transition-colors flex items-center gap-1.5" id="btn-portal">
+            <span>Healthcare Profile</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative overflow-hidden bg-linear-to-b from-teal-50/70 dark:from-teal-950/20 via-slate-50 dark:via-slate-950 to-white dark:to-slate-900 pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Column -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-100/80 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-900 dark:text-teal-200 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-teal-600 animate-pulse shrink-0"></span>
+            <span id="hero-badge">Rural & Underserved Healthcare Coordination</span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-snug sm:leading-snug lg:leading-tight text-left" id="hero-title">
+            Bridging the gap between <span class="text-teal-700 dark:text-teal-400 underline decoration-teal-300 decoration-4 underline-offset-8">rural patients</span> and verified life-saving care.
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl text-left" id="hero-desc">
+            JeevanSetu empowers citizens, PHC medical officers, and district healthcare networks with guided navigation, "Check Before You Travel" status, seamless multi-stage referral tracking, and predictive medicine inventory warnings.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 pt-2">
+            <a href="http://localhost:3000/navigate" class="px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2 text-sm">
+              <span>🧭</span> <span id="hero-cta-navigate">What Should I Do Now?</span> <span>→</span>
+            </a>
+            <a href="http://localhost:3000/resources" class="px-6 py-3.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-teal-400 text-slate-800 dark:text-slate-200 font-semibold rounded-xl flex items-center justify-center gap-2 text-sm shadow-2xs">
+              <span>🛡️</span> <span id="hero-cta-travel">Check Before You Travel</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-4 flex flex-wrap items-center justify-start gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <span class="text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">✓ 100% Verified Govt & NGO Resources</span>
+            <span class="text-sky-800 dark:text-sky-400 font-semibold flex items-center gap-1">✓ Non-Diagnostic Public Health Focus</span>
+            <span class="text-slate-600 dark:text-slate-400 font-semibold flex items-center gap-1">✓ Emergency 108 Integrated</span>
+          </div>
+        </div>
+
+        <!-- Right Column Snapshot Preview -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden text-left">
+            <div class="bg-teal-900 text-white p-4 flex items-center justify-between">
+              <div>
+                <h2 class="text-xs font-bold leading-normal">Live Referral & Stock Monitor</h2>
+                <span class="text-[10px] text-teal-200">Gadchiroli & Chandrapur Cluster</span>
+              </div>
+              <span class="text-[10px] bg-teal-800 text-teal-200 font-bold px-2 py-0.5 rounded">Active Sync</span>
+            </div>
+            <div class="p-4 space-y-3.5 bg-slate-50 dark:bg-slate-800/40">
+              <div class="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
+                <div class="flex items-center justify-between text-xs font-bold">
+                  <span>Active Case JVS-MH-7A82K1</span>
+                  <span class="text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-800">Step 3: Accepted</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300">Ashti PHC → <strong>District Civil Hospital Gadchiroli</strong></p>
+              </div>
+
+              <div class="p-3 bg-teal-50 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 text-xs text-teal-950 dark:text-teal-200 font-medium">
+                ✨ PM-JAY Cashless Coverage & NGO Patient Van Transit Matched
+              </div>
+
+              <div class="p-2.5 bg-rose-50 dark:bg-rose-950/50 rounded-xl border border-rose-200 dark:border-rose-800 flex items-center justify-between text-xs font-bold text-rose-900 dark:text-rose-200">
+                <span>Amlodipine (3.4d stock)</span>
+                <span class="text-rose-700 dark:text-rose-400 font-bold">Depletion Alert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 py-10 mt-auto text-xs border-t border-slate-800 text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 text-center">
+      <p id="footer-tagline" class="text-slate-300">AI-powered rural healthcare access, assistance, referral coordination, and PHC service-monitoring platform.</p>
+      <p class="text-slate-500">© 2026 JeevanSetu Healthcare Platform. Public Health & Digital India Initiative.</p>
+    </div>
+  </footer>
+
+  <!-- Dynamic Translation & Theme Engine for Standalone HTML -->
+  <script>
+    let isDark = false;
+    function toggleTheme() {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-btn').innerText = '☀️ Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('theme-btn').innerText = '🌙 Dark';
+      }
+    }
+
+    const i18n = {
+      en: {
+        emergencyHelplineText: "National Health & Ambulance Helpline:",
+        govtVerifiedStrip: "Government Verified Schemes & Public Health Platform",
+        navNavigate: "Guide",
+        navResources: "Directory",
+        navReferrals: "Referrals",
+        navInventory: "Inventory",
+        navOrgan: "Organ Donation",
+        btnLogin: "Sign In",
+        btnPortal: "Healthcare Profile",
+        heroBadge: "Rural & Underserved Healthcare Coordination",
+        heroTitle: "Bridging the gap between <span class='text-teal-700 dark:text-teal-400 underline decoration-teal-300 decoration-4 underline-offset-8'>rural patients</span> and verified life-saving care.",
+        heroDesc: "JeevanSetu empowers citizens, PHC medical officers, and district healthcare networks with guided navigation, 'Check Before You Travel' status, seamless multi-stage referral tracking, and predictive medicine inventory warnings.",
+        heroCtaNavigate: "What Should I Do Now?",
+        heroCtaTravel: "Check Before You Travel",
+        footerTagline: "AI-powered rural healthcare access, assistance, referral coordination, and PHC service-monitoring platform."
+      },
+      hi: {
+        emergencyHelplineText: "राष्ट्रीय स्वास्थ्य एवं एम्बुलेंस हेल्पलाइन:",
+        govtVerifiedStrip: "सरकारी सत्यापित स्वास्थ्य योजनाएं और सार्वजनिक स्वास्थ्य मंच",
+        navNavigate: "मार्गदर्शक",
+        navResources: "डायरेक्टरी",
+        navReferrals: "रेफरल",
+        navInventory: "दवा स्टॉक",
+        navOrgan: "अंगदान जानकारी",
+        btnLogin: "लॉग इन करें",
+        btnPortal: "हेल्थकेयर प्रोफ़ाइल",
+        heroBadge: "ग्रामीण एवं वंचित क्षेत्रों के लिए स्वास्थ्य समन्वय",
+        heroTitle: "ग्रामीण मरीजों को <span class='text-teal-700 dark:text-teal-400 underline decoration-teal-300 decoration-4 underline-offset-8'>सत्यापित एवं जीवन रक्षक स्वास्थ्य सेवाओं</span> से सीधे जोड़ना।",
+        heroDesc: "जीवनसेतु नागरिकों, प्राथमिक स्वास्थ्य केंद्र (PHC) के चिकित्सा अधिकारियों और जिला स्वास्थ्य नेटवर्क को आसान मार्गदर्शन, यात्रा से पहले जांच, पारदर्शी रेफरल ट्रैकिंग और दवा स्टॉक अलर्ट प्रदान करता है।",
+        heroCtaNavigate: "मुझे अभी क्या करना चाहिए?",
+        heroCtaTravel: "यात्रा से पहले जांचें",
+        footerTagline: "एआई-संचालित ग्रामीण स्वास्थ्य पहुंच, सहायता, रेफरल समन्वय और प्राथमिक स्वास्थ्य निगरानी मंच।"
+      },
+      mr: {
+        emergencyHelplineText: "राष्ट्रीय रुग्णवाहिका व आरोग्य हेल्पलाइन:",
+        govtVerifiedStrip: "शासकीय मान्यताप्राप्त आरोग्य योजना व सार्वजनिक आरोग्य मंच",
+        navNavigate: "मार्गदर्शक",
+        navResources: "डिरेक्टरी",
+        navReferrals: "रेफरल",
+        navInventory: "औषध साठा",
+        navOrgan: "अवयवदान माहिती",
+        btnLogin: "लॉग इन करा",
+        btnPortal: "आरोग्य प्रोफाइल",
+        heroBadge: "ग्रामीण व दुर्गम भागासाठी आरोग्य समन्वय",
+        heroTitle: "ग्रामीण रुग्णांना <span class='text-teal-700 dark:text-teal-400 underline decoration-teal-300 decoration-4 underline-offset-8'>सत्यापित व जीवनरक्षक आरोग्य सेवेची</span> थेट जोडणी.",
+        heroDesc: "जीवनसेतू नागरिकांना, प्राथमिक आरोग्य केंद्रातील (PHC) वैद्यकीय अधिकाऱ्यांना आणि जिल्हा आरोग्य यंत्रणेला योग्य मार्गदर्शन, प्रवासापूर्वी खात्री, पारदर्शक रेफरल ट्रॅकिंग आणि औषध साठ्याची माहिती पुरवतो.",
+        heroCtaNavigate: "मी आता काय करावे?",
+        heroCtaTravel: "प्रवासापूर्वी खात्री करा",
+        footerTagline: "एआई-समर्थित ग्रामीण आरोग्य समन्वय, रेफरल व्यवस्थापन आणि प्राथमिक आरोग्य संनियंत्रण मंच."
+      }
+    };
+
+    function setLang(code) {
+      const data = i18n[code] || i18n.en;
+      document.getElementById('emergencyHelplineText').innerText = data.emergencyHelplineText;
+      document.getElementById('govtVerifiedStrip').innerText = data.govtVerifiedStrip;
+      document.getElementById('nav-navigate').innerText = data.navNavigate;
+      document.getElementById('nav-resources').innerText = data.navResources;
+      document.getElementById('nav-referrals').innerText = data.navReferrals;
+      document.getElementById('nav-inventory').innerText = data.navInventory;
+      document.getElementById('nav-organ').innerText = data.navOrgan;
+      document.getElementById('btn-login').innerText = data.btnLogin;
+      document.getElementById('btn-portal').innerHTML = `<span>${data.btnPortal}</span> <span>→</span>`;
+      document.getElementById('hero-badge').innerText = data.heroBadge;
+      document.getElementById('hero-title').innerHTML = data.heroTitle;
+      document.getElementById('hero-desc').innerText = data.heroDesc;
+      document.getElementById('hero-cta-navigate').innerText = data.heroCtaNavigate;
+      document.getElementById('hero-cta-travel').innerText = data.heroCtaTravel;
+      document.getElementById('footer-tagline').innerText = data.footerTagline;
+
+      // Update button visual states
+      ['en', 'hi', 'mr'].forEach(c => {
+        const btn = document.getElementById('btn-' + c);
+        if (c === code) {
+          btn.className = "px-2.5 py-0.5 rounded bg-teal-600 text-white font-bold transition-all";
+        } else {
+          btn.className = "px-2.5 py-0.5 rounded text-teal-200 hover:text-white font-bold transition-all";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

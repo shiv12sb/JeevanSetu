@@ -63,11 +63,16 @@ jobs:
       - name: Grant Execute Permission for Gradle Wrapper
         run: chmod +x frontend/android/gradlew
 
-      - name: Sync Capacitor Android Project
+      - name: Sync and Bundle Web Assets into Android Project
         run: |
           cd frontend
           export CAPACITOR_TELEMETRY=false
           npx @capacitor/cli sync android || true
+          mkdir -p android/app/src/main/assets/public
+          cp -r public/* android/app/src/main/assets/public/
+          rm -f android/app/src/main/assets/public/*.apk
+          echo "Verifying assets directory before build:"
+          ls -lh android/app/src/main/assets/public/
 
       - name: Build Debug APK with Gradle
         run: |
@@ -85,6 +90,12 @@ jobs:
             echo "❌ Fatal: No APK was produced by Gradle build!"
             exit 1
           fi
+          echo "Verifying assets packed inside APK:"
+          jar tf build-artifacts/JeevanSetu-v1.0.0.apk | grep "assets/public/index.html" || {
+            echo "❌ Fatal: assets/public/index.html missing from APK!"
+            exit 1
+          }
+          echo "✅ Confirmed: assets/public/index.html is packed inside JeevanSetu APK!"
 
       - name: Upload JeevanSetu APK Artifact
         uses: actions/upload-artifact@v4
