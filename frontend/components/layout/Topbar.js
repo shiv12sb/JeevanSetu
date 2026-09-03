@@ -23,6 +23,7 @@ import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { notificationsApi } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
+import { useNavigation } from "@/context/NavigationContext";
 
 export function Topbar({
   title = "Healthcare Portal",
@@ -32,6 +33,7 @@ export function Topbar({
 }) {
   const { user } = useAuth();
   const { t } = useLanguage();
+  const { isDrawerOpen, toggleDrawer } = useNavigation();
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(propAlertCount !== undefined ? propAlertCount : 0);
   const [isOpen, setIsOpen] = useState(false);
@@ -124,16 +126,19 @@ export function Topbar({
     <header className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 h-16 px-3 sm:px-6 flex items-center justify-between sticky top-0 z-30 shadow-lg shadow-slate-200/30 dark:shadow-black/20 transition-colors">
       {/* Left: Mobile menu toggle + Page Title */}
       <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-        {onOpenMobileMenu && (
-          <button
-            type="button"
-            onClick={onOpenMobileMenu}
-            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white md:hidden transition-colors shrink-0"
-            aria-label="Open Sidebar Menu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={toggleDrawer}
+          className={`p-2 rounded-xl border transition-all md:hidden shrink-0 cursor-pointer ${
+            isDrawerOpen
+              ? "bg-teal-500/20 text-teal-600 dark:text-teal-400 border-teal-500/40 shadow-xs"
+              : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white border-transparent"
+          }`}
+          aria-label="Toggle All Services & Features"
+          title="Toggle All Services & Features"
+        >
+          {isDrawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
         <div className="min-w-0">
           <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-tight truncate max-w-[130px] xs:max-w-[180px] sm:max-w-xs md:max-w-none">
             {title}

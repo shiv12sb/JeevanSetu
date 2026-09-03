@@ -25,7 +25,7 @@ export function LiveVoiceGlobalTrigger() {
   return (
     <>
       {/* Steady, Non-Jumping Fixed Floating 1-on-1 Voice Call Button (Above Mobile Nav on Phones) */}
-      <div className="fixed bottom-20 right-3.5 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2 group">
+      <div className="fixed bottom-20 right-3.5 md:bottom-6 md:right-6 z-30 flex items-center gap-2 group">
         <button
           type="button"
           onClick={() => setIsCallOpen(true)}

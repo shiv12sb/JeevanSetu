@@ -10,6 +10,7 @@ import { LocationSelector } from "@/components/shared/LocationSelector";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
 import { useLocation } from "@/context/LocationContext";
+import { useNavigation } from "@/context/NavigationContext";
 import {
   Heart,
   Menu,
@@ -38,7 +39,7 @@ import {
 import { ROLE_LABELS } from "@/lib/constants";
 
 export function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isDrawerOpen, toggleDrawer, closeDrawer } = useNavigation();
   const [communityDropdownOpen, setCommunityDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   
@@ -104,7 +105,7 @@ export function Navbar() {
   const handleLogout = async () => {
     await logout();
     setUserDropdownOpen(false);
-    setMobileMenuOpen(false);
+    closeDrawer();
     router.push("/");
   };
 
@@ -350,214 +351,19 @@ export function Navbar() {
           <div className="flex lg:hidden items-center gap-2">
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
-              aria-label="Toggle Navigation"
+              onClick={toggleDrawer}
+              className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                isDrawerOpen
+                  ? "bg-teal-500/20 text-teal-600 dark:text-teal-400 border-teal-500/40 shadow-xs"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 border-transparent"
+              }`}
+              aria-label="Toggle All Services & Features"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isDrawerOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-150 text-left">
-          {/* User Status in Mobile */}
-          {isAuthenticated && user && (
-            <div className="p-3 bg-teal-50/80 dark:bg-teal-950/60 rounded-xl border border-teal-200 dark:border-teal-800 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm">
-                  {user.name ? user.name.charAt(0).toUpperCase() : "U"}
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white">{user.name}</h4>
-                  <p className="text-[11px] text-teal-700 dark:text-teal-300">{roleLabel}</p>
-                </div>
-              </div>
-              <Link href="/profile" onClick={() => setMobileMenuOpen(false)}>
-                <Button size="xs" variant="outline" className="text-xs">
-                  {t("profile", "Profile")}
-                </Button>
-              </Link>
-            </div>
-          )}
-
-          {/* Mobile Location, Language & Theme Controls */}
-          <div className="p-3 bg-slate-50/80 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2.5">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">📍 Active Location:</span>
-              <LocationSelector />
-            </div>
-            <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700">
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Display / भाषा:</span>
-              <div className="flex items-center gap-2">
-                <ThemeToggle />
-                <LanguageSelector variant="pills" />
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-1 text-left">
-            <span className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
-              Core Healthcare Services
-            </span>
-            {primaryNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm font-medium text-left ${
-                  pathname === link.href
-                    ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-bold"
-                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800 text-left">
-            <span className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
-              Community & Public Guidance
-            </span>
-            {secondaryNavLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-left ${
-                  pathname === item.href
-                    ? "bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-bold"
-                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
-                }`}
-              >
-                <item.icon className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                <span>{item.label}</span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
-            {isAuthenticated ? (
-              <div className="space-y-2">
-                <Link href={user.role === "patient" ? "/dashboard/patient" : "/dashboard/doctor"} onClick={() => setMobileMenuOpen(false)}>
-                  <Button size="sm" className="w-full text-xs bg-teal-600 text-white font-bold">
-                    {t("healthcarePortal", "Go to Healthcare Dashboard")}
-                  </Button>
-                </Link>
-                <div className="grid grid-cols-2 gap-2">
-                  <Link href="/settings" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" size="sm" className="w-full text-xs">
-                      {t("settings", "Settings")}
-                    </Button>
-                  </Link>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={handleLogout}
-                    className="w-full text-xs text-rose-600 border-rose-200 dark:border-rose-900"
-                  >
-                    {t("signOut", "Sign Out")}
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-2">
-                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full text-xs">
-                    {t("signIn", "Sign In")}
-                  </Button>
-                </Link>
-                <Link href="/dashboard/patient" onClick={() => setMobileMenuOpen(false)}>
-                  <Button size="sm" className="w-full text-xs bg-teal-600 text-white font-bold">
-                    {t("healthcarePortal", "Healthcare Portal")}
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* =========================================================================
-          MOBILE BOTTOM NAVIGATION BAR (FIXED 5-TAB ACCESSIBLE BAR)
-          ========================================================================= */}
-      <nav
-        aria-label="Mobile Navigation Bar"
-        className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-2xl border-t border-slate-200/80 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/10 dark:shadow-black/80 pb-[max(0.25rem,env(safe-area-inset-bottom))]"
-      >
-        <div className="grid grid-cols-5 h-16 max-w-lg mx-auto items-center px-1">
-          {/* 1. Home */}
-          <Link
-            href="/"
-            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
-              pathname === "/"
-                ? "text-teal-600 dark:text-teal-400 font-extrabold"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <Home className={`w-4 h-4 ${pathname === "/" ? "stroke-[2.5]" : ""}`} />
-            <span>Home</span>
-          </Link>
-
-          {/* 2. Patient Portal */}
-          <Link
-            href="/dashboard/patient"
-            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
-              pathname.startsWith("/dashboard/patient")
-                ? "text-teal-600 dark:text-teal-400 font-extrabold"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <div className="relative">
-              <User className={`w-4 h-4 ${pathname.startsWith("/dashboard/patient") ? "stroke-[2.5]" : ""}`} />
-              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-teal-500 animate-ping" />
-            </div>
-            <span>Portal</span>
-          </Link>
-
-          {/* 3. Find Doctor */}
-          <Link
-            href="/doctors"
-            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
-              pathname.startsWith("/doctors")
-                ? "text-teal-600 dark:text-teal-400 font-extrabold"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <Stethoscope className={`w-4 h-4 ${pathname.startsWith("/doctors") ? "stroke-[2.5]" : ""}`} />
-            <span>Doctors</span>
-          </Link>
-
-          {/* 4. Ambulance */}
-          <Link
-            href="/ambulance"
-            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
-              pathname.startsWith("/ambulance")
-                ? "text-rose-600 dark:text-rose-400 font-extrabold"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <Truck className={`w-4 h-4 ${pathname.startsWith("/ambulance") ? "stroke-[2.5]" : ""}`} />
-            <span>108 Live</span>
-          </Link>
-
-          {/* 5. Assistant */}
-          <Link
-            href="/assistant"
-            className={`flex flex-col items-center justify-center gap-1 text-[10px] font-bold min-h-[44px] transition-colors ${
-              pathname.startsWith("/assistant")
-                ? "text-teal-600 dark:text-teal-400 font-extrabold"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-            }`}
-          >
-            <Bot className={`w-4 h-4 ${pathname.startsWith("/assistant") ? "stroke-[2.5]" : ""}`} />
-            <span>Assistant</span>
-          </Link>
-        </div>
-      </nav>
     </header>
   );
 }

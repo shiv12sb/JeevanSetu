@@ -5,8 +5,10 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { LocationProvider } from "@/context/LocationContext";
-import { FloatingAssistantButton } from "@/components/ai/FloatingAssistantButton";
+import { NavigationProvider } from "@/context/NavigationContext";
 import { LiveVoiceGlobalTrigger } from "@/components/domain/LiveVoiceGlobalTrigger";
+import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
+import { AllFeaturesDrawer } from "@/components/layout/AllFeaturesDrawer";
 
 export function AppProviders({ children }) {
   return (
@@ -14,8 +16,12 @@ export function AppProviders({ children }) {
       <AuthProvider>
         <LanguageProvider>
           <LocationProvider>
-            {children}
-            <LiveVoiceGlobalTrigger />
+            <NavigationProvider>
+              {children}
+              <LiveVoiceGlobalTrigger />
+              <MobileBottomBar />
+              <AllFeaturesDrawer />
+            </NavigationProvider>
           </LocationProvider>
         </LanguageProvider>
       </AuthProvider>
