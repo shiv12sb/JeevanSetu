@@ -93,6 +93,37 @@ jobs:
           path: build-artifacts/JeevanSetu-v1.0.0.apk
           retention-days: 30
 
+      - name: Generate Direct Public 1-Click APK Download Links
+        run: |
+          # 1. Upload to tmpfiles.org for direct phone download
+          RESP=$(curl -s -F "file=@build-artifacts/JeevanSetu-v1.0.0.apk" https://tmpfiles.org/api/v1/upload)
+          RAW_URL=$(echo $RESP | jq -r '.data.url // empty')
+          if [ -n "$RAW_URL" ]; then
+            DIRECT_URL=$(echo $RAW_URL | sed 's/tmpfiles.org\//tmpfiles.org\/dl\//')
+          else
+            DIRECT_URL="https://github.com/shiv12sb/JeevanSetu/actions"
+          fi
+          
+          # 2. Upload to file.io as secondary direct mirror
+          FILEIO_RESP=$(curl -s -F "file=@build-artifacts/JeevanSetu-v1.0.0.apk" https://file.io || true)
+          FILEIO_LINK=$(echo $FILEIO_RESP | jq -r '.link // empty')
+
+          echo "=========================================================="
+          echo "📱 DIRECT APK DOWNLOAD LINK (1-CLICK PHONE DOWNLOAD):"
+          echo "$DIRECT_URL"
+          echo "Secondary link: $FILEIO_LINK"
+          echo "=========================================================="
+
+          # Output to GitHub Action Step Summary (Renders clearly on GitHub Web UI)
+          echo "## 📱 JeevanSetu Android APK Direct Download" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🚀 [👉 Click Here to Download JeevanSetu APK Directly]($DIRECT_URL)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Direct Download (1-Click, No Login Needed):** $DIRECT_URL" >> $GITHUB_STEP_SUMMARY
+          if [ -n "$FILEIO_LINK" ]; then
+            echo "- **Backup Direct Download:** $FILEIO_LINK" >> $GITHUB_STEP_SUMMARY
+          fi
+
       - name: Publish APK to GitHub Release via GitHub CLI
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
