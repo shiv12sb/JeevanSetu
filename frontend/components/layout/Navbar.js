@@ -53,6 +53,7 @@ export function Navbar() {
 
   const primaryNavLinks = [
     { href: "/", label: t("home", "Home") },
+    { href: "/dashboard/patient", label: t("patientPortal", "Patient Portal"), isHighlighted: true },
     { href: "/doctors", label: t("findDoctor", "Find Doctor") },
     { href: "/ambulance", label: t("ambulance", "Ambulance") },
     { href: "/resources", label: t("verifiedDirectory", "Directory") },
@@ -192,6 +193,8 @@ export function Navbar() {
                   className={`px-2 xl:px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "text-teal-700 dark:text-teal-300 bg-teal-500/15 dark:bg-teal-500/20 border border-teal-500/30 dark:border-teal-500/40 shadow-xs"
+                      : link.isHighlighted
+                      ? "text-teal-800 dark:text-teal-200 bg-gradient-to-r from-teal-500/20 to-emerald-500/20 dark:from-teal-500/30 dark:to-emerald-500/30 border border-teal-400/50 dark:border-teal-500/40 shadow-xs hover:border-teal-500 font-extrabold"
                       : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 border border-transparent"
                   }`}
                 >
