@@ -119,8 +119,8 @@ function LoginForm() {
   const txt = LOGIN_TEXTS[language] || LOGIN_TEXTS.en;
 
   const [activeRole, setActiveRole] = useState(USER_ROLES.PATIENT);
-  const [identifier, setIdentifier] = useState("rameshwar.patil@ruralmail.in");
-  const [password, setPassword] = useState("123456");
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -136,6 +136,12 @@ function LoginForm() {
   ];
 
   const handleRoleChange = (role) => {
+    setActiveRole(role);
+    setErrorMessage("");
+    setSuccessMessage("");
+  };
+
+  const handleFillDemo = (role) => {
     setActiveRole(role);
     setErrorMessage("");
     setSuccessMessage("");
@@ -155,7 +161,7 @@ function LoginForm() {
       setIdentifier("contact@graminarogya.org");
       setPassword("123456");
     } else if (role === USER_ROLES.ADMIN) {
-      setIdentifier("dho.nagpur@health.gov.in");
+      setIdentifier("dho.gadchiroli@health.gov.in");
       setPassword("123456");
     }
   };
@@ -320,7 +326,7 @@ function LoginForm() {
                   <button
                     key={r.id}
                     type="button"
-                    onClick={() => handleRoleChange(r.id)}
+                    onClick={() => handleFillDemo(r.id)}
                     className={`py-1.5 px-2 rounded-xl text-[11px] font-bold text-center border transition-all cursor-pointer ${
                       activeRole === r.id
                         ? "bg-teal-500/20 text-teal-800 dark:text-teal-300 border-teal-500/40 shadow-xs"

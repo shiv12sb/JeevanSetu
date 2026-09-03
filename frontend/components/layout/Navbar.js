@@ -114,9 +114,9 @@ export function Navbar() {
   const roleLabel = user ? t(`role_${user.role}`, ROLE_LABELS[user.role] || user.role) : "";
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/30 dark:shadow-black/40 transition-colors">
+    <header className="sticky top-0 z-40 flex flex-col bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-md shadow-slate-200/30 dark:shadow-black/40 transition-colors">
       {/* Top Emergency, Theme & Language Bar */}
-      <div className="bg-slate-900/95 dark:bg-[#050811] text-teal-100 text-xs py-1 px-2.5 sm:px-4 border-b border-white/5 backdrop-blur-md">
+      <div className="shrink-0 w-full bg-slate-900/95 dark:bg-[#050811] text-teal-100 text-xs py-1.5 px-2.5 sm:px-4 border-b border-white/5 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-3">
           <div className="flex items-center gap-1.5 sm:gap-2 text-left min-w-0">
             <Link
@@ -162,7 +162,7 @@ export function Navbar() {
       )}
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+      <div className="shrink-0 w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <div className="flex items-center justify-between h-16 gap-2 lg:gap-3 xl:gap-4 min-w-0">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
@@ -182,7 +182,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 min-w-0">
+          <nav className="hidden xl:flex items-center gap-1 xl:gap-1.5 min-w-0 shrink">
             {primaryNavLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -344,8 +344,8 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Mobile menu toggle button */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile & Tablet menu toggle button */}
+          <div className="flex xl:hidden items-center gap-2">
             <button
               type="button"
               onClick={toggleDrawer}

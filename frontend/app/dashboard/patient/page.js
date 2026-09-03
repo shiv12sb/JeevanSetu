@@ -111,7 +111,15 @@ export function PatientDashboardPage() {
     loadDashboardData();
   }, [user, destinationHospital]);
 
-  const userName = user?.full_name || user?.name || "Rameshwar Patil";
+  const userName =
+    user?.full_name ||
+    user?.name ||
+    (language === "mr"
+      ? "नागरिक (अतिथी मोड)"
+      : language === "hi"
+      ? "नागरिक (अतिथि मोड)"
+      : "Healthcare Citizen (Guest)");
+
   const userLocation =
     language === "en"
       ? `📍 ${selectedDistrict} District • Matched Referral Hospital: ${destinationHospital?.name || "District Hospital"}`
@@ -121,6 +129,40 @@ export function PatientDashboardPage() {
 
   return (
     <div className="space-y-6">
+      {/* Guest Mode Banner for Unauthenticated Citizens */}
+      {!user && (
+        <div className="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-500/15 border-2 border-amber-400/40 dark:border-amber-500/30 backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-left shadow-lg animate-in fade-in duration-200">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-800 dark:text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/30">
+              <User className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                {language === "mr" ? "अतिथी पूर्वावलोकन मोड (Guest Preview Mode)" : language === "hi" ? "अतिथि पूर्वावलोकन मोड (Guest Preview Mode)" : "Guest Preview Mode"}
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300">
+                {language === "mr"
+                  ? "आपले स्वतःचे आरोग्य रेकॉर्ड्स सेव्ह करण्यासाठी आणि सर्व सेवांचा लाभ घेण्यासाठी कृपया आपले खाते लॉगिन किंवा नोंदणी करा."
+                  : language === "hi"
+                  ? "अपने स्वयं के स्वास्थ्य रिकॉर्ड सुरक्षित रखने और सभी सुविधाओं के लिए कृपया अपना खाता लॉगिन या साइन अप करें।"
+                  : "To store your own health records, track referrals, and access complete clinical features, please Sign In or Create Your Account."}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+            <Link href="/login" className="flex-1 sm:flex-initial">
+              <Button size="sm" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-xs">
+                {language === "mr" ? "लॉगिन करा (Sign In)" : language === "hi" ? "लॉगिन करें (Sign In)" : "Sign In"}
+              </Button>
+            </Link>
+            <Link href="/register" className="flex-1 sm:flex-initial">
+              <Button size="sm" variant="outline" className="w-full border-slate-300 dark:border-white/20 text-slate-800 dark:text-white font-bold text-xs rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800">
+                {language === "mr" ? "नवीन खाते (Sign Up)" : language === "hi" ? "नया खाता (Sign Up)" : "Sign Up"}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      )}
       {/* Welcome Banner */}
       <div className="p-6 sm:p-7 bg-gradient-to-r from-teal-700 via-teal-800 to-indigo-900 dark:from-slate-950 dark:via-teal-950/90 dark:to-slate-900 backdrop-blur-2xl rounded-3xl text-white shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-teal-600/30 dark:border-teal-500/30 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/15 dark:bg-teal-500/10 blur-3xl rounded-full pointer-events-none" />
