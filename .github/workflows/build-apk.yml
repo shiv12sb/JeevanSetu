@@ -83,31 +83,7 @@ jobs:
           path: build-artifacts/JeevanSetu-v1.0.0.apk
           retention-days: 30
 
-      - name: Create or Update GitHub Release with APK
-        uses: softprops/action-gh-release@v2
-        if: github.ref == 'refs/heads/main'
-        with:
-          tag_name: v1.0.0-apk
-          name: "JeevanSetu Android APK v1.0.0"
-          body: |
-            ## 📱 JeevanSetu Native Android Application (APK v1.0.0)
-
-            Direct Android Application Package (.apk) compiled natively with Capacitor 8 and Android SDK 36 for rural healthcare access across Maharashtra.
-
-            ### ✨ Key Features Included:
-            - 🚑 **Emergency 108 Ambulance Dispatch** with live GPS telematics
-            - 👨‍⚕️ **Verified Doctor Directory** with MMC registration checks
-            - 🗣️ **Multilingual AI Voice Assistant** (Marathi, Hindi, English)
-            - 🏥 **PHC Medicine Stock & Referral Tracking**
-            - 💳 **ABHA ID & PM-JAY Digital Health Records**
-
-            ### 📥 Direct APK Download Link:
-            👉 **[Download JeevanSetu-v1.0.0.apk](https://github.com/shiv12sb/JeevanSetu/releases/download/v1.0.0-apk/JeevanSetu-v1.0.0.apk)**
-          files: build-artifacts/JeevanSetu-v1.0.0.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Attach APK Directly to Release Asset
+      - name: Publish APK Directly to GitHub Release
         if: github.ref == 'refs/heads/main'
         run: node scripts/upload_apk_release.js
         env:
