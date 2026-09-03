@@ -95,11 +95,12 @@ jobs:
 
       - name: Publish APK to GitHub Release via GitHub CLI
         if: github.ref == 'refs/heads/main'
+        continue-on-error: true
         run: |
           gh release create v1.0.0-apk build-artifacts/JeevanSetu-v1.0.0.apk \
             --repo shiv12sb/JeevanSetu \
             --title "JeevanSetu Android APK v1.0.0" \
             --notes "Official JeevanSetu Android Native Application (.apk) for Maharashtra rural healthcare." \
-            --target main
+            --target main || echo "::warning::Release upload requires 'Read and write permissions' enabled in repo Settings > Actions > General > Workflow permissions."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
