@@ -1,4 +1,4 @@
-﻿name: Build JeevanSetu Android APK
+name: Build JeevanSetu Android APK
 
 on:
   push:
@@ -40,13 +40,14 @@ jobs:
           cd frontend
           npm run build
 
+      - name: Grant Execute Permission for Gradle Wrapper
+        run: chmod +x frontend/android/gradlew
+
       - name: Sync Capacitor Android Project
         run: |
           cd frontend
-          npx cap sync android
-
-      - name: Grant Execute Permission for Gradle Wrapper
-        run: chmod +x frontend/android/gradlew
+          export CAPACITOR_TELEMETRY=false
+          npx @capacitor/cli sync android
 
       - name: Build Debug APK with Gradle
         run: |
