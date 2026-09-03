@@ -60,7 +60,13 @@ jobs:
       - name: Build Debug APK with Gradle
         run: |
           cd frontend/android
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 | tee gradle-build.log || {
+            echo "### ❌ Gradle Build Error Summary" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            tail -n 60 gradle-build.log >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            exit 1
+          }
 
       - name: Rename APK Output
         run: |
