@@ -182,14 +182,14 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-1 xl:gap-1.5 min-w-0 shrink">
+          <nav className="hidden xl:flex items-center gap-1 min-w-0">
             {primaryNavLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-2.5 xl:px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "text-teal-700 dark:text-teal-300 bg-teal-500/15 dark:bg-teal-500/20 border border-teal-500/30 dark:border-teal-500/40 shadow-xs"
                       : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 border border-transparent"
@@ -205,13 +205,13 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setCommunityDropdownOpen(!communityDropdownOpen)}
-                className={`px-2.5 xl:px-3 py-1.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 whitespace-nowrap ${
+                className={`px-2 xl:px-2.5 py-1.5 rounded-xl text-xs font-bold transition-colors flex items-center gap-1 whitespace-nowrap ${
                   isSecondaryActive
                     ? "text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 font-bold border border-teal-200 dark:border-teal-800"
                     : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
                 }`}
               >
-                <span>{t("communityAwareness", "Community")}</span>
+                <span>{t("navMore", "More")}</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${communityDropdownOpen ? "rotate-180" : ""}`} />
               </button>
 
@@ -252,7 +252,7 @@ export function Navbar() {
           </nav>
 
           {/* User Profile Dropdown OR Sign In Buttons */}
-          <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0 ml-auto">
             {isAuthenticated && user ? (
               <div className="relative" ref={userDropdownRef}>
                 <button
