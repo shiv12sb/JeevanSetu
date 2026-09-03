@@ -72,19 +72,19 @@ jobs:
       - name: Build Debug APK with Gradle
         run: |
           cd frontend/android
-          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 | tee gradle-build.log || {
-            echo "### ❌ Gradle Build Error Summary" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -n 60 gradle-build.log >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            exit 1
-          }
+          mkdir -p capacitor-cordova-android-plugins
+          touch capacitor-cordova-android-plugins/cordova.variables.gradle
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Rename and Prepare APK Output
         run: |
           mkdir -p build-artifacts
           find frontend/android -name "*.apk" -exec cp -v {} build-artifacts/JeevanSetu-v1.0.0.apk \;
           ls -lh build-artifacts/
+          if [ ! -f "build-artifacts/JeevanSetu-v1.0.0.apk" ]; then
+            echo "❌ Fatal: No APK was produced by Gradle build!"
+            exit 1
+          fi
 
       - name: Upload JeevanSetu APK Artifact
         uses: actions/upload-artifact@v4
