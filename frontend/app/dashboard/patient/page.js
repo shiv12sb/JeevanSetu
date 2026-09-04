@@ -150,12 +150,12 @@ export function PatientDashboardPage() {
             </div>
           </div>
           <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
-            <Link href="/login" className="flex-1 sm:flex-initial">
+            <Link href="/login/" className="flex-1 sm:flex-initial">
               <Button size="sm" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-xs">
                 {language === "mr" ? "लॉगिन करा (Sign In)" : language === "hi" ? "लॉगिन करें (Sign In)" : "Sign In"}
               </Button>
             </Link>
-            <Link href="/register" className="flex-1 sm:flex-initial">
+            <Link href="/register/" className="flex-1 sm:flex-initial">
               <Button size="sm" variant="outline" className="w-full border-slate-300 dark:border-white/20 text-slate-800 dark:text-white font-bold text-xs rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800">
                 {language === "mr" ? "नवीन खाते (Sign Up)" : language === "hi" ? "नया खाता (Sign Up)" : "Sign Up"}
               </Button>

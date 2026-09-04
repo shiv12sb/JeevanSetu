@@ -52,7 +52,7 @@ export function AllFeaturesDrawer() {
   const handleSignOut = async () => {
     await logout();
     closeDrawer();
-    router.push("/");
+    router.push("/login/");
   };
 
   const sections = [
@@ -283,7 +283,7 @@ export function AllFeaturesDrawer() {
                 </p>
               </div>
               <div className="flex items-center gap-1.5 shrink-0">
-                <Link href="/login" onClick={closeDrawer}>
+                <Link href="/login/" onClick={closeDrawer}>
                   <Button size="xs" variant="outline" className="text-xs font-bold h-7">
                     <LogIn className="w-3 h-3 mr-1" />
                     {t("signIn", "Sign In")}
@@ -405,7 +405,7 @@ export function AllFeaturesDrawer() {
               <span>{t("signOut", "Sign Out")}</span>
             </Button>
           ) : (
-            <Link href="/login" onClick={closeDrawer} className="flex-1">
+            <Link href="/login/" onClick={closeDrawer} className="flex-1">
               <Button size="sm" className="w-full text-xs font-bold bg-teal-600 text-white gap-1 h-8">
                 <LogIn className="w-3.5 h-3.5" />
                 <span>{t("signIn", "Sign In")}</span>

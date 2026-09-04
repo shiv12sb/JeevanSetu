@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Heart,
   LayoutDashboard,
@@ -17,17 +17,29 @@ import {
   MessageSquare,
   Compass,
   LogOut,
+  LogIn,
+  UserPlus,
+  User,
   ChevronRight,
   RefreshCw,
   Siren,
 } from "lucide-react";
 import { USER_ROLES, ROLE_LABELS } from "@/lib/constants";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 
 export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = false, onCloseMobile }) {
   const pathname = usePathname();
+  const router = useRouter();
   const { t } = useLanguage();
+  const { user, isAuthenticated, logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    if (isMobile && onCloseMobile) onCloseMobile();
+    router.push("/login/");
+  };
 
   // Role-specific navigation links with dynamic translation
   const roleNavs = {
@@ -173,27 +185,68 @@ export function Sidebar({ currentRole = "patient", onRoleChange, isMobile = fals
         })}
       </div>
 
-      {/* Footer Profile / Logout */}
+      {/* Footer Profile / Auth Actions */}
       <div className="p-3 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/80 dark:bg-black/40 space-y-2">
-        <div className="flex items-center gap-2.5 p-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10">
-          <div className="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-700 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30">
-            {currentRole === "patient" ? "RP" : currentRole === "phc_staff" ? "AD" : "JS"}
+        {isAuthenticated && user ? (
+          <>
+            <div className="flex items-center gap-2.5 p-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10">
+              <div className="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-700 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30">
+                {user.name ? user.name.slice(0, 2).toUpperCase() : "JS"}
+              </div>
+              <div className="flex-1 text-left min-w-0">
+                <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
+                  {user.name || user.email || "Verified User"}
+                </p>
+                <p className="text-[10px] text-teal-700 dark:text-teal-400 font-medium truncate">
+                  {ROLE_LABELS[user.role || currentRole] || user.role || currentRole}
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="flex items-center justify-center gap-1.5 w-full py-2 px-3 text-xs bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 rounded-xl border border-rose-200/80 dark:border-rose-900/50 transition-colors font-bold cursor-pointer"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>{t("signOut", "Sign Out")}</span>
+            </button>
+          </>
+        ) : (
+          <div className="space-y-1.5">
+            <div className="p-2 rounded-xl bg-teal-500/10 dark:bg-teal-950/40 border border-teal-500/20 text-left">
+              <p className="text-[11px] font-bold text-teal-800 dark:text-teal-300">
+                Guest Preview Mode
+              </p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                Sign in to save your personal records
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-1.5">
+              <Link
+                href="/login/"
+                onClick={() => isMobile && onCloseMobile && onCloseMobile()}
+                className="flex items-center justify-center gap-1 py-1.5 px-2 text-xs bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold transition-all text-center"
+              >
+                <LogIn className="w-3 h-3" />
+                <span>Sign In</span>
+              </Link>
+              <Link
+                href="/register/"
+                onClick={() => isMobile && onCloseMobile && onCloseMobile()}
+                className="flex items-center justify-center gap-1 py-1.5 px-2 text-xs bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-xl border border-slate-200 dark:border-white/10 font-bold transition-all text-center"
+              >
+                <UserPlus className="w-3 h-3" />
+                <span>Register</span>
+              </Link>
+            </div>
           </div>
-          <div className="flex-1 text-left min-w-0">
-            <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
-              {currentRole === "patient" ? "Ramesh Patil" : currentRole === "phc_staff" ? "Anjali Deshmukh" : "Dr. S. Kulkarni"}
-            </p>
-            <p className="text-[10px] text-teal-700 dark:text-teal-400 font-medium truncate">
-              {ROLE_LABELS[currentRole] || currentRole}
-            </p>
-          </div>
-        </div>
+        )}
 
         <Link
           href="/"
-          className="flex items-center justify-center gap-1.5 w-full py-1.5 text-xs text-slate-500 hover:text-rose-400 transition-colors font-medium"
+          className="flex items-center justify-center gap-1.5 w-full py-1 text-[11px] text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium"
         >
-          <LogOut className="w-3.5 h-3.5" />
           <span>Exit to Public Portal</span>
         </Link>
       </div>

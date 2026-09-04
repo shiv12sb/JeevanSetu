@@ -117,7 +117,7 @@ export function AuthGuard({ children, featureName = "" }) {
           {/* Primary Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              href={`/login?redirect=${redirectQuery}`}
+              href={`/login/?redirect=${redirectQuery}`}
               className="w-full sm:w-auto"
             >
               <Button
@@ -130,7 +130,7 @@ export function AuthGuard({ children, featureName = "" }) {
             </Link>
 
             <Link
-              href={`/register?redirect=${redirectQuery}`}
+              href={`/register/?redirect=${redirectQuery}`}
               className="w-full sm:w-auto"
             >
               <Button

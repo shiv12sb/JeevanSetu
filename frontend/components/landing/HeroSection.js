@@ -23,6 +23,7 @@ import {
   GitPullRequest,
   Bot,
   Radio,
+  LogIn,
 } from "lucide-react";
 
 export function HeroSection() {
@@ -165,11 +166,11 @@ export function HeroSection() {
               </div>
 
               {/* Primary Call-to-Actions */}
-              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                <Link href="/dashboard/patient" className="w-full sm:w-auto">
+              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 flex-wrap">
+                <Link href="/dashboard/patient/" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="w-full bg-gradient-to-r from-teal-400 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 active:from-teal-500 active:to-emerald-500 text-slate-950 font-black text-sm px-7 py-3.5 rounded-2xl shadow-xl shadow-teal-500/25 gap-2 justify-center transition-all duration-200 min-h-[48px] border border-teal-300/40"
+                    className="w-full bg-gradient-to-r from-teal-400 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 active:from-teal-500 active:to-emerald-500 text-slate-950 font-black text-sm px-7 py-3.5 rounded-2xl shadow-xl shadow-teal-500/25 gap-2 justify-center transition-all duration-200 min-h-[48px] border border-teal-300/40 cursor-pointer"
                   >
                     <User className="w-4 h-4 shrink-0" />
                     <span>{t("enterPatientPortalBtn", "ENTER PATIENT PORTAL →")}</span>
@@ -177,11 +178,22 @@ export function HeroSection() {
                   </Button>
                 </Link>
 
-                <Link href="/navigate" className="w-full sm:w-auto">
+                <Link href="/login/" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full border-white/20 bg-white/10 hover:bg-white/15 text-white font-bold text-sm px-6 py-3.5 rounded-2xl gap-2 justify-center transition-all duration-200 min-h-[48px] backdrop-blur-md"
+                    className="w-full border-teal-400/40 bg-teal-500/10 hover:bg-teal-500/20 text-teal-200 font-bold text-sm px-6 py-3.5 rounded-2xl gap-2 justify-center transition-all duration-200 min-h-[48px] backdrop-blur-md cursor-pointer"
+                  >
+                    <LogIn className="w-4 h-4 text-teal-300 shrink-0" />
+                    <span>{language === "mr" ? "लॉगिन / नोंदणी" : language === "hi" ? "लॉगिन / साइन अप" : "Sign In / Register"}</span>
+                  </Button>
+                </Link>
+
+                <Link href="/navigate/" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full border-white/20 bg-white/10 hover:bg-white/15 text-white font-bold text-sm px-6 py-3.5 rounded-2xl gap-2 justify-center transition-all duration-200 min-h-[48px] backdrop-blur-md cursor-pointer"
                   >
                     <Compass className="w-4 h-4 text-teal-300 shrink-0" />
                     <span>{t("exploreServicesBtn", "Explore Services / मार्गदर्शक")}</span>

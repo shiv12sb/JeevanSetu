@@ -35,6 +35,7 @@ import {
   Stethoscope,
   Truck,
   Bot,
+  UserPlus,
 } from "lucide-react";
 import { ROLE_LABELS } from "@/lib/constants";
 
@@ -106,7 +107,7 @@ export function Navbar() {
     await logout();
     setUserDropdownOpen(false);
     closeDrawer();
-    router.push("/");
+    router.push("/login/");
   };
 
   const isSecondaryActive = secondaryNavLinks.some((link) => pathname === link.href);
@@ -331,13 +332,19 @@ export function Navbar() {
               </div>
             ) : (
               <>
-                <Link href="/login" className="shrink-0">
-                  <Button variant="ghost" size="sm" className="text-xs text-slate-700 dark:text-slate-300 gap-1.5 font-medium px-2 xl:px-3 whitespace-nowrap">
-                    <LogIn className="w-3.5 h-3.5" />
+                <Link href="/login/" className="shrink-0">
+                  <Button variant="ghost" size="sm" className="text-xs text-slate-700 dark:text-slate-300 gap-1.5 font-bold px-2 xl:px-3 whitespace-nowrap">
+                    <LogIn className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                     <span>{t("signIn", "Sign In")}</span>
                   </Button>
                 </Link>
-                <Link href="/dashboard/patient" className="shrink-0">
+                <Link href="/register/" className="shrink-0 hidden sm:inline-flex">
+                  <Button variant="outline" size="sm" className="text-xs text-teal-700 dark:text-teal-300 border-teal-500/30 dark:border-teal-500/40 gap-1.5 font-bold px-2 xl:px-3 whitespace-nowrap hover:bg-teal-50 dark:hover:bg-teal-950/50">
+                    <UserPlus className="w-3.5 h-3.5" />
+                    <span>{t("signUp", "Register")}</span>
+                  </Button>
+                </Link>
+                <Link href="/dashboard/patient/" className="shrink-0">
                   <Button size="sm" className="text-xs bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white gap-1.5 font-bold shadow-xs px-2.5 xl:px-3.5 whitespace-nowrap">
                     <LayoutDashboard className="w-3.5 h-3.5" />
                     <span>{t("healthcarePortal", "Patient Dashboard")}</span>

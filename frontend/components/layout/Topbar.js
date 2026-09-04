@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Bell,
   Search,
@@ -14,6 +16,11 @@ import {
   AlertCircle,
   Clock,
   X,
+  LogOut,
+  LogIn,
+  User,
+  ChevronDown,
+  UserPlus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { ROLE_LABELS } from "@/lib/constants";
@@ -31,14 +38,23 @@ export function Topbar({
   onOpenMobileMenu,
   alertCount: propAlertCount,
 }) {
-  const { user } = useAuth();
+  const router = useRouter();
+  const { user, isAuthenticated, logout } = useAuth();
   const { t } = useLanguage();
   const { isDrawerOpen, toggleDrawer } = useNavigation();
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(propAlertCount !== undefined ? propAlertCount : 0);
   const [isOpen, setIsOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dropdownRef = useRef(null);
+  const userMenuRef = useRef(null);
+
+  const handleSignOut = async () => {
+    await logout();
+    setUserMenuOpen(false);
+    router.push("/login/");
+  };
 
   const fetchNotifications = async () => {
     setIsLoading(true);
@@ -71,20 +87,23 @@ export function Topbar({
     };
   }, [user]);
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
     };
-    if (isOpen) {
+    if (isOpen || userMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen, userMenuOpen]);
 
   const handleMarkAsRead = async (id, e) => {
     if (e) e.stopPropagation();
@@ -268,9 +287,87 @@ export function Topbar({
         </div>
 
         {/* Facility Connectivity Status */}
-        <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs text-emerald-300 font-bold backdrop-blur-md">
+        <div className="hidden xl:flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs text-emerald-300 font-bold backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
           <span>PHC Network Live</span>
+        </div>
+
+        {/* User Account / Auth Dropdown */}
+        <div className="relative" ref={userMenuRef}>
+          {isAuthenticated && user ? (
+            <div>
+              <button
+                type="button"
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="flex items-center gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 hover:border-teal-500/40 transition-all cursor-pointer"
+                aria-label="User profile menu"
+              >
+                <div className="w-7 h-7 rounded-xl bg-teal-500/20 text-teal-700 dark:text-teal-300 font-black text-xs flex items-center justify-center border border-teal-500/30">
+                  {user.name ? user.name.slice(0, 2).toUpperCase() : "JS"}
+                </div>
+                <div className="hidden md:block text-left">
+                  <p className="text-xs font-bold text-slate-900 dark:text-white leading-none max-w-[100px] truncate">
+                    {user.name || "User"}
+                  </p>
+                  <p className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold leading-tight">
+                    {ROLE_LABELS[user.role || currentRole] || user.role || currentRole}
+                  </p>
+                </div>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform ${userMenuOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-white/10 py-2 z-50 animate-in fade-in zoom-in-95 duration-100 text-left">
+                  <div className="px-4 py-2 border-b border-slate-100 dark:border-white/10">
+                    <p className="text-xs font-bold text-slate-900 dark:text-white truncate">{user.name || "User"}</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{user.phone || user.email || ""}</p>
+                    <span className="inline-block mt-1 text-[10px] font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 px-2 py-0.5 rounded border border-teal-200 dark:border-teal-800">
+                      {ROLE_LABELS[user.role || currentRole] || user.role || currentRole}
+                    </span>
+                  </div>
+
+                  <div className="py-1">
+                    <Link
+                      href="/profile/"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                    >
+                      <User className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                      <span>{t("myProfile", "My Profile")}</span>
+                    </Link>
+                  </div>
+
+                  <div className="pt-1 border-t border-slate-100 dark:border-white/10">
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors text-left cursor-pointer"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      <span>{t("signOut", "Sign Out")}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center gap-1.5">
+              <Link
+                href="/login/"
+                className="px-2.5 py-1.5 text-xs font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-xs transition-colors flex items-center gap-1"
+              >
+                <LogIn className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Sign In</span>
+              </Link>
+              <Link
+                href="/register/"
+                className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 text-xs font-bold bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors"
+              >
+                <UserPlus className="w-3.5 h-3.5" />
+                <span>Register</span>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </header>

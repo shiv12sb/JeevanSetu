@@ -115,7 +115,7 @@ export function ProfilePage() {
   const handleSignOutConfirm = async () => {
     await logout();
     setShowSignOutModal(false);
-    router.push("/");
+    router.push("/login/");
   };
 
   const roleName = user ? t(`role_${user.role}`, ROLE_LABELS[user.role] || user.role) : t("role_patient", "Patient");

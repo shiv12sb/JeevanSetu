@@ -671,6 +671,7 @@ export function AuthProvider({ children }) {
     try {
       localStorage.removeItem("jeevansetu_active_session");
       localStorage.removeItem("jeevansetu_preview_role");
+      localStorage.removeItem("authToken");
       sessionStorage.clear();
     } catch (e) {}
   };
