@@ -3,6 +3,8 @@
 import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input, Select } from "@/components/ui/Input";
@@ -192,6 +194,56 @@ function RegisterForm() {
       }, 400);
     } catch (err) {
       setErrorMessage(err.message || "Registration failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    console.log("Encoded JWT ID token:", credentialResponse.credential);
+    setIsLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || (
+        typeof window !== "undefined" && window.location.hostname === "localhost" && window.location.port === "3000"
+          ? "http://localhost:5000/api"
+          : "https://jeevansetu-backend.onrender.com/api"
+      );
+
+      const res = await axios.post(`${backendUrl}/auth/google`, {
+        token: credentialResponse.credential,
+        role: role || "patient",
+      });
+
+      console.log("Backend response:", res.data);
+      if (res.data?.token) {
+        localStorage.setItem("authToken", res.data.token);
+      }
+
+      const userData = res.data?.user || {};
+      const googleUser = {
+        id: userData.id || `user-google-${Date.now()}`,
+        name: userData.name || "Google User",
+        email: userData.email,
+        phone: "",
+        district: district || "Nagpur",
+        role: role || "patient",
+        abha_id: abhaId || "91-XXXX-XXXX-7788",
+        token: res.data?.token,
+        authProvider: "google",
+      };
+
+      localStorage.setItem("jeevansetu_active_session", JSON.stringify(googleUser));
+
+      setSuccessMessage(`✅ ${txt.successMsg}`);
+      setTimeout(() => {
+        window.location.href = redirectPath || (role === "doctor" ? "/dashboard/doctor" : "/dashboard/patient");
+      }, 400);
+    } catch (error) {
+      console.error("Google Sign-Up failed", error);
+      setErrorMessage(error.response?.data?.message || "Google Sign-Up failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -408,6 +460,32 @@ function RegisterForm() {
                 <span>{txt.submitBtn}</span>
               </Button>
             </form>
+
+            {/* Google OAuth Sign-Up */}
+            <div className="pt-2">
+              <div className="relative flex py-2 items-center">
+                <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+                <span className="flex-shrink mx-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  {language === "mr" ? "किंवा गुगलने नोंदणी करा" : language === "hi" ? "या गूगल से साइन अप करें" : "Or sign up with"}
+                </span>
+                <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+              </div>
+
+              <div className="flex justify-center w-full pt-1">
+                <GoogleLogin
+                  onSuccess={handleGoogleSuccess}
+                  onError={() => {
+                    console.log("Registration Failed");
+                    setErrorMessage("Google Sign-Up was cancelled or failed.");
+                  }}
+                  theme="outline"
+                  size="large"
+                  width="100%"
+                  text="signup_with"
+                  shape="pill"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="bg-slate-50 dark:bg-slate-950/60 p-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs">
