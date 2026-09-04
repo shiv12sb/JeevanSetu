@@ -9,6 +9,8 @@ import { NavigationProvider } from "@/context/NavigationContext";
 import { LiveVoiceGlobalTrigger } from "@/components/domain/LiveVoiceGlobalTrigger";
 import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { AllFeaturesDrawer } from "@/components/layout/AllFeaturesDrawer";
+import { AndroidBackHandler } from "@/components/shared/AndroidBackHandler";
+import { NetworkStatusBanner } from "@/components/shared/NetworkStatusBanner";
 
 export function AppProviders({ children }) {
   return (
@@ -17,6 +19,8 @@ export function AppProviders({ children }) {
         <LanguageProvider>
           <LocationProvider>
             <NavigationProvider>
+              <NetworkStatusBanner />
+              <AndroidBackHandler />
               {children}
               <LiveVoiceGlobalTrigger />
               <MobileBottomBar />

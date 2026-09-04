@@ -26,7 +26,7 @@ export function MobileBottomBar() {
   return (
     <nav
       aria-label="Mobile Navigation Bar"
-      className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-t border-slate-200/90 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/15 dark:shadow-black/90 pb-[max(0.25rem,env(safe-area-inset-bottom))]"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-t border-slate-200/90 dark:border-white/10 md:hidden shadow-2xl shadow-slate-900/15 dark:shadow-black/90 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
     >
       <div className="grid grid-cols-5 h-16 max-w-md mx-auto items-center px-1">
         {/* 1. Home */}

@@ -6,11 +6,15 @@ const getBaseApiUrl = () => {
     const clean = envUrl.replace(/\/$/, "");
     return clean.endsWith("/api") ? clean : `${clean}/api`;
   }
-  // In Capacitor mobile app, hostname is localhost but port is empty (https://localhost)
-  // Only connect to localhost:5000 if actively developing in browser on localhost:3000
+  // In production builds, strictly use the verified production HTTPS backend
+  if (process.env.NODE_ENV === "production") {
+    return "https://jeevansetu-backend.onrender.com/api";
+  }
+  // In Capacitor Android mobile app or browser non-port-3000
   if (typeof window !== "undefined") {
+    const isCapacitor = Boolean(window.Capacitor) || window.location.protocol === "https:";
     const isDesktopDev = window.location.hostname === "localhost" && window.location.port === "3000";
-    if (!isDesktopDev) {
+    if (isCapacitor || !isDesktopDev) {
       return "https://jeevansetu-backend.onrender.com/api";
     }
   }

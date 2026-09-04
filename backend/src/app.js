@@ -8,6 +8,7 @@ const requestLogger = require("./middleware/logger.middleware");
 const notFoundHandler = require("./middleware/notFound.middleware");
 const errorHandler = require("./middleware/error.middleware");
 const { generalApiLimiter } = require("./middleware/rateLimit.middleware");
+const { getHealth, getLiveness, getReadiness } = require("./controllers/health.controller");
 const apiRoutes = require("./routes");
 
 const app = express();
@@ -30,7 +31,12 @@ const corsOptions = {
     // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
     if (!origin) return callback(null, true);
 
-    // Allow localhost and loopback interfaces
+    // Allow Capacitor Android & iOS native schemes
+    if (origin === "https://localhost" || origin === "capacitor://localhost" || origin.includes("jeevansetu.app")) {
+      return callback(null, true);
+    }
+
+    // Allow localhost and loopback interfaces for development
     if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
       return callback(null, true);
     }
@@ -75,7 +81,12 @@ app.use(generalApiLimiter);
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
-// 5. API Routes
+// 6. Top-Level Health & Orchestrator Probes (Requirement 4)
+app.get("/health", getHealth);
+app.get("/live", getLiveness);
+app.get("/ready", getReadiness);
+
+// 7. API Routes
 app.use("/api", apiRoutes);
 
 // 6. 404 Handler (for unmatched routes)
