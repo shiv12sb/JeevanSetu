@@ -13,7 +13,7 @@ import { AndroidBackHandler } from "@/components/shared/AndroidBackHandler";
 import { NetworkStatusBanner } from "@/components/shared/NetworkStatusBanner";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "demo-google-client-id.apps.googleusercontent.com";
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "601685324051-gufv579qupa2ujknullbk1lpc7dvtgr9.apps.googleusercontent.com";
 
 export function AppProviders({ children }) {
   return (
