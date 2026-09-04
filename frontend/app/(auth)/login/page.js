@@ -371,7 +371,7 @@ function LoginForm() {
               <div className="relative flex py-2 items-center">
                 <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
                 <span className="flex-shrink mx-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  {lang === "mr" ? "किंवा गुगलने प्रवेश करा" : lang === "hi" ? "या गूगल से प्रवेश करें" : "Or continue with"}
+                  {language === "mr" ? "किंवा गुगलने प्रवेश करा" : language === "hi" ? "या गूगल से प्रवेश करें" : "Or continue with"}
                 </span>
                 <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
               </div>
