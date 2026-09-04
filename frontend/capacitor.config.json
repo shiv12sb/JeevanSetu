@@ -4,11 +4,7 @@
   "webDir": "out",
   "bundledWebRuntime": false,
   "server": {
-    "androidScheme": "https",
-    "hostname": "localhost",
-    "appStartPath": "/index.html",
-    "errorPath": "index.html",
-    "cleartext": true
+    "androidScheme": "https"
   },
   "android": {
     "allowMixedContent": true,

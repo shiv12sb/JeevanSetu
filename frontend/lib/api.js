@@ -6,8 +6,13 @@ const getBaseApiUrl = () => {
     const clean = envUrl.replace(/\/$/, "");
     return clean.endsWith("/api") ? clean : `${clean}/api`;
   }
-  if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
-    return "https://jeevansetu-backend.onrender.com/api";
+  // In Capacitor mobile app, hostname is localhost but port is empty (https://localhost)
+  // Only connect to localhost:5000 if actively developing in browser on localhost:3000
+  if (typeof window !== "undefined") {
+    const isDesktopDev = window.location.hostname === "localhost" && window.location.port === "3000";
+    if (!isDesktopDev) {
+      return "https://jeevansetu-backend.onrender.com/api";
+    }
   }
   return "http://localhost:5000/api";
 };
