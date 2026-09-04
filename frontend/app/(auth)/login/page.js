@@ -24,6 +24,8 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { USER_ROLES } from "@/lib/constants";
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 const LOGIN_TEXTS = {
   en: {
@@ -195,6 +197,55 @@ function LoginForm() {
     }
   };
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    console.log("Encoded JWT ID token:", credentialResponse.credential);
+    setIsLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || (
+        typeof window !== "undefined" && window.location.hostname === "localhost" && window.location.port === "3000"
+          ? "http://localhost:5000/api"
+          : "https://jeevansetu-backend.onrender.com/api"
+      );
+
+      const res = await axios.post(`${backendUrl}/auth/google`, {
+        token: credentialResponse.credential,
+      });
+
+      console.log("Backend response:", res.data);
+      if (res.data?.token) {
+        localStorage.setItem("authToken", res.data.token);
+      }
+
+      const userData = res.data?.user || {};
+      const googleUser = {
+        id: userData.id || `user-google-${Date.now()}`,
+        name: userData.name || "Google User",
+        email: userData.email,
+        phone: "",
+        district: "Nagpur",
+        role: "patient",
+        abha_id: "91-XXXX-XXXX-7788",
+        token: res.data?.token,
+        authProvider: "google",
+      };
+
+      localStorage.setItem("jeevansetu_active_session", JSON.stringify(googleUser));
+
+      setSuccessMessage(`✅ ${txt.successMsg}`);
+      setTimeout(() => {
+        window.location.href = redirectPath || "/dashboard/patient";
+      }, 400);
+    } catch (error) {
+      console.error("Authentication failed", error);
+      setErrorMessage(error.response?.data?.message || "Google Authentication failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#070a13] text-slate-900 dark:text-slate-100 flex flex-col justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 text-left transition-colors duration-300 relative overflow-hidden">
       {/* Background ambient lighting */}
@@ -314,6 +365,32 @@ function LoginForm() {
                 <span>{txt.submitBtn}</span>
               </Button>
             </form>
+
+            {/* Google OAuth Sign-In (Step 2.3) */}
+            <div className="pt-2">
+              <div className="relative flex py-2 items-center">
+                <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+                <span className="flex-shrink mx-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  {lang === "mr" ? "किंवा गुगलने प्रवेश करा" : lang === "hi" ? "या गूगल से प्रवेश करें" : "Or continue with"}
+                </span>
+                <div className="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+              </div>
+
+              <div className="flex justify-center w-full pt-1">
+                <GoogleLogin
+                  onSuccess={handleGoogleSuccess}
+                  onError={() => {
+                    console.log("Login Failed");
+                    setErrorMessage("Google Sign-In was cancelled or failed.");
+                  }}
+                  theme="outline"
+                  size="large"
+                  width="100%"
+                  text="signin_with"
+                  shape="pill"
+                />
+              </div>
+            </div>
 
             {/* Collapsible Demo Testing Credentials for Evaluators */}
             <details className="text-xs pt-2 border-t border-slate-200 dark:border-white/10 group">

@@ -11,25 +11,30 @@ import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { AllFeaturesDrawer } from "@/components/layout/AllFeaturesDrawer";
 import { AndroidBackHandler } from "@/components/shared/AndroidBackHandler";
 import { NetworkStatusBanner } from "@/components/shared/NetworkStatusBanner";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "demo-google-client-id.apps.googleusercontent.com";
 
 export function AppProviders({ children }) {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <LanguageProvider>
-          <LocationProvider>
-            <NavigationProvider>
-              <NetworkStatusBanner />
-              <AndroidBackHandler />
-              {children}
-              <LiveVoiceGlobalTrigger />
-              <MobileBottomBar />
-              <AllFeaturesDrawer />
-            </NavigationProvider>
-          </LocationProvider>
-        </LanguageProvider>
-      </AuthProvider>
-    </ThemeProvider>
+    <GoogleOAuthProvider clientId={googleClientId}>
+      <ThemeProvider>
+        <AuthProvider>
+          <LanguageProvider>
+            <LocationProvider>
+              <NavigationProvider>
+                <NetworkStatusBanner />
+                <AndroidBackHandler />
+                {children}
+                <LiveVoiceGlobalTrigger />
+                <MobileBottomBar />
+                <AllFeaturesDrawer />
+              </NavigationProvider>
+            </LocationProvider>
+          </LanguageProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </GoogleOAuthProvider>
   );
 }
 
